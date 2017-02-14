@@ -2,8 +2,16 @@
  * Filename: TechDemo2_Test_Routine.c
  * Author:
  * Date: 14/02/2017
- * Description:  
- *  
+ * Description:  This program implements a test sequence on the buggy to demonstrate control of the motors. The sequence is as follows:
+ * >PB1 pressed to start
+ *  >~3 seconds forwards
+ *  >~3 seconds reverse
+ *  >~3 seconds right turn (on spot)
+ *  >~3 seconds left turn (on spot)
+ *  >~3 seconds right turn (pivot about one wheel)
+ *  >~3 seconds left turn (pivot about one wheel)
+ * 
+ * The PWM frequency is approximately 19kHz.  
 */
 
 
