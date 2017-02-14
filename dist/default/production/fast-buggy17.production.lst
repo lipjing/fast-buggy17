@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.38 build -256452561 
-                                                                                               Tue Feb 14 16:53:12 2017
+                                                                                               Tue Feb 14 17:07:46 2017
 
 Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010351
      1                           	processor	18F8722
@@ -17,1127 +17,983 @@ Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010
     11                           	psect	text4,global,reloc=2,class=CODE,delta=1
     12                           	psect	text5,global,reloc=2,class=CODE,delta=1
     13                           	psect	text6,global,reloc=2,class=CODE,delta=1
-    14                           	psect	text7,global,reloc=2,class=CODE,delta=1
-    15                           	psect	text8,global,reloc=2,class=CODE,delta=1
-    16                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
-    17                           	psect	rparam,global,class=COMRAM,space=1,delta=1
-    18  0000                     _ADCON0	set	4034
-    19  0000                     _ADCON0bits	set	4034
-    20  0000                     _ADCON1	set	4033
-    21  0000                     _ADCON2	set	4032
-    22  0000                     _ADRESH	set	4036
-    23  0000                     _ADRESL	set	4035
-    24  0000                     _CCP4CON	set	3955
-    25  0000                     _CCP4CONbits	set	3955
-    26  0000                     _CCP5CON	set	3952
-    27  0000                     _CCP5CONbits	set	3952
-    28  0000                     _CCPR4L	set	3956
-    29  0000                     _CCPR5L	set	3953
-    30  0000                     _INTCONbits	set	4082
-    31  0000                     _LATAbits	set	3977
-    32  0000                     _LATDbits	set	3980
-    33  0000                     _LATF	set	3982
-    34  0000                     _LATHbits	set	3984
-    35  0000                     _PIE1bits	set	3997
-    36  0000                     _PIR1bits	set	3998
-    37  0000                     _PORTBbits	set	3969
-    38  0000                     _PORTC	set	3970
-    39  0000                     _PORTCbits	set	3970
-    40  0000                     _PORTH	set	3975
-    41  0000                     _PORTHbits	set	3975
-    42  0000                     _PORTJbits	set	3976
-    43  0000                     _PR2	set	4043
-    44  0000                     _T2CONbits	set	4042
-    45  0000                     _TRISA	set	3986
-    46  0000                     _TRISC	set	3988
-    47  0000                     _TRISD	set	3989
-    48  0000                     _TRISF	set	3991
-    49  0000                     _TRISGbits	set	3992
-    50  0000                     _TRISH	set	3993
-    51  0000                     _TRISJ	set	3994
-    52                           
-    53                           ; #config settings
-    54  0000                     
-    55                           	psect	cinit
-    56  01FD24                     __pcinit:
-    57                           	opt stack 0
-    58  01FD24                     start_initialization:
+    14                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    15                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    16  0000                     _CCP4CON	set	3955
+    17  0000                     _CCP4CONbits	set	3955
+    18  0000                     _CCP5CON	set	3952
+    19  0000                     _CCP5CONbits	set	3952
+    20  0000                     _CCPR4L	set	3956
+    21  0000                     _CCPR5L	set	3953
+    22  0000                     _LATAbits	set	3977
+    23  0000                     _LATDbits	set	3980
+    24  0000                     _LATF	set	3982
+    25  0000                     _LATHbits	set	3984
+    26  0000                     _PIE1bits	set	3997
+    27  0000                     _PORTJbits	set	3976
+    28  0000                     _PR2	set	4043
+    29  0000                     _T2CONbits	set	4042
+    30  0000                     _TRISA	set	3986
+    31  0000                     _TRISC	set	3988
+    32  0000                     _TRISD	set	3989
+    33  0000                     _TRISF	set	3991
+    34  0000                     _TRISGbits	set	3992
+    35  0000                     _TRISH	set	3993
+    36  0000                     _TRISJ	set	3994
+    37                           
+    38                           ; #config settings
+    39  0000                     
+    40                           	psect	cinit
+    41  01FCA4                     __pcinit:
+    42                           	opt stack 0
+    43  01FCA4                     start_initialization:
+    44                           	opt stack 0
+    45  01FCA4                     __initialization:
+    46                           	opt stack 0
+    47  01FCA4                     end_of_initialization:
+    48                           	opt stack 0
+    49  01FCA4                     __end_of__initialization:
+    50                           	opt stack 0
+    51  01FCA4  0100               	movlb	0
+    52  01FCA6  EFB2  F0FE         	goto	_main	;jump to C main() function
+    53                           
+    54                           	psect	cstackCOMRAM
+    55  000001                     __pcstackCOMRAM:
+    56                           	opt stack 0
+    57  000001                     ??_Delay10KTCYx:
+    58  000001                     Delay1KTCYx@unit:
     59                           	opt stack 0
-    60  01FD24                     __initialization:
+    60  000001                     SetDCPWM4@dutycycle:
     61                           	opt stack 0
-    62  01FD24                     end_of_initialization:
+    62  000001                     SetDCPWM5@dutycycle:
     63                           	opt stack 0
-    64  01FD24                     __end_of__initialization:
-    65                           	opt stack 0
-    66  01FD24  0100               	movlb	0
-    67  01FD26  EF1B  F0FF         	goto	_main	;jump to C main() function
-    68                           
-    69                           	psect	cstackCOMRAM
-    70  000001                     __pcstackCOMRAM:
-    71                           	opt stack 0
-    72  000001                     ?_ReadADC:
-    73                           	opt stack 0
-    74  000001                     OpenADC@config2:
-    75                           	opt stack 0
-    76  000001                     SetDCPWM4@dutycycle:
-    77                           	opt stack 0
-    78  000001                     SetDCPWM5@dutycycle:
-    79                           	opt stack 0
-    80                           
-    81                           ; 2 bytes @ 0x0
-    82  000001                     	ds	1
-    83  000002                     OpenADC@portconfig:
-    84                           	opt stack 0
-    85                           
-    86                           ; 1 bytes @ 0x1
-    87  000002                     	ds	1
-    88  000003                     ??_OpenADC:
-    89  000003                     ??_SetDCPWM4:
-    90  000003                     ??_SetDCPWM5:
-    91  000003                     ??_ReadADC:
-    92                           
-    93                           ; 1 bytes @ 0x2
-    94  000003                     	ds	2
-    95  000005                     OpenADC@config:
-    96                           	opt stack 0
-    97  000005                     SetDCPWM4@DCycle:
-    98                           	opt stack 0
-    99  000005                     SetDCPWM5@DCycle:
-   100                           	opt stack 0
-   101                           
-   102                           ; 2 bytes @ 0x4
-   103  000005                     	ds	2
-   104  000007                     ??_main:
-   105                           
-   106                           ; 1 bytes @ 0x6
-   107  000007                     	ds	2
-   108  000009                     main@ADC_val:
-   109                           	opt stack 0
-   110                           
-   111                           ; 2 bytes @ 0x8
-   112  000009                     	ds	2
-   113  00000B                     main@duty_cycle:
-   114                           	opt stack 0
-   115                           
-   116                           ; 2 bytes @ 0xA
-   117  00000B                     	ds	2
-   118  00000D                     main@freq:
-   119                           	opt stack 0
-   120                           
-   121                           ; 2 bytes @ 0xC
-   122  00000D                     	ds	2
-   123                           
-   124 ;;
-   125 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
-   126 ;;
-   127 ;; *************** function _main *****************
-   128 ;; Defined at:
-   129 ;;		line 30 in file "PWM_gen_freq.c"
-   130 ;; Parameters:    Size  Location     Type
-   131 ;;		None
-   132 ;; Auto vars:     Size  Location     Type
-   133 ;;  freq            2   12[COMRAM] unsigned int 
-   134 ;;  duty_cycle      2   10[COMRAM] unsigned int 
-   135 ;;  ADC_val         2    8[COMRAM] unsigned int 
-   136 ;;  pr2_val         1    0        unsigned char 
-   137 ;; Return value:  Size  Location     Type
-   138 ;;                  1    wreg      void 
-   139 ;; Registers used:
-   140 ;;		wreg, status,2, status,0, cstack
-   141 ;; Tracked objects:
-   142 ;;		On entry : 0/0
-   143 ;;		On exit  : 0/0
-   144 ;;		Unchanged: 0/0
-   145 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+    64                           
+    65                           ; 2 bytes @ 0x0
+    66  000001                     	ds	1
+    67  000002                     Delay10KTCYx@unit:
+    68                           	opt stack 0
+    69                           
+    70                           ; 1 bytes @ 0x1
+    71  000002                     	ds	1
+    72  000003                     ??_SetDCPWM4:
+    73  000003                     ??_SetDCPWM5:
+    74                           
+    75                           ; 1 bytes @ 0x2
+    76  000003                     	ds	2
+    77  000005                     SetDCPWM4@DCycle:
+    78                           	opt stack 0
+    79  000005                     SetDCPWM5@DCycle:
+    80                           	opt stack 0
+    81                           
+    82                           ; 2 bytes @ 0x4
+    83  000005                     	ds	2
+    84  000007                     main@duty_cycle:
+    85                           	opt stack 0
+    86                           
+    87                           ; 2 bytes @ 0x6
+    88  000007                     	ds	2
+    89                           
+    90 ;;
+    91 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    92 ;;
+    93 ;; *************** function _main *****************
+    94 ;; Defined at:
+    95 ;;		line 32 in file "TechDemo2_Test_Routine.c"
+    96 ;; Parameters:    Size  Location     Type
+    97 ;;		None
+    98 ;; Auto vars:     Size  Location     Type
+    99 ;;  duty_cycle      2    6[COMRAM] unsigned int 
+   100 ;; Return value:  Size  Location     Type
+   101 ;;                  1    wreg      void 
+   102 ;; Registers used:
+   103 ;;		wreg, status,2, status,0, cstack
+   104 ;; Tracked objects:
+   105 ;;		On entry : 0/0
+   106 ;;		On exit  : 0/0
+   107 ;;		Unchanged: 0/0
+   108 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   146 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   109 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   147 ;;      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       
+   110 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   148 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   111 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   149 ;;      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       
+   112 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   150 ;;Total ram usage:        8 bytes
-   151 ;; Hardware stack levels required when called:    1
-   152 ;; This function calls:
-   153 ;;		_BusyADC
-   154 ;;		_ConfigPWM
-   155 ;;		_ConvertADC
-   156 ;;		_OpenADC
-   157 ;;		_ReadADC
-   158 ;;		_SetDCPWM4
-   159 ;;		_SetDCPWM5
-   160 ;;		_StartTimer2
-   161 ;; This function is called by:
-   162 ;;		Startup code after reset
-   163 ;; This function uses a non-reentrant model
-   164 ;;
+   113 ;;Total ram usage:        2 bytes
+   114 ;; Hardware stack levels required when called:    1
+   115 ;; This function calls:
+   116 ;;		_ConfigPWM
+   117 ;;		_Delay10KTCYx
+   118 ;;		_Delay1KTCYx
+   119 ;;		_SetDCPWM4
+   120 ;;		_SetDCPWM5
+   121 ;;		_StartTimer2
+   122 ;; This function is called by:
+   123 ;;		Startup code after reset
+   124 ;; This function uses a non-reentrant model
+   125 ;;
+   126                           
+   127                           	psect	text0
+   128  01FD64                     __ptext0:
+   129                           	opt stack 0
+   130  01FD64                     _main:
+   131                           	opt stack 30
+   132                           
+   133                           ;TechDemo2_Test_Routine.c: 34: unsigned int duty_cycle = 0;
+   134                           
+   135                           ;incstack = 0
+   136  01FD64  0E00               	movlw	0
+   137  01FD66  6E08               	movwf	main@duty_cycle+1,c
+   138  01FD68  0E00               	movlw	0
+   139  01FD6A  6E07               	movwf	main@duty_cycle,c
+   140                           
+   141                           ;TechDemo2_Test_Routine.c: 37: TRISD = 0xE0;
+   142  01FD6C  0EE0               	movlw	224
+   143  01FD6E  6E95               	movwf	3989,c	;volatile
+   144                           
+   145                           ;TechDemo2_Test_Routine.c: 38: TRISGbits.RG3 = 0;
+   146  01FD70  9698               	bcf	3992,3,c	;volatile
+   147                           
+   148                           ;TechDemo2_Test_Routine.c: 39: TRISGbits.RG4 = 0;
+   149  01FD72  9898               	bcf	3992,4,c	;volatile
+   150                           
+   151                           ;TechDemo2_Test_Routine.c: 42: TRISF = 0x00;
+   152  01FD74  0E00               	movlw	0
+   153  01FD76  6E97               	movwf	3991,c	;volatile
+   154                           
+   155                           ;TechDemo2_Test_Routine.c: 43: TRISA = 0xEF;
+   156  01FD78  0EEF               	movlw	239
+   157  01FD7A  6E92               	movwf	3986,c	;volatile
+   158                           
+   159                           ;TechDemo2_Test_Routine.c: 44: TRISH = 0xFC;
+   160  01FD7C  0EFC               	movlw	252
+   161  01FD7E  6E99               	movwf	3993,c	;volatile
+   162                           
+   163                           ;TechDemo2_Test_Routine.c: 45: TRISC = 0xFF;
+   164  01FD80  6894               	setf	3988,c	;volatile
    165                           
-   166                           	psect	text0
-   167  01FE36                     __ptext0:
-   168                           	opt stack 0
-   169  01FE36                     _main:
-   170                           	opt stack 30
-   171                           
-   172                           ;PWM_gen_freq.c: 32: unsigned int ADC_val, freq, duty_cycle;
-   173                           ;PWM_gen_freq.c: 33: unsigned char pr2_val;
-   174                           ;PWM_gen_freq.c: 36: TRISD = 0xE0;
-   175                           
-   176                           ;incstack = 0
-   177  01FE36  0EE0               	movlw	224
-   178  01FE38  6E95               	movwf	3989,c	;volatile
+   166                           ;TechDemo2_Test_Routine.c: 46: TRISJ = 0xBF;
+   167  01FD82  0EBF               	movlw	191
+   168  01FD84  6E9A               	movwf	3994,c	;volatile
+   169                           
+   170                           ;TechDemo2_Test_Routine.c: 48: LATF = 0x00;
+   171  01FD86  0E00               	movlw	0
+   172  01FD88  6E8E               	movwf	3982,c	;volatile
+   173                           
+   174                           ;TechDemo2_Test_Routine.c: 49: LATAbits.LATA4 = 0;
+   175  01FD8A  9889               	bcf	3977,4,c	;volatile
+   176                           
+   177                           ;TechDemo2_Test_Routine.c: 50: LATHbits.LATH0 = 1;
+   178  01FD8C  8090               	bsf	3984,0,c	;volatile
    179                           
-   180                           ;PWM_gen_freq.c: 37: TRISGbits.RG3 = 0;
-   181  01FE3A  9698               	bcf	3992,3,c	;volatile
+   180                           ;TechDemo2_Test_Routine.c: 51: LATHbits.LATH1 = 1;
+   181  01FD8E  8290               	bsf	3984,1,c	;volatile
    182                           
-   183                           ;PWM_gen_freq.c: 38: TRISGbits.RG4 = 0;
-   184  01FE3C  9898               	bcf	3992,4,c	;volatile
+   183                           ;TechDemo2_Test_Routine.c: 53: LATDbits.LATD4 = 0;
+   184  01FD90  988C               	bcf	3980,4,c	;volatile
    185                           
-   186                           ;PWM_gen_freq.c: 41: TRISF = 0x00;
-   187  01FE3E  0E00               	movlw	0
-   188  01FE40  6E97               	movwf	3991,c	;volatile
-   189                           
-   190                           ;PWM_gen_freq.c: 42: TRISA = 0xEF;
-   191  01FE42  0EEF               	movlw	239
-   192  01FE44  6E92               	movwf	3986,c	;volatile
-   193                           
-   194                           ;PWM_gen_freq.c: 43: TRISH = 0xFC;
-   195  01FE46  0EFC               	movlw	252
-   196  01FE48  6E99               	movwf	3993,c	;volatile
-   197                           
-   198                           ;PWM_gen_freq.c: 44: TRISC = 0xFF;
-   199  01FE4A  6894               	setf	3988,c	;volatile
-   200                           
-   201                           ;PWM_gen_freq.c: 45: TRISJ = 0xBF;
-   202  01FE4C  0EBF               	movlw	191
-   203  01FE4E  6E9A               	movwf	3994,c	;volatile
-   204                           
-   205                           ;PWM_gen_freq.c: 47: LATF = 0x00;
-   206  01FE50  0E00               	movlw	0
-   207  01FE52  6E8E               	movwf	3982,c	;volatile
+   186                           ;TechDemo2_Test_Routine.c: 54: LATAbits.LATA4 = 1;
+   187  01FD92  8889               	bsf	3977,4,c	;volatile
+   188                           
+   189                           ;TechDemo2_Test_Routine.c: 56: StartTimer2();
+   190  01FD94  EC55  F0FE         	call	_StartTimer2	;wreg free
+   191                           
+   192                           ;TechDemo2_Test_Routine.c: 57: ConfigPWM();
+   193  01FD98  EC64  F0FE         	call	_ConfigPWM	;wreg free
+   194                           
+   195                           ;TechDemo2_Test_Routine.c: 59: SetDCPWM4(526);
+   196  01FD9C  0E02               	movlw	2
+   197  01FD9E  6E02               	movwf	SetDCPWM4@dutycycle+1,c
+   198  01FDA0  0E0E               	movlw	14
+   199  01FDA2  6E01               	movwf	SetDCPWM4@dutycycle,c
+   200  01FDA4  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   201                           
+   202                           ;TechDemo2_Test_Routine.c: 60: SetDCPWM5(526);
+   203  01FDA8  0E02               	movlw	2
+   204  01FDAA  6E02               	movwf	SetDCPWM5@dutycycle+1,c
+   205  01FDAC  0E0E               	movlw	14
+   206  01FDAE  6E01               	movwf	SetDCPWM5@dutycycle,c
+   207  01FDB0  EC95  F0FE         	call	_SetDCPWM5	;wreg free
    208                           
-   209                           ;PWM_gen_freq.c: 48: LATAbits.LATA4 = 0;
-   210  01FE54  9889               	bcf	3977,4,c	;volatile
+   209                           ;TechDemo2_Test_Routine.c: 62: LATDbits.LATD4 = 1;
+   210  01FDB4  888C               	bsf	3980,4,c	;volatile
    211                           
-   212                           ;PWM_gen_freq.c: 49: LATHbits.LATH0 = 1;
-   213  01FE56  8090               	bsf	3984,0,c	;volatile
+   212                           ;TechDemo2_Test_Routine.c: 63: LATDbits.LATD0 = 0;
+   213  01FDB6  908C               	bcf	3980,0,c	;volatile
    214                           
-   215                           ;PWM_gen_freq.c: 50: LATHbits.LATH1 = 1;
-   216  01FE58  8290               	bsf	3984,1,c	;volatile
-   217                           
-   218                           ;PWM_gen_freq.c: 52: LATDbits.LATD4 = 0;
-   219  01FE5A  988C               	bcf	3980,4,c	;volatile
-   220                           
-   221                           ;PWM_gen_freq.c: 53: LATAbits.LATA4 = 1;
-   222  01FE5C  8889               	bsf	3977,4,c	;volatile
-   223                           
-   224                           ;PWM_gen_freq.c: 56: OpenADC(0b10011111 &
-   225                           ;PWM_gen_freq.c: 57: 0b11111111 &
-   226                           ;PWM_gen_freq.c: 58: 0b11110001,
-   227                           ;PWM_gen_freq.c: 59: 0b10000111 &
-   228                           ;PWM_gen_freq.c: 60: 0b01111111 &
-   229                           ;PWM_gen_freq.c: 61: 0b11111110,
-   230                           ;PWM_gen_freq.c: 62: 14
-   231                           ;PWM_gen_freq.c: 63: );
-   232  01FE5E  0E06               	movlw	6
-   233  01FE60  6E01               	movwf	OpenADC@config2,c
-   234  01FE62  0E0E               	movlw	14
-   235  01FE64  6E02               	movwf	OpenADC@portconfig,c
-   236  01FE66  0E91               	movlw	145
-   237  01FE68  ECEC  F0FE         	call	_OpenADC
-   238                           
-   239                           ;PWM_gen_freq.c: 65: StartTimer2();
-   240  01FE6C  ECA2  F0FE         	call	_StartTimer2	;wreg free
+   215                           ;TechDemo2_Test_Routine.c: 64: LATDbits.LATD2 = 0;
+   216  01FDB8  948C               	bcf	3980,2,c	;volatile
+   217  01FDBA                     l919:
+   218                           
+   219                           ;TechDemo2_Test_Routine.c: 68: if(PORTJbits.RJ5 == 0) {
+   220  01FDBA  BA88               	btfsc	3976,5,c	;volatile
+   221  01FDBC  D7FE               	goto	l919
+   222                           
+   223                           ;TechDemo2_Test_Routine.c: 71: LATDbits.LATD1 = 1;
+   224  01FDBE  828C               	bsf	3980,1,c	;volatile
+   225                           
+   226                           ;TechDemo2_Test_Routine.c: 72: LATDbits.LATD3 = 1;
+   227  01FDC0  868C               	bsf	3980,3,c	;volatile
+   228                           
+   229                           ;TechDemo2_Test_Routine.c: 74: for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
+   230  01FDC2  0E01               	movlw	1
+   231  01FDC4  6E08               	movwf	main@duty_cycle+1,c
+   232  01FDC6  0EF4               	movlw	244
+   233  01FDC8  6E07               	movwf	main@duty_cycle,c
+   234  01FDCA                     l925:
+   235  01FDCA  0E08               	movlw	8
+   236  01FDCC  5C07               	subwf	main@duty_cycle,w,c
+   237  01FDCE  0E01               	movlw	1
+   238  01FDD0  5808               	subwfb	main@duty_cycle+1,w,c
+   239  01FDD2  A0D8               	btfss	status,0,c
+   240  01FDD4  D013               	goto	l935
    241                           
-   242                           ;PWM_gen_freq.c: 66: ConfigPWM();
-   243  01FE70  ECA9  F0FE         	call	_ConfigPWM	;wreg free
-   244                           
-   245                           ;PWM_gen_freq.c: 68: T2CONbits.T2CKPS1 = 1;
-   246  01FE74  82CA               	bsf	4042,1,c	;volatile
-   247                           
-   248                           ;PWM_gen_freq.c: 69: T2CONbits.T2CKPS0 = 1;
-   249  01FE76  80CA               	bsf	4042,0,c	;volatile
-   250                           
-   251                           ;PWM_gen_freq.c: 71: SetDCPWM4(512);
-   252  01FE78  0E02               	movlw	2
-   253  01FE7A  6E02               	movwf	SetDCPWM4@dutycycle+1,c
-   254  01FE7C  0E00               	movlw	0
-   255  01FE7E  6E01               	movwf	SetDCPWM4@dutycycle,c
-   256  01FE80  ECB2  F0FE         	call	_SetDCPWM4	;wreg free
-   257                           
-   258                           ;PWM_gen_freq.c: 72: SetDCPWM5(512);
-   259  01FE84  0E02               	movlw	2
-   260  01FE86  6E02               	movwf	SetDCPWM5@dutycycle+1,c
-   261  01FE88  0E00               	movlw	0
-   262  01FE8A  6E01               	movwf	SetDCPWM5@dutycycle,c
-   263  01FE8C  ECCF  F0FE         	call	_SetDCPWM5	;wreg free
-   264                           
-   265                           ;PWM_gen_freq.c: 74: freq = 800;
-   266  01FE90  0E03               	movlw	3
-   267  01FE92  6E0E               	movwf	main@freq+1,c
-   268  01FE94  0E20               	movlw	32
-   269  01FE96  6E0D               	movwf	main@freq,c
-   270  01FE98                     l972:
-   271                           
-   272                           ;PWM_gen_freq.c: 79: LATDbits.LATD4 = PORTHbits.RH7;
-   273  01FE98  AE87               	btfss	3975,7,c	;volatile
-   274  01FE9A  D002               	bra	u165
-   275  01FE9C  888C               	bsf	3980,4,c	;volatile
-   276  01FE9E  D001               	bra	u167
-   277  01FEA0                     u165:
-   278  01FEA0  988C               	bcf	3980,4,c	;volatile
-   279  01FEA2                     u167:
-   280                           
-   281                           ;PWM_gen_freq.c: 80: LATDbits.LATD0 = 1;
-   282  01FEA2  808C               	bsf	3980,0,c	;volatile
+   242                           ;TechDemo2_Test_Routine.c: 75: SetDCPWM4(duty_cycle);
+   243  01FDD6  C007  F001         	movff	main@duty_cycle,SetDCPWM4@dutycycle
+   244  01FDDA  C008  F002         	movff	main@duty_cycle+1,SetDCPWM4@dutycycle+1
+   245  01FDDE  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   246                           
+   247                           ;TechDemo2_Test_Routine.c: 76: SetDCPWM5(duty_cycle);
+   248  01FDE2  C007  F001         	movff	main@duty_cycle,SetDCPWM5@dutycycle
+   249  01FDE6  C008  F002         	movff	main@duty_cycle+1,SetDCPWM5@dutycycle+1
+   250  01FDEA  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   251                           
+   252                           ;TechDemo2_Test_Routine.c: 77: Delay1KTCYx(20);
+   253  01FDEE  0E14               	movlw	20
+   254  01FDF0  EC5C  F0FE         	call	_Delay1KTCYx
+   255  01FDF4  0607               	decf	main@duty_cycle,f,c
+   256  01FDF6  A0D8               	btfss	status,0,c
+   257  01FDF8  0608               	decf	main@duty_cycle+1,f,c
+   258  01FDFA  D7E7               	goto	l925
+   259  01FDFC                     l935:
+   260                           
+   261                           ;TechDemo2_Test_Routine.c: 78: }
+   262                           ;TechDemo2_Test_Routine.c: 80: Delay10KTCYx(250);
+   263  01FDFC  0EFA               	movlw	250
+   264  01FDFE  EC6D  F0FE         	call	_Delay10KTCYx
+   265                           
+   266                           ;TechDemo2_Test_Routine.c: 81: Delay10KTCYx(250);
+   267  01FE02  0EFA               	movlw	250
+   268  01FE04  EC6D  F0FE         	call	_Delay10KTCYx
+   269                           
+   270                           ;TechDemo2_Test_Routine.c: 83: SetDCPWM4(526);
+   271  01FE08  0E02               	movlw	2
+   272  01FE0A  6E02               	movwf	SetDCPWM4@dutycycle+1,c
+   273  01FE0C  0E0E               	movlw	14
+   274  01FE0E  6E01               	movwf	SetDCPWM4@dutycycle,c
+   275  01FE10  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   276                           
+   277                           ;TechDemo2_Test_Routine.c: 84: SetDCPWM5(526);
+   278  01FE14  0E02               	movlw	2
+   279  01FE16  6E02               	movwf	SetDCPWM5@dutycycle+1,c
+   280  01FE18  0E0E               	movlw	14
+   281  01FE1A  6E01               	movwf	SetDCPWM5@dutycycle,c
+   282  01FE1C  EC95  F0FE         	call	_SetDCPWM5	;wreg free
    283                           
-   284                           ;PWM_gen_freq.c: 81: LATDbits.LATD1 = PORTCbits.RC3;
-   285  01FEA4  A682               	btfss	3970,3,c	;volatile
-   286  01FEA6  D002               	bra	u175
-   287  01FEA8  828C               	bsf	3980,1,c	;volatile
-   288  01FEAA  D001               	bra	u177
-   289  01FEAC                     u175:
-   290  01FEAC  928C               	bcf	3980,1,c	;volatile
-   291  01FEAE                     u177:
-   292                           
-   293                           ;PWM_gen_freq.c: 82: LATDbits.LATD2 = 1;
-   294  01FEAE  848C               	bsf	3980,2,c	;volatile
-   295                           
-   296                           ;PWM_gen_freq.c: 83: LATDbits.LATD3 = PORTHbits.RH4;
-   297  01FEB0  A887               	btfss	3975,4,c	;volatile
-   298  01FEB2  D002               	bra	u185
-   299  01FEB4  868C               	bsf	3980,3,c	;volatile
-   300  01FEB6  D001               	bra	u187
-   301  01FEB8                     u185:
-   302  01FEB8  968C               	bcf	3980,3,c	;volatile
-   303  01FEBA                     u187:
-   304                           
-   305                           ;PWM_gen_freq.c: 85: LATF = (PORTH & 0xF0) | ((PORTC >> 2) & 0x0F);
-   306  01FEBA  CF82 F007          	movff	3970,??_main	;volatile
-   307  01FEBE  90D8               	bcf	status,0,c
-   308  01FEC0  3207               	rrcf	??_main,f,c
-   309  01FEC2  90D8               	bcf	status,0,c
-   310  01FEC4  3207               	rrcf	??_main,f,c
-   311  01FEC6  0E0F               	movlw	15
-   312  01FEC8  1607               	andwf	??_main,f,c
-   313  01FECA  5087               	movf	3975,w,c	;volatile
-   314  01FECC  0BF0               	andlw	240
-   315  01FECE  1007               	iorwf	??_main,w,c
-   316  01FED0  6E8E               	movwf	3982,c	;volatile
-   317                           
-   318                           ;PWM_gen_freq.c: 87: if(PORTBbits.RB0 == 0) {
-   319  01FED2  B081               	btfsc	3969,0,c	;volatile
-   320  01FED4  D00B               	goto	l64
-   321                           
-   322                           ;PWM_gen_freq.c: 88: if(freq < 2400) {
-   323  01FED6  0E60               	movlw	96
-   324  01FED8  5C0D               	subwf	main@freq,w,c
-   325  01FEDA  0E09               	movlw	9
-   326  01FEDC  580E               	subwfb	main@freq+1,w,c
-   327  01FEDE  B0D8               	btfsc	status,0,c
-   328  01FEE0  D025               	goto	l1014
-   329                           
-   330                           ;PWM_gen_freq.c: 89: freq += 200;
-   331  01FEE2  0EC8               	movlw	200
-   332  01FEE4  260D               	addwf	main@freq,f,c
-   333  01FEE6  0E00               	movlw	0
-   334  01FEE8  220E               	addwfc	main@freq+1,f,c
-   335                           
-   336                           ;PWM_gen_freq.c: 93: }
-   337                           ;PWM_gen_freq.c: 94: }
-   338                           
-   339                           ;PWM_gen_freq.c: 91: else {
-   340                           
-   341                           ;PWM_gen_freq.c: 90: }
-   342  01FEEA  D020               	goto	l1014
-   343  01FEEC                     l64:
-   344                           
-   345                           ;PWM_gen_freq.c: 95: else if(PORTJbits.RJ5 == 0) {
-   346  01FEEC  BA88               	btfsc	3976,5,c	;volatile
-   347  01FEEE  D01E               	goto	l1014
+   284                           ;TechDemo2_Test_Routine.c: 86: Delay10KTCYx(250);
+   285  01FE20  0EFA               	movlw	250
+   286  01FE22  EC6D  F0FE         	call	_Delay10KTCYx
+   287                           
+   288                           ;TechDemo2_Test_Routine.c: 89: LATDbits.LATD1 = 0;
+   289  01FE26  928C               	bcf	3980,1,c	;volatile
+   290                           
+   291                           ;TechDemo2_Test_Routine.c: 90: LATDbits.LATD3 = 0;
+   292  01FE28  968C               	bcf	3980,3,c	;volatile
+   293                           
+   294                           ;TechDemo2_Test_Routine.c: 92: for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
+   295  01FE2A  0E01               	movlw	1
+   296  01FE2C  6E08               	movwf	main@duty_cycle+1,c
+   297  01FE2E  0EF4               	movlw	244
+   298  01FE30  6E07               	movwf	main@duty_cycle,c
+   299  01FE32                     l947:
+   300  01FE32  0E08               	movlw	8
+   301  01FE34  5C07               	subwf	main@duty_cycle,w,c
+   302  01FE36  0E01               	movlw	1
+   303  01FE38  5808               	subwfb	main@duty_cycle+1,w,c
+   304  01FE3A  A0D8               	btfss	status,0,c
+   305  01FE3C  D013               	goto	l957
+   306                           
+   307                           ;TechDemo2_Test_Routine.c: 93: SetDCPWM4(duty_cycle);
+   308  01FE3E  C007  F001         	movff	main@duty_cycle,SetDCPWM4@dutycycle
+   309  01FE42  C008  F002         	movff	main@duty_cycle+1,SetDCPWM4@dutycycle+1
+   310  01FE46  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   311                           
+   312                           ;TechDemo2_Test_Routine.c: 94: SetDCPWM5(duty_cycle);
+   313  01FE4A  C007  F001         	movff	main@duty_cycle,SetDCPWM5@dutycycle
+   314  01FE4E  C008  F002         	movff	main@duty_cycle+1,SetDCPWM5@dutycycle+1
+   315  01FE52  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   316                           
+   317                           ;TechDemo2_Test_Routine.c: 95: Delay1KTCYx(20);
+   318  01FE56  0E14               	movlw	20
+   319  01FE58  EC5C  F0FE         	call	_Delay1KTCYx
+   320  01FE5C  0607               	decf	main@duty_cycle,f,c
+   321  01FE5E  A0D8               	btfss	status,0,c
+   322  01FE60  0608               	decf	main@duty_cycle+1,f,c
+   323  01FE62  D7E7               	goto	l947
+   324  01FE64                     l957:
+   325                           
+   326                           ;TechDemo2_Test_Routine.c: 96: }
+   327                           ;TechDemo2_Test_Routine.c: 98: Delay10KTCYx(250);
+   328  01FE64  0EFA               	movlw	250
+   329  01FE66  EC6D  F0FE         	call	_Delay10KTCYx
+   330                           
+   331                           ;TechDemo2_Test_Routine.c: 99: Delay10KTCYx(250);
+   332  01FE6A  0EFA               	movlw	250
+   333  01FE6C  EC6D  F0FE         	call	_Delay10KTCYx
+   334                           
+   335                           ;TechDemo2_Test_Routine.c: 101: SetDCPWM4(526);
+   336  01FE70  0E02               	movlw	2
+   337  01FE72  6E02               	movwf	SetDCPWM4@dutycycle+1,c
+   338  01FE74  0E0E               	movlw	14
+   339  01FE76  6E01               	movwf	SetDCPWM4@dutycycle,c
+   340  01FE78  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   341                           
+   342                           ;TechDemo2_Test_Routine.c: 102: SetDCPWM5(526);
+   343  01FE7C  0E02               	movlw	2
+   344  01FE7E  6E02               	movwf	SetDCPWM5@dutycycle+1,c
+   345  01FE80  0E0E               	movlw	14
+   346  01FE82  6E01               	movwf	SetDCPWM5@dutycycle,c
+   347  01FE84  EC95  F0FE         	call	_SetDCPWM5	;wreg free
    348                           
-   349                           ;PWM_gen_freq.c: 96: if(freq > 800) {
-   350  01FEF0  0E21               	movlw	33
-   351  01FEF2  5C0D               	subwf	main@freq,w,c
-   352  01FEF4  0E03               	movlw	3
-   353  01FEF6  580E               	subwfb	main@freq+1,w,c
-   354  01FEF8  A0D8               	btfss	status,0,c
-   355  01FEFA  D018               	goto	l1014
-   356                           
-   357                           ;PWM_gen_freq.c: 97: freq -= 200;
-   358  01FEFC  0EC8               	movlw	200
-   359  01FEFE  5E0D               	subwf	main@freq,f,c
-   360  01FF00  0E00               	movlw	0
-   361  01FF02  5A0E               	subwfb	main@freq+1,f,c
-   362                           
-   363                           ;PWM_gen_freq.c: 101: }
-   364                           ;PWM_gen_freq.c: 102: }
-   365                           ;PWM_gen_freq.c: 104: switch(freq) {
-   366                           
-   367                           ;PWM_gen_freq.c: 99: else {
-   368                           
-   369                           ;PWM_gen_freq.c: 98: }
-   370  01FF04  D013               	goto	l1014
-   371  01FF06                     l994:
-   372                           
-   373                           ;PWM_gen_freq.c: 106: PR2 = 194;
-   374  01FF06  0EC2               	movlw	194
-   375  01FF08  D00F               	goto	L8
-   376  01FF0A                     l996:
-   377                           
-   378                           ;PWM_gen_freq.c: 109: PR2 = 155;
-   379  01FF0A  0E9B               	movlw	155
-   380  01FF0C  D00D               	goto	L8
-   381  01FF0E                     l998:
-   382                           
-   383                           ;PWM_gen_freq.c: 112: PR2 = 129;
-   384  01FF0E  0E81               	movlw	129
-   385  01FF10  D00B               	goto	L8
-   386  01FF12                     l1000:
-   387                           
-   388                           ;PWM_gen_freq.c: 115: PR2 = 110;
-   389  01FF12  0E6E               	movlw	110
-   390  01FF14  D009               	goto	L8
-   391  01FF16                     l1002:
-   392                           
-   393                           ;PWM_gen_freq.c: 118: PR2 = 97;
-   394  01FF16  0E61               	movlw	97
-   395  01FF18  D007               	goto	L8
-   396  01FF1A                     l1004:
-   397                           
-   398                           ;PWM_gen_freq.c: 121: PR2 = 86;
-   399  01FF1A  0E56               	movlw	86
-   400  01FF1C  D005               	goto	L8
-   401  01FF1E                     l1006:
-   402                           
-   403                           ;PWM_gen_freq.c: 124: PR2 = 77;
-   404  01FF1E  0E4D               	movlw	77
-   405  01FF20  D003               	goto	L8
-   406  01FF22                     l1008:
-   407                           
-   408                           ;PWM_gen_freq.c: 127: PR2 = 70;
-   409  01FF22  0E46               	movlw	70
-   410  01FF24  D001               	goto	L8
-   411  01FF26                     l1010:
-   412                           
-   413                           ;PWM_gen_freq.c: 130: PR2 = 64;
-   414  01FF26  0E40               	movlw	64
-   415  01FF28                     L8:
-   416  01FF28  6ECB               	movwf	4043,c	;volatile
+   349                           ;TechDemo2_Test_Routine.c: 104: Delay10KTCYx(250);
+   350  01FE88  0EFA               	movlw	250
+   351  01FE8A  EC6D  F0FE         	call	_Delay10KTCYx
+   352                           
+   353                           ;TechDemo2_Test_Routine.c: 107: LATDbits.LATD1 = 1;
+   354  01FE8E  828C               	bsf	3980,1,c	;volatile
+   355                           
+   356                           ;TechDemo2_Test_Routine.c: 108: LATDbits.LATD3 = 0;
+   357  01FE90  968C               	bcf	3980,3,c	;volatile
+   358                           
+   359                           ;TechDemo2_Test_Routine.c: 110: for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
+   360  01FE92  0E01               	movlw	1
+   361  01FE94  6E08               	movwf	main@duty_cycle+1,c
+   362  01FE96  0EF4               	movlw	244
+   363  01FE98  6E07               	movwf	main@duty_cycle,c
+   364  01FE9A                     l969:
+   365  01FE9A  0E08               	movlw	8
+   366  01FE9C  5C07               	subwf	main@duty_cycle,w,c
+   367  01FE9E  0E01               	movlw	1
+   368  01FEA0  5808               	subwfb	main@duty_cycle+1,w,c
+   369  01FEA2  A0D8               	btfss	status,0,c
+   370  01FEA4  D013               	goto	l979
+   371                           
+   372                           ;TechDemo2_Test_Routine.c: 111: SetDCPWM4(duty_cycle);
+   373  01FEA6  C007  F001         	movff	main@duty_cycle,SetDCPWM4@dutycycle
+   374  01FEAA  C008  F002         	movff	main@duty_cycle+1,SetDCPWM4@dutycycle+1
+   375  01FEAE  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   376                           
+   377                           ;TechDemo2_Test_Routine.c: 112: SetDCPWM5(duty_cycle);
+   378  01FEB2  C007  F001         	movff	main@duty_cycle,SetDCPWM5@dutycycle
+   379  01FEB6  C008  F002         	movff	main@duty_cycle+1,SetDCPWM5@dutycycle+1
+   380  01FEBA  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   381                           
+   382                           ;TechDemo2_Test_Routine.c: 113: Delay1KTCYx(20);
+   383  01FEBE  0E14               	movlw	20
+   384  01FEC0  EC5C  F0FE         	call	_Delay1KTCYx
+   385  01FEC4  0607               	decf	main@duty_cycle,f,c
+   386  01FEC6  A0D8               	btfss	status,0,c
+   387  01FEC8  0608               	decf	main@duty_cycle+1,f,c
+   388  01FECA  D7E7               	goto	l969
+   389  01FECC                     l979:
+   390                           
+   391                           ;TechDemo2_Test_Routine.c: 114: }
+   392                           ;TechDemo2_Test_Routine.c: 116: Delay10KTCYx(250);
+   393  01FECC  0EFA               	movlw	250
+   394  01FECE  EC6D  F0FE         	call	_Delay10KTCYx
+   395                           
+   396                           ;TechDemo2_Test_Routine.c: 117: Delay10KTCYx(250);
+   397  01FED2  0EFA               	movlw	250
+   398  01FED4  EC6D  F0FE         	call	_Delay10KTCYx
+   399                           
+   400                           ;TechDemo2_Test_Routine.c: 119: SetDCPWM4(526);
+   401  01FED8  0E02               	movlw	2
+   402  01FEDA  6E02               	movwf	SetDCPWM4@dutycycle+1,c
+   403  01FEDC  0E0E               	movlw	14
+   404  01FEDE  6E01               	movwf	SetDCPWM4@dutycycle,c
+   405  01FEE0  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   406                           
+   407                           ;TechDemo2_Test_Routine.c: 120: SetDCPWM5(526);
+   408  01FEE4  0E02               	movlw	2
+   409  01FEE6  6E02               	movwf	SetDCPWM5@dutycycle+1,c
+   410  01FEE8  0E0E               	movlw	14
+   411  01FEEA  6E01               	movwf	SetDCPWM5@dutycycle,c
+   412  01FEEC  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   413                           
+   414                           ;TechDemo2_Test_Routine.c: 122: Delay10KTCYx(250);
+   415  01FEF0  0EFA               	movlw	250
+   416  01FEF2  EC6D  F0FE         	call	_Delay10KTCYx
    417                           
-   418                           ;PWM_gen_freq.c: 132: }
-   419                           
-   420                           ;PWM_gen_freq.c: 131: break;
-   421  01FF2A  D043               	goto	l1016
-   422  01FF2C                     l1014:
-   423  01FF2C  C00D  F007         	movff	main@freq,??_main
-   424  01FF30  C00E  F008         	movff	main@freq+1,??_main+1
-   425                           
-   426                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 7 sub-sw
-      +                          itches
-   427                           ; Switch size 1, requested type "space"
-   428                           ; Number of cases is 7, Range of values is 3 to 9
-   429                           ; switch strategies available:
-   430                           ; Name         Instructions Cycles
-   431                           ; simple_byte           22    12 (average)
-   432                           ;	Chosen strategy is simple_byte
-   433  01FF34  5008               	movf	??_main+1,w,c
-   434  01FF36  0A03               	xorlw	3	; case 3
-   435  01FF38  B4D8               	btfsc	status,2,c
-   436  01FF3A  D013               	goto	l1084
-   437  01FF3C  0A07               	xorlw	7	; case 4
-   438  01FF3E  B4D8               	btfsc	status,2,c
-   439  01FF40  D018               	goto	l1086
-   440  01FF42  0A01               	xorlw	1	; case 5
-   441  01FF44  B4D8               	btfsc	status,2,c
-   442  01FF46  D01A               	goto	l1088
-   443  01FF48  0A03               	xorlw	3	; case 6
-   444  01FF4A  B4D8               	btfsc	status,2,c
-   445  01FF4C  D01C               	goto	l1090
-   446  01FF4E  0A01               	xorlw	1	; case 7
-   447  01FF50  B4D8               	btfsc	status,2,c
-   448  01FF52  D01E               	goto	l1092
-   449  01FF54  0A0F               	xorlw	15	; case 8
-   450  01FF56  B4D8               	btfsc	status,2,c
-   451  01FF58  D023               	goto	l1094
-   452  01FF5A  0A01               	xorlw	1	; case 9
-   453  01FF5C  B4D8               	btfsc	status,2,c
-   454  01FF5E  D025               	goto	l1096
-   455  01FF60  D028               	goto	l1016
-   456  01FF62                     l1084:
-   457                           
-   458                           ; Switch size 1, requested type "space"
-   459                           ; Number of cases is 2, Range of values is 32 to 232
-   460                           ; switch strategies available:
-   461                           ; Name         Instructions Cycles
-   462                           ; simple_byte            7     4 (average)
-   463                           ;	Chosen strategy is simple_byte
-   464  01FF62  5007               	movf	??_main,w,c
-   465  01FF64  0A20               	xorlw	32	; case 32
-   466  01FF66  B4D8               	btfsc	status,2,c
-   467  01FF68  D7CE               	goto	l994
-   468  01FF6A  0AC8               	xorlw	200	; case 232
-   469  01FF6C  B4D8               	btfsc	status,2,c
-   470  01FF6E  D7CD               	goto	l996
-   471  01FF70  D020               	goto	l1016
-   472  01FF72                     l1086:
-   473                           
-   474                           ; Switch size 1, requested type "space"
-   475                           ; Number of cases is 1, Range of values is 176 to 176
-   476                           ; switch strategies available:
-   477                           ; Name         Instructions Cycles
-   478                           ; simple_byte            4     3 (average)
-   479                           ;	Chosen strategy is simple_byte
-   480  01FF72  5007               	movf	??_main,w,c
-   481  01FF74  0AB0               	xorlw	176	; case 176
-   482  01FF76  B4D8               	btfsc	status,2,c
-   483  01FF78  D7CA               	goto	l998
-   484  01FF7A  D01B               	goto	l1016
-   485  01FF7C                     l1088:
-   486                           
-   487                           ; Switch size 1, requested type "space"
-   488                           ; Number of cases is 1, Range of values is 120 to 120
-   489                           ; switch strategies available:
-   490                           ; Name         Instructions Cycles
-   491                           ; simple_byte            4     3 (average)
-   492                           ;	Chosen strategy is simple_byte
-   493  01FF7C  5007               	movf	??_main,w,c
-   494  01FF7E  0A78               	xorlw	120	; case 120
-   495  01FF80  B4D8               	btfsc	status,2,c
-   496  01FF82  D7C7               	goto	l1000
-   497  01FF84  D016               	goto	l1016
-   498  01FF86                     l1090:
-   499                           
-   500                           ; Switch size 1, requested type "space"
-   501                           ; Number of cases is 1, Range of values is 64 to 64
-   502                           ; switch strategies available:
-   503                           ; Name         Instructions Cycles
-   504                           ; simple_byte            4     3 (average)
-   505                           ;	Chosen strategy is simple_byte
-   506  01FF86  5007               	movf	??_main,w,c
-   507  01FF88  0A40               	xorlw	64	; case 64
-   508  01FF8A  B4D8               	btfsc	status,2,c
-   509  01FF8C  D7C4               	goto	l1002
-   510  01FF8E  D011               	goto	l1016
-   511  01FF90                     l1092:
-   512                           
-   513                           ; Switch size 1, requested type "space"
-   514                           ; Number of cases is 2, Range of values is 8 to 208
-   515                           ; switch strategies available:
-   516                           ; Name         Instructions Cycles
-   517                           ; simple_byte            7     4 (average)
-   518                           ;	Chosen strategy is simple_byte
-   519  01FF90  5007               	movf	??_main,w,c
-   520  01FF92  0A08               	xorlw	8	; case 8
-   521  01FF94  B4D8               	btfsc	status,2,c
-   522  01FF96  D7C1               	goto	l1004
-   523  01FF98  0AD8               	xorlw	216	; case 208
-   524  01FF9A  B4D8               	btfsc	status,2,c
-   525  01FF9C  D7C0               	goto	l1006
-   526  01FF9E  D009               	goto	l1016
-   527  01FFA0                     l1094:
-   528                           
-   529                           ; Switch size 1, requested type "space"
-   530                           ; Number of cases is 1, Range of values is 152 to 152
-   531                           ; switch strategies available:
-   532                           ; Name         Instructions Cycles
-   533                           ; simple_byte            4     3 (average)
-   534                           ;	Chosen strategy is simple_byte
-   535  01FFA0  5007               	movf	??_main,w,c
-   536  01FFA2  0A98               	xorlw	152	; case 152
-   537  01FFA4  B4D8               	btfsc	status,2,c
-   538  01FFA6  D7BD               	goto	l1008
-   539  01FFA8  D004               	goto	l1016
-   540  01FFAA                     l1096:
+   418                           ;TechDemo2_Test_Routine.c: 125: LATDbits.LATD1 = 0;
+   419  01FEF6  928C               	bcf	3980,1,c	;volatile
+   420                           
+   421                           ;TechDemo2_Test_Routine.c: 126: LATDbits.LATD3 = 1;
+   422  01FEF8  868C               	bsf	3980,3,c	;volatile
+   423                           
+   424                           ;TechDemo2_Test_Routine.c: 128: for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
+   425  01FEFA  0E01               	movlw	1
+   426  01FEFC  6E08               	movwf	main@duty_cycle+1,c
+   427  01FEFE  0EF4               	movlw	244
+   428  01FF00  6E07               	movwf	main@duty_cycle,c
+   429  01FF02                     l991:
+   430  01FF02  0E08               	movlw	8
+   431  01FF04  5C07               	subwf	main@duty_cycle,w,c
+   432  01FF06  0E01               	movlw	1
+   433  01FF08  5808               	subwfb	main@duty_cycle+1,w,c
+   434  01FF0A  A0D8               	btfss	status,0,c
+   435  01FF0C  D013               	goto	l1001
+   436                           
+   437                           ;TechDemo2_Test_Routine.c: 129: SetDCPWM4(duty_cycle);
+   438  01FF0E  C007  F001         	movff	main@duty_cycle,SetDCPWM4@dutycycle
+   439  01FF12  C008  F002         	movff	main@duty_cycle+1,SetDCPWM4@dutycycle+1
+   440  01FF16  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   441                           
+   442                           ;TechDemo2_Test_Routine.c: 130: SetDCPWM5(duty_cycle);
+   443  01FF1A  C007  F001         	movff	main@duty_cycle,SetDCPWM5@dutycycle
+   444  01FF1E  C008  F002         	movff	main@duty_cycle+1,SetDCPWM5@dutycycle+1
+   445  01FF22  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   446                           
+   447                           ;TechDemo2_Test_Routine.c: 131: Delay1KTCYx(20);
+   448  01FF26  0E14               	movlw	20
+   449  01FF28  EC5C  F0FE         	call	_Delay1KTCYx
+   450  01FF2C  0607               	decf	main@duty_cycle,f,c
+   451  01FF2E  A0D8               	btfss	status,0,c
+   452  01FF30  0608               	decf	main@duty_cycle+1,f,c
+   453  01FF32  D7E7               	goto	l991
+   454  01FF34                     l1001:
+   455                           
+   456                           ;TechDemo2_Test_Routine.c: 132: }
+   457                           ;TechDemo2_Test_Routine.c: 134: Delay10KTCYx(250);
+   458  01FF34  0EFA               	movlw	250
+   459  01FF36  EC6D  F0FE         	call	_Delay10KTCYx
+   460                           
+   461                           ;TechDemo2_Test_Routine.c: 135: Delay10KTCYx(250);
+   462  01FF3A  0EFA               	movlw	250
+   463  01FF3C  EC6D  F0FE         	call	_Delay10KTCYx
+   464                           
+   465                           ;TechDemo2_Test_Routine.c: 137: SetDCPWM4(526);
+   466  01FF40  0E02               	movlw	2
+   467  01FF42  6E02               	movwf	SetDCPWM4@dutycycle+1,c
+   468  01FF44  0E0E               	movlw	14
+   469  01FF46  6E01               	movwf	SetDCPWM4@dutycycle,c
+   470  01FF48  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   471                           
+   472                           ;TechDemo2_Test_Routine.c: 138: SetDCPWM5(526);
+   473  01FF4C  0E02               	movlw	2
+   474  01FF4E  6E02               	movwf	SetDCPWM5@dutycycle+1,c
+   475  01FF50  0E0E               	movlw	14
+   476  01FF52  6E01               	movwf	SetDCPWM5@dutycycle,c
+   477  01FF54  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   478                           
+   479                           ;TechDemo2_Test_Routine.c: 140: Delay10KTCYx(250);
+   480  01FF58  0EFA               	movlw	250
+   481  01FF5A  EC6D  F0FE         	call	_Delay10KTCYx
+   482                           
+   483                           ;TechDemo2_Test_Routine.c: 143: LATDbits.LATD1 = 1;
+   484  01FF5E  828C               	bsf	3980,1,c	;volatile
+   485                           
+   486                           ;TechDemo2_Test_Routine.c: 144: LATDbits.LATD3 = 0;
+   487  01FF60  968C               	bcf	3980,3,c	;volatile
+   488                           
+   489                           ;TechDemo2_Test_Routine.c: 146: for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
+   490  01FF62  0E01               	movlw	1
+   491  01FF64  6E08               	movwf	main@duty_cycle+1,c
+   492  01FF66  0EF4               	movlw	244
+   493  01FF68  6E07               	movwf	main@duty_cycle,c
+   494  01FF6A                     l1013:
+   495  01FF6A  0E08               	movlw	8
+   496  01FF6C  5C07               	subwf	main@duty_cycle,w,c
+   497  01FF6E  0E01               	movlw	1
+   498  01FF70  5808               	subwfb	main@duty_cycle+1,w,c
+   499  01FF72  A0D8               	btfss	status,0,c
+   500  01FF74  D00D               	goto	l1023
+   501                           
+   502                           ;TechDemo2_Test_Routine.c: 147: SetDCPWM4(duty_cycle);
+   503  01FF76  C007  F001         	movff	main@duty_cycle,SetDCPWM4@dutycycle
+   504  01FF7A  C008  F002         	movff	main@duty_cycle+1,SetDCPWM4@dutycycle+1
+   505  01FF7E  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   506                           
+   507                           ;TechDemo2_Test_Routine.c: 148: Delay1KTCYx(20);
+   508  01FF82  0E14               	movlw	20
+   509  01FF84  EC5C  F0FE         	call	_Delay1KTCYx
+   510  01FF88  0607               	decf	main@duty_cycle,f,c
+   511  01FF8A  A0D8               	btfss	status,0,c
+   512  01FF8C  0608               	decf	main@duty_cycle+1,f,c
+   513  01FF8E  D7ED               	goto	l1013
+   514  01FF90                     l1023:
+   515                           
+   516                           ;TechDemo2_Test_Routine.c: 149: }
+   517                           ;TechDemo2_Test_Routine.c: 151: Delay10KTCYx(250);
+   518  01FF90  0EFA               	movlw	250
+   519  01FF92  EC6D  F0FE         	call	_Delay10KTCYx
+   520                           
+   521                           ;TechDemo2_Test_Routine.c: 152: Delay10KTCYx(250);
+   522  01FF96  0EFA               	movlw	250
+   523  01FF98  EC6D  F0FE         	call	_Delay10KTCYx
+   524                           
+   525                           ;TechDemo2_Test_Routine.c: 154: SetDCPWM4(526);
+   526  01FF9C  0E02               	movlw	2
+   527  01FF9E  6E02               	movwf	SetDCPWM4@dutycycle+1,c
+   528  01FFA0  0E0E               	movlw	14
+   529  01FFA2  6E01               	movwf	SetDCPWM4@dutycycle,c
+   530  01FFA4  EC78  F0FE         	call	_SetDCPWM4	;wreg free
+   531                           
+   532                           ;TechDemo2_Test_Routine.c: 156: Delay10KTCYx(250);
+   533  01FFA8  0EFA               	movlw	250
+   534  01FFAA  EC6D  F0FE         	call	_Delay10KTCYx
+   535                           
+   536                           ;TechDemo2_Test_Routine.c: 159: LATDbits.LATD1 = 0;
+   537  01FFAE  928C               	bcf	3980,1,c	;volatile
+   538                           
+   539                           ;TechDemo2_Test_Routine.c: 160: LATDbits.LATD3 = 1;
+   540  01FFB0  868C               	bsf	3980,3,c	;volatile
    541                           
-   542                           ; Switch size 1, requested type "space"
-   543                           ; Number of cases is 1, Range of values is 96 to 96
-   544                           ; switch strategies available:
-   545                           ; Name         Instructions Cycles
-   546                           ; simple_byte            4     3 (average)
-   547                           ;	Chosen strategy is simple_byte
-   548  01FFAA  5007               	movf	??_main,w,c
-   549  01FFAC  0A60               	xorlw	96	; case 96
-   550  01FFAE  B4D8               	btfsc	status,2,c
-   551  01FFB0  D7BA               	goto	l1010
-   552  01FFB2                     l1016:
-   553                           
-   554                           ;PWM_gen_freq.c: 134: ConvertADC();
-   555  01FFB2  EC90  F0FE         	call	_ConvertADC	;wreg free
-   556  01FFB6                     l1018:
-   557  01FFB6  EC95  F0FE         	call	_BusyADC	;wreg free
-   558  01FFBA  0900               	iorlw	0
-   559  01FFBC  A4D8               	btfss	status,2,c
-   560  01FFBE  D7FB               	goto	l1018
-   561                           
-   562                           ;PWM_gen_freq.c: 138: ADC_val = ReadADC() & 0x03FF;
-   563  01FFC0  EC9B  F0FE         	call	_ReadADC	;wreg free
-   564  01FFC4  0EFF               	movlw	255
-   565  01FFC6  1401               	andwf	?_ReadADC,w,c
-   566  01FFC8  6E09               	movwf	main@ADC_val,c
-   567  01FFCA  0E03               	movlw	3
-   568  01FFCC  1402               	andwf	?_ReadADC+1,w,c
-   569  01FFCE  6E0A               	movwf	main@ADC_val+1,c
-   570                           
-   571                           ;PWM_gen_freq.c: 139: duty_cycle = ((ADC_val * 2) >> 2) & 0x03FF;
-   572  01FFD0  90D8               	bcf	status,0,c
-   573  01FFD2  300A               	rrcf	main@ADC_val+1,w,c
-   574  01FFD4  6E08               	movwf	(??_main+1)& (0+255),c
-   575  01FFD6  3009               	rrcf	main@ADC_val,w,c
-   576  01FFD8  6E07               	movwf	??_main& (0+255),c
-   577  01FFDA  0EFF               	movlw	255
-   578  01FFDC  1407               	andwf	??_main,w,c
-   579  01FFDE  6E0B               	movwf	main@duty_cycle,c
-   580  01FFE0  0E03               	movlw	3
-   581  01FFE2  1408               	andwf	??_main+1,w,c
-   582  01FFE4  6E0C               	movwf	main@duty_cycle+1,c
-   583                           
-   584                           ;PWM_gen_freq.c: 142: SetDCPWM4(duty_cycle);
-   585  01FFE6  C00B  F001         	movff	main@duty_cycle,SetDCPWM4@dutycycle
-   586  01FFEA  C00C  F002         	movff	main@duty_cycle+1,SetDCPWM4@dutycycle+1
-   587  01FFEE  ECB2  F0FE         	call	_SetDCPWM4	;wreg free
-   588                           
-   589                           ;PWM_gen_freq.c: 143: SetDCPWM5(duty_cycle);
-   590  01FFF2  C00B  F001         	movff	main@duty_cycle,SetDCPWM5@dutycycle
-   591  01FFF6  C00C  F002         	movff	main@duty_cycle+1,SetDCPWM5@dutycycle+1
-   592  01FFFA  ECCF  F0FE         	call	_SetDCPWM5	;wreg free
-   593  01FFFE  D74C               	goto	l972
-   594  020000                     __end_of_main:
-   595                           	opt stack 0
-   596                           status	equ	0xFD8
-   597                           
-   598 ;; *************** function _StartTimer2 *****************
-   599 ;; Defined at:
-   600 ;;		line 147 in file "PWM_gen_freq.c"
-   601 ;; Parameters:    Size  Location     Type
-   602 ;;		None
-   603 ;; Auto vars:     Size  Location     Type
-   604 ;;		None
-   605 ;; Return value:  Size  Location     Type
-   606 ;;                  1    wreg      void 
-   607 ;; Registers used:
-   608 ;;		wreg, status,2
-   609 ;; Tracked objects:
-   610 ;;		On entry : 0/0
-   611 ;;		On exit  : 0/0
-   612 ;;		Unchanged: 0/0
-   613 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   542                           ;TechDemo2_Test_Routine.c: 162: for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
+   543  01FFB2  0E01               	movlw	1
+   544  01FFB4  6E08               	movwf	main@duty_cycle+1,c
+   545  01FFB6  0EF4               	movlw	244
+   546  01FFB8  6E07               	movwf	main@duty_cycle,c
+   547  01FFBA                     l1035:
+   548  01FFBA  0E08               	movlw	8
+   549  01FFBC  5C07               	subwf	main@duty_cycle,w,c
+   550  01FFBE  0E01               	movlw	1
+   551  01FFC0  5808               	subwfb	main@duty_cycle+1,w,c
+   552  01FFC2  A0D8               	btfss	status,0,c
+   553  01FFC4  D00D               	goto	l1045
+   554                           
+   555                           ;TechDemo2_Test_Routine.c: 163: SetDCPWM5(duty_cycle);
+   556  01FFC6  C007  F001         	movff	main@duty_cycle,SetDCPWM5@dutycycle
+   557  01FFCA  C008  F002         	movff	main@duty_cycle+1,SetDCPWM5@dutycycle+1
+   558  01FFCE  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   559                           
+   560                           ;TechDemo2_Test_Routine.c: 164: Delay1KTCYx(20);
+   561  01FFD2  0E14               	movlw	20
+   562  01FFD4  EC5C  F0FE         	call	_Delay1KTCYx
+   563  01FFD8  0607               	decf	main@duty_cycle,f,c
+   564  01FFDA  A0D8               	btfss	status,0,c
+   565  01FFDC  0608               	decf	main@duty_cycle+1,f,c
+   566  01FFDE  D7ED               	goto	l1035
+   567  01FFE0                     l1045:
+   568                           
+   569                           ;TechDemo2_Test_Routine.c: 165: }
+   570                           ;TechDemo2_Test_Routine.c: 167: Delay10KTCYx(250);
+   571  01FFE0  0EFA               	movlw	250
+   572  01FFE2  EC6D  F0FE         	call	_Delay10KTCYx
+   573                           
+   574                           ;TechDemo2_Test_Routine.c: 168: Delay10KTCYx(250);
+   575  01FFE6  0EFA               	movlw	250
+   576  01FFE8  EC6D  F0FE         	call	_Delay10KTCYx
+   577                           
+   578                           ;TechDemo2_Test_Routine.c: 170: SetDCPWM5(526);
+   579  01FFEC  0E02               	movlw	2
+   580  01FFEE  6E02               	movwf	SetDCPWM5@dutycycle+1,c
+   581  01FFF0  0E0E               	movlw	14
+   582  01FFF2  6E01               	movwf	SetDCPWM5@dutycycle,c
+   583  01FFF4  EC95  F0FE         	call	_SetDCPWM5	;wreg free
+   584                           
+   585                           ;TechDemo2_Test_Routine.c: 172: Delay10KTCYx(250);
+   586  01FFF8  0EFA               	movlw	250
+   587  01FFFA  EC6D  F0FE         	call	_Delay10KTCYx
+   588  01FFFE  D6DD               	goto	l919
+   589  020000                     __end_of_main:
+   590                           	opt stack 0
+   591                           status	equ	0xFD8
+   592                           
+   593 ;; *************** function _StartTimer2 *****************
+   594 ;; Defined at:
+   595 ;;		line 181 in file "TechDemo2_Test_Routine.c"
+   596 ;; Parameters:    Size  Location     Type
+   597 ;;		None
+   598 ;; Auto vars:     Size  Location     Type
+   599 ;;		None
+   600 ;; Return value:  Size  Location     Type
+   601 ;;                  1    wreg      void 
+   602 ;; Registers used:
+   603 ;;		wreg, status,2
+   604 ;; Tracked objects:
+   605 ;;		On entry : 0/0
+   606 ;;		On exit  : 0/0
+   607 ;;		Unchanged: 0/0
+   608 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   614 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   609 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   615 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   610 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   616 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   611 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   617 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   612 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   618 ;;Total ram usage:        0 bytes
-   619 ;; Hardware stack levels used:    1
-   620 ;; This function calls:
-   621 ;;		Nothing
-   622 ;; This function is called by:
-   623 ;;		_main
-   624 ;; This function uses a non-reentrant model
-   625 ;;
-   626                           
-   627                           	psect	text1
-   628  01FD44                     __ptext1:
-   629                           	opt stack 0
-   630  01FD44                     _StartTimer2:
-   631                           	opt stack 30
+   613 ;;Total ram usage:        0 bytes
+   614 ;; Hardware stack levels used:    1
+   615 ;; This function calls:
+   616 ;;		Nothing
+   617 ;; This function is called by:
+   618 ;;		_main
+   619 ;; This function uses a non-reentrant model
+   620 ;;
+   621                           
+   622                           	psect	text1
+   623  01FCAA                     __ptext1:
+   624                           	opt stack 0
+   625  01FCAA                     _StartTimer2:
+   626                           	opt stack 30
+   627                           
+   628                           ;TechDemo2_Test_Routine.c: 182: PIE1bits.TMR2IE = 0;
+   629                           
+   630                           ;incstack = 0
+   631  01FCAA  929D               	bcf	3997,1,c	;volatile
    632                           
-   633                           ;PWM_gen_freq.c: 148: PIE1bits.TMR2IE = 0;
-   634                           
-   635                           ;incstack = 0
-   636  01FD44  929D               	bcf	3997,1,c	;volatile
-   637                           
-   638                           ;PWM_gen_freq.c: 149: T2CONbits.T2CKPS1 = 0;
-   639  01FD46  92CA               	bcf	4042,1,c	;volatile
-   640                           
-   641                           ;PWM_gen_freq.c: 150: T2CONbits.T2CKPS0 = 0;
-   642  01FD48  90CA               	bcf	4042,0,c	;volatile
-   643                           
-   644                           ;PWM_gen_freq.c: 151: T2CONbits.TMR2ON = 1;
-   645  01FD4A  84CA               	bsf	4042,2,c	;volatile
-   646                           
-   647                           ;PWM_gen_freq.c: 152: PR2 = 130;
-   648  01FD4C  0E82               	movlw	130
-   649  01FD4E  6ECB               	movwf	4043,c	;volatile
-   650  01FD50  0012               	return		;funcret
-   651  01FD52                     __end_of_StartTimer2:
-   652                           	opt stack 0
-   653                           status	equ	0xFD8
-   654                           
-   655 ;; *************** function _SetDCPWM5 *****************
-   656 ;; Defined at:
-   657 ;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw5setdc.c"
-   658 ;; Parameters:    Size  Location     Type
-   659 ;;  dutycycle       2    0[COMRAM] unsigned int 
-   660 ;; Auto vars:     Size  Location     Type
-   661 ;;  DCycle          2    4[COMRAM] struct PWMDC
-   662 ;; Return value:  Size  Location     Type
-   663 ;;                  1    wreg      void 
-   664 ;; Registers used:
-   665 ;;		wreg, status,2, status,0
-   666 ;; Tracked objects:
-   667 ;;		On entry : 0/0
-   668 ;;		On exit  : 0/0
-   669 ;;		Unchanged: 0/0
-   670 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   633                           ;TechDemo2_Test_Routine.c: 183: T2CONbits.T2CKPS1 = 0;
+   634  01FCAC  92CA               	bcf	4042,1,c	;volatile
+   635                           
+   636                           ;TechDemo2_Test_Routine.c: 184: T2CONbits.T2CKPS0 = 0;
+   637  01FCAE  90CA               	bcf	4042,0,c	;volatile
+   638                           
+   639                           ;TechDemo2_Test_Routine.c: 185: T2CONbits.TMR2ON = 1;
+   640  01FCB0  84CA               	bsf	4042,2,c	;volatile
+   641                           
+   642                           ;TechDemo2_Test_Routine.c: 186: PR2 = 130;
+   643  01FCB2  0E82               	movlw	130
+   644  01FCB4  6ECB               	movwf	4043,c	;volatile
+   645  01FCB6  0012               	return		;funcret
+   646  01FCB8                     __end_of_StartTimer2:
+   647                           	opt stack 0
+   648                           status	equ	0xFD8
+   649                           
+   650 ;; *************** function _SetDCPWM5 *****************
+   651 ;; Defined at:
+   652 ;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw5setdc.c"
+   653 ;; Parameters:    Size  Location     Type
+   654 ;;  dutycycle       2    0[COMRAM] unsigned int 
+   655 ;; Auto vars:     Size  Location     Type
+   656 ;;  DCycle          2    4[COMRAM] struct PWMDC
+   657 ;; Return value:  Size  Location     Type
+   658 ;;                  1    wreg      void 
+   659 ;; Registers used:
+   660 ;;		wreg, status,2, status,0
+   661 ;; Tracked objects:
+   662 ;;		On entry : 0/0
+   663 ;;		On exit  : 0/0
+   664 ;;		Unchanged: 0/0
+   665 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   671 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+   666 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   672 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   667 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   673 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   668 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   674 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+   669 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   675 ;;Total ram usage:        6 bytes
-   676 ;; Hardware stack levels used:    1
-   677 ;; This function calls:
-   678 ;;		Nothing
-   679 ;; This function is called by:
-   680 ;;		_main
-   681 ;; This function uses a non-reentrant model
-   682 ;;
-   683                           
-   684                           	psect	text2
-   685  01FD9E                     __ptext2:
-   686                           	opt stack 0
-   687  01FD9E                     _SetDCPWM5:
-   688                           	opt stack 30
-   689                           
-   690                           ;incstack = 0
-   691  01FD9E  C001  F003         	movff	SetDCPWM5@dutycycle,??_SetDCPWM5
-   692  01FDA2  C002  F004         	movff	SetDCPWM5@dutycycle+1,??_SetDCPWM5+1
-   693  01FDA6  0E06               	movlw	6
-   694  01FDA8                     u155:
-   695  01FDA8  90D8               	bcf	status,0,c
-   696  01FDAA  3603               	rlcf	??_SetDCPWM5,f,c
-   697  01FDAC  3604               	rlcf	??_SetDCPWM5+1,f,c
-   698  01FDAE  2EE8               	decfsz	wreg,f,c
-   699  01FDB0  D7FB               	goto	u155
-   700  01FDB2  C003  F005         	movff	??_SetDCPWM5,SetDCPWM5@DCycle
-   701  01FDB6  C004  F006         	movff	??_SetDCPWM5+1,SetDCPWM5@DCycle+1
-   702  01FDBA  C006  FF71         	movff	SetDCPWM5@DCycle+1,3953	;volatile
-   703  01FDBE  C005  F003         	movff	SetDCPWM5@DCycle,??_SetDCPWM5
-   704  01FDC2  90D8               	bcf	status,0,c
-   705  01FDC4  3203               	rrcf	??_SetDCPWM5,f,c
-   706  01FDC6  90D8               	bcf	status,0,c
-   707  01FDC8  3203               	rrcf	??_SetDCPWM5,f,c
-   708  01FDCA  0E30               	movlw	48
-   709  01FDCC  1603               	andwf	??_SetDCPWM5,f,c
-   710  01FDCE  5070               	movf	3952,w,c	;volatile
-   711  01FDD0  0BCF               	andlw	207
-   712  01FDD2  1003               	iorwf	??_SetDCPWM5,w,c
-   713  01FDD4  6E70               	movwf	3952,c	;volatile
-   714  01FDD6  0012               	return		;funcret
-   715  01FDD8                     __end_of_SetDCPWM5:
-   716                           	opt stack 0
-   717                           wreg	equ	0xFE8
-   718                           status	equ	0xFD8
-   719                           
-   720 ;; *************** function _SetDCPWM4 *****************
-   721 ;; Defined at:
-   722 ;;		line 17 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw4setdc.c"
-   723 ;; Parameters:    Size  Location     Type
-   724 ;;  dutycycle       2    0[COMRAM] unsigned int 
-   725 ;; Auto vars:     Size  Location     Type
-   726 ;;  DCycle          2    4[COMRAM] struct PWMDC
-   727 ;; Return value:  Size  Location     Type
-   728 ;;                  1    wreg      void 
-   729 ;; Registers used:
-   730 ;;		wreg, status,2, status,0
-   731 ;; Tracked objects:
-   732 ;;		On entry : 0/0
-   733 ;;		On exit  : 0/0
-   734 ;;		Unchanged: 0/0
-   735 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   670 ;;Total ram usage:        6 bytes
+   671 ;; Hardware stack levels used:    1
+   672 ;; This function calls:
+   673 ;;		Nothing
+   674 ;; This function is called by:
+   675 ;;		_main
+   676 ;; This function uses a non-reentrant model
+   677 ;;
+   678                           
+   679                           	psect	text2
+   680  01FD2A                     __ptext2:
+   681                           	opt stack 0
+   682  01FD2A                     _SetDCPWM5:
+   683                           	opt stack 30
+   684                           
+   685                           ;incstack = 0
+   686  01FD2A  C001  F003         	movff	SetDCPWM5@dutycycle,??_SetDCPWM5
+   687  01FD2E  C002  F004         	movff	SetDCPWM5@dutycycle+1,??_SetDCPWM5+1
+   688  01FD32  0E06               	movlw	6
+   689  01FD34                     u175:
+   690  01FD34  90D8               	bcf	status,0,c
+   691  01FD36  3603               	rlcf	??_SetDCPWM5,f,c
+   692  01FD38  3604               	rlcf	??_SetDCPWM5+1,f,c
+   693  01FD3A  2EE8               	decfsz	wreg,f,c
+   694  01FD3C  D7FB               	goto	u175
+   695  01FD3E  C003  F005         	movff	??_SetDCPWM5,SetDCPWM5@DCycle
+   696  01FD42  C004  F006         	movff	??_SetDCPWM5+1,SetDCPWM5@DCycle+1
+   697  01FD46  C006  FF71         	movff	SetDCPWM5@DCycle+1,3953	;volatile
+   698  01FD4A  C005  F003         	movff	SetDCPWM5@DCycle,??_SetDCPWM5
+   699  01FD4E  90D8               	bcf	status,0,c
+   700  01FD50  3203               	rrcf	??_SetDCPWM5,f,c
+   701  01FD52  90D8               	bcf	status,0,c
+   702  01FD54  3203               	rrcf	??_SetDCPWM5,f,c
+   703  01FD56  0E30               	movlw	48
+   704  01FD58  1603               	andwf	??_SetDCPWM5,f,c
+   705  01FD5A  5070               	movf	3952,w,c	;volatile
+   706  01FD5C  0BCF               	andlw	207
+   707  01FD5E  1003               	iorwf	??_SetDCPWM5,w,c
+   708  01FD60  6E70               	movwf	3952,c	;volatile
+   709  01FD62  0012               	return		;funcret
+   710  01FD64                     __end_of_SetDCPWM5:
+   711                           	opt stack 0
+   712                           wreg	equ	0xFE8
+   713                           status	equ	0xFD8
+   714                           
+   715 ;; *************** function _SetDCPWM4 *****************
+   716 ;; Defined at:
+   717 ;;		line 17 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw4setdc.c"
+   718 ;; Parameters:    Size  Location     Type
+   719 ;;  dutycycle       2    0[COMRAM] unsigned int 
+   720 ;; Auto vars:     Size  Location     Type
+   721 ;;  DCycle          2    4[COMRAM] struct PWMDC
+   722 ;; Return value:  Size  Location     Type
+   723 ;;                  1    wreg      void 
+   724 ;; Registers used:
+   725 ;;		wreg, status,2, status,0
+   726 ;; Tracked objects:
+   727 ;;		On entry : 0/0
+   728 ;;		On exit  : 0/0
+   729 ;;		Unchanged: 0/0
+   730 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   736 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+   731 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   737 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   732 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   738 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   733 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   739 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+   734 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   740 ;;Total ram usage:        6 bytes
-   741 ;; Hardware stack levels used:    1
-   742 ;; This function calls:
-   743 ;;		Nothing
-   744 ;; This function is called by:
-   745 ;;		_main
-   746 ;; This function uses a non-reentrant model
-   747 ;;
-   748                           
-   749                           	psect	text3
-   750  01FD64                     __ptext3:
-   751                           	opt stack 0
-   752  01FD64                     _SetDCPWM4:
-   753                           	opt stack 30
-   754                           
-   755                           ;incstack = 0
-   756  01FD64  C001  F003         	movff	SetDCPWM4@dutycycle,??_SetDCPWM4
-   757  01FD68  C002  F004         	movff	SetDCPWM4@dutycycle+1,??_SetDCPWM4+1
-   758  01FD6C  0E06               	movlw	6
-   759  01FD6E                     u145:
-   760  01FD6E  90D8               	bcf	status,0,c
-   761  01FD70  3603               	rlcf	??_SetDCPWM4,f,c
-   762  01FD72  3604               	rlcf	??_SetDCPWM4+1,f,c
-   763  01FD74  2EE8               	decfsz	wreg,f,c
-   764  01FD76  D7FB               	goto	u145
-   765  01FD78  C003  F005         	movff	??_SetDCPWM4,SetDCPWM4@DCycle
-   766  01FD7C  C004  F006         	movff	??_SetDCPWM4+1,SetDCPWM4@DCycle+1
-   767  01FD80  C006  FF74         	movff	SetDCPWM4@DCycle+1,3956	;volatile
-   768  01FD84  C005  F003         	movff	SetDCPWM4@DCycle,??_SetDCPWM4
-   769  01FD88  90D8               	bcf	status,0,c
-   770  01FD8A  3203               	rrcf	??_SetDCPWM4,f,c
-   771  01FD8C  90D8               	bcf	status,0,c
-   772  01FD8E  3203               	rrcf	??_SetDCPWM4,f,c
-   773  01FD90  0E30               	movlw	48
-   774  01FD92  1603               	andwf	??_SetDCPWM4,f,c
-   775  01FD94  5073               	movf	3955,w,c	;volatile
-   776  01FD96  0BCF               	andlw	207
-   777  01FD98  1003               	iorwf	??_SetDCPWM4,w,c
-   778  01FD9A  6E73               	movwf	3955,c	;volatile
-   779  01FD9C  0012               	return		;funcret
-   780  01FD9E                     __end_of_SetDCPWM4:
-   781                           	opt stack 0
-   782                           wreg	equ	0xFE8
-   783                           status	equ	0xFD8
-   784                           
-   785 ;; *************** function _ReadADC *****************
-   786 ;; Defined at:
-   787 ;;		line 24 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcread.c"
-   788 ;; Parameters:    Size  Location     Type
-   789 ;;		None
-   790 ;; Auto vars:     Size  Location     Type
-   791 ;;		None
-   792 ;; Return value:  Size  Location     Type
-   793 ;;                  2    0[COMRAM] int 
-   794 ;; Registers used:
-   795 ;;		wreg, status,2
-   796 ;; Tracked objects:
-   797 ;;		On entry : 0/0
-   798 ;;		On exit  : 0/0
-   799 ;;		Unchanged: 0/0
-   800 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   735 ;;Total ram usage:        6 bytes
+   736 ;; Hardware stack levels used:    1
+   737 ;; This function calls:
+   738 ;;		Nothing
+   739 ;; This function is called by:
+   740 ;;		_main
+   741 ;; This function uses a non-reentrant model
+   742 ;;
+   743                           
+   744                           	psect	text3
+   745  01FCF0                     __ptext3:
+   746                           	opt stack 0
+   747  01FCF0                     _SetDCPWM4:
+   748                           	opt stack 30
+   749                           
+   750                           ;incstack = 0
+   751  01FCF0  C001  F003         	movff	SetDCPWM4@dutycycle,??_SetDCPWM4
+   752  01FCF4  C002  F004         	movff	SetDCPWM4@dutycycle+1,??_SetDCPWM4+1
+   753  01FCF8  0E06               	movlw	6
+   754  01FCFA                     u165:
+   755  01FCFA  90D8               	bcf	status,0,c
+   756  01FCFC  3603               	rlcf	??_SetDCPWM4,f,c
+   757  01FCFE  3604               	rlcf	??_SetDCPWM4+1,f,c
+   758  01FD00  2EE8               	decfsz	wreg,f,c
+   759  01FD02  D7FB               	goto	u165
+   760  01FD04  C003  F005         	movff	??_SetDCPWM4,SetDCPWM4@DCycle
+   761  01FD08  C004  F006         	movff	??_SetDCPWM4+1,SetDCPWM4@DCycle+1
+   762  01FD0C  C006  FF74         	movff	SetDCPWM4@DCycle+1,3956	;volatile
+   763  01FD10  C005  F003         	movff	SetDCPWM4@DCycle,??_SetDCPWM4
+   764  01FD14  90D8               	bcf	status,0,c
+   765  01FD16  3203               	rrcf	??_SetDCPWM4,f,c
+   766  01FD18  90D8               	bcf	status,0,c
+   767  01FD1A  3203               	rrcf	??_SetDCPWM4,f,c
+   768  01FD1C  0E30               	movlw	48
+   769  01FD1E  1603               	andwf	??_SetDCPWM4,f,c
+   770  01FD20  5073               	movf	3955,w,c	;volatile
+   771  01FD22  0BCF               	andlw	207
+   772  01FD24  1003               	iorwf	??_SetDCPWM4,w,c
+   773  01FD26  6E73               	movwf	3955,c	;volatile
+   774  01FD28  0012               	return		;funcret
+   775  01FD2A                     __end_of_SetDCPWM4:
+   776                           	opt stack 0
+   777                           wreg	equ	0xFE8
+   778                           status	equ	0xFD8
+   779                           
+   780 ;; *************** function _Delay1KTCYx *****************
+   781 ;; Defined at:
+   782 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d1ktcyx.c"
+   783 ;; Parameters:    Size  Location     Type
+   784 ;;  unit            1    wreg     unsigned char 
+   785 ;; Auto vars:     Size  Location     Type
+   786 ;;  unit            1    0[COMRAM] unsigned char 
+   787 ;; Return value:  Size  Location     Type
+   788 ;;                  1    wreg      void 
+   789 ;; Registers used:
+   790 ;;		wreg
+   791 ;; Tracked objects:
+   792 ;;		On entry : 0/0
+   793 ;;		On exit  : 0/0
+   794 ;;		Unchanged: 0/0
+   795 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   801 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+   796 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   802 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   797 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   803 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   798 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   804 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+   799 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   805 ;;Total ram usage:        4 bytes
-   806 ;; Hardware stack levels used:    1
-   807 ;; This function calls:
-   808 ;;		Nothing
-   809 ;; This function is called by:
-   810 ;;		_main
-   811 ;; This function uses a non-reentrant model
-   812 ;;
-   813                           
-   814                           	psect	text4
-   815  01FD36                     __ptext4:
-   816                           	opt stack 0
-   817  01FD36                     _ReadADC:
-   818                           	opt stack 30
-   819                           
-   820                           ;incstack = 0
-   821  01FD36  50C4               	movf	4036,w,c	;volatile
-   822  01FD38  6E03               	movwf	??_ReadADC& (0+255),c
-   823  01FD3A  50C3               	movf	4035,w,c	;volatile
-   824  01FD3C  6E01               	movwf	?_ReadADC,c
-   825  01FD3E  C003  F002         	movff	??_ReadADC,?_ReadADC+1
-   826  01FD42  0012               	return	
-   827  01FD44                     __end_of_ReadADC:
-   828                           	opt stack 0
-   829                           wreg	equ	0xFE8
-   830                           status	equ	0xFD8
-   831                           
-   832 ;; *************** function _OpenADC *****************
-   833 ;; Defined at:
-   834 ;;		line 68 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcopen.c"
-   835 ;; Parameters:    Size  Location     Type
-   836 ;;  config          1    wreg     unsigned char 
-   837 ;;  config2         1    0[COMRAM] unsigned char 
-   838 ;;  portconfig      1    1[COMRAM] unsigned char 
-   839 ;; Auto vars:     Size  Location     Type
-   840 ;;  config          1    4[COMRAM] unsigned char 
-   841 ;; Return value:  Size  Location     Type
-   842 ;;                  1    wreg      void 
-   843 ;; Registers used:
-   844 ;;		wreg, status,2, status,0
-   845 ;; Tracked objects:
-   846 ;;		On entry : 0/0
-   847 ;;		On exit  : 0/0
-   848 ;;		Unchanged: 0/0
-   849 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   800 ;;Total ram usage:        1 bytes
+   801 ;; Hardware stack levels used:    1
+   802 ;; This function calls:
+   803 ;;		Nothing
+   804 ;; This function is called by:
+   805 ;;		_main
+   806 ;; This function uses a non-reentrant model
+   807 ;;
+   808                           
+   809                           	psect	text4
+   810  01FCB8                     __ptext4:
+   811                           	opt stack 0
+   812  01FCB8                     _Delay1KTCYx:
+   813                           	opt stack 30
+   814                           
+   815                           ;incstack = 0
+   816                           ;Delay1KTCYx@unit stored from wreg
+   817  01FCB8  6E01               	movwf	Delay1KTCYx@unit,c
+   818  01FCBA  0EFA               	movlw	250
+   819  01FCBC                     u317:
+   820  01FCBC  F000               	nop	
+   821  01FCBE  2EE8               	decfsz	wreg,f,c
+   822  01FCC0  D7FD               	goto	u317
+   823  01FCC2  2E01               	decfsz	Delay1KTCYx@unit,f,c
+   824  01FCC4  D7FA               	goto	l711
+   825  01FCC6  0012               	return	
+   826  01FCC8                     __end_of_Delay1KTCYx:
+   827                           	opt stack 0
+   828                           wreg	equ	0xFE8
+   829                           status	equ	0xFD8
+   830                           
+   831 ;; *************** function _Delay10KTCYx *****************
+   832 ;; Defined at:
+   833 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d10ktcyx.c"
+   834 ;; Parameters:    Size  Location     Type
+   835 ;;  unit            1    wreg     unsigned char 
+   836 ;; Auto vars:     Size  Location     Type
+   837 ;;  unit            1    1[COMRAM] unsigned char 
+   838 ;; Return value:  Size  Location     Type
+   839 ;;                  1    wreg      void 
+   840 ;; Registers used:
+   841 ;;		wreg
+   842 ;; Tracked objects:
+   843 ;;		On entry : 0/0
+   844 ;;		On exit  : 0/0
+   845 ;;		Unchanged: 0/0
+   846 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   850 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+   847 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   851 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+   848 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   852 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   849 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   853 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+   850 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   854 ;;Total ram usage:        5 bytes
-   855 ;; Hardware stack levels used:    1
-   856 ;; This function calls:
-   857 ;;		Nothing
-   858 ;; This function is called by:
-   859 ;;		_main
-   860 ;; This function uses a non-reentrant model
-   861 ;;
-   862                           
-   863                           	psect	text5
-   864  01FDD8                     __ptext5:
-   865                           	opt stack 0
-   866  01FDD8                     _OpenADC:
-   867                           	opt stack 30
-   868                           
-   869                           ;incstack = 0
-   870                           ;OpenADC@config stored from wreg
-   871  01FDD8  6E05               	movwf	OpenADC@config,c
-   872  01FDDA  0E00               	movlw	0
-   873  01FDDC  6EC2               	movwf	4034,c	;volatile
-   874  01FDDE  0E00               	movlw	0
-   875  01FDE0  6EC0               	movwf	4032,c	;volatile
-   876  01FDE2  90D8               	bcf	status,0,c
-   877  01FDE4  3001               	rrcf	OpenADC@config2,w,c
-   878  01FDE6  0B3C               	andlw	60
-   879  01FDE8  6EC2               	movwf	4034,c	;volatile
-   880  01FDEA  C001  F003         	movff	OpenADC@config2,??_OpenADC
-   881  01FDEE  3A03               	swapf	??_OpenADC,f,c
-   882  01FDF0  0EF0               	movlw	240
-   883  01FDF2  1603               	andwf	??_OpenADC,f,c
-   884  01FDF4  0E30               	movlw	48
-   885  01FDF6  1603               	andwf	??_OpenADC,f,c
-   886  01FDF8  5002               	movf	OpenADC@portconfig,w,c
-   887  01FDFA  0B0F               	andlw	15
-   888  01FDFC  1003               	iorwf	??_OpenADC,w,c
-   889  01FDFE  6EC1               	movwf	4033,c	;volatile
-   890  01FE00  C005  F003         	movff	OpenADC@config,??_OpenADC
-   891  01FE04  90D8               	bcf	status,0,c
-   892  01FE06  3603               	rlcf	??_OpenADC,f,c
-   893  01FE08  90D8               	bcf	status,0,c
-   894  01FE0A  3603               	rlcf	??_OpenADC,f,c
-   895  01FE0C  0E38               	movlw	56
-   896  01FE0E  1603               	andwf	??_OpenADC,f,c
-   897  01FE10  C005  F004         	movff	OpenADC@config,??_OpenADC+1
-   898  01FE14  3A04               	swapf	??_OpenADC+1,f,c
-   899  01FE16  0E0F               	movlw	15
-   900  01FE18  1604               	andwf	??_OpenADC+1,f,c
-   901  01FE1A  0E07               	movlw	7
-   902  01FE1C  1604               	andwf	??_OpenADC+1,f,c
-   903  01FE1E  5005               	movf	OpenADC@config,w,c
-   904  01FE20  0B80               	andlw	128
-   905  01FE22  1004               	iorwf	??_OpenADC+1,w,c
-   906  01FE24  1003               	iorwf	??_OpenADC,w,c
-   907  01FE26  6EC0               	movwf	4032,c	;volatile
-   908  01FE28  AE01               	btfss	OpenADC@config2,7,c
-   909  01FE2A  D003               	goto	l120
-   910  01FE2C  9C9E               	bcf	3998,6,c	;volatile
-   911  01FE2E  8C9D               	bsf	3997,6,c	;volatile
-   912  01FE30  8CF2               	bsf	intcon,6,c	;volatile
-   913  01FE32                     l120:
-   914  01FE32  80C2               	bsf	4034,0,c	;volatile
-   915  01FE34  0012               	return		;funcret
-   916  01FE36                     __end_of_OpenADC:
-   917                           	opt stack 0
-   918                           intcon	equ	0xFF2
-   919                           wreg	equ	0xFE8
-   920                           status	equ	0xFD8
+   851 ;;Total ram usage:        2 bytes
+   852 ;; Hardware stack levels used:    1
+   853 ;; This function calls:
+   854 ;;		Nothing
+   855 ;; This function is called by:
+   856 ;;		_main
+   857 ;; This function uses a non-reentrant model
+   858 ;;
+   859                           
+   860                           	psect	text5
+   861  01FCDA                     __ptext5:
+   862                           	opt stack 0
+   863  01FCDA                     _Delay10KTCYx:
+   864                           	opt stack 30
+   865                           
+   866                           ;incstack = 0
+   867                           ;Delay10KTCYx@unit stored from wreg
+   868  01FCDA  6E02               	movwf	Delay10KTCYx@unit,c
+   869  01FCDC  0E0D               	movlw	13
+   870  01FCDE  6E01               	movwf	??_Delay10KTCYx& (0+255),c
+   871  01FCE0  0EFC               	movlw	252
+   872  01FCE2                     u327:
+   873  01FCE2  2EE8               	decfsz	wreg,f,c
+   874  01FCE4  D7FE               	goto	u327
+   875  01FCE6  2E01               	decfsz	??_Delay10KTCYx& (0+255),f,c
+   876  01FCE8  D7FC               	goto	u327
+   877  01FCEA  2E02               	decfsz	Delay10KTCYx@unit,f,c
+   878  01FCEC  D7F7               	goto	l715
+   879  01FCEE  0012               	return	
+   880  01FCF0                     __end_of_Delay10KTCYx:
+   881                           	opt stack 0
+   882                           wreg	equ	0xFE8
+   883                           status	equ	0xFD8
+   884                           
+   885 ;; *************** function _ConfigPWM *****************
+   886 ;; Defined at:
+   887 ;;		line 189 in file "TechDemo2_Test_Routine.c"
+   888 ;; Parameters:    Size  Location     Type
+   889 ;;		None
+   890 ;; Auto vars:     Size  Location     Type
+   891 ;;		None
+   892 ;; Return value:  Size  Location     Type
+   893 ;;                  1    wreg      void 
+   894 ;; Registers used:
+   895 ;;		None
+   896 ;; Tracked objects:
+   897 ;;		On entry : 0/0
+   898 ;;		On exit  : 0/0
+   899 ;;		Unchanged: 0/0
+   900 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   901 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   902 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   903 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   904 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   905 ;;Total ram usage:        0 bytes
+   906 ;; Hardware stack levels used:    1
+   907 ;; This function calls:
+   908 ;;		Nothing
+   909 ;; This function is called by:
+   910 ;;		_main
+   911 ;; This function uses a non-reentrant model
+   912 ;;
+   913                           
+   914                           	psect	text6
+   915  01FCC8                     __ptext6:
+   916                           	opt stack 0
+   917  01FCC8                     _ConfigPWM:
+   918                           	opt stack 30
+   919                           
+   920                           ;TechDemo2_Test_Routine.c: 190: CCP4CONbits.CCP4M3 = 1;
    921                           
-   922 ;; *************** function _ConvertADC *****************
-   923 ;; Defined at:
-   924 ;;		line 22 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcconv.c"
-   925 ;; Parameters:    Size  Location     Type
-   926 ;;		None
-   927 ;; Auto vars:     Size  Location     Type
-   928 ;;		None
-   929 ;; Return value:  Size  Location     Type
-   930 ;;                  1    wreg      void 
-   931 ;; Registers used:
-   932 ;;		None
-   933 ;; Tracked objects:
-   934 ;;		On entry : 0/0
-   935 ;;		On exit  : 0/0
-   936 ;;		Unchanged: 0/0
-   937 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   938 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   939 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   940 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   941 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   942 ;;Total ram usage:        0 bytes
-   943 ;; Hardware stack levels used:    1
-   944 ;; This function calls:
-   945 ;;		Nothing
-   946 ;; This function is called by:
-   947 ;;		_main
-   948 ;; This function uses a non-reentrant model
-   949 ;;
-   950                           
-   951                           	psect	text6
-   952  01FD20                     __ptext6:
-   953                           	opt stack 0
-   954  01FD20                     _ConvertADC:
-   955                           	opt stack 30
-   956                           
-   957                           ;incstack = 0
-   958  01FD20  82C2               	bsf	4034,1,c	;volatile
-   959  01FD22  0012               	return		;funcret
-   960  01FD24                     __end_of_ConvertADC:
-   961                           	opt stack 0
-   962                           intcon	equ	0xFF2
-   963                           wreg	equ	0xFE8
-   964                           status	equ	0xFD8
-   965                           
-   966 ;; *************** function _ConfigPWM *****************
-   967 ;; Defined at:
-   968 ;;		line 155 in file "PWM_gen_freq.c"
-   969 ;; Parameters:    Size  Location     Type
-   970 ;;		None
-   971 ;; Auto vars:     Size  Location     Type
-   972 ;;		None
-   973 ;; Return value:  Size  Location     Type
-   974 ;;                  1    wreg      void 
-   975 ;; Registers used:
-   976 ;;		None
-   977 ;; Tracked objects:
-   978 ;;		On entry : 0/0
-   979 ;;		On exit  : 0/0
-   980 ;;		Unchanged: 0/0
-   981 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   982 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   983 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   984 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   985 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   986 ;;Total ram usage:        0 bytes
-   987 ;; Hardware stack levels used:    1
-   988 ;; This function calls:
-   989 ;;		Nothing
-   990 ;; This function is called by:
-   991 ;;		_main
-   992 ;; This function uses a non-reentrant model
-   993 ;;
-   994                           
-   995                           	psect	text7
-   996  01FD52                     __ptext7:
-   997                           	opt stack 0
-   998  01FD52                     _ConfigPWM:
-   999                           	opt stack 30
-  1000                           
-  1001                           ;PWM_gen_freq.c: 156: CCP4CONbits.CCP4M3 = 1;
-  1002                           
-  1003                           ;incstack = 0
-  1004  01FD52  8673               	bsf	3955,3,c	;volatile
-  1005                           
-  1006                           ;PWM_gen_freq.c: 157: CCP4CONbits.CCP4M2 = 1;
-  1007  01FD54  8473               	bsf	3955,2,c	;volatile
-  1008                           
-  1009                           ;PWM_gen_freq.c: 158: CCP4CONbits.CCP4M1 = 0;
-  1010  01FD56  9273               	bcf	3955,1,c	;volatile
-  1011                           
-  1012                           ;PWM_gen_freq.c: 159: CCP4CONbits.CCP4M0 = 0;
-  1013  01FD58  9073               	bcf	3955,0,c	;volatile
-  1014                           
-  1015                           ;PWM_gen_freq.c: 161: CCP5CONbits.CCP5M3 = 1;
-  1016  01FD5A  8670               	bsf	3952,3,c	;volatile
-  1017                           
-  1018                           ;PWM_gen_freq.c: 162: CCP5CONbits.CCP5M2 = 1;
-  1019  01FD5C  8470               	bsf	3952,2,c	;volatile
-  1020                           
-  1021                           ;PWM_gen_freq.c: 163: CCP5CONbits.CCP5M1 = 0;
-  1022  01FD5E  9270               	bcf	3952,1,c	;volatile
-  1023                           
-  1024                           ;PWM_gen_freq.c: 164: CCP5CONbits.CCP5M0 = 0;
-  1025  01FD60  9070               	bcf	3952,0,c	;volatile
-  1026  01FD62  0012               	return		;funcret
-  1027  01FD64                     __end_of_ConfigPWM:
-  1028                           	opt stack 0
-  1029                           intcon	equ	0xFF2
-  1030                           wreg	equ	0xFE8
-  1031                           status	equ	0xFD8
-  1032                           
-  1033 ;; *************** function _BusyADC *****************
-  1034 ;; Defined at:
-  1035 ;;		line 26 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcbusy.c"
-  1036 ;; Parameters:    Size  Location     Type
-  1037 ;;		None
-  1038 ;; Auto vars:     Size  Location     Type
-  1039 ;;		None
-  1040 ;; Return value:  Size  Location     Type
-  1041 ;;                  1    wreg      unsigned char 
-  1042 ;; Registers used:
-  1043 ;;		wreg
-  1044 ;; Tracked objects:
-  1045 ;;		On entry : 0/0
-  1046 ;;		On exit  : 0/0
-  1047 ;;		Unchanged: 0/0
-  1048 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-  1049 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-  1050 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-  1051 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-  1052 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-  1053 ;;Total ram usage:        0 bytes
-  1054 ;; Hardware stack levels used:    1
-  1055 ;; This function calls:
-  1056 ;;		Nothing
-  1057 ;; This function is called by:
-  1058 ;;		_main
-  1059 ;; This function uses a non-reentrant model
-  1060 ;;
-  1061                           
-  1062                           	psect	text8
-  1063  01FD2A                     __ptext8:
-  1064                           	opt stack 0
-  1065  01FD2A                     _BusyADC:
-  1066                           	opt stack 30
-  1067                           
-  1068                           ;incstack = 0
-  1069  01FD2A  A2C2               	btfss	4034,1,c	;volatile
-  1070  01FD2C  D002               	goto	u40
-  1071  01FD2E  0E01               	movlw	1
-  1072  01FD30  0012               	return	
-  1073  01FD32                     u40:
-  1074  01FD32  0E00               	movlw	0
-  1075  01FD34  0012               	return	
-  1076  01FD36                     __end_of_BusyADC:
-  1077                           	opt stack 0
-  1078  0000                     intcon	equ	0xFF2
-  1079                           wreg	equ	0xFE8
-  1080                           status	equ	0xFD8
-  1081                           intcon	equ	0xFF2
-  1082                           wreg	equ	0xFE8
-  1083                           status	equ	0xFD8
-  1084                           
-  1085                           	psect	rparam
-  1086  0000                     intcon	equ	0xFF2
-  1087                           wreg	equ	0xFE8
-  1088                           status	equ	0xFD8
+   922                           ;incstack = 0
+   923  01FCC8  8673               	bsf	3955,3,c	;volatile
+   924                           
+   925                           ;TechDemo2_Test_Routine.c: 191: CCP4CONbits.CCP4M2 = 1;
+   926  01FCCA  8473               	bsf	3955,2,c	;volatile
+   927                           
+   928                           ;TechDemo2_Test_Routine.c: 192: CCP4CONbits.CCP4M1 = 0;
+   929  01FCCC  9273               	bcf	3955,1,c	;volatile
+   930                           
+   931                           ;TechDemo2_Test_Routine.c: 193: CCP4CONbits.CCP4M0 = 0;
+   932  01FCCE  9073               	bcf	3955,0,c	;volatile
+   933                           
+   934                           ;TechDemo2_Test_Routine.c: 195: CCP5CONbits.CCP5M3 = 1;
+   935  01FCD0  8670               	bsf	3952,3,c	;volatile
+   936                           
+   937                           ;TechDemo2_Test_Routine.c: 196: CCP5CONbits.CCP5M2 = 1;
+   938  01FCD2  8470               	bsf	3952,2,c	;volatile
+   939                           
+   940                           ;TechDemo2_Test_Routine.c: 197: CCP5CONbits.CCP5M1 = 0;
+   941  01FCD4  9270               	bcf	3952,1,c	;volatile
+   942                           
+   943                           ;TechDemo2_Test_Routine.c: 198: CCP5CONbits.CCP5M0 = 0;
+   944  01FCD6  9070               	bcf	3952,0,c	;volatile
+   945  01FCD8  0012               	return		;funcret
+   946  01FCDA                     __end_of_ConfigPWM:
+   947                           	opt stack 0
+   948  0000                     wreg	equ	0xFE8
+   949                           status	equ	0xFD8
+   950                           wreg	equ	0xFE8
+   951                           status	equ	0xFD8
+   952                           
+   953                           	psect	rparam
+   954  0000                     wreg	equ	0xFE8
+   955                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -1150,7 +1006,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95     14      14
+    COMRAM           95      8       8
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -1246,36 +1102,30 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 9     9      0     685
-                                              6 COMRAM     8     8      0
-                            _BusyADC
+ (0) _main                                                 2     2      0    1609
+                                              6 COMRAM     2     2      0
                           _ConfigPWM
-                         _ConvertADC
-                            _OpenADC
-                            _ReadADC
+                       _Delay10KTCYx
+                        _Delay1KTCYx
                           _SetDCPWM4
                           _SetDCPWM5
                         _StartTimer2
  ---------------------------------------------------------------------------------
  (1) _StartTimer2                                          0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _SetDCPWM5                                            6     4      2     154
+ (1) _SetDCPWM5                                            6     4      2     541
                                               0 COMRAM     6     4      2
  ---------------------------------------------------------------------------------
- (1) _SetDCPWM4                                            6     4      2     154
+ (1) _SetDCPWM4                                            6     4      2     541
                                               0 COMRAM     6     4      2
  ---------------------------------------------------------------------------------
- (1) _ReadADC                                              4     2      2       0
-                                              0 COMRAM     4     2      2
+ (1) _Delay1KTCYx                                          1     1      0      15
+                                              0 COMRAM     1     1      0
  ---------------------------------------------------------------------------------
- (1) _OpenADC                                              5     3      2     240
-                                              0 COMRAM     5     3      2
- ---------------------------------------------------------------------------------
- (1) _ConvertADC                                           0     0      0       0
+ (1) _Delay10KTCYx                                         2     2      0      15
+                                              0 COMRAM     2     2      0
  ---------------------------------------------------------------------------------
  (1) _ConfigPWM                                            0     0      0       0
- ---------------------------------------------------------------------------------
- (1) _BusyADC                                              0     0      0       0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
@@ -1283,11 +1133,9 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
-   _BusyADC
    _ConfigPWM
-   _ConvertADC
-   _OpenADC
-   _ReadADC
+   _Delay10KTCYx
+   _Delay1KTCYx
    _SetDCPWM4
    _SetDCPWM5
    _StartTimer2
@@ -1298,7 +1146,7 @@ BITCOMRAM           5F      0       0       0        0.0%
 EEDATA             400      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMRAM              5F      E       E       1       14.7%
+COMRAM              5F      8       8       1        8.4%
 STACK                0      0       0       2        0.0%
 DATA                 0      0       0       3        0.0%
 BITBANK0            A0      0       0       4        0.0%
@@ -1340,71 +1188,58 @@ SFR                  0      0       0      40        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.38 build -256452561 
-Symbol Table                                                                                   Tue Feb 14 16:53:12 2017
+Symbol Table                                                                                   Tue Feb 14 17:07:46 2017
 
-                     l64 FEEC                       u40 FD32              __CFG_BORV$3 000000  
-           __CFG_CP0$OFF 000000             __CFG_CP1$OFF 000000             __CFG_CP2$OFF 000000  
-           __CFG_CP3$OFF 000000              __CFG_OSC$HS 000000             __CFG_CP4$OFF 000000  
-           __CFG_CP5$OFF 000000             __CFG_CP6$OFF 000000             __CFG_CP7$OFF 000000  
-                    l120 FE32                      l972 FE98                      l994 FF06  
-                    l996 FF0A                      l998 FF0E             __CFG_CPB$OFF 000000  
-                    u145 FD6E                      u155 FDA8                      u165 FEA0  
-                    _PR2 000FCB                      u175 FEAC                      u167 FEA2  
-                    u185 FEB8                      u177 FEAE             __CFG_CPD$OFF 000000  
-                    u187 FEBA                      wreg 000FE8             __CFG_MODE$MC 000000  
-           __CFG_LVP$OFF 000000             __CFG_WDT$OFF 000000                     l1000 FF12  
-                   l1010 FF26                     l1002 FF16                     l1004 FF1A  
-                   l1006 FF1E                     l1014 FF2C                     l1008 FF22  
-                   l1016 FFB2                     l1018 FFB6                     l1090 FF86  
-                   l1092 FF90                     l1084 FF62                     l1094 FFA0  
-                   l1086 FF72                     l1096 FFAA                     l1088 FF7C  
-                   _LATF 000F8E                     _main FE36                     start 0000  
+            __CFG_BORV$3 000000             __CFG_CP0$OFF 000000             __CFG_CP1$OFF 000000  
+           __CFG_CP2$OFF 000000             __CFG_CP3$OFF 000000              __CFG_OSC$HS 000000  
+           __CFG_CP4$OFF 000000             __CFG_CP5$OFF 000000             __CFG_CP6$OFF 000000  
+           __CFG_CP7$OFF 000000                      l711 FCBA                      l715 FCDC  
+                    l925 FDCA                      l935 FDFC                      l919 FDBA  
+                    l947 FE32                      l957 FE64                      l991 FF02  
+                    l969 FE9A                      l979 FECC             __CFG_CPB$OFF 000000  
+                    u317 FCBC                      u165 FCFA                      _PR2 000FCB  
+                    u327 FCE2                      u175 FD34             __CFG_CPD$OFF 000000  
+                    wreg 000FE8             __CFG_MODE$MC 000000             __CFG_LVP$OFF 000000  
+           __CFG_WDT$OFF 000000                     l1001 FF34                     l1013 FF6A  
+                   l1023 FF90                     l1035 FFBA                     l1045 FFE0  
+                   _LATF 000F8E                     _main FD64                     start 0000  
           __CFG_IESO$OFF 000000            __CFG_MCLRE$ON 000000             ___param_bank 000010  
-        __end_of_BusyADC FD36          __end_of_ReadADC FD44          __end_of_OpenADC FE36  
-          __CFG_WAIT$OFF 000000                    ?_main 0001                    _PORTC 000F82  
-                  _PORTH 000F87                    _TRISA 000F92                    _TRISC 000F94  
-                  _TRISD 000F95                    _TRISF 000F97                    _TRISH 000F99  
-                  _TRISJ 000F9A            __CFG_PWRT$OFF 000000            __CFG_WRT0$OFF 000000  
+            _Delay1KTCYx FCB8            __CFG_WAIT$OFF 000000                    ?_main 0001  
+                  _TRISA 000F92                    _TRISC 000F94                    _TRISD 000F95  
+                  _TRISF 000F97                    _TRISH 000F99                    _TRISJ 000F9A  
+  __size_of_Delay10KTCYx 0016            __CFG_PWRT$OFF 000000            __CFG_WRT0$OFF 000000  
           __CFG_WRT1$OFF 000000            __CFG_WRT2$OFF 000000            __CFG_WRT3$OFF 000000  
           __CFG_WRT4$OFF 000000            __CFG_WRT5$OFF 000000            __CFG_WRT6$OFF 000000  
           __CFG_WRT7$OFF 000000           __CFG_EBTR0$OFF 000000           __CFG_FCMEN$OFF 000000  
          __CFG_EBTR1$OFF 000000           __CFG_EBTR2$OFF 000000           __CFG_EBTR3$OFF 000000  
          __CFG_EBTR4$OFF 000000           __CFG_EBTR5$OFF 000000           __CFG_EBTR6$OFF 000000  
          __CFG_EBTR7$OFF 000000            __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000  
-          __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000               _ConvertADC FD20  
-         __CFG_BOREN$OFF 000000                    status 000FD8          __initialization FD24  
-           __end_of_main 0000                   ??_main 0007            __activetblptr 000003  
-     __size_of_ConfigPWM 0012                   _ADCON0 000FC2                   _ADCON1 000FC1  
-                 _ADCON2 000FC0                   _ADRESH 000FC4                   _ADRESL 000FC3  
-                 _CCPR4L 000F74                   _CCPR5L 000F71          __CFG_BBSIZ$BB2K 000000  
-     __size_of_SetDCPWM4 003A       __size_of_SetDCPWM5 003A                ??_BusyADC 0001  
-              ??_ReadADC 0003                ??_OpenADC 0003           __CFG_XINST$OFF 000000  
-         __CFG_STVREN$ON 000000              ?_ConvertADC 0001               __accesstop 0060  
-__end_of__initialization FD24            ___rparam_used 000001        __end_of_ConfigPWM FD64  
-         __pcstackCOMRAM 0001            ??_StartTimer2 0001        __end_of_SetDCPWM4 FD9E  
-      __end_of_SetDCPWM5 FDD8       __CFG_CCP2MX$PORTBE 000000                  _CCP4CON 000F73  
-                _CCP5CON 000F70      __size_of_ConvertADC 0004      __end_of_StartTimer2 FD52  
-                _BusyADC FD2A                  _ReadADC FD36                  _OpenADC FDD8  
-         main@duty_cycle 000B                  __Hparam 0000                  __Lparam 0000  
-                __pcinit FD24                  __ramtop 1000                  __ptext0 FE36  
-                __ptext1 FD44                  __ptext2 FD9E                  __ptext3 FD64  
-                __ptext4 FD36                  __ptext5 FDD8                  __ptext6 FD20  
-                __ptext7 FD52                  __ptext8 FD2A                _T2CONbits 000FCA  
-         OpenADC@config2 0001     end_of_initialization FD24              _StartTimer2 FD44  
-              _PORTBbits 000F81                _PORTCbits 000F82                _PORTHbits 000F87  
-              _PORTJbits 000F88                _TRISGbits 000F98             ??_ConvertADC 0001  
-            _CCP4CONbits 000F73              _CCP5CONbits 000F70                _ConfigPWM FD52  
-     __end_of_ConvertADC FD24      start_initialization FD24                _SetDCPWM4 FD64  
-              _SetDCPWM5 FD9E          SetDCPWM4@DCycle 0005          SetDCPWM5@DCycle 0005  
-             ?_ConfigPWM 0001         __CFG_LPT1OSC$OFF 000000               ?_SetDCPWM4 0001  
-             ?_SetDCPWM5 0001                 ?_BusyADC 0001                 ?_ReadADC 0001  
-      OpenADC@portconfig 0002                 ?_OpenADC 0001            OpenADC@config 0005  
-               _LATAbits 000F89                 _LATDbits 000F8C                 _LATHbits 000F90  
-               _PIE1bits 000F9D                 _PIR1bits 000F9E    __CFG_DATABW$DATA16BIT 000000  
-       __CFG_WDTPS$32768 000000             ?_StartTimer2 0001              ??_ConfigPWM 0001  
-      __CFG_ECCPMX$PORTE 000000               _ADCON0bits 000FC2              ??_SetDCPWM4 0003  
-            ??_SetDCPWM5 0003         __size_of_BusyADC 000C         __size_of_ReadADC 000E  
-               __Hrparam 0000         __size_of_OpenADC 005E                 __Lrparam 0000  
-     SetDCPWM4@dutycycle 0001       SetDCPWM5@dutycycle 0001            __size_of_main 01CA  
-               main@freq 000D    __CFG_ADDRBW$ADDR20BIT 000000               _INTCONbits 000FF2  
-   __size_of_StartTimer2 000E              main@ADC_val 0009  
+          __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000           __CFG_BOREN$OFF 000000  
+                  status 000FD8          __initialization FCA4             __end_of_main 0000  
+           _Delay10KTCYx FCDA                   ??_main 0007            __activetblptr 000000  
+     __size_of_ConfigPWM 0012                   _CCPR4L 000F74                   _CCPR5L 000F71  
+        __CFG_BBSIZ$BB2K 000000       __size_of_SetDCPWM4 003A       __size_of_SetDCPWM5 003A  
+         __CFG_XINST$OFF 000000           __CFG_STVREN$ON 000000               __accesstop 0060  
+__end_of__initialization FCA4            ___rparam_used 000001        __end_of_ConfigPWM FCDA  
+         __pcstackCOMRAM 0001            ??_StartTimer2 0001        __end_of_SetDCPWM4 FD2A  
+      __end_of_SetDCPWM5 FD64       __CFG_CCP2MX$PORTBE 000000                  _CCP4CON 000F73  
+                _CCP5CON 000F70             ?_Delay1KTCYx 0001      __end_of_StartTimer2 FCB8  
+         main@duty_cycle 0007                  __Hparam 0000                  __Lparam 0000  
+                __pcinit FCA4                  __ramtop 1000                  __ptext0 FD64  
+                __ptext1 FCAA                  __ptext2 FD2A                  __ptext3 FCF0  
+                __ptext4 FCB8                  __ptext5 FCDA                  __ptext6 FCC8  
+              _T2CONbits 000FCA     end_of_initialization FCA4              _StartTimer2 FCAA  
+              _PORTJbits 000F88                _TRISGbits 000F98              _CCP4CONbits 000F73  
+            _CCP5CONbits 000F70                _ConfigPWM FCC8     __size_of_Delay1KTCYx 0010  
+    start_initialization FCA4                _SetDCPWM4 FCF0                _SetDCPWM5 FD2A  
+        SetDCPWM4@DCycle 0005          SetDCPWM5@DCycle 0005               ?_ConfigPWM 0001  
+       __CFG_LPT1OSC$OFF 000000               ?_SetDCPWM4 0001               ?_SetDCPWM5 0001  
+        Delay1KTCYx@unit 0001            ?_Delay10KTCYx 0001                 _LATAbits 000F89  
+               _LATDbits 000F8C                 _LATHbits 000F90                 _PIE1bits 000F9D  
+  __CFG_DATABW$DATA16BIT 000000         __CFG_WDTPS$32768 000000           ??_Delay10KTCYx 0001  
+           ?_StartTimer2 0001              ??_ConfigPWM 0001        __CFG_ECCPMX$PORTE 000000  
+            ??_SetDCPWM4 0003              ??_SetDCPWM5 0003         Delay10KTCYx@unit 0002  
+               __Hrparam 0000                 __Lrparam 0000       SetDCPWM4@dutycycle 0001  
+     SetDCPWM5@dutycycle 0001            __size_of_main 029C            ??_Delay1KTCYx 0001  
+  __CFG_ADDRBW$ADDR20BIT 000000     __end_of_Delay10KTCYx FCF0     __size_of_StartTimer2 000E  
+    __end_of_Delay1KTCYx FCC8  

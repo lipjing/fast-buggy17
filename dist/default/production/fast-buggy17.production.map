@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.38\dat\en_msgs.txt -cs \
   -h+dist/default/production\fast-buggy17.production.sym \
   --cmf=dist/default/production\fast-buggy17.production.cmf -z -Q18F8722 \
-  -oC:\Users\Jack\AppData\Local\Temp\s82o.2 \
+  -oC:\Users\Jack\AppData\Local\Temp\s8fg.2 \
   -Mdist/default/production/fast-buggy17.production.map -E1 -ver=XC8 \
   -ASTACK=060h-0f5fh -pstack=STACK -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=01000h-010FFhx496 \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Jack\AppData\Local\Temp\s82o.obj \
+  C:\Users\Jack\AppData\Local\Temp\s8fg.obj \
   dist/default/production\fast-buggy17.production.obj 
 
 Object code version is 3.11
@@ -39,38 +39,34 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Jack\AppData\Local\Temp\s82o.obj
+C:\Users\Jack\AppData\Local\Temp\s8fg.obj
                 end_init                              0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/production\fast-buggy17.production.obj
-                text8                             1FD2A    1FD2A        C     FE95       0
-                text7                             1FD52    1FD52       12     FEA9       0
-                text6                             1FD20    1FD20        4     FE90       0
-                text5                             1FDD8    1FDD8       5E     FEEC       0
-                text4                             1FD36    1FD36        E     FE9B       0
-                text3                             1FD64    1FD64       3A     FEB2       0
-                text2                             1FD9E    1FD9E       3A     FECF       0
-                text1                             1FD44    1FD44        E     FEA2       0
-                text0                             1FE36    1FE36      1CA     FF1B       0
-                cstackCOMRAM                          1        1        E        1       1
-                cinit                             1FD24    1FD24        6     FE92       0
+                text6                             1FCC8    1FCC8       12     FE64       0
+                text5                             1FCDA    1FCDA       16     FE6D       0
+                text4                             1FCB8    1FCB8       10     FE5C       0
+                text3                             1FCF0    1FCF0       3A     FE78       0
+                text2                             1FD2A    1FD2A       3A     FE95       0
+                text1                             1FCAA    1FCAA        E     FE55       0
+                text0                             1FD64    1FD64      29C     FEB2       0
+                cstackCOMRAM                          1        1        8        1       1
+                cinit                             1FCA4    1FCA4        6     FE52       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              0        0        4         0
-                text8                             1FD2A    1FD2A        C         0
-                text7                             1FD52    1FD52       12         0
-                text6                             1FD20    1FD20        4         0
-                text5                             1FDD8    1FDD8       5E         0
-                text4                             1FD36    1FD36        E         0
-                text3                             1FD64    1FD64       3A         0
-                text2                             1FD9E    1FD9E       3A         0
-                text1                             1FD44    1FD44        E         0
-                text0                             1FE36    1FE36      1CA         0
-                cinit                             1FD24    1FD24        6         0
+                text6                             1FCC8    1FCC8       12         0
+                text5                             1FCDA    1FCDA       16         0
+                text4                             1FCB8    1FCB8       10         0
+                text3                             1FCF0    1FCF0       3A         0
+                text2                             1FD2A    1FD2A       3A         0
+                text1                             1FCAA    1FCAA        E         0
+                text0                             1FD64    1FD64      29C         0
+                cinit                             1FCA4    1FCA4        6         0
 
         CLASS   CONST          
 
@@ -79,7 +75,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1        E         1
+                cstackCOMRAM                          1        1        8         1
 
         CLASS   ABS1           
 
@@ -136,17 +132,15 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  00000E  00000F         1       1  COMRAM  
-                text6                          01FD20  000004  01FD24      FE90       0  CODE    
-                cinit                          01FD24  000006  01FD2A      FE92       0  CODE    
-                text8                          01FD2A  00000C  01FD36      FE95       0  CODE    
-                text4                          01FD36  00000E  01FD44      FE9B       0  CODE    
-                text1                          01FD44  00000E  01FD52      FEA2       0  CODE    
-                text7                          01FD52  000012  01FD64      FEA9       0  CODE    
-                text3                          01FD64  00003A  01FD9E      FEB2       0  CODE    
-                text2                          01FD9E  00003A  01FDD8      FECF       0  CODE    
-                text5                          01FDD8  00005E  01FE36      FEEC       0  CODE    
-                text0                          01FE36  0001CA  020000      FF1B       0  CODE    
+                cstackCOMRAM                   000001  000008  000009         1       1  COMRAM  
+                cinit                          01FCA4  000006  01FCAA      FE52       0  CODE    
+                text1                          01FCAA  00000E  01FCB8      FE55       0  CODE    
+                text4                          01FCB8  000010  01FCC8      FE5C       0  CODE    
+                text6                          01FCC8  000012  01FCDA      FE64       0  CODE    
+                text5                          01FCDA  000016  01FCF0      FE6D       0  CODE    
+                text3                          01FCF0  00003A  01FD2A      FE78       0  CODE    
+                text2                          01FD2A  00003A  01FD64      FE95       0  CODE    
+                text0                          01FD64  00029C  020000      FEB2       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -170,62 +164,45 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           00000F-000F5F              F51
-        CODE             000004-01FD1F            1FD1C
-        COMRAM           00000F-00005F               51
-        CONST            000004-01FD1F            1FD1C
+        BIGRAM           000009-000F5F              F57
+        CODE             000004-01FCA3            1FCA0
+        COMRAM           000009-00005F               57
+        CONST            000004-01FCA3            1FCA0
         EEDATA           F00000-F003FF              400
         MEDIUMCONST      001000-00FFFF             F000
-                         011000-01FD1F             ED20
+                         011000-01FCA3             ECA4
         RAM              000060-000F5F              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       001000-01FD1F              100
+        SMALLCONST       001000-01FCA3              100
         STACK            000060-000F5F              F00
 
                                   Symbol Table
 
-?_ReadADC                cstackCOMRAM 000001
-OpenADC@config           cstackCOMRAM 000005
-OpenADC@config2          cstackCOMRAM 000001
-OpenADC@portconfig       cstackCOMRAM 000002
+Delay10KTCYx@unit        cstackCOMRAM 000002
+Delay1KTCYx@unit         cstackCOMRAM 000001
 SetDCPWM4@DCycle         cstackCOMRAM 000005
 SetDCPWM4@dutycycle      cstackCOMRAM 000001
 SetDCPWM5@DCycle         cstackCOMRAM 000005
 SetDCPWM5@dutycycle      cstackCOMRAM 000001
-_ADCON0                  (abs)        000FC2
-_ADCON0bits              (abs)        000FC2
-_ADCON1                  (abs)        000FC1
-_ADCON2                  (abs)        000FC0
-_ADRESH                  (abs)        000FC4
-_ADRESL                  (abs)        000FC3
-_BusyADC                 text8        01FD2A
 _CCP4CON                 (abs)        000F73
 _CCP4CONbits             (abs)        000F73
 _CCP5CON                 (abs)        000F70
 _CCP5CONbits             (abs)        000F70
 _CCPR4L                  (abs)        000F74
 _CCPR5L                  (abs)        000F71
-_ConfigPWM               text7        01FD52
-_ConvertADC              text6        01FD20
-_INTCONbits              (abs)        000FF2
+_ConfigPWM               text6        01FCC8
+_Delay10KTCYx            text5        01FCDA
+_Delay1KTCYx             text4        01FCB8
 _LATAbits                (abs)        000F89
 _LATDbits                (abs)        000F8C
 _LATF                    (abs)        000F8E
 _LATHbits                (abs)        000F90
-_OpenADC                 text5        01FDD8
 _PIE1bits                (abs)        000F9D
-_PIR1bits                (abs)        000F9E
-_PORTBbits               (abs)        000F81
-_PORTC                   (abs)        000F82
-_PORTCbits               (abs)        000F82
-_PORTH                   (abs)        000F87
-_PORTHbits               (abs)        000F87
 _PORTJbits               (abs)        000F88
 _PR2                     (abs)        000FCB
-_ReadADC                 text4        01FD36
-_SetDCPWM4               text3        01FD64
-_SetDCPWM5               text2        01FD9E
-_StartTimer2             text1        01FD44
+_SetDCPWM4               text3        01FCF0
+_SetDCPWM5               text2        01FD2A
+_StartTimer2             text1        01FCAA
 _T2CONbits               (abs)        000FCA
 _TRISA                   (abs)        000F92
 _TRISC                   (abs)        000F94
@@ -345,7 +322,7 @@ __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   000000
 __Hspace_0               (abs)        30000E
-__Hspace_1               (abs)        00000F
+__Hspace_1               (abs)        000009
 __Hspace_2               (abs)        000000
 __Hstack                 stack        000000
 __Hstruct                struct       000000
@@ -358,8 +335,6 @@ __Htext3                 text3        000000
 __Htext4                 text4        000000
 __Htext5                 text5        000000
 __Htext6                 text6        000000
-__Htext7                 text7        000000
-__Htext8                 text8        000000
 __LRAM                   (abs)        000001
 __Labs1                  abs1         000000
 __Lbank0                 bank0        000000
@@ -434,10 +409,8 @@ __Ltext3                 text3        000000
 __Ltext4                 text4        000000
 __Ltext5                 text5        000000
 __Ltext6                 text6        000000
-__Ltext7                 text7        000000
-__Ltext8                 text8        000000
 __S0                     (abs)        30000E
-__S1                     (abs)        00000F
+__S1                     (abs)        000009
 __S2                     (abs)        000000
 ___extmem_base           (abs)        020000
 ___inthi_sp              stack        000000
@@ -446,68 +419,57 @@ ___param_bank            (abs)        000010
 ___rparam_used           (abs)        000001
 ___sp                    stack        000000
 __accesstop              (abs)        000060
-__activetblptr           (abs)        000003
-__end_of_BusyADC         text8        01FD36
-__end_of_ConfigPWM       text7        01FD64
-__end_of_ConvertADC      text6        01FD24
-__end_of_OpenADC         text5        01FE36
-__end_of_ReadADC         text4        01FD44
-__end_of_SetDCPWM4       text3        01FD9E
-__end_of_SetDCPWM5       text2        01FDD8
-__end_of_StartTimer2     text1        01FD52
-__end_of__initialization cinit        01FD24
+__activetblptr           (abs)        000000
+__end_of_ConfigPWM       text6        01FCDA
+__end_of_Delay10KTCYx    text5        01FCF0
+__end_of_Delay1KTCYx     text4        01FCC8
+__end_of_SetDCPWM4       text3        01FD2A
+__end_of_SetDCPWM5       text2        01FD64
+__end_of_StartTimer2     text1        01FCB8
+__end_of__initialization cinit        01FCA4
 __end_of_main            text0        020000
-__initialization         cinit        01FD24
+__initialization         cinit        01FCA4
 __mediumconst            mediumconst  000000
-__pcinit                 cinit        01FD24
+__pcinit                 cinit        01FCA4
 __pcstackCOMRAM          cstackCOMRAM 000001
-__ptext0                 text0        01FE36
-__ptext1                 text1        01FD44
-__ptext2                 text2        01FD9E
-__ptext3                 text3        01FD64
-__ptext4                 text4        01FD36
-__ptext5                 text5        01FDD8
-__ptext6                 text6        01FD20
-__ptext7                 text7        01FD52
-__ptext8                 text8        01FD2A
+__ptext0                 text0        01FD64
+__ptext1                 text1        01FCAA
+__ptext2                 text2        01FD2A
+__ptext3                 text3        01FCF0
+__ptext4                 text4        01FCB8
+__ptext5                 text5        01FCDA
+__ptext6                 text6        01FCC8
 __ramtop                 ramtop       001000
-__size_of_BusyADC        (abs)        000000
 __size_of_ConfigPWM      (abs)        000000
-__size_of_ConvertADC     (abs)        000000
-__size_of_OpenADC        (abs)        000000
-__size_of_ReadADC        (abs)        000000
+__size_of_Delay10KTCYx   (abs)        000000
+__size_of_Delay1KTCYx    (abs)        000000
 __size_of_SetDCPWM4      (abs)        000000
 __size_of_SetDCPWM5      (abs)        000000
 __size_of_StartTimer2    (abs)        000000
 __size_of_main           (abs)        000000
 __smallconst             smallconst   000000
-_main                    text0        01FE36
-end_of_initialization    cinit        01FD24
+_main                    text0        01FD64
+end_of_initialization    cinit        01FCA4
 intlevel0                text         000000
 intlevel1                text         000000
 intlevel2                text         000000
 intlevel3                text         000000
-main@ADC_val             cstackCOMRAM 000009
-main@duty_cycle          cstackCOMRAM 00000B
-main@freq                cstackCOMRAM 00000D
+main@duty_cycle          cstackCOMRAM 000007
 stackhi                  (abs)        000F5F
 stacklo                  (abs)        000060
 start                    init         000000
-start_initialization     cinit        01FD24
+start_initialization     cinit        01FCA4
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 30 in file "PWM_gen_freq.c"
+		line 32 in file "TechDemo2_Test_Routine.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  freq            2   12[COMRAM] unsigned int 
-  duty_cycle      2   10[COMRAM] unsigned int 
-  ADC_val         2    8[COMRAM] unsigned int 
-  pr2_val         1    0        unsigned char 
+  duty_cycle      2    6[COMRAM] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -518,17 +480,15 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        8 bytes
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels required when called:    1
  This function calls:
-		_BusyADC
 		_ConfigPWM
-		_ConvertADC
-		_OpenADC
-		_ReadADC
+		_Delay10KTCYx
+		_Delay1KTCYx
 		_SetDCPWM4
 		_SetDCPWM5
 		_StartTimer2
@@ -539,7 +499,7 @@ Total ram usage:        8 bytes
 
  *************** function _StartTimer2 *****************
  Defined at:
-		line 147 in file "PWM_gen_freq.c"
+		line 181 in file "TechDemo2_Test_Routine.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -624,87 +584,56 @@ Total ram usage:        6 bytes
  This function uses a non-reentrant model
 
 
- *************** function _ReadADC *****************
+ *************** function _Delay1KTCYx *****************
  Defined at:
-		line 24 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcread.c"
+		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d1ktcyx.c"
  Parameters:    Size  Location     Type
-		None
+  unit            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  2    0[COMRAM] int 
- Registers used:
-		wreg, status,2
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        4 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _OpenADC *****************
- Defined at:
-		line 68 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcopen.c"
- Parameters:    Size  Location     Type
-  config          1    wreg     unsigned char 
-  config2         1    0[COMRAM] unsigned char 
-  portconfig      1    1[COMRAM] unsigned char 
- Auto vars:     Size  Location     Type
-  config          1    4[COMRAM] unsigned char 
+  unit            1    0[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        5 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _ConvertADC *****************
- Defined at:
-		line 22 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcconv.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		None
+		wreg
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _Delay10KTCYx *****************
+ Defined at:
+		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d10ktcyx.c"
+ Parameters:    Size  Location     Type
+  unit            1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  unit            1    1[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels used:    1
  This function calls:
 		Nothing
@@ -715,7 +644,7 @@ Total ram usage:        0 bytes
 
  *************** function _ConfigPWM *****************
  Defined at:
-		line 155 in file "PWM_gen_freq.c"
+		line 189 in file "TechDemo2_Test_Routine.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -724,35 +653,6 @@ Total ram usage:        0 bytes
                   1    wreg      void 
  Registers used:
 		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _BusyADC *****************
- Defined at:
-		line 26 in file "C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcbusy.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -775,45 +675,35 @@ Total ram usage:        0 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcread.c
-		_ReadADC       		CODE           	1FD36	0000	15
+C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d1ktcyx.c
+		_Delay1KTCYx   		CODE           	1FCB8	0000	17
 
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcread.c estimated size: 15
+C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d1ktcyx.c estimated size: 17
 
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcconv.c
-		_ConvertADC    		CODE           	1FD20	0000	5
+C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d10ktcyx.c
+		_Delay10KTCYx  		CODE           	1FCDA	0000	23
 
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcconv.c estimated size: 5
+C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d10ktcyx.c estimated size: 23
 
-PWM_gen_freq.c
-		_ConfigPWM     		CODE           	1FD52	0000	19
-		_main          		CODE           	1FE36	0000	459
-		_StartTimer2   		CODE           	1FD44	0000	15
+TechDemo2_Test_Routine.c
+		_ConfigPWM     		CODE           	1FCC8	0000	19
+		_main          		CODE           	1FD64	0000	669
+		_StartTimer2   		CODE           	1FCAA	0000	15
 
-PWM_gen_freq.c estimated size: 493
+TechDemo2_Test_Routine.c estimated size: 703
 
 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw5setdc.c
-		_SetDCPWM5     		CODE           	1FD9E	0000	59
+		_SetDCPWM5     		CODE           	1FD2A	0000	59
 
 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw5setdc.c estimated size: 59
 
 shared
-		__initialization		CODE           	1FD24	0000	1
+		__initialization		CODE           	1FCA4	0000	1
 
 shared estimated size: 1
 
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcbusy.c
-		_BusyADC       		CODE           	1FD2A	0000	13
-
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcbusy.c estimated size: 13
-
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcopen.c
-		_OpenADC       		CODE           	1FDD8	0000	95
-
-C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcopen.c estimated size: 95
-
 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw4setdc.c
-		_SetDCPWM4     		CODE           	1FD64	0000	59
+		_SetDCPWM4     		CODE           	1FCF0	0000	59
 
 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw4setdc.c estimated size: 59
 

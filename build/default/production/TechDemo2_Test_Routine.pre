@@ -8308,7 +8308,7 @@ LATDbits.LATD3 = 1;
 for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
 SetDCPWM4(duty_cycle);
 SetDCPWM5(duty_cycle);
-Delay1KTCYx(30);
+Delay1KTCYx(20);
 }
 
 Delay10KTCYx(250);
@@ -8326,7 +8326,7 @@ LATDbits.LATD3 = 0;
 for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
 SetDCPWM4(duty_cycle);
 SetDCPWM5(duty_cycle);
-Delay1KTCYx(30);
+Delay1KTCYx(20);
 }
 
 Delay10KTCYx(250);
@@ -8344,7 +8344,7 @@ LATDbits.LATD3 = 0;
 for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
 SetDCPWM4(duty_cycle);
 SetDCPWM5(duty_cycle);
-Delay1KTCYx(30);
+Delay1KTCYx(20);
 }
 
 Delay10KTCYx(250);
@@ -8362,7 +8362,7 @@ LATDbits.LATD3 = 1;
 for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
 SetDCPWM4(duty_cycle);
 SetDCPWM5(duty_cycle);
-Delay1KTCYx(30);
+Delay1KTCYx(20);
 }
 
 Delay10KTCYx(250);
@@ -8379,7 +8379,7 @@ LATDbits.LATD3 = 0;
 
 for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
 SetDCPWM4(duty_cycle);
-Delay1KTCYx(30);
+Delay1KTCYx(20);
 }
 
 Delay10KTCYx(250);
@@ -8395,7 +8395,7 @@ LATDbits.LATD3 = 1;
 
 for(duty_cycle = 500; duty_cycle > 263; duty_cycle--) {
 SetDCPWM5(duty_cycle);
-Delay1KTCYx(30);
+Delay1KTCYx(20);
 }
 
 Delay10KTCYx(250);

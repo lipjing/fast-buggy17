@@ -177,9 +177,9 @@
       </PICkit3PlatformTool>
       <item path="PWM_adj_DC.c" ex="true" overriding="false">
       </item>
-      <item path="PWM_ramp_test.c" ex="true" overriding="false">
+      <item path="PWM_gen_freq.c" ex="true" overriding="false">
       </item>
-      <item path="TechDemo2_Test_Routine.c" ex="true" overriding="false">
+      <item path="PWM_ramp_test.c" ex="true" overriding="false">
       </item>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>

@@ -71,16 +71,16 @@ void main(void) {
             MOTOR_L_DIR = 1;
             MOTOR_R_DIR = 1;
 
-            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {
+            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {        //Ramp up motor speed to demonstrate PWM control
                 SetDCPWM4(duty_cycle);
                 SetDCPWM5(duty_cycle);
-                Delay1KTCYx(30);            
+                Delay1KTCYx(20);            
             }
 
-            Delay10KTCYx(250);
+            Delay10KTCYx(250);      //2x 1 second delays to ensure buggy keeps doing particular movement for long enough to demonstrate
             Delay10KTCYx(250);
 
-            SetDCPWM4(MAX_PWM_DC);
+            SetDCPWM4(MAX_PWM_DC);  //Turn off both motors, step complete
             SetDCPWM5(MAX_PWM_DC);
 
             Delay10KTCYx(250);
@@ -89,16 +89,16 @@ void main(void) {
             MOTOR_L_DIR = 0;
             MOTOR_R_DIR = 0;
 
-            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {
+            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {        //Ramp up motor speed to demonstrate PWM control
                 SetDCPWM4(duty_cycle);
                 SetDCPWM5(duty_cycle);
-                Delay1KTCYx(30);            
+                Delay1KTCYx(20);            
             }
 
-            Delay10KTCYx(250);
+            Delay10KTCYx(250);      //2x 1 second delays to ensure buggy keeps doing particular movement for long enough to demonstrate
             Delay10KTCYx(250);
 
-            SetDCPWM4(MAX_PWM_DC);
+            SetDCPWM4(MAX_PWM_DC);  //Turn off both motors, step complete
             SetDCPWM5(MAX_PWM_DC);
 
             Delay10KTCYx(250);
@@ -107,16 +107,16 @@ void main(void) {
             MOTOR_L_DIR = 1;
             MOTOR_R_DIR = 0;
 
-            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {
+            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {        //Ramp up motor speed to demonstrate PWM control
                 SetDCPWM4(duty_cycle);
                 SetDCPWM5(duty_cycle);
-                Delay1KTCYx(30);            
+                Delay1KTCYx(20);            
             }
 
-            Delay10KTCYx(250);
+            Delay10KTCYx(250);      //2x 1 second delays to ensure buggy keeps doing particular movement for long enough to demonstrate
             Delay10KTCYx(250);
 
-            SetDCPWM4(MAX_PWM_DC);
+            SetDCPWM4(MAX_PWM_DC);  //Turn off both motors, step complete
             SetDCPWM5(MAX_PWM_DC);
 
             Delay10KTCYx(250);
@@ -125,16 +125,16 @@ void main(void) {
             MOTOR_L_DIR = 0;
             MOTOR_R_DIR = 1;
 
-            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {
+            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {        //Ramp up motor speed to demonstrate PWM control
                 SetDCPWM4(duty_cycle);
                 SetDCPWM5(duty_cycle);
-                Delay1KTCYx(30);            
+                Delay1KTCYx(20);            
             }
 
-            Delay10KTCYx(250);
+            Delay10KTCYx(250);      //2x 1 second delays to ensure buggy keeps doing particular movement for long enough to demonstrate
             Delay10KTCYx(250);
 
-            SetDCPWM4(MAX_PWM_DC);
+            SetDCPWM4(MAX_PWM_DC);  //Turn off both motors, step complete
             SetDCPWM5(MAX_PWM_DC);
 
             Delay10KTCYx(250);
@@ -143,15 +143,15 @@ void main(void) {
             MOTOR_L_DIR = 1;
             MOTOR_R_DIR = 0;
 
-            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {
+            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {        //Ramp up motor speed to demonstrate PWM control
                 SetDCPWM4(duty_cycle);
-                Delay1KTCYx(30);            
+                Delay1KTCYx(20);            
             }
 
-            Delay10KTCYx(250);
+            Delay10KTCYx(250);      //2x 1 second delays to ensure buggy keeps doing particular movement for long enough to demonstrate
             Delay10KTCYx(250);
 
-            SetDCPWM4(MAX_PWM_DC);
+            SetDCPWM4(MAX_PWM_DC);  //Turn off motor, step complete
 
             Delay10KTCYx(250);
 
@@ -159,15 +159,15 @@ void main(void) {
             MOTOR_L_DIR = 0;
             MOTOR_R_DIR = 1;
 
-            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {
+            for(duty_cycle = SPEED_STOP; duty_cycle > SPEED_LOW; duty_cycle--) {        //Ramp up motor speed to demonstrate PWM control
                 SetDCPWM5(duty_cycle);
-                Delay1KTCYx(30);            
+                Delay1KTCYx(20);            
             }
 
-            Delay10KTCYx(250);
+            Delay10KTCYx(250);      //2x 1 second delays to ensure buggy keeps doing particular movement for long enough to demonstrate
             Delay10KTCYx(250);
 
-            SetDCPWM5(MAX_PWM_DC);
+            SetDCPWM5(MAX_PWM_DC);  //Turn off motor, step complete
 
             Delay10KTCYx(250);
 
