@@ -210,69 +210,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTH `Vuc ~T0 @X0 0 e@3975 ]
 "2927
 [v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
-"2780
-[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S141 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"2790
-[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S142 . INT0 INT1 INT2 INT3 KBI0 KBI1 KBI2 KBI3 ]
-"2800
-[s S143 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S143 . FLT0 . ECCP2 ]
-"2805
-[s S144 :3 `uc 1 :1 `uc 1 ]
-[n S144 . . CCP2 ]
-"2809
-[s S145 :3 `uc 1 :1 `uc 1 ]
-[n S145 . . P2A ]
-"2813
-[s S146 :3 `uc 1 :1 `uc 1 ]
-[n S146 . . CCP2_PA2 ]
-"2779
-[u S140 `S141 1 `S142 1 `S143 1 `S144 1 `S145 1 `S146 1 ]
-[n S140 . . . . . . . ]
-"2818
-[v _PORTBbits `VS140 ~T0 @X0 0 e@3969 ]
-"4325
-[s S215 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S215 . RJ0 RJ1 RJ2 RJ3 RJ4 RJ5 RJ6 RJ7 ]
-"4335
-[s S216 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S216 . ALE OE WRL WRH BA0 CE LB UB ]
-"4345
-[s S217 :1 `uc 1 :1 `uc 1 ]
-[n S217 . . NOT_OE ]
-"4349
-[s S218 :2 `uc 1 :1 `uc 1 ]
-[n S218 . . NOT_WRL ]
-"4353
-[s S219 :3 `uc 1 :1 `uc 1 ]
-[n S219 . . NOT_WRH ]
-"4357
-[s S220 :5 `uc 1 :1 `uc 1 ]
-[n S220 . . NOT_CE ]
-"4361
-[s S221 :6 `uc 1 :1 `uc 1 ]
-[n S221 . . NOT_LB ]
-"4365
-[s S222 :7 `uc 1 :1 `uc 1 ]
-[n S222 . . NOT_UB ]
-"4369
-[s S223 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S223 . . nOE nWRL nWRH . nCE nLB nUB ]
-"4324
-[u S214 `S215 1 `S216 1 `S217 1 `S218 1 `S219 1 `S220 1 `S221 1 `S222 1 `S223 1 ]
-[n S214 . . . . . . . . . . ]
-"4380
-[v _PORTJbits `VS214 ~T0 @X0 0 e@3976 ]
 "12356
 [v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
-"2016 C:\Program Files (x86)\Microchip\xc8\v1.38\include\plib\adc.h
-[v _ConvertADC `(v ~T0 @X0 0 ef ]
-"2014
-[v _BusyADC `(uc ~T0 @X0 0 ef ]
-"2026
-[v _ReadADC `(i ~T0 @X0 0 ef ]
+"37 C:\Program Files (x86)\Microchip\xc8\v1.38\include\plib\delays.h
+[v _Delay10KTCYx `(v ~T0 @X0 0 ef1`uc ]
 "7720 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
 [s S372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S372 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE PSPIE ]
@@ -6772,12 +6713,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PWM_gen_freq.c: 69: T2CONbits.T2CKPS0 = 1;
 "69
 [e = . . _T2CONbits 1 0 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 71: SetDCPWM4(512);
+[; ;PWM_gen_freq.c: 71: SetDCPWM4(391);
 "71
-[e ( _SetDCPWM4 (1 -> -> 512 `i `ui ]
-[; ;PWM_gen_freq.c: 72: SetDCPWM5(512);
+[e ( _SetDCPWM4 (1 -> -> 391 `i `ui ]
+[; ;PWM_gen_freq.c: 72: SetDCPWM5(391);
 "72
-[e ( _SetDCPWM5 (1 -> -> 512 `i `ui ]
+[e ( _SetDCPWM5 (1 -> -> 391 `i `ui ]
 [; ;PWM_gen_freq.c: 74: freq = 800;
 "74
 [e = _freq -> -> 800 `i `ui ]
@@ -6803,254 +6744,253 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PWM_gen_freq.c: 85: LATF = (PORTH & 0xF0) | ((PORTC >> 2) & 0x0F);
 "85
 [e = _LATF -> | & -> _PORTH `i -> 240 `i & >> -> _PORTC `i -> 2 `i -> 15 `i `uc ]
-[; ;PWM_gen_freq.c: 87: if(PORTBbits.RB0 == 0) {
-"87
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 750  ]
-{
-[; ;PWM_gen_freq.c: 88: if(freq < 2400) {
-"88
-[e $ ! < _freq -> -> 2400 `i `ui 751  ]
-{
-[; ;PWM_gen_freq.c: 89: freq += 200;
-"89
-[e =+ _freq -> -> 200 `i `ui ]
-"90
-}
-[; ;PWM_gen_freq.c: 90: }
-[e $U 752  ]
-"91
-[e :U 751 ]
-[; ;PWM_gen_freq.c: 91: else {
-{
-"93
-}
-[e :U 752 ]
-"94
-}
-[; ;PWM_gen_freq.c: 93: }
-[; ;PWM_gen_freq.c: 94: }
-[e $U 753  ]
-"95
-[e :U 750 ]
-[; ;PWM_gen_freq.c: 95: else if(PORTJbits.RJ5 == 0) {
-[e $ ! == -> . . _PORTJbits 0 5 `i -> 0 `i 754  ]
-{
-[; ;PWM_gen_freq.c: 96: if(freq > 800) {
-"96
-[e $ ! > _freq -> -> 800 `i `ui 755  ]
-{
-[; ;PWM_gen_freq.c: 97: freq -= 200;
-"97
-[e =- _freq -> -> 200 `i `ui ]
-"98
-}
-[; ;PWM_gen_freq.c: 98: }
-[e $U 756  ]
-"99
-[e :U 755 ]
-[; ;PWM_gen_freq.c: 99: else {
-{
-"101
-}
-[e :U 756 ]
-"102
-}
-[e :U 754 ]
-"104
-[e :U 753 ]
-[; ;PWM_gen_freq.c: 101: }
-[; ;PWM_gen_freq.c: 102: }
-[; ;PWM_gen_freq.c: 104: switch(freq) {
-[e $U 758  ]
-{
-[; ;PWM_gen_freq.c: 105: case(800) :
-"105
-[e :U 759 ]
-[; ;PWM_gen_freq.c: 106: PR2 = 194;
-"106
-[e = _PR2 -> -> 194 `i `uc ]
-[; ;PWM_gen_freq.c: 107: break;
+[; ;PWM_gen_freq.c: 107: for (freq = 800; freq <= 2400; freq += 200) {
 "107
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 108: case(1000) :
+{
+[e = _freq -> -> 800 `i `ui ]
+[e $ <= _freq -> -> 2400 `i `ui 750  ]
+[e $U 751  ]
+[e :U 750 ]
+{
+[; ;PWM_gen_freq.c: 108: switch (freq) {
 "108
-[e :U 760 ]
-[; ;PWM_gen_freq.c: 109: PR2 = 155;
+[e $U 754  ]
+{
+[; ;PWM_gen_freq.c: 109: case(800):
 "109
-[e = _PR2 -> -> 155 `i `uc ]
-[; ;PWM_gen_freq.c: 110: break;
+[e :U 755 ]
+[; ;PWM_gen_freq.c: 110: PR2 = 194;
 "110
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 111: case(1200) :
+[e = _PR2 -> -> 194 `i `uc ]
+[; ;PWM_gen_freq.c: 111: SetDCPWM4(391);
 "111
-[e :U 761 ]
-[; ;PWM_gen_freq.c: 112: PR2 = 129;
+[e ( _SetDCPWM4 (1 -> -> 391 `i `ui ]
+[; ;PWM_gen_freq.c: 112: SetDCPWM5(391);
 "112
-[e = _PR2 -> -> 129 `i `uc ]
+[e ( _SetDCPWM5 (1 -> -> 391 `i `ui ]
 [; ;PWM_gen_freq.c: 113: break;
 "113
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 114: case(1400) :
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 114: case(1000):
 "114
-[e :U 762 ]
-[; ;PWM_gen_freq.c: 115: PR2 = 110;
+[e :U 756 ]
+[; ;PWM_gen_freq.c: 115: PR2 = 155;
 "115
-[e = _PR2 -> -> 110 `i `uc ]
-[; ;PWM_gen_freq.c: 116: break;
+[e = _PR2 -> -> 155 `i `uc ]
+[; ;PWM_gen_freq.c: 116: SetDCPWM4(312);
 "116
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 117: case(1600) :
+[e ( _SetDCPWM4 (1 -> -> 312 `i `ui ]
+[; ;PWM_gen_freq.c: 117: SetDCPWM5(312);
 "117
-[e :U 763 ]
-[; ;PWM_gen_freq.c: 118: PR2 = 97;
+[e ( _SetDCPWM5 (1 -> -> 312 `i `ui ]
+[; ;PWM_gen_freq.c: 118: break;
 "118
-[e = _PR2 -> -> 97 `i `uc ]
-[; ;PWM_gen_freq.c: 119: break;
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 119: case(1200):
 "119
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 120: case(1800) :
+[e :U 757 ]
+[; ;PWM_gen_freq.c: 120: PR2 = 129;
 "120
-[e :U 764 ]
-[; ;PWM_gen_freq.c: 121: PR2 = 86;
+[e = _PR2 -> -> 129 `i `uc ]
+[; ;PWM_gen_freq.c: 121: SetDCPWM4(260);
 "121
-[e = _PR2 -> -> 86 `i `uc ]
-[; ;PWM_gen_freq.c: 122: break;
+[e ( _SetDCPWM4 (1 -> -> 260 `i `ui ]
+[; ;PWM_gen_freq.c: 122: SetDCPWM5(260);
 "122
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 123: case(2000) :
+[e ( _SetDCPWM5 (1 -> -> 260 `i `ui ]
+[; ;PWM_gen_freq.c: 123: break;
 "123
-[e :U 765 ]
-[; ;PWM_gen_freq.c: 124: PR2 = 77;
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 124: case(1400):
 "124
-[e = _PR2 -> -> 77 `i `uc ]
-[; ;PWM_gen_freq.c: 125: break;
+[e :U 758 ]
+[; ;PWM_gen_freq.c: 125: PR2 = 110;
 "125
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 126: case(2200) :
+[e = _PR2 -> -> 110 `i `uc ]
+[; ;PWM_gen_freq.c: 126: SetDCPWM4(223);
 "126
-[e :U 766 ]
-[; ;PWM_gen_freq.c: 127: PR2 = 70;
+[e ( _SetDCPWM4 (1 -> -> 223 `i `ui ]
+[; ;PWM_gen_freq.c: 127: SetDCPWM5(223);
 "127
-[e = _PR2 -> -> 70 `i `uc ]
+[e ( _SetDCPWM5 (1 -> -> 223 `i `ui ]
 [; ;PWM_gen_freq.c: 128: break;
 "128
-[e $U 757  ]
-[; ;PWM_gen_freq.c: 129: case(2400) :
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 129: case(1600):
 "129
-[e :U 767 ]
-[; ;PWM_gen_freq.c: 130: PR2 = 64;
+[e :U 759 ]
+[; ;PWM_gen_freq.c: 130: PR2 = 97;
 "130
-[e = _PR2 -> -> 64 `i `uc ]
-[; ;PWM_gen_freq.c: 131: break;
+[e = _PR2 -> -> 97 `i `uc ]
+[; ;PWM_gen_freq.c: 131: SetDCPWM4(195);
 "131
-[e $U 757  ]
+[e ( _SetDCPWM4 (1 -> -> 195 `i `ui ]
+[; ;PWM_gen_freq.c: 132: SetDCPWM5(195);
 "132
-}
-[; ;PWM_gen_freq.c: 132: }
-[e $U 757  ]
-"104
-[e :U 758 ]
-[e [\ _freq , $ -> -> 800 `i `ui 759
- , $ -> -> 1000 `i `ui 760
- , $ -> -> 1200 `i `ui 761
- , $ -> -> 1400 `i `ui 762
- , $ -> -> 1600 `i `ui 763
- , $ -> -> 1800 `i `ui 764
- , $ -> -> 2000 `i `ui 765
- , $ -> -> 2200 `i `ui 766
- , $ -> -> 2400 `i `ui 767
- 757 ]
-"132
-[e :U 757 ]
-[; ;PWM_gen_freq.c: 134: ConvertADC();
+[e ( _SetDCPWM5 (1 -> -> 195 `i `ui ]
+[; ;PWM_gen_freq.c: 133: break;
+"133
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 134: case(1800):
 "134
-[e ( _ConvertADC ..  ]
-[; ;PWM_gen_freq.c: 136: while(BusyADC());
+[e :U 760 ]
+[; ;PWM_gen_freq.c: 135: PR2 = 86;
+"135
+[e = _PR2 -> -> 86 `i `uc ]
+[; ;PWM_gen_freq.c: 136: SetDCPWM4(174);
 "136
-[e $U 768  ]
-[e :U 769 ]
-[e :U 768 ]
-[e $ != -> ( _BusyADC ..  `i -> -> -> 0 `i `uc `i 769  ]
-[e :U 770 ]
-[; ;PWM_gen_freq.c: 138: ADC_val = ReadADC() & 0x03FF;
+[e ( _SetDCPWM4 (1 -> -> 174 `i `ui ]
+[; ;PWM_gen_freq.c: 137: SetDCPWM5(174);
+"137
+[e ( _SetDCPWM5 (1 -> -> 174 `i `ui ]
+[; ;PWM_gen_freq.c: 138: break;
 "138
-[e = _ADC_val -> & ( _ReadADC ..  -> 1023 `i `ui ]
-[; ;PWM_gen_freq.c: 139: duty_cycle = ((ADC_val * 2) >> 2) & 0x03FF;
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 139: case(2000):
 "139
-[e = _duty_cycle & >> * _ADC_val -> -> 2 `i `ui -> 2 `i -> -> 1023 `i `ui ]
-[; ;PWM_gen_freq.c: 142: SetDCPWM4(duty_cycle);
+[e :U 761 ]
+[; ;PWM_gen_freq.c: 140: PR2 = 77;
+"140
+[e = _PR2 -> -> 77 `i `uc ]
+[; ;PWM_gen_freq.c: 141: SetDCPWM4(156);
+"141
+[e ( _SetDCPWM4 (1 -> -> 156 `i `ui ]
+[; ;PWM_gen_freq.c: 142: SetDCPWM5(156);
 "142
-[e ( _SetDCPWM4 (1 _duty_cycle ]
-[; ;PWM_gen_freq.c: 143: SetDCPWM5(duty_cycle);
+[e ( _SetDCPWM5 (1 -> -> 156 `i `ui ]
+[; ;PWM_gen_freq.c: 143: break;
 "143
-[e ( _SetDCPWM5 (1 _duty_cycle ]
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 144: case(2200):
 "144
+[e :U 762 ]
+[; ;PWM_gen_freq.c: 145: PR2 = 70;
+"145
+[e = _PR2 -> -> 70 `i `uc ]
+[; ;PWM_gen_freq.c: 146: SetDCPWM4(142);
+"146
+[e ( _SetDCPWM4 (1 -> -> 142 `i `ui ]
+[; ;PWM_gen_freq.c: 147: SetDCPWM5(142);
+"147
+[e ( _SetDCPWM5 (1 -> -> 142 `i `ui ]
+[; ;PWM_gen_freq.c: 148: break;
+"148
+[e $U 753  ]
+[; ;PWM_gen_freq.c: 149: case(2400):
+"149
+[e :U 763 ]
+[; ;PWM_gen_freq.c: 150: PR2 = 64;
+"150
+[e = _PR2 -> -> 64 `i `uc ]
+[; ;PWM_gen_freq.c: 151: SetDCPWM4(130);
+"151
+[e ( _SetDCPWM4 (1 -> -> 130 `i `ui ]
+[; ;PWM_gen_freq.c: 152: SetDCPWM5(130);
+"152
+[e ( _SetDCPWM5 (1 -> -> 130 `i `ui ]
+[; ;PWM_gen_freq.c: 153: break;
+"153
+[e $U 753  ]
+"154
+}
+[; ;PWM_gen_freq.c: 154: }
+[e $U 753  ]
+"108
+[e :U 754 ]
+[e [\ _freq , $ -> -> 800 `i `ui 755
+ , $ -> -> 1000 `i `ui 756
+ , $ -> -> 1200 `i `ui 757
+ , $ -> -> 1400 `i `ui 758
+ , $ -> -> 1600 `i `ui 759
+ , $ -> -> 1800 `i `ui 760
+ , $ -> -> 2000 `i `ui 761
+ , $ -> -> 2200 `i `ui 762
+ , $ -> -> 2400 `i `ui 763
+ 753 ]
+"154
+[e :U 753 ]
+[; ;PWM_gen_freq.c: 155: Delay10KTCYx(250);
+"155
+[e ( _Delay10KTCYx (1 -> -> 250 `i `uc ]
+[; ;PWM_gen_freq.c: 156: Delay10KTCYx(250);
+"156
+[e ( _Delay10KTCYx (1 -> -> 250 `i `uc ]
+"157
+}
+"107
+[e =+ _freq -> -> 200 `i `ui ]
+[e $ <= _freq -> -> 2400 `i `ui 750  ]
+[e :U 751 ]
+"157
+}
+"169
 }
 [e :U 747 ]
 "76
 [e $U 748  ]
 [e :U 749 ]
-[; ;PWM_gen_freq.c: 144: }
-[; ;PWM_gen_freq.c: 145: }
-"145
+[; ;PWM_gen_freq.c: 157: }
+[; ;PWM_gen_freq.c: 169: }
+[; ;PWM_gen_freq.c: 170: }
+"170
 [e :UE 746 ]
 }
-"147
+"172
 [v _StartTimer2 `(v ~T0 @X0 1 ef ]
 {
-[; ;PWM_gen_freq.c: 147: void StartTimer2(void) {
+[; ;PWM_gen_freq.c: 172: void StartTimer2(void) {
 [e :U _StartTimer2 ]
 [f ]
-[; ;PWM_gen_freq.c: 148: PIE1bits.TMR2IE = 0;
-"148
+[; ;PWM_gen_freq.c: 173: PIE1bits.TMR2IE = 0;
+"173
 [e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 149: T2CONbits.T2CKPS1 = 0;
-"149
+[; ;PWM_gen_freq.c: 174: T2CONbits.T2CKPS1 = 0;
+"174
 [e = . . _T2CONbits 1 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 150: T2CONbits.T2CKPS0 = 0;
-"150
+[; ;PWM_gen_freq.c: 175: T2CONbits.T2CKPS0 = 0;
+"175
 [e = . . _T2CONbits 1 0 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 151: T2CONbits.TMR2ON = 1;
-"151
+[; ;PWM_gen_freq.c: 176: T2CONbits.TMR2ON = 1;
+"176
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 152: PR2 = 130;
-"152
+[; ;PWM_gen_freq.c: 177: PR2 = 130;
+"177
 [e = _PR2 -> -> 130 `i `uc ]
-[; ;PWM_gen_freq.c: 153: }
-"153
-[e :UE 771 ]
+[; ;PWM_gen_freq.c: 178: }
+"178
+[e :UE 764 ]
 }
-"155
+"180
 [v _ConfigPWM `(v ~T0 @X0 1 ef ]
 {
-[; ;PWM_gen_freq.c: 155: void ConfigPWM(void) {
+[; ;PWM_gen_freq.c: 180: void ConfigPWM(void) {
 [e :U _ConfigPWM ]
 [f ]
-[; ;PWM_gen_freq.c: 156: CCP4CONbits.CCP4M3 = 1;
-"156
+[; ;PWM_gen_freq.c: 181: CCP4CONbits.CCP4M3 = 1;
+"181
 [e = . . _CCP4CONbits 1 3 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 157: CCP4CONbits.CCP4M2 = 1;
-"157
+[; ;PWM_gen_freq.c: 182: CCP4CONbits.CCP4M2 = 1;
+"182
 [e = . . _CCP4CONbits 1 2 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 158: CCP4CONbits.CCP4M1 = 0;
-"158
+[; ;PWM_gen_freq.c: 183: CCP4CONbits.CCP4M1 = 0;
+"183
 [e = . . _CCP4CONbits 1 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 159: CCP4CONbits.CCP4M0 = 0;
-"159
+[; ;PWM_gen_freq.c: 184: CCP4CONbits.CCP4M0 = 0;
+"184
 [e = . . _CCP4CONbits 1 0 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 161: CCP5CONbits.CCP5M3 = 1;
-"161
+[; ;PWM_gen_freq.c: 186: CCP5CONbits.CCP5M3 = 1;
+"186
 [e = . . _CCP5CONbits 1 3 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 162: CCP5CONbits.CCP5M2 = 1;
-"162
+[; ;PWM_gen_freq.c: 187: CCP5CONbits.CCP5M2 = 1;
+"187
 [e = . . _CCP5CONbits 1 2 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 163: CCP5CONbits.CCP5M1 = 0;
-"163
+[; ;PWM_gen_freq.c: 188: CCP5CONbits.CCP5M1 = 0;
+"188
 [e = . . _CCP5CONbits 1 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 164: CCP5CONbits.CCP5M0 = 0;
-"164
+[; ;PWM_gen_freq.c: 189: CCP5CONbits.CCP5M0 = 0;
+"189
 [e = . . _CCP5CONbits 1 0 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 165: }
-"165
-[e :UE 772 ]
+[; ;PWM_gen_freq.c: 190: }
+"190
+[e :UE 765 ]
 }

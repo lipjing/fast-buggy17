@@ -65,11 +65,11 @@ void main(void) {
     StartTimer2();
     ConfigPWM();
     
-    T2CONbits.T2CKPS1 = 1;
+    T2CONbits.T2CKPS1 = 1;      //Set Timer2 pre-scaler to 1:16 (overrides setting made by StartTimer2 function)
     T2CONbits.T2CKPS0 = 1;
     
-    SetDCPWM4(DC_50);
-    SetDCPWM5(DC_50);
+    SetDCPWM4(391);
+    SetDCPWM5(391);
     
     freq = 800;
     
@@ -83,64 +83,59 @@ void main(void) {
         MOTOR_R_DIR  = PORTHbits.RH4;
 
         LATF = (PORTH & 0xF0) | ((PORTC >> 2) & 0x0F);  //Display switch configuration on LEDs
-
-        if(PORTBbits.RB0 == 0) {
-            if(freq < 2400) {
-                freq += 200;
+       
+        for (freq = 800; freq <= 2400; freq += 200) {   //Steps through frequencies 800Hz-2.4kHz in 200Hz steps, with a 2 second pause between increments
+            switch (freq) {             //Switch block to set the PR2 and duty cycle register values for each frequency
+                case(800):
+                    PR2 = 194;
+                    SetDCPWM4(391);
+                    SetDCPWM5(391);
+                    break;
+                case(1000):
+                    PR2 = 155;
+                    SetDCPWM4(312);
+                    SetDCPWM5(312);
+                    break;
+                case(1200):
+                    PR2 = 129;
+                    SetDCPWM4(260);
+                    SetDCPWM5(260);
+                    break;
+                case(1400):
+                    PR2 = 110;
+                    SetDCPWM4(223);
+                    SetDCPWM5(223);
+                    break;
+                case(1600):
+                    PR2 = 97;
+                    SetDCPWM4(195);
+                    SetDCPWM5(195);
+                    break;
+                case(1800):
+                    PR2 = 86;
+                    SetDCPWM4(174);
+                    SetDCPWM5(174);
+                    break;
+                case(2000):
+                    PR2 = 77;
+                    SetDCPWM4(156);
+                    SetDCPWM5(156);
+                    break;
+                case(2200):
+                    PR2 = 70;
+                    SetDCPWM4(142);
+                    SetDCPWM5(142);
+                    break;
+                case(2400):
+                    PR2 = 64;
+                    SetDCPWM4(130);
+                    SetDCPWM5(130);
+                    break;
             }
-            else {
-                
-            }            
-        }
-        else if(PORTJbits.RJ5 == 0) {
-            if(freq > 800) {
-                freq -= 200;
-            }
-            else {
-                
-            }
+            Delay10KTCYx(250);
+            Delay10KTCYx(250);
         }
         
-        switch(freq) {
-            case(800) :
-                PR2 = 194;
-                break;
-            case(1000) :
-                PR2 = 155;
-                break;
-            case(1200) :
-                PR2 = 129;
-                break;
-            case(1400) :
-                PR2 = 110;
-                break;
-            case(1600) :
-                PR2 = 97;
-                break;
-            case(1800) :
-                PR2 = 86;
-                break;
-            case(2000) :
-                PR2 = 77;
-                break;
-            case(2200) :
-                PR2 = 70;
-                break;
-            case(2400) :
-                PR2 = 64;
-                break;
-        }
-        
-        ConvertADC();       //Start an ADC conversion
-        
-        while(BusyADC());   //Loop until conversion is complete
-        
-        ADC_val = ReadADC() & 0x03FF;       //Read ADC value into ADC_val and mask off upper 6 bits to produce 10 bit value
-        duty_cycle = ((ADC_val * 2) >> 2) & 0x03FF;     //Scale ADC input to duty cycle for PWM. This operation is equivalent to: duty_cycle = ADC_val * 0.51
-        
-        //Set duty cycles of both PWM4/5 to control motor speed
-        SetDCPWM4(duty_cycle);
-        SetDCPWM5(duty_cycle);
     }
 }
 

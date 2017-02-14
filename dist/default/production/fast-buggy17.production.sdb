@@ -25,108 +25,169 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d10ktcyx.c
 [v _Delay10KTCYx Delay10KTCYx `(v  1 e 1 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d1ktcyx.c
-[v _Delay1KTCYx Delay1KTCYx `(v  1 e 1 0 ]
+"68 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcopen.c
+[v _OpenADC OpenADC `(v  1 e 1 0 ]
 "17 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw4setdc.c
 [v _SetDCPWM4 SetDCPWM4 `(v  1 e 1 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw5setdc.c
 [v _SetDCPWM5 SetDCPWM5 `(v  1 e 1 0 ]
-"32 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\TechDemo2_Test_Routine.c
+"30 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\PWM_gen_freq.c
 [v _main main `(v  1 e 1 0 ]
-"181
+"172
 [v _StartTimer2 StartTimer2 `(v  1 e 1 0 ]
-"189
+"180
 [v _ConfigPWM ConfigPWM `(v  1 e 1 0 ]
 "1676 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
 [v _CCP5CON CCP5CON `VEuc  1 e 1 @3952 ]
-[s S504 . 1 `uc 1 CCP5M 1 0 :4:0 
+[s S627 . 1 `uc 1 CCP5M 1 0 :4:0 
 `uc 1 DC5B 1 0 :2:4 
 ]
 "1692
-[s S507 . 1 `uc 1 CCP5M0 1 0 :1:0 
+[s S630 . 1 `uc 1 CCP5M0 1 0 :1:0 
 `uc 1 CCP5M1 1 0 :1:1 
 `uc 1 CCP5M2 1 0 :1:2 
 `uc 1 CCP5M3 1 0 :1:3 
 `uc 1 DCCP5Y 1 0 :1:4 
 `uc 1 DCCP5X 1 0 :1:5 
 ]
-[s S514 . 1 `uc 1 . 1 0 :4:0 
+[s S637 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 DC5B0 1 0 :1:4 
 `uc 1 DC5B1 1 0 :1:5 
 ]
-[u S518 . 1 `S504 1 . 1 0 `S507 1 . 1 0 `S514 1 . 1 0 ]
-[v _CCP5CONbits CCP5CONbits `VES518  1 e 1 @3952 ]
+[u S641 . 1 `S627 1 . 1 0 `S630 1 . 1 0 `S637 1 . 1 0 ]
+[v _CCP5CONbits CCP5CONbits `VES641  1 e 1 @3952 ]
 "1760
 [v _CCPR5L CCPR5L `VEuc  1 e 1 @3953 ]
 "1772
 [v _CCP4CON CCP4CON `VEuc  1 e 1 @3955 ]
-[s S471 . 1 `uc 1 CCP4M 1 0 :4:0 
+[s S594 . 1 `uc 1 CCP4M 1 0 :4:0 
 `uc 1 DC4B 1 0 :2:4 
 ]
 "1788
-[s S474 . 1 `uc 1 CCP4M0 1 0 :1:0 
+[s S597 . 1 `uc 1 CCP4M0 1 0 :1:0 
 `uc 1 CCP4M1 1 0 :1:1 
 `uc 1 CCP4M2 1 0 :1:2 
 `uc 1 CCP4M3 1 0 :1:3 
 `uc 1 DCCP4Y 1 0 :1:4 
 `uc 1 DCCP4X 1 0 :1:5 
 ]
-[s S481 . 1 `uc 1 . 1 0 :4:0 
+[s S604 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 DC4B0 1 0 :1:4 
 `uc 1 DC4B1 1 0 :1:5 
 ]
-[u S485 . 1 `S471 1 . 1 0 `S474 1 . 1 0 `S481 1 . 1 0 ]
-[v _CCP4CONbits CCP4CONbits `VES485  1 e 1 @3955 ]
+[u S608 . 1 `S594 1 . 1 0 `S597 1 . 1 0 `S604 1 . 1 0 ]
+[v _CCP4CONbits CCP4CONbits `VES608  1 e 1 @3955 ]
 "1856
 [v _CCPR4L CCPR4L `VEuc  1 e 1 @3956 ]
-[s S299 . 1 `uc 1 RJ0 1 0 :1:0 
-`uc 1 RJ1 1 0 :1:1 
-`uc 1 RJ2 1 0 :1:2 
-`uc 1 RJ3 1 0 :1:3 
-`uc 1 RJ4 1 0 :1:4 
-`uc 1 RJ5 1 0 :1:5 
-`uc 1 RJ6 1 0 :1:6 
-`uc 1 RJ7 1 0 :1:7 
+"2927
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+[s S443 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
 ]
-"4380
-[s S308 . 1 `uc 1 ALE 1 0 :1:0 
-`uc 1 OE 1 0 :1:1 
-`uc 1 WRL 1 0 :1:2 
-`uc 1 WRH 1 0 :1:3 
-`uc 1 BA0 1 0 :1:4 
-`uc 1 CE 1 0 :1:5 
-`uc 1 LB 1 0 :1:6 
-`uc 1 UB 1 0 :1:7 
+"2992
+[s S452 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 ECCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
 ]
-[s S317 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 NOT_OE 1 0 :1:1 
+[s S461 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 ECCP2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
 ]
-[s S320 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 NOT_WRL 1 0 :1:2 
+[s S470 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCL1 1 0 :1:3 
+`uc 1 SDA1 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK1 1 0 :1:6 
+`uc 1 DT1 1 0 :1:7 
 ]
-[s S323 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 NOT_WRH 1 0 :1:3 
+[s S479 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 P2A 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 SCK1 1 0 :1:3 
+`uc 1 SDI1 1 0 :1:4 
+`uc 1 SDO1 1 0 :1:5 
+`uc 1 TX1 1 0 :1:6 
+`uc 1 RX1 1 0 :1:7 
 ]
-[s S326 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 NOT_CE 1 0 :1:5 
+[s S488 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
 ]
-[s S329 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 NOT_LB 1 0 :1:6 
+[s S491 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
 ]
-[s S332 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 NOT_UB 1 0 :1:7 
+[u S494 . 1 `S443 1 . 1 0 `S452 1 . 1 0 `S461 1 . 1 0 `S470 1 . 1 0 `S479 1 . 1 0 `S488 1 . 1 0 `S491 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES494  1 e 1 @3970 ]
+"4109
+[v _PORTH PORTH `VEuc  1 e 1 @3975 ]
+[s S334 . 1 `uc 1 RH0 1 0 :1:0 
+`uc 1 RH1 1 0 :1:1 
+`uc 1 RH2 1 0 :1:2 
+`uc 1 RH3 1 0 :1:3 
+`uc 1 RH4 1 0 :1:4 
+`uc 1 RH5 1 0 :1:5 
+`uc 1 RH6 1 0 :1:6 
+`uc 1 RH7 1 0 :1:7 
 ]
-[s S335 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 nOE 1 0 :1:1 
-`uc 1 nWRL 1 0 :1:2 
-`uc 1 nWRH 1 0 :1:3 
-`uc 1 . 1 0 :1:4 
-`uc 1 nCE 1 0 :1:5 
-`uc 1 nLB 1 0 :1:6 
-`uc 1 nUB 1 0 :1:7 
+"4175
+[s S343 . 1 `uc 1 A16 1 0 :1:0 
+`uc 1 A17 1 0 :1:1 
+`uc 1 A18 1 0 :1:2 
+`uc 1 A19 1 0 :1:3 
+`uc 1 AN12 1 0 :1:4 
+`uc 1 AN13 1 0 :1:5 
+`uc 1 AN14 1 0 :1:6 
+`uc 1 AN15 1 0 :1:7 
 ]
-[u S344 . 1 `S299 1 . 1 0 `S308 1 . 1 0 `S317 1 . 1 0 `S320 1 . 1 0 `S323 1 . 1 0 `S326 1 . 1 0 `S329 1 . 1 0 `S332 1 . 1 0 `S335 1 . 1 0 ]
-[v _PORTJbits PORTJbits `VES344  1 e 1 @3976 ]
+[s S352 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 P3C 1 0 :1:4 
+`uc 1 P3B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1B 1 0 :1:7 
+]
+[s S358 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CCP6 1 0 :1:7 
+]
+[s S361 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CCP7 1 0 :1:6 
+]
+[s S364 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 CCP8 1 0 :1:5 
+]
+[s S367 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CCP9 1 0 :1:4 
+]
+[s S370 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 PB1 1 0 :1:7 
+]
+[s S373 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 PB3 1 0 :1:5 
+]
+[s S376 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PC1 1 0 :1:6 
+]
+[s S379 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 PC3 1 0 :1:4 
+]
+[u S382 . 1 `S334 1 . 1 0 `S343 1 . 1 0 `S352 1 . 1 0 `S358 1 . 1 0 `S361 1 . 1 0 `S364 1 . 1 0 `S367 1 . 1 0 `S370 1 . 1 0 `S373 1 . 1 0 `S376 1 . 1 0 `S379 1 . 1 0 ]
+[v _PORTHbits PORTHbits `VES382  1 e 1 @3975 ]
 [s S56 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
@@ -261,7 +322,7 @@
 [v _TRISH TRISH `VEuc  1 e 1 @3993 ]
 "7369
 [v _TRISJ TRISJ `VEuc  1 e 1 @3994 ]
-[s S410 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S562 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -271,19 +332,74 @@
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "7737
-[s S419 . 1 `uc 1 . 1 0 :3:0 
+[s S571 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIE 1 0 :1:3 
 `uc 1 TXIE 1 0 :1:4 
 `uc 1 RCIE 1 0 :1:5 
 ]
-[u S424 . 1 `S410 1 . 1 0 `S419 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES424  1 e 1 @3997 ]
-[s S442 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[u S576 . 1 `S562 1 . 1 0 `S571 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES576  1 e 1 @3997 ]
+[s S745 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"7845
+[s S754 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+[u S759 . 1 `S745 1 . 1 0 `S754 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES759  1 e 1 @3998 ]
+"10321
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"10391
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"10481
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S882 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"10529
+[s S885 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S892 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S895 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S902 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S905 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S908 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S911 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S914 . 1 `S882 1 . 1 0 `S885 1 . 1 0 `S882 1 . 1 0 `S892 1 . 1 0 `S895 1 . 1 0 `S902 1 . 1 0 `S905 1 . 1 0 `S908 1 . 1 0 `S911 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES914  1 e 1 @4034 ]
+[s S296 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "12307
-[s S446 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S300 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -291,28 +407,71 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S454 . 1 `S442 1 . 1 0 `S446 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES454  1 e 1 @4042 ]
+[u S308 . 1 `S296 1 . 1 0 `S300 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES308  1 e 1 @4042 ]
 "12356
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
-"32 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\TechDemo2_Test_Routine.c
+[s S795 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"13639
+[s S804 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S813 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S822 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S831 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S835 . 1 `S795 1 . 1 0 `S804 1 . 1 0 `S813 1 . 1 0 `S822 1 . 1 0 `S831 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES835  1 e 1 @4082 ]
+"30 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\PWM_gen_freq.c
 [v _main main `(v  1 e 1 0 ]
 {
-"34
-[v main@duty_cycle duty_cycle `ui  1 a 2 6 ]
-"179
+"32
+[v main@freq freq `ui  1 a 2 8 ]
+"170
 } 0
-"181
+"172
 [v _StartTimer2 StartTimer2 `(v  1 e 1 0 ]
 {
-"187
+"178
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw5setdc.c
 [v _SetDCPWM5 SetDCPWM5 `(v  1 e 1 0 ]
 {
-[u S608 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
+[u S980 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
 "17
-[v SetDCPWM5@DCycle DCycle `S608  1 a 2 4 ]
+[v SetDCPWM5@DCycle DCycle `S980  1 a 2 4 ]
 "15
 [v SetDCPWM5@dutycycle dutycycle `ui  1 p 2 0 ]
 "27
@@ -320,20 +479,25 @@
 "17 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\PWM\pw4setdc.c
 [v _SetDCPWM4 SetDCPWM4 `(v  1 e 1 0 ]
 {
-[u S608 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
+[u S980 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
 "19
-[v SetDCPWM4@DCycle DCycle `S608  1 a 2 4 ]
+[v SetDCPWM4@DCycle DCycle `S980  1 a 2 4 ]
 "17
 [v SetDCPWM4@dutycycle dutycycle `ui  1 p 2 0 ]
 "29
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d1ktcyx.c
-[v _Delay1KTCYx Delay1KTCYx `(v  1 e 1 0 ]
+"68 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\ADC\adcopen.c
+[v _OpenADC OpenADC `(v  1 e 1 0 ]
 {
-[v Delay1KTCYx@unit unit `uc  1 a 1 wreg ]
-[v Delay1KTCYx@unit unit `uc  1 a 1 wreg ]
-[v Delay1KTCYx@unit unit `uc  1 a 1 0 ]
-"13
+[v OpenADC@config config `uc  1 a 1 wreg ]
+[v OpenADC@config config `uc  1 a 1 wreg ]
+"69
+[v OpenADC@config2 config2 `uc  1 p 1 0 ]
+"70
+[v OpenADC@portconfig portconfig `uc  1 p 1 1 ]
+"72
+[v OpenADC@config config `uc  1 a 1 4 ]
+"89
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\d10ktcyx.c
 [v _Delay10KTCYx Delay10KTCYx `(v  1 e 1 0 ]
@@ -343,8 +507,8 @@
 [v Delay10KTCYx@unit unit `uc  1 a 1 1 ]
 "13
 } 0
-"189 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\TechDemo2_Test_Routine.c
+"180 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\PWM_gen_freq.c
 [v _ConfigPWM ConfigPWM `(v  1 e 1 0 ]
 {
-"199
+"190
 } 0

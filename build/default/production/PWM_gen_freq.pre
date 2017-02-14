@@ -8304,8 +8304,8 @@ ConfigPWM();
 T2CONbits.T2CKPS1 = 1;
 T2CONbits.T2CKPS0 = 1;
 
-SetDCPWM4(512);
-SetDCPWM5(512);
+SetDCPWM4(391);
+SetDCPWM5(391);
 
 freq = 800;
 
@@ -8320,63 +8320,60 @@ LATDbits.LATD3 = PORTHbits.RH4;
 
 LATF = (PORTH & 0xF0) | ((PORTC >> 2) & 0x0F);
 
-if(PORTBbits.RB0 == 0) {
-if(freq < 2400) {
-freq += 200;
-}
-else {
-
-}
-}
-else if(PORTJbits.RJ5 == 0) {
-if(freq > 800) {
-freq -= 200;
-}
-else {
-
-}
-}
-
-switch(freq) {
-case(800) :
+# 107
+for (freq = 800; freq <= 2400; freq += 200) {
+switch (freq) {
+case(800):
 PR2 = 194;
+SetDCPWM4(391);
+SetDCPWM5(391);
 break;
-case(1000) :
+case(1000):
 PR2 = 155;
+SetDCPWM4(312);
+SetDCPWM5(312);
 break;
-case(1200) :
+case(1200):
 PR2 = 129;
+SetDCPWM4(260);
+SetDCPWM5(260);
 break;
-case(1400) :
+case(1400):
 PR2 = 110;
+SetDCPWM4(223);
+SetDCPWM5(223);
 break;
-case(1600) :
+case(1600):
 PR2 = 97;
+SetDCPWM4(195);
+SetDCPWM5(195);
 break;
-case(1800) :
+case(1800):
 PR2 = 86;
+SetDCPWM4(174);
+SetDCPWM5(174);
 break;
-case(2000) :
+case(2000):
 PR2 = 77;
+SetDCPWM4(156);
+SetDCPWM5(156);
 break;
-case(2200) :
+case(2200):
 PR2 = 70;
+SetDCPWM4(142);
+SetDCPWM5(142);
 break;
-case(2400) :
+case(2400):
 PR2 = 64;
+SetDCPWM4(130);
+SetDCPWM5(130);
 break;
 }
+Delay10KTCYx(250);
+Delay10KTCYx(250);
+}
 
-ConvertADC();
-
-while(BusyADC());
-
-ADC_val = ReadADC() & 0x03FF;
-duty_cycle = ((ADC_val * 2) >> 2) & 0x03FF;
-
-
-SetDCPWM4(duty_cycle);
-SetDCPWM5(duty_cycle);
+# 169
 }
 }
 
