@@ -1,5 +1,5 @@
 
-# 1 "PWM_gen_freq.c"
+# 1 "Ultra2.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8185,7 +8185,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 
-# 7 "config_18f8722.h"
+# 35 "config_18f8722.h"
 #pragma config OSC = HS
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
@@ -8193,7 +8193,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config PWRT = OFF
 #pragma config BOREN = OFF
-#pragma config BORV = 3
+#pragma config BORV = 0
 
 
 #pragma config WDT = OFF
@@ -8206,13 +8206,13 @@ extern __nonreentrant void _delay3(unsigned char);
 #pragma config WAIT = OFF
 
 
-#pragma config CCP2MX = PORTBE
-#pragma config ECCPMX = PORTE
+#pragma config CCP2MX = PORTC
+#pragma config ECCPMX = PORTH
 #pragma config LPT1OSC = OFF
 #pragma config MCLRE = ON
 
 
-#pragma config STVREN = ON
+#pragma config STVREN = OFF
 #pragma config LVP = OFF
 #pragma config BBSIZ = BB2K
 #pragma config XINST = OFF
@@ -8259,140 +8259,84 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTRB = OFF
 
-# 27 "PWM_gen_freq.c"
-void StartTimer2(void);
-void ConfigPWM(void);
+# 9 "Ultra2.c"
+volatile unsigned int echo;
+volatile unsigned char echo_ready;
+
+float dist_cm;
+unsigned char dist_cm_hundreds, dist_cm_tens, dist_cm_units, dist_cm_tenths;
+
+void interrupt isr() {
+if(INTCONbits.RBIF == 1) {
+INTCONbits.RBIF = 0;
+if(PORTBbits.RB4 == 1) {
+WriteTimer0(0);
+T0CONbits.TMR0ON = 1;
+echo_ready = 0;
+}
+if(PORTBbits.RB4 == 0) {
+T0CONbits.TMR0ON = 0;
+echo = ReadTimer0();
+echo_ready = 1;
+INTCONbits.RBIE = 0;
+}
+}
+}
+
+void ConfigIO(void) {
+TRISE = 0xC0;
+LATE = 0x1F;
+
+TRISA = 0xFF;
+
+TRISB = 0xFF;
+
+TRISJ = 0x00;
+LATJ = 0x00;
+
+}
+
+void ConfigTimer0(void) {
+T0CON = 0x07;
+WriteTimer0(0);
+}
+
+void ConfigInterrupts(void) {
+RCONbits.IPEN = 0;
+INTCONbits.GIE = 1;
+INTCONbits.RBIE = 0;
+INTCONbits.RBIF = 0;
+
+}
+
+void GetDistance(void) {
+INTCONbits.RBIE = 1;
+LATEbits.LATE5 = 1;
+Delay1TCYx(37);
+LATEbits.LATE5 = 0;
+}
 
 void main(void) {
 
-unsigned int ADC_val, freq, duty_cycle;
-unsigned char pr2_val;
+ConfigIO();
+ConfigTimer0();
+ConfigInterrupts();
 
+while(1) {
 
-TRISD = 0xE0;
-TRISGbits.RG3 = 0;
-TRISGbits.RG4 = 0;
+GetDistance();
 
+LATJbits.LATJ0 = 1;
+Delay1KTCYx(100);
+LATJbits.LATJ0 = 0;
 
-TRISF = 0x00;
-TRISA = 0xEF;
-TRISH = 0xFC;
-TRISC = 0xFF;
-TRISJ = 0xBF;
+while(echo_ready != 1);
 
-LATF = 0x00;
-LATAbits.LATA4 = 0;
-LATHbits.LATH0 = 1;
-LATHbits.LATH1 = 1;
+dist_cm = 1.7 * echo;
+echo_ready = 0;
 
-LATDbits.LATD4 = 0;
-LATAbits.LATA4 = 1;
+Delay10KTCYx(100);
 
-
-OpenADC(0b10011111 &
-0b11111111 &
-0b11110001,
-0b10000111 &
-0b01111111 &
-0b11111110,
-14
-);
-
-StartTimer2();
-ConfigPWM();
-
-T2CONbits.T2CKPS1 = 1;
-T2CONbits.T2CKPS0 = 1;
-
-SetDCPWM4(391);
-SetDCPWM5(391);
-
-freq = 800;
-
-while (1) {
-
-
-LATDbits.LATD4 = PORTHbits.RH7;
-LATDbits.LATD0 = 1;
-LATDbits.LATD1 = PORTCbits.RC3;
-LATDbits.LATD2 = 1;
-LATDbits.LATD3 = PORTHbits.RH4;
-
-LATF = (PORTH & 0xF0) | ((PORTC >> 2) & 0x0F);
-
-# 107
-for (freq = 800; freq <= 2400; freq += 200) {
-switch (freq) {
-case(800):
-PR2 = 194;
-SetDCPWM4(391);
-SetDCPWM5(391);
-break;
-case(1000):
-PR2 = 155;
-SetDCPWM4(312);
-SetDCPWM5(312);
-break;
-case(1200):
-PR2 = 129;
-SetDCPWM4(260);
-SetDCPWM5(260);
-break;
-case(1400):
-PR2 = 110;
-SetDCPWM4(223);
-SetDCPWM5(223);
-break;
-case(1600):
-PR2 = 97;
-SetDCPWM4(195);
-SetDCPWM5(195);
-break;
-case(1800):
-PR2 = 86;
-SetDCPWM4(174);
-SetDCPWM5(174);
-break;
-case(2000):
-PR2 = 77;
-SetDCPWM4(156);
-SetDCPWM5(156);
-break;
-case(2200):
-PR2 = 70;
-SetDCPWM4(142);
-SetDCPWM5(142);
-break;
-case(2400):
-PR2 = 64;
-SetDCPWM4(130);
-SetDCPWM5(130);
-break;
-}
-Delay10KTCYx(250);
-Delay10KTCYx(250);
 }
 
-# 169
-}
-}
-
-void StartTimer2(void) {
-PIE1bits.TMR2IE = 0;
-T2CONbits.T2CKPS1 = 0;
-T2CONbits.T2CKPS0 = 0;
-T2CONbits.TMR2ON = 1;
-PR2 = 130;
-}
-
-void ConfigPWM(void) {
-CCP4CONbits.CCP4M3 = 1;
-CCP4CONbits.CCP4M2 = 1;
-CCP4CONbits.CCP4M1 = 0;
-CCP4CONbits.CCP4M0 = 0;
-
-CCP5CONbits.CCP5M3 = 1;
-CCP5CONbits.CCP5M2 = 1;
-CCP5CONbits.CCP5M1 = 0;
-CCP5CONbits.CCP5M0 = 0;
 }

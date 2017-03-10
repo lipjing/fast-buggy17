@@ -1,30 +1,112 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"13547 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
+[s S702 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S702 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"13557
+[s S703 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S703 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"13567
+[s S704 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S704 . . GIEL GIEH ]
+"13546
+[u S701 `S702 1 `S703 1 `S704 1 ]
+[n S701 . . . . ]
+"13573
+[v _INTCONbits `VS701 ~T0 @X0 0 e@4082 ]
+"2780
+[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S141 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"2790
+[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S142 . INT0 INT1 INT2 INT3 KBI0 KBI1 KBI2 KBI3 ]
+"2800
+[s S143 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S143 . FLT0 . ECCP2 ]
+"2805
+[s S144 :3 `uc 1 :1 `uc 1 ]
+[n S144 . . CCP2 ]
+"2809
+[s S145 :3 `uc 1 :1 `uc 1 ]
+[n S145 . . P2A ]
+"2813
+[s S146 :3 `uc 1 :1 `uc 1 ]
+[n S146 . . CCP2_PA2 ]
+"2779
+[u S140 `S141 1 `S142 1 `S143 1 `S144 1 `S145 1 `S146 1 ]
+[n S140 . . . . . . . ]
+"2818
+[v _PORTBbits `VS140 ~T0 @X0 0 e@3969 ]
+"15655
+[v _TMR1ON `Vb ~T0 @X0 0 e@32360 ]
+"12487
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
+"12493
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
 [p mainexit ]
-"6336 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
-[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"7010
-[s S348 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S348 . TRISG0 TRISG1 TRISG2 TRISG3 TRISG4 ]
-"7017
-[s S349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S349 . RG0 RG1 RG2 RG3 RG4 ]
-"7009
-[u S347 `S348 1 `S349 1 ]
-[n S347 . . . ]
-"7025
-[v _TRISGbits `VS347 ~T0 @X0 0 e@3992 ]
+"5905
+[s S318 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S318 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"5915
+[s S319 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S319 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"5904
+[u S317 `S318 1 `S319 1 ]
+[n S317 . . . ]
+"5926
+[v _TRISBbits `VS317 ~T0 @X0 0 e@3987 ]
+"12368
+[v _T1CON `Vuc ~T0 @X0 0 e@4045 ]
+"4662
+[s S235 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S235 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"4672
+[s S236 :1 `uc 1 ]
+[n S236 . LB0 ]
+"4675
+[s S237 :1 `uc 1 :1 `uc 1 ]
+[n S237 . . LB1 ]
+"4679
+[s S238 :2 `uc 1 :1 `uc 1 ]
+[n S238 . . LB2 ]
+"4683
+[s S239 :3 `uc 1 :1 `uc 1 ]
+[n S239 . . LB3 ]
+"4687
+[s S240 :4 `uc 1 :1 `uc 1 ]
+[n S240 . . LB4 ]
+"4691
+[s S241 :5 `uc 1 :1 `uc 1 ]
+[n S241 . . LB5 ]
+"4695
+[s S242 :6 `uc 1 :1 `uc 1 ]
+[n S242 . . LB6 ]
+"4699
+[s S243 :7 `uc 1 :1 `uc 1 ]
+[n S243 . . LB7 ]
+"4661
+[u S234 `S235 1 `S236 1 `S237 1 `S238 1 `S239 1 `S240 1 `S241 1 `S242 1 `S243 1 ]
+[n S234 . . . . . . . . . . ]
+"4704
+[v _LATBbits `VS234 ~T0 @X0 0 e@3978 ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.38\include\plib\delays.h
+[v _Delay1TCYx `(v ~T0 @X0 0 ef1`uc ]
+"31
+[v _Delay1KTCYx `(v ~T0 @X0 0 ef1`uc ]
+"10365 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "6778
 [v _TRISF `Vuc ~T0 @X0 0 e@3991 ]
-"5673
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"7148
-[v _TRISH `Vuc ~T0 @X0 0 e@3993 ]
-"6115
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"7369
-[v _TRISJ `Vuc ~T0 @X0 0 e@3994 ]
-"5184
-[v _LATF `Vuc ~T0 @X0 0 e@3982 ]
+"5684
+[s S312 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S312 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"5694
+[s S313 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S313 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"5683
+[u S311 `S312 1 `S313 1 ]
+[n S311 . . . ]
+"5705
+[v _TRISAbits `VS311 ~T0 @X0 0 e@3986 ]
 "4530
 [s S225 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S225 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
@@ -57,202 +139,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S224 . . . . . . . . . . ]
 "4572
 [v _LATAbits `VS224 ~T0 @X0 0 e@3977 ]
-"5415
-[s S292 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S292 . LATH0 LATH1 LATH2 LATH3 LATH4 LATH5 LATH6 LATH7 ]
-"5425
-[s S293 :1 `uc 1 ]
-[n S293 . LH0 ]
-"5428
-[s S294 :1 `uc 1 :1 `uc 1 ]
-[n S294 . . LH1 ]
-"5432
-[s S295 :2 `uc 1 :1 `uc 1 ]
-[n S295 . . LH2 ]
-"5436
-[s S296 :3 `uc 1 :1 `uc 1 ]
-[n S296 . . LH3 ]
-"5440
-[s S297 :4 `uc 1 :1 `uc 1 ]
-[n S297 . . LH4 ]
-"5444
-[s S298 :5 `uc 1 :1 `uc 1 ]
-[n S298 . . LH5 ]
-"5448
-[s S299 :6 `uc 1 :1 `uc 1 ]
-[n S299 . . LH6 ]
-"5452
-[s S300 :7 `uc 1 :1 `uc 1 ]
-[n S300 . . LH7 ]
-"5414
-[u S291 `S292 1 `S293 1 `S294 1 `S295 1 `S296 1 `S297 1 `S298 1 `S299 1 `S300 1 ]
-[n S291 . . . . . . . . . . ]
-"5457
-[v _LATHbits `VS291 ~T0 @X0 0 e@3984 ]
-"4926
-[s S255 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S255 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"4936
-[s S256 :1 `uc 1 ]
-[n S256 . LD0 ]
-"4939
-[s S257 :1 `uc 1 :1 `uc 1 ]
-[n S257 . . LD1 ]
-"4943
-[s S258 :2 `uc 1 :1 `uc 1 ]
-[n S258 . . LD2 ]
-"4947
-[s S259 :3 `uc 1 :1 `uc 1 ]
-[n S259 . . LD3 ]
-"4951
-[s S260 :4 `uc 1 :1 `uc 1 ]
-[n S260 . . LD4 ]
-"4955
-[s S261 :5 `uc 1 :1 `uc 1 ]
-[n S261 . . LD5 ]
-"4959
-[s S262 :6 `uc 1 :1 `uc 1 ]
-[n S262 . . LD6 ]
-"4963
-[s S263 :7 `uc 1 :1 `uc 1 ]
-[n S263 . . LD7 ]
-"4925
-[u S254 `S255 1 `S256 1 `S257 1 `S258 1 `S259 1 `S260 1 `S261 1 `S262 1 `S263 1 ]
-[n S254 . . . . . . . . . . ]
-"4968
-[v _LATDbits `VS254 ~T0 @X0 0 e@3980 ]
-"2040 C:\Program Files (x86)\Microchip\xc8\v1.38\include\plib\adc.h
-[v _OpenADC `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"27 PWM_gen_freq.c
-[v _StartTimer2 `(v ~T0 @X0 0 ef ]
-"28
-[v _ConfigPWM `(v ~T0 @X0 0 ef ]
-"12292 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
-[s S652 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S652 . T2CKPS TMR2ON TOUTPS ]
-"12297
-[s S653 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S653 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
-"12291
-[u S651 `S652 1 `S653 1 ]
-[n S651 . . . ]
-"12307
-[v _T2CONbits `VS651 ~T0 @X0 0 e@4042 ]
-"515 C:\Program Files (x86)\Microchip\xc8\v1.38\include\plib\pwm.h
-[v _SetDCPWM4 `(v ~T0 @X0 0 ef1`ui ]
-"519
-[v _SetDCPWM5 `(v ~T0 @X0 0 ef1`ui ]
-"4115 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
-[s S203 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S203 . RH0 RH1 RH2 RH3 RH4 RH5 RH6 RH7 ]
-"4125
-[s S204 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S204 . A16 A17 A18 A19 AN12 AN13 AN14 AN15 ]
-"4135
-[s S205 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S205 . . P3C P3B P1C P1B ]
-"4142
-[s S206 :7 `uc 1 :1 `uc 1 ]
-[n S206 . . CCP6 ]
-"4146
-[s S207 :6 `uc 1 :1 `uc 1 ]
-[n S207 . . CCP7 ]
-"4150
-[s S208 :5 `uc 1 :1 `uc 1 ]
-[n S208 . . CCP8 ]
-"4154
-[s S209 :4 `uc 1 :1 `uc 1 ]
-[n S209 . . CCP9 ]
-"4158
-[s S210 :7 `uc 1 :1 `uc 1 ]
-[n S210 . . PB1 ]
-"4162
-[s S211 :5 `uc 1 :1 `uc 1 ]
-[n S211 . . PB3 ]
-"4166
-[s S212 :6 `uc 1 :1 `uc 1 ]
-[n S212 . . PC1 ]
-"4170
-[s S213 :4 `uc 1 :1 `uc 1 ]
-[n S213 . . PC3 ]
-"4114
-[u S202 `S203 1 `S204 1 `S205 1 `S206 1 `S207 1 `S208 1 `S209 1 `S210 1 `S211 1 `S212 1 `S213 1 ]
-[n S202 . . . . . . . . . . . . ]
-"4175
-[v _PORTHbits `VS202 ~T0 @X0 0 e@3975 ]
-"2933
-[s S148 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S148 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"2943
-[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S149 . T1OSO T1OSI ECCP1 SCK SDI SDO TX RX ]
-"2953
-[s S150 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S150 . T13CKI ECCP2 . SCL SDA . CK DT ]
-"2963
-[s S151 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S151 . . CCP2 CCP1 SCL1 SDA1 . CK1 DT1 ]
-"2973
-[s S152 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S152 . . P2A P1A SCK1 SDI1 SDO1 TX1 RX1 ]
-"2983
-[s S153 :2 `uc 1 :1 `uc 1 ]
-[n S153 . . PA1 ]
-"2987
-[s S154 :1 `uc 1 :1 `uc 1 ]
-[n S154 . . PA2 ]
-"2932
-[u S147 `S148 1 `S149 1 `S150 1 `S151 1 `S152 1 `S153 1 `S154 1 ]
-[n S147 . . . . . . . . ]
-"2992
-[v _PORTCbits `VS147 ~T0 @X0 0 e@3970 ]
-"4109
-[v _PORTH `Vuc ~T0 @X0 0 e@3975 ]
-"2927
-[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
-"12356
-[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
+"5184
+[v _LATF `Vuc ~T0 @X0 0 e@3982 ]
 "37 C:\Program Files (x86)\Microchip\xc8\v1.38\include\plib\delays.h
 [v _Delay10KTCYx `(v ~T0 @X0 0 ef1`uc ]
-"7720 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f8722.h
-[s S372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S372 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE PSPIE ]
-"7730
-[s S373 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S373 . . SSPIE TXIE RCIE ]
-"7719
-[u S371 `S372 1 `S373 1 ]
-[n S371 . . . ]
-"7737
-[v _PIE1bits `VS371 ~T0 @X0 0 e@3997 ]
-"1770
-[s S90 :4 `uc 1 :2 `uc 1 ]
-[n S90 . CCP4M DC4B ]
-"1774
-[s S91 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S91 . CCP4M0 CCP4M1 CCP4M2 CCP4M3 DCCP4Y DCCP4X ]
-"1782
-[s S92 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S92 . . DC4B0 DC4B1 ]
-"1769
-[u S89 `S90 1 `S91 1 `S92 1 ]
-[n S89 . . . . ]
-"1788
-[v _CCP4CONbits `VS89 ~T0 @X0 0 e@3955 ]
-"1674
-[s S86 :4 `uc 1 :2 `uc 1 ]
-[n S86 . CCP5M DC5B ]
-"1678
-[s S87 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S87 . CCP5M0 CCP5M1 CCP5M2 CCP5M3 DCCP5Y DCCP5X ]
-"1686
-[s S88 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S88 . . DC5B0 DC5B1 ]
-"1673
-[u S85 `S86 1 `S87 1 `S88 1 ]
-[n S85 . . . . ]
-"1692
-[v _CCP5CONbits `VS85 ~T0 @X0 0 e@3952 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6533,464 +6423,160 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 157: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 159: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 161: extern __nonreentrant void _delay3(unsigned char);
-"7 config_18f8722.h
-[p x OSC=HS ]
-"8
-[p x FCMEN=OFF ]
-"9
-[p x IESO=OFF ]
-"12
-[p x PWRT=OFF ]
-"13
-[p x BOREN=OFF ]
-"14
-[p x BORV=3 ]
-"17
-[p x WDT=OFF ]
-"18
-[p x WDTPS=32768 ]
-"21
-[p x MODE=MC ]
-"22
-[p x ADDRBW=ADDR20BIT ]
-"23
-[p x DATABW=DATA16BIT ]
-"24
-[p x WAIT=OFF ]
-"27
-[p x CCP2MX=PORTBE ]
-"28
-[p x ECCPMX=PORTE ]
-"29
-[p x LPT1OSC=OFF ]
-"30
-[p x MCLRE=ON ]
-"33
-[p x STVREN=ON ]
-"34
-[p x LVP=OFF ]
-"35
-[p x BBSIZ=BB2K ]
-"36
-[p x XINST=OFF ]
-"39
-[p x CP0=OFF ]
-"40
-[p x CP1=OFF ]
-"41
-[p x CP2=OFF ]
-"42
-[p x CP3=OFF ]
-"43
-[p x CP4=OFF ]
-"44
-[p x CP5=OFF ]
-"45
-[p x CP6=OFF ]
-"46
-[p x CP7=OFF ]
-"49
-[p x CPB=OFF ]
-"50
-[p x CPD=OFF ]
-"53
-[p x WRT0=OFF ]
-"54
-[p x WRT1=OFF ]
-"55
-[p x WRT2=OFF ]
-"56
-[p x WRT3=OFF ]
-"57
-[p x WRT4=OFF ]
-"58
-[p x WRT5=OFF ]
-"59
-[p x WRT6=OFF ]
-"60
-[p x WRT7=OFF ]
-"63
-[p x WRTC=OFF ]
-"64
-[p x WRTB=OFF ]
-"65
-[p x WRTD=OFF ]
-"68
-[p x EBTR0=OFF ]
-"69
-[p x EBTR1=OFF ]
-"70
-[p x EBTR2=OFF ]
-"71
-[p x EBTR3=OFF ]
-"72
-[p x EBTR4=OFF ]
-"73
-[p x EBTR5=OFF ]
-"74
-[p x EBTR6=OFF ]
-"75
-[p x EBTR7=OFF ]
-"78
-[p x EBTRB=OFF ]
-[; ;PWM_gen_freq.c: 27: void StartTimer2(void);
-[; ;PWM_gen_freq.c: 28: void ConfigPWM(void);
-"30 PWM_gen_freq.c
-[v _main `(v ~T0 @X0 1 ef ]
+"5 Ultrasound.c
+[v _a `Vi ~T0 @X0 1 e ]
+[; ;Ultrasound.c: 5: volatile int a;
+[v F6990 `(v ~T0 @X0 1 tf ]
+"7
+[v _isr `IF6990 ~T0 @X0 1 e ]
 {
-[; ;PWM_gen_freq.c: 30: void main(void) {
-[e :U _main ]
+[; ;Ultrasound.c: 7: void interrupt isr(){
+[e :U _isr ]
 [f ]
-"32
-[v _ADC_val `ui ~T0 @X0 1 a ]
-[v _freq `ui ~T0 @X0 1 a ]
-[v _duty_cycle `ui ~T0 @X0 1 a ]
-"33
-[v _pr2_val `uc ~T0 @X0 1 a ]
-[; ;PWM_gen_freq.c: 32: unsigned int ADC_val, freq, duty_cycle;
-[; ;PWM_gen_freq.c: 33: unsigned char pr2_val;
-[; ;PWM_gen_freq.c: 36: TRISD = 0xE0;
-"36
-[e = _TRISD -> -> 224 `i `uc ]
-[; ;PWM_gen_freq.c: 37: TRISGbits.RG3 = 0;
-"37
-[e = . . _TRISGbits 1 3 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 38: TRISGbits.RG4 = 0;
-"38
-[e = . . _TRISGbits 1 4 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 41: TRISF = 0x00;
-"41
-[e = _TRISF -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 42: TRISA = 0xEF;
-"42
-[e = _TRISA -> -> 239 `i `uc ]
-[; ;PWM_gen_freq.c: 43: TRISH = 0xFC;
-"43
-[e = _TRISH -> -> 252 `i `uc ]
-[; ;PWM_gen_freq.c: 44: TRISC = 0xFF;
-"44
-[e = _TRISC -> -> 255 `i `uc ]
-[; ;PWM_gen_freq.c: 45: TRISJ = 0xBF;
-"45
-[e = _TRISJ -> -> 191 `i `uc ]
-[; ;PWM_gen_freq.c: 47: LATF = 0x00;
-"47
-[e = _LATF -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 48: LATAbits.LATA4 = 0;
-"48
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 49: LATHbits.LATH0 = 1;
-"49
-[e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 50: LATHbits.LATH1 = 1;
-"50
-[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 52: LATDbits.LATD4 = 0;
-"52
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 53: LATAbits.LATA4 = 1;
-"53
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 56: OpenADC(0b10011111 &
-[; ;PWM_gen_freq.c: 57: 0b11111111 &
-[; ;PWM_gen_freq.c: 58: 0b11110001,
-[; ;PWM_gen_freq.c: 59: 0b10000111 &
-[; ;PWM_gen_freq.c: 60: 0b01111111 &
-[; ;PWM_gen_freq.c: 61: 0b11111110,
-[; ;PWM_gen_freq.c: 62: 14
-[; ;PWM_gen_freq.c: 63: );
-"63
-[e ( _OpenADC (3 , , -> & & -> 159 `i -> 255 `i -> 241 `i `uc -> & & -> 135 `i -> 127 `i -> 254 `i `uc -> -> 14 `i `uc ]
-[; ;PWM_gen_freq.c: 65: StartTimer2();
-"65
-[e ( _StartTimer2 ..  ]
-[; ;PWM_gen_freq.c: 66: ConfigPWM();
-"66
-[e ( _ConfigPWM ..  ]
-[; ;PWM_gen_freq.c: 68: T2CONbits.T2CKPS1 = 1;
-"68
-[e = . . _T2CONbits 1 1 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 69: T2CONbits.T2CKPS0 = 1;
-"69
-[e = . . _T2CONbits 1 0 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 71: SetDCPWM4(391);
-"71
-[e ( _SetDCPWM4 (1 -> -> 391 `i `ui ]
-[; ;PWM_gen_freq.c: 72: SetDCPWM5(391);
-"72
-[e ( _SetDCPWM5 (1 -> -> 391 `i `ui ]
-[; ;PWM_gen_freq.c: 74: freq = 800;
-"74
-[e = _freq -> -> 800 `i `ui ]
-[; ;PWM_gen_freq.c: 76: while (1) {
-"76
+[; ;Ultrasound.c: 8: if (INTCONbits.RBIF == 1){
+"8
+[e $ ! == -> . . _INTCONbits 0 0 `i -> 1 `i 747  ]
+{
+[; ;Ultrasound.c: 9: INTCONbits.RBIE = 0;
+"9
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 10: if (PORTBbits.RB4 ==1){
+"10
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 748  ]
+{
+[; ;Ultrasound.c: 11: TMR1ON = 1;}
+"11
+[e = _TMR1ON -> -> 1 `i `b ]
+}
 [e :U 748 ]
+[; ;Ultrasound.c: 12: if(PORTBbits.RB4 == 0){
+"12
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 749  ]
 {
-[; ;PWM_gen_freq.c: 79: LATDbits.LATD4 = PORTHbits.RH7;
-"79
-[e = . . _LATDbits 0 4 . . _PORTHbits 0 7 ]
-[; ;PWM_gen_freq.c: 80: LATDbits.LATD0 = 1;
-"80
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 81: LATDbits.LATD1 = PORTCbits.RC3;
-"81
-[e = . . _LATDbits 0 1 . . _PORTCbits 0 3 ]
-[; ;PWM_gen_freq.c: 82: LATDbits.LATD2 = 1;
-"82
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 83: LATDbits.LATD3 = PORTHbits.RH4;
-"83
-[e = . . _LATDbits 0 3 . . _PORTHbits 0 4 ]
-[; ;PWM_gen_freq.c: 85: LATF = (PORTH & 0xF0) | ((PORTC >> 2) & 0x0F);
-"85
-[e = _LATF -> | & -> _PORTH `i -> 240 `i & >> -> _PORTC `i -> 2 `i -> 15 `i `uc ]
-[; ;PWM_gen_freq.c: 107: for (freq = 800; freq <= 2400; freq += 200) {
-"107
-{
-[e = _freq -> -> 800 `i `ui ]
-[e $ <= _freq -> -> 2400 `i `ui 750  ]
-[e $U 751  ]
-[e :U 750 ]
-{
-[; ;PWM_gen_freq.c: 108: switch (freq) {
-"108
-[e $U 754  ]
-{
-[; ;PWM_gen_freq.c: 109: case(800):
-"109
-[e :U 755 ]
-[; ;PWM_gen_freq.c: 110: PR2 = 194;
-"110
-[e = _PR2 -> -> 194 `i `uc ]
-[; ;PWM_gen_freq.c: 111: SetDCPWM4(391);
-"111
-[e ( _SetDCPWM4 (1 -> -> 391 `i `ui ]
-[; ;PWM_gen_freq.c: 112: SetDCPWM5(391);
-"112
-[e ( _SetDCPWM5 (1 -> -> 391 `i `ui ]
-[; ;PWM_gen_freq.c: 113: break;
-"113
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 114: case(1000):
-"114
-[e :U 756 ]
-[; ;PWM_gen_freq.c: 115: PR2 = 155;
-"115
-[e = _PR2 -> -> 155 `i `uc ]
-[; ;PWM_gen_freq.c: 116: SetDCPWM4(312);
-"116
-[e ( _SetDCPWM4 (1 -> -> 312 `i `ui ]
-[; ;PWM_gen_freq.c: 117: SetDCPWM5(312);
-"117
-[e ( _SetDCPWM5 (1 -> -> 312 `i `ui ]
-[; ;PWM_gen_freq.c: 118: break;
-"118
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 119: case(1200):
-"119
-[e :U 757 ]
-[; ;PWM_gen_freq.c: 120: PR2 = 129;
-"120
-[e = _PR2 -> -> 129 `i `uc ]
-[; ;PWM_gen_freq.c: 121: SetDCPWM4(260);
-"121
-[e ( _SetDCPWM4 (1 -> -> 260 `i `ui ]
-[; ;PWM_gen_freq.c: 122: SetDCPWM5(260);
-"122
-[e ( _SetDCPWM5 (1 -> -> 260 `i `ui ]
-[; ;PWM_gen_freq.c: 123: break;
-"123
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 124: case(1400):
-"124
-[e :U 758 ]
-[; ;PWM_gen_freq.c: 125: PR2 = 110;
-"125
-[e = _PR2 -> -> 110 `i `uc ]
-[; ;PWM_gen_freq.c: 126: SetDCPWM4(223);
-"126
-[e ( _SetDCPWM4 (1 -> -> 223 `i `ui ]
-[; ;PWM_gen_freq.c: 127: SetDCPWM5(223);
-"127
-[e ( _SetDCPWM5 (1 -> -> 223 `i `ui ]
-[; ;PWM_gen_freq.c: 128: break;
-"128
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 129: case(1600):
-"129
-[e :U 759 ]
-[; ;PWM_gen_freq.c: 130: PR2 = 97;
-"130
-[e = _PR2 -> -> 97 `i `uc ]
-[; ;PWM_gen_freq.c: 131: SetDCPWM4(195);
-"131
-[e ( _SetDCPWM4 (1 -> -> 195 `i `ui ]
-[; ;PWM_gen_freq.c: 132: SetDCPWM5(195);
-"132
-[e ( _SetDCPWM5 (1 -> -> 195 `i `ui ]
-[; ;PWM_gen_freq.c: 133: break;
-"133
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 134: case(1800):
-"134
-[e :U 760 ]
-[; ;PWM_gen_freq.c: 135: PR2 = 86;
-"135
-[e = _PR2 -> -> 86 `i `uc ]
-[; ;PWM_gen_freq.c: 136: SetDCPWM4(174);
-"136
-[e ( _SetDCPWM4 (1 -> -> 174 `i `ui ]
-[; ;PWM_gen_freq.c: 137: SetDCPWM5(174);
-"137
-[e ( _SetDCPWM5 (1 -> -> 174 `i `ui ]
-[; ;PWM_gen_freq.c: 138: break;
-"138
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 139: case(2000):
-"139
-[e :U 761 ]
-[; ;PWM_gen_freq.c: 140: PR2 = 77;
-"140
-[e = _PR2 -> -> 77 `i `uc ]
-[; ;PWM_gen_freq.c: 141: SetDCPWM4(156);
-"141
-[e ( _SetDCPWM4 (1 -> -> 156 `i `ui ]
-[; ;PWM_gen_freq.c: 142: SetDCPWM5(156);
-"142
-[e ( _SetDCPWM5 (1 -> -> 156 `i `ui ]
-[; ;PWM_gen_freq.c: 143: break;
-"143
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 144: case(2200):
-"144
-[e :U 762 ]
-[; ;PWM_gen_freq.c: 145: PR2 = 70;
-"145
-[e = _PR2 -> -> 70 `i `uc ]
-[; ;PWM_gen_freq.c: 146: SetDCPWM4(142);
-"146
-[e ( _SetDCPWM4 (1 -> -> 142 `i `ui ]
-[; ;PWM_gen_freq.c: 147: SetDCPWM5(142);
-"147
-[e ( _SetDCPWM5 (1 -> -> 142 `i `ui ]
-[; ;PWM_gen_freq.c: 148: break;
-"148
-[e $U 753  ]
-[; ;PWM_gen_freq.c: 149: case(2400):
-"149
-[e :U 763 ]
-[; ;PWM_gen_freq.c: 150: PR2 = 64;
-"150
-[e = _PR2 -> -> 64 `i `uc ]
-[; ;PWM_gen_freq.c: 151: SetDCPWM4(130);
-"151
-[e ( _SetDCPWM4 (1 -> -> 130 `i `ui ]
-[; ;PWM_gen_freq.c: 152: SetDCPWM5(130);
-"152
-[e ( _SetDCPWM5 (1 -> -> 130 `i `ui ]
-[; ;PWM_gen_freq.c: 153: break;
-"153
-[e $U 753  ]
-"154
+[; ;Ultrasound.c: 13: TMR1ON = 0;
+"13
+[e = _TMR1ON -> -> 0 `i `b ]
+[; ;Ultrasound.c: 14: a = (TMR1L | (TMR1H<<8))/73.53;
+"14
+[e = _a -> / -> | -> _TMR1L `i << -> _TMR1H `i -> 8 `i `d .73.53 `i ]
+"16
 }
-[; ;PWM_gen_freq.c: 154: }
-[e $U 753  ]
-"108
-[e :U 754 ]
-[e [\ _freq , $ -> -> 800 `i `ui 755
- , $ -> -> 1000 `i `ui 756
- , $ -> -> 1200 `i `ui 757
- , $ -> -> 1400 `i `ui 758
- , $ -> -> 1600 `i `ui 759
- , $ -> -> 1800 `i `ui 760
- , $ -> -> 2000 `i `ui 761
- , $ -> -> 2200 `i `ui 762
- , $ -> -> 2400 `i `ui 763
- 753 ]
-"154
-[e :U 753 ]
-[; ;PWM_gen_freq.c: 155: Delay10KTCYx(250);
-"155
-[e ( _Delay10KTCYx (1 -> -> 250 `i `uc ]
-[; ;PWM_gen_freq.c: 156: Delay10KTCYx(250);
-"156
-[e ( _Delay10KTCYx (1 -> -> 250 `i `uc ]
-"157
-}
-"107
-[e =+ _freq -> -> 200 `i `ui ]
-[e $ <= _freq -> -> 2400 `i `ui 750  ]
-[e :U 751 ]
-"157
-}
-"169
+[e :U 749 ]
+"17
 }
 [e :U 747 ]
-"76
-[e $U 748  ]
-[e :U 749 ]
-[; ;PWM_gen_freq.c: 157: }
-[; ;PWM_gen_freq.c: 169: }
-[; ;PWM_gen_freq.c: 170: }
-"170
+[; ;Ultrasound.c: 16: }
+[; ;Ultrasound.c: 17: }
+[; ;Ultrasound.c: 18: INTCONbits.RBIF = 0;
+"18
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 19: INTCONbits.RBIE = 1;
+"19
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 20: }
+"20
 [e :UE 746 ]
 }
-"172
-[v _StartTimer2 `(v ~T0 @X0 1 ef ]
+"25
+[v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;PWM_gen_freq.c: 172: void StartTimer2(void) {
-[e :U _StartTimer2 ]
+[; ;Ultrasound.c: 25: void main (void){
+[e :U _main ]
 [f ]
-[; ;PWM_gen_freq.c: 173: PIE1bits.TMR2IE = 0;
-"173
-[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 174: T2CONbits.T2CKPS1 = 0;
-"174
-[e = . . _T2CONbits 1 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 175: T2CONbits.T2CKPS0 = 0;
-"175
-[e = . . _T2CONbits 1 0 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 176: T2CONbits.TMR2ON = 1;
-"176
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 177: PR2 = 130;
-"177
-[e = _PR2 -> -> 130 `i `uc ]
-[; ;PWM_gen_freq.c: 178: }
-"178
-[e :UE 764 ]
+[; ;Ultrasound.c: 26: TRISBbits.RB0 = 0x00;
+"26
+[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 27: TRISBbits.RB4 = 0x01;
+"27
+[e = . . _TRISBbits 1 4 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 33: INTCONbits.GIE = 1;
+"33
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 35: INTCONbits.RBIF = 0;
+"35
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 36: INTCONbits.RBIE = 1;
+"36
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 39: T1CON = 0x10;
+"39
+[e = _T1CON -> -> 16 `i `uc ]
+[; ;Ultrasound.c: 46: while (1){
+"46
+[e :U 752 ]
+{
+[; ;Ultrasound.c: 47: TMR1L = TMR1H = 0;
+"47
+[e = _TMR1L = _TMR1H -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 48: LATBbits.LATB0 = 1;
+"48
+[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 49: Delay1TCYx(25);
+"49
+[e ( _Delay1TCYx (1 -> -> 25 `i `uc ]
+[; ;Ultrasound.c: 50: LATBbits.LATB0 = 0;
+"50
+[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 53: Delay1KTCYx(250);
+"53
+[e ( _Delay1KTCYx (1 -> -> 250 `i `uc ]
+[; ;Ultrasound.c: 57: if(a>=2 && a<=400){
+"57
+[e $ ! && >= _a -> 2 `i <= _a -> 400 `i 754  ]
+{
+[; ;Ultrasound.c: 58: ADCON1=0x0F;
+"58
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;Ultrasound.c: 59: TRISF = 0x00;
+"59
+[e = _TRISF -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 60: TRISAbits.RA4 = 0;
+"60
+[e = . . _TRISAbits 1 4 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 61: LATAbits.LATA4 = 1;
+"61
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 62: LATF = a;
+"62
+[e = _LATF -> _a `uc ]
+"63
 }
-"180
-[v _ConfigPWM `(v ~T0 @X0 1 ef ]
+[; ;Ultrasound.c: 63: }
+[e $U 755  ]
+"65
+[e :U 754 ]
+[; ;Ultrasound.c: 65: else{
 {
-[; ;PWM_gen_freq.c: 180: void ConfigPWM(void) {
-[e :U _ConfigPWM ]
-[f ]
-[; ;PWM_gen_freq.c: 181: CCP4CONbits.CCP4M3 = 1;
-"181
-[e = . . _CCP4CONbits 1 3 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 182: CCP4CONbits.CCP4M2 = 1;
-"182
-[e = . . _CCP4CONbits 1 2 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 183: CCP4CONbits.CCP4M1 = 0;
-"183
-[e = . . _CCP4CONbits 1 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 184: CCP4CONbits.CCP4M0 = 0;
-"184
-[e = . . _CCP4CONbits 1 0 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 186: CCP5CONbits.CCP5M3 = 1;
-"186
-[e = . . _CCP5CONbits 1 3 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 187: CCP5CONbits.CCP5M2 = 1;
-"187
-[e = . . _CCP5CONbits 1 2 -> -> 1 `i `uc ]
-[; ;PWM_gen_freq.c: 188: CCP5CONbits.CCP5M1 = 0;
-"188
-[e = . . _CCP5CONbits 1 1 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 189: CCP5CONbits.CCP5M0 = 0;
-"189
-[e = . . _CCP5CONbits 1 0 -> -> 0 `i `uc ]
-[; ;PWM_gen_freq.c: 190: }
-"190
-[e :UE 765 ]
+[; ;Ultrasound.c: 66: ADCON1=0x0F;
+"66
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;Ultrasound.c: 67: TRISF = 0x00;
+"67
+[e = _TRISF -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 68: TRISAbits.RA4 = 0;
+"68
+[e = . . _TRISAbits 1 4 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 69: LATAbits.LATA4 = 1;
+"69
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 70: LATF = 0x00;
+"70
+[e = _LATF -> -> 0 `i `uc ]
+"71
+}
+[e :U 755 ]
+[; ;Ultrasound.c: 71: }
+[; ;Ultrasound.c: 74: Delay10KTCYx(100);
+"74
+[e ( _Delay10KTCYx (1 -> -> 100 `i `uc ]
+"75
+}
+[e :U 751 ]
+"46
+[e $U 752  ]
+[e :U 753 ]
+[; ;Ultrasound.c: 75: }
+[; ;Ultrasound.c: 79: }
+"79
+[e :UE 750 ]
 }
