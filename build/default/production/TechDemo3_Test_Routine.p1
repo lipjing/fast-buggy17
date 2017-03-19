@@ -7358,9 +7358,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TechDemo3_Test_Routine.c: 247: puts1USART(buffer);
 "247
 [e ( _puts1USART (1 &U _buffer ]
-[; ;TechDemo3_Test_Routine.c: 249: Delay10KTCYx(100);
+[; ;TechDemo3_Test_Routine.c: 249: Delay10KTCYx(200);
 "249
-[e ( _Delay10KTCYx (1 -> -> 100 `i `uc ]
+[e ( _Delay10KTCYx (1 -> -> 200 `i `uc ]
 "251
 }
 [e :U 807 ]

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Fri Mar 10 18:30:33 2017
+                                                                                               Tue Mar 14 09:35:42 2017
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	18F8722
@@ -1229,8 +1229,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
   1217  011240  6E15               	movwf	puts1USART@data+1,c
   1218  011242  EC72  F08F         	call	_puts1USART	;wreg free
   1219                           
-  1220                           ;TechDemo3_Test_Routine.c: 249: Delay10KTCYx(100);
-  1221  011246  0E64               	movlw	100
+  1220                           ;TechDemo3_Test_Routine.c: 249: Delay10KTCYx(200);
+  1221  011246  0EC8               	movlw	200
   1222  011248  ECDE  F08F         	call	_Delay10KTCYx
   1223  01124C  D000               	goto	l3301
   1224  01124E                     l3301:
@@ -9108,7 +9108,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Fri Mar 10 18:30:33 2017
+Symbol Table                                                                                   Tue Mar 14 09:35:42 2017
 
                         _i 009E                         _i2 009F               ___awdiv@sign 001E  
       ___wmul@multiplicand 0023                __CFG_BORV$0 000000               __CFG_CP0$OFF 000000  

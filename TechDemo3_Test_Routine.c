@@ -246,7 +246,7 @@ void main(void) {
             sprintf(buffer, "%.2f cm\t%d\r\n", dist_cm, echo_time);     //Format distance in CM and Timer0 value into a string, store it in buffer, ready for sending
             puts1USART(buffer);             //Send buffer contents over serial port (print distance and Timer0 value)
 
-            Delay10KTCYx(100);              //Delay of approx. 400ms until next distance measurement
+            Delay10KTCYx(200);              //Delay of approx. 400ms until next distance measurement
 
         }
 

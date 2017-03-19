@@ -8657,7 +8657,7 @@ dist_cm = 0.0137 * echo_time;
 sprintf(buffer, "%.2f cm\t%d\r\n", dist_cm, echo_time);
 puts1USART(buffer);
 
-Delay10KTCYx(100);
+Delay10KTCYx(200);
 
 }
 
