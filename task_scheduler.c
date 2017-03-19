@@ -21,67 +21,9 @@
 
 volatile unsigned int ms_count, echo_time;
 volatile unsigned char echo_acq_done, sensor_acq_done, sensor_acq_index;
-volatile int (*sensor_readings)[5];
+volatile int sensor_readings[5];
 
-//High-priority ISR
-void interrupt high_priority isrHP(void) {
-    
-    //Timer0 ISR
-    if(INTCONbits.TMR0IF == 1) {
-        INTCONbits.TMR0IF = 0;
-        ms_count++;      
-        WriteTimer0(TIMER0_VALUE);
-    }
-    
-    //PORTB ISR
-    if(INTCONbits.RBIF == 1) {         //Check to see if interrupt has come from PORTB (ultrasonic sensor return pulse)
-        INTCONbits.RBIE = 0;            //If it has, temporarily disable PORTB interrups
-        if(PORTBbits.RB4 == 1) {       //If RB4 edge is a rising edge (start of echo pulse)
-            T1CONbits.TMR1ON = 1;       //Enable Timer0 to start timing pulse length
-            WriteTimer1(0);             //Then set Timer0 to 0 to reset it
-        }
-        if(PORTBbits.RB4 == 0) {       //If RB4 edge is falling edge (end of echo pulse)
-            T1CONbits.TMR1ON = 0;       //Turn off Timer0 to stop timing pulse length
-            echo_acq_done = 1;             //Set echo flag to indicate that echo reading is ready for processing
-        }
-        INTCONbits.RBIE = 1;            //Re-enable PORTB interrupts
-        INTCONbits.RBIF = 0;            //Clear the interrupt flag
-    }
-    
-    
-}
-
-//Low-priority ISR
-void interrupt low_priority isrLP(void) {
-    
-    //INT1 (PB1) ISR
-    if(INTCON3bits.INT1IF == 1) {
-        
-        INTCON3bits.INT1IF = 0;
-    }
-    
-    //INT2 (PB2) ISR
-    if(INTCON3bits.INT2IF == 1) {
-        
-        INTCON3bits.INT2IF = 0;
-    }
-    
-    //ADC ISR
-    if(PIR1bits.ADIF == 1) {
-        PIR1bits.ADIF = 0;
-        if(sensor_acq_index < NO_OF_SENSORS) {
-            *(sensor_readings + sensor_acq_index) = ReadADC();
-            sensor_acq_index++;
-            SetADCChannel(sensor_acq_index);
-            ConvertADC();
-        }
-        else {
-            sensor_acq_done = 1;
-            PIE1bits.ADIE = 0;
-        }   
-    }
-    
-}
+int *sensor_readings_ptr;
 
 //Configure interrupt sources
 void ConfigureInterrupts(void) {
@@ -279,34 +221,16 @@ unsigned int ReadEchoLength(void) {
 }
 
 //Converts echo length to distance in CM, assumes distance acquisition is complete
-unsigned int ConvertDistanceCM(void) {
+float ConvertDistanceCM(void) {
     
     return (echo_time * ECHO_TO_DIST_CM);
     
 }
 
 //Converts echo length to distance in INCHES, assumes distance acquisition is complete
-unsigned int ConvertDistanceIN(void) {
+float ConvertDistanceIN(void) {
     
     return (echo_time * ECHO_TO_DIST_IN);
-    
-}
-
-//Gets an ADC reading from all sensors and stores them in an array
-void GetSensorReadings(void) {
-    
-    sensor_acq_index = 0;               //Set sensor index to zero
-    sensor_acq_done = 0;                //Clear done flag until conversion is complete
-    SetADCChannel(sensor_acq_index);    //Set ADC channel to start acquisition from
-    ConvertADC();                       //Start a conversion
-    PIE1bits.ADIE = 1;                  //Enable ADC interrupts
-    
-}
-
-//Checks if a sensor array acquisition is ongoing
-unsigned char BusySensorAcq(void) {
-    
-    return(sensor_acq_done);
     
 }
 
@@ -363,14 +287,94 @@ void SetADCChannel(unsigned char channel) {
             SetChanADC(ADC_CH15);
             break;
         default:
-            return 0;
+            break;
+    }
+    
+}
+
+//Gets an ADC reading from all sensors and stores them in an array
+void GetSensorReadings(void) {
+    
+    sensor_acq_index = 0;               //Set sensor index to zero
+    sensor_acq_done = 0;                //Clear done flag until conversion is complete
+    SetADCChannel(sensor_acq_index);    //Set ADC channel to start acquisition from
+    ConvertADC();                       //Start a conversion
+    PIE1bits.ADIE = 1;                  //Enable ADC interrupts
+    
+}
+
+//Checks if a sensor array acquisition is ongoing
+unsigned char BusySensorAcq(void) {
+    
+    return(sensor_acq_done);
+    
+}
+
+//High-priority ISR
+void interrupt high_priority isrHP(void) {
+    
+    //Timer0 ISR
+    if(INTCONbits.TMR0IF == 1) {
+        INTCONbits.TMR0IF = 0;
+        ms_count++;      
+        WriteTimer0(TIMER0_VALUE);
+    }
+    
+    //PORTB ISR
+    if(INTCONbits.RBIF == 1) {         //Check to see if interrupt has come from PORTB (ultrasonic sensor return pulse)
+        INTCONbits.RBIE = 0;            //If it has, temporarily disable PORTB interrups
+        if(PORTBbits.RB4 == 1) {       //If RB4 edge is a rising edge (start of echo pulse)
+            T1CONbits.TMR1ON = 1;       //Enable Timer0 to start timing pulse length
+            WriteTimer1(0);             //Then set Timer0 to 0 to reset it
+        }
+        if(PORTBbits.RB4 == 0) {       //If RB4 edge is falling edge (end of echo pulse)
+            T1CONbits.TMR1ON = 0;       //Turn off Timer0 to stop timing pulse length
+            echo_acq_done = 1;             //Set echo flag to indicate that echo reading is ready for processing
+        }
+        INTCONbits.RBIE = 1;            //Re-enable PORTB interrupts
+        INTCONbits.RBIF = 0;            //Clear the interrupt flag
+    }
+    
+    
+}
+
+//Low-priority ISR
+void interrupt low_priority isrLP(void) {
+    
+    //INT1 (PB1) ISR
+    if(INTCON3bits.INT1IF == 1) {
+        
+        INTCON3bits.INT1IF = 0;
+    }
+    
+    //INT2 (PB2) ISR
+    if(INTCON3bits.INT2IF == 1) {
+        
+        INTCON3bits.INT2IF = 0;
+    }
+    
+    //ADC ISR
+    if(PIR1bits.ADIF == 1) {
+        PIR1bits.ADIF = 0;
+        if(sensor_acq_index < NO_OF_SENSORS) {
+            *(sensor_readings_ptr + sensor_acq_index) = ReadADC();
+            sensor_acq_index++;
+            SetADCChannel(sensor_acq_index);
+            ConvertADC();
+        }
+        else {
+            sensor_acq_done = 1;
+            PIE1bits.ADIE = 0;
+        }   
     }
     
 }
 
 //Main Function
 void main(void) {
-
+    
+    //Pointer declarations
+    sensor_readings_ptr = sensor_readings;
     
     
     
