@@ -1,79 +1,71 @@
-#include "xc.h"
-#include "timers.h"
-#include "delays.h"
+#include "plib/timers.h"
+#include "plib/delays.h"
 
-volatile int a;
+float convert_cm, convert_in;
+unsigned char echo_acq_done;
 
-void interrupt isr(){
-    if (INTCONbits.RBIF == 1){
-      INTCONbits.RBIE = 0;
-      if (PORTBbits.RB4 ==1){
-          TMR1ON = 1;}
-      if(PORTBbits.RB4 == 0){
-          TMR1ON = 0;
-          a = (TMR1L | (TMR1H<<8))/73.53;
-          
-      } 
-    }
-    INTCONbits.RBIF = 0;
-    INTCONbits.RBIE = 1;
+//Configure ultrasound distance conversion
+void ConfigureUltrasound(float echo_to_cm, float echo_to_in) {
+    convert_cm = echo_to_cm;
+    convert_in = echo_to_in;
+
 }
 
+//ISR for ultrasound sensor
+inline void UltrasoundISR(void) {
+    INTCONbits.RBIE = 0;        //If it has, temporarily disable PORTB interrups
+    if (PORTBbits.RB4 == 1) {   //If RB4 edge is a rising edge (start of echo pulse)
+        T1CONbits.TMR1ON = 1;   //Enable Timer1 to start timing pulse length
+        WriteTimer1(0);         //Then set Timer1 to 0 to reset it
+    }
+    if (PORTBbits.RB4 == 0) {   //If RB4 edge is falling edge (end of echo pulse)
+        T1CONbits.TMR1ON = 0;   //Turn off Timer1 to stop timing pulse length
+        echo_acq_done = 1;      //Set echo flag to indicate that echo reading is ready for processing
+    }
+    INTCONbits.RBIE = 1;        //Re-enable PORTB interrupts
+    INTCONbits.RBIF = 0;        //Clear the interrupt flag
+}
 
+//Start a distance acquisition from ultrasonic sensor
 
+void GetDistance(void) {
 
-void main (void){
-  TRISBbits.RB0 = 0x00;  
-  TRISBbits.RB4 = 0x01;
-  //TRISF = 0x00;
-  //TRISA = 0xEF;
-  
-  //LATAbits.LATA4 = 0;    
-  //LATAbits.LATA4 = 1;
-  INTCONbits.GIE = 1;
-  //INTCONbits.PEIE=1;
-  INTCONbits.RBIF = 0;
-  INTCONbits.RBIE = 1;
-  
+    LATEbits.LATE5 = 1; //Send a trigger pulse to the ultrasound module (minimum 10uS)
+    Delay1TCYx(25);
+    LATEbits.LATE5 = 0;
+    INTCONbits.RBIE = 1; //Enable PORTB interrupts to detect the echo pulse
+    echo_acq_done = 0; //Clear flag to show that measurement is not complete
 
-  T1CON = 0x10; 
-  
-  //OpenTimer1 (TIMER_INT_OFF & 
-            //T1_16BIT_RW &
-            //T1_SOURCE_INT & 
-            //T1_PS_1_2);
-  
-  while (1){
-   TMR1L = TMR1H = 0;
-   LATBbits.LATB0 = 1;
-   Delay1TCYx(25);
-   LATBbits.LATB0 = 0;
-   
-   
-   Delay1KTCYx(250);
-   //a = a + 1;
-   
-   
-   if(a>=2 && a<=400){
-       ADCON1=0x0F;
-       TRISF = 0x00;
-       TRISAbits.RA4 = 0;
-       LATAbits.LATA4 = 1;
-       LATF = a;
-   }
-   
-   else{
-       ADCON1=0x0F;
-       TRISF = 0x00;
-       TRISAbits.RA4 = 0;
-       LATAbits.LATA4 = 1;
-       LATF = 0x00;
-   }
-      
-      
-  Delay10KTCYx(100);    
-  }
-  
-  
- 
+}
+
+//Checks if a distance acquisition is ongoing
+
+unsigned char BusyDistanceAcq(void) {
+
+    return (echo_acq_done); //Return the value of the echo_ready flag
+
+}
+
+//Reads raw timer value upon completion of distance acquisition, assumes distance acquisition is complete
+
+unsigned int ReadEchoLength(void) {
+
+    return (ReadTimer1());
+
+}
+
+//Converts echo length to distance in CM, assumes distance acquisition is complete
+
+float ConvertDistanceCM(unsigned int echo_time) {
+
+    return (echo_time * convert_cm);
+
+}
+
+//Converts echo length to distance in INCHES, assumes distance acquisition is complete
+
+float ConvertDistanceIN(unsigned int echo_time) {
+
+    return (echo_time * convert_in);
+
 }
