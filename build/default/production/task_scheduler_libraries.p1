@@ -158,72 +158,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OpenADC `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "214 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h
 [v _Open1USART `(v ~T0 @X0 0 ef2`uc`ui ]
-"5084 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . LATE0 LATE1 LATE2 LATE3 LATE4 LATE5 LATE6 LATE7 ]
-"5094
-[s S270 :1 `uc 1 ]
-[n S270 . LE0 ]
-"5097
-[s S271 :1 `uc 1 :1 `uc 1 ]
-[n S271 . . LE1 ]
-"5101
-[s S272 :2 `uc 1 :1 `uc 1 ]
-[n S272 . . LE2 ]
-"5105
-[s S273 :3 `uc 1 :1 `uc 1 ]
-[n S273 . . LE3 ]
-"5109
-[s S274 :4 `uc 1 :1 `uc 1 ]
-[n S274 . . LE4 ]
-"5113
-[s S275 :5 `uc 1 :1 `uc 1 ]
-[n S275 . . LE5 ]
-"5117
-[s S276 :6 `uc 1 :1 `uc 1 ]
-[n S276 . . LE6 ]
-"5121
-[s S277 :7 `uc 1 :1 `uc 1 ]
-[n S277 . . LE7 ]
-"5083
-[u S268 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 `S274 1 `S275 1 `S276 1 `S277 1 ]
-[n S268 . . . . . . . . . . ]
-"5126
-[v _LATEbits `VS268 ~T0 @X0 0 e@3981 ]
-"13 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\delays.h
-[v _Delay1TCYx `(v ~T0 @X0 0 ef1`uc ]
-"238 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\timers.h
-[v _ReadTimer1 `(ui ~T0 @X0 0 ef ]
 "2084 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
 [v _SetChanADC `(v ~T0 @X0 0 ef1`uc ]
 "2016
 [v _ConvertADC `(v ~T0 @X0 0 ef ]
-"2788 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S143 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"2798
-[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . INT0 INT1 INT2 INT3 KBI0 KBI1 KBI2 KBI3 ]
-"2808
-[s S145 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S145 . FLT0 . ECCP2 ]
-"2813
-[s S146 :3 `uc 1 :1 `uc 1 ]
-[n S146 . . CCP2 ]
-"2817
-[s S147 :3 `uc 1 :1 `uc 1 ]
-[n S147 . . P2A ]
-"2821
-[s S148 :3 `uc 1 :1 `uc 1 ]
-[n S148 . . CCP2_PA2 ]
-"2787
-[u S142 `S143 1 `S144 1 `S145 1 `S146 1 `S147 1 `S148 1 ]
-[n S142 . . . . . . . ]
-"2826
-[v _PORTBbits `VS142 ~T0 @X0 0 e@3969 ]
-"2026 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
+"2026
 [v _ReadADC `(i ~T0 @X0 0 ef ]
 [p mainexit ]
+"15 Ultrasound.h
+[v _ConfigureUltrasound `(v ~T0 @X0 0 ef2`f`f ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f8722.h: 49: extern volatile unsigned char SSP2CON2 @ 0xF62;
@@ -6738,729 +6681,659 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 207: extern int printf(const char *, ...);
-"22 task_scheduler.c
-[v _ms_count `Vui ~T0 @X0 1 e ]
-[v _echo_time `Vui ~T0 @X0 1 e ]
-[; ;task_scheduler.c: 22: volatile unsigned int ms_count, echo_time;
-"23
-[v _echo_acq_done `Vuc ~T0 @X0 1 e ]
+[; ;Ultrasound.h: 15: void ConfigureUltrasound(float echo_to_cm, float echo_to_in);
+[; ;Ultrasound.h: 17: inline void UltrasoundISR(void);
+[; ;Ultrasound.h: 19: void GetDistance(void);
+[; ;Ultrasound.h: 21: unsigned char BusyDistanceAcq(void);
+[; ;Ultrasound.h: 23: unsigned int ReadEchoLength(void);
+[; ;Ultrasound.h: 25: float ConvertDistanceCM(unsigned int echo_time);
+[; ;Ultrasound.h: 27: float ConvertDistanceIN(unsigned int echo_time);
+[; ;SystemClock.h: 15: void ResetSystemClock(void);
+[; ;SystemClock.h: 17: void EnableSystemClock(void);
+[; ;SystemClock.h: 19: void DisableSystemClock(void);
+[; ;SystemClock.h: 21: inline void SystemClockISR(void);
+[; ;SystemClock.h: 23: void SystemClockCalcTime(void);
+[; ;SystemClock.h: 25: unsigned int SystemClockGetMillis(void);
+[; ;SystemClock.h: 27: unsigned char SystemClockGetSecs(void);
+[; ;SystemClock.h: 29: unsigned char SystemClockGetMins(void);
+[; ;SystemClock.h: 31: unsigned int SystemClockGetHrs(void);
+"26 task_scheduler_libraries.c
 [v _sensor_acq_done `Vuc ~T0 @X0 1 e ]
 [v _sensor_acq_index `Vuc ~T0 @X0 1 e ]
-[; ;task_scheduler.c: 23: volatile unsigned char echo_acq_done, sensor_acq_done, sensor_acq_index;
-"24
+[; ;task_scheduler_libraries.c: 26: volatile unsigned char sensor_acq_done, sensor_acq_index;
+"27
+[v _millisecond_COUNT `Vui ~T0 @X0 1 e ]
+[; ;task_scheduler_libraries.c: 27: volatile unsigned int millisecond_COUNT;
+"28
 [v _sensor_readings `Vi ~T0 @X0 -> 5 `i e ]
-[; ;task_scheduler.c: 24: volatile int sensor_readings[5];
-"26
+[; ;task_scheduler_libraries.c: 28: volatile int sensor_readings[5];
+"30
 [v _sensor_readings_ptr `*i ~T0 @X0 1 e ]
-[; ;task_scheduler.c: 26: int *sensor_readings_ptr;
-"29
+[; ;task_scheduler_libraries.c: 30: int *sensor_readings_ptr;
+"33
 [v _ConfigureInterrupts `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 29: void ConfigureInterrupts(void) {
+[; ;task_scheduler_libraries.c: 33: void ConfigureInterrupts(void) {
 [e :U _ConfigureInterrupts ]
 [f ]
-[; ;task_scheduler.c: 31: INTCONbits.GIE = 1;
-"31
+[; ;task_scheduler_libraries.c: 35: INTCONbits.GIE = 1;
+"35
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 32: INTCONbits.PEIE = 1;
-"32
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 33: RCONbits.IPEN = 1;
-"33
-[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 36: INTCON3bits.INT1E = 1;
+[; ;task_scheduler_libraries.c: 36: INTCONbits.PEIE = 1;
 "36
-[e = . . _INTCON3bits 1 3 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 37: INTCON3bits.INT1IF = 0;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;task_scheduler_libraries.c: 37: RCONbits.IPEN = 1;
 "37
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+[; ;task_scheduler_libraries.c: 40: INTCON3bits.INT1E = 1;
+"40
+[e = . . _INTCON3bits 1 3 -> -> 1 `i `uc ]
+[; ;task_scheduler_libraries.c: 41: INTCON3bits.INT1IF = 0;
+"41
 [e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 38: INTCON2bits.INTEDG1 = 1;
-"38
+[; ;task_scheduler_libraries.c: 42: INTCON2bits.INTEDG1 = 1;
+"42
 [e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 39: INTCON3bits.INT1IP = 0;
-"39
-[e = . . _INTCON3bits 0 6 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 43: INTCON3bits.INT2E = 1;
+[; ;task_scheduler_libraries.c: 43: INTCON3bits.INT1IP = 0;
 "43
+[e = . . _INTCON3bits 0 6 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 47: INTCON3bits.INT2E = 1;
+"47
 [e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 44: INTCON3bits.INT2IF = 0;
-"44
+[; ;task_scheduler_libraries.c: 48: INTCON3bits.INT2IF = 0;
+"48
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 45: INTCON2bits.INTEDG2 = 1;
-"45
+[; ;task_scheduler_libraries.c: 49: INTCON2bits.INTEDG2 = 1;
+"49
 [e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 46: INTCON3bits.INT2IP = 0;
-"46
-[e = . . _INTCON3bits 0 7 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 50: INTCONbits.RBIE = 0;
+[; ;task_scheduler_libraries.c: 50: INTCON3bits.INT2IP = 0;
 "50
+[e = . . _INTCON3bits 0 7 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 54: INTCONbits.RBIE = 0;
+"54
 [e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 51: INTCONbits.RBIF = 0;
-"51
+[; ;task_scheduler_libraries.c: 55: INTCONbits.RBIF = 0;
+"55
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 52: INTCON2bits.RBIP = 1;
-"52
-[e = . . _INTCON2bits 1 0 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 56: INTCONbits.TMR0IE = 1;
+[; ;task_scheduler_libraries.c: 56: INTCON2bits.RBIP = 1;
 "56
+[e = . . _INTCON2bits 1 0 -> -> 1 `i `uc ]
+[; ;task_scheduler_libraries.c: 60: INTCONbits.TMR0IE = 1;
+"60
 [e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 57: INTCONbits.TMR0IF = 0;
-"57
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 58: INTCON2bits.TMR0IP = 1;
-"58
-[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 61: PIE1bits.TMR1IE = 0;
+[; ;task_scheduler_libraries.c: 61: INTCONbits.TMR0IF = 0;
 "61
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 62: INTCON2bits.TMR0IP = 1;
+"62
+[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
+[; ;task_scheduler_libraries.c: 65: PIE1bits.TMR1IE = 0;
+"65
 [e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 64: PIE1bits.TMR2IE = 0;
-"64
-[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 67: PIE1bits.ADIE = 0;
-"67
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 68: PIR1bits.ADIF = 0;
+[; ;task_scheduler_libraries.c: 68: PIE1bits.TMR2IE = 0;
 "68
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 69: IPR1bits.ADIP = 0;
-"69
-[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 72: PIE1bits.RC1IE = 0;
+[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 71: PIE1bits.ADIE = 0;
+"71
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 72: PIR1bits.ADIF = 0;
 "72
-[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 73: PIE1bits.TX1IE = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 73: IPR1bits.ADIP = 0;
 "73
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 74: PIR1bits.RC1IF = 0;
-"74
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 75: PIR1bits.TX1IF = 0;
-"75
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 76: IPR1bits.RC1IP = 0;
+[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 76: PIE1bits.RC1IE = 0;
 "76
-[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 77: IPR1bits.TX1IP = 0;
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 77: PIE1bits.TX1IE = 0;
 "77
-[e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 78: }
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 78: PIR1bits.RC1IF = 0;
 "78
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 79: PIR1bits.TX1IF = 0;
+"79
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 80: IPR1bits.RC1IP = 0;
+"80
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 81: IPR1bits.TX1IP = 0;
+"81
+[e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 82: }
+"82
 [e :UE 759 ]
 }
-"81
+"85
 [v _ConfigureTimer0 `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 81: void ConfigureTimer0(void) {
+[; ;task_scheduler_libraries.c: 85: void ConfigureTimer0(void) {
 [e :U _ConfigureTimer0 ]
 [f ]
-[; ;task_scheduler.c: 83: OpenTimer0(0b11111111
-[; ;task_scheduler.c: 84: & 0b10111111
-[; ;task_scheduler.c: 85: & 0b11011111
-[; ;task_scheduler.c: 86: & 0b11111111);
-"86
-[e ( _OpenTimer0 (1 -> & & & -> 255 `i -> 191 `i -> 223 `i -> 255 `i `uc ]
-[; ;task_scheduler.c: 90: WriteTimer0(63036);
+[; ;task_scheduler_libraries.c: 87: OpenTimer0(0b11111111
+[; ;task_scheduler_libraries.c: 88: & 0b10111111
+[; ;task_scheduler_libraries.c: 89: & 0b11011111
+[; ;task_scheduler_libraries.c: 90: & 0b11111111);
 "90
+[e ( _OpenTimer0 (1 -> & & & -> 255 `i -> 191 `i -> 223 `i -> 255 `i `uc ]
+[; ;task_scheduler_libraries.c: 94: WriteTimer0(63036);
+"94
 [e ( _WriteTimer0 (1 -> -> 63036 `l `ui ]
-[; ;task_scheduler.c: 92: }
-"92
+[; ;task_scheduler_libraries.c: 96: }
+"96
 [e :UE 760 ]
 }
-"95
+"99
 [v _ConfigureTimer1 `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 95: void ConfigureTimer1(void) {
+[; ;task_scheduler_libraries.c: 99: void ConfigureTimer1(void) {
 [e :U _ConfigureTimer1 ]
 [f ]
-[; ;task_scheduler.c: 97: OpenTimer1(0b01111111
-[; ;task_scheduler.c: 98: & 0b11111111
-[; ;task_scheduler.c: 99: & 0b11111101
-[; ;task_scheduler.c: 100: & 0b11011111
-[; ;task_scheduler.c: 101: & 0b11111111);
-"101
-[e ( _OpenTimer1 (1 -> & & & & -> 127 `i -> 255 `i -> 253 `i -> 223 `i -> 255 `i `uc ]
-[; ;task_scheduler.c: 105: T1CONbits.TMR1ON = 0;
+[; ;task_scheduler_libraries.c: 101: OpenTimer1(0b01111111
+[; ;task_scheduler_libraries.c: 102: & 0b11111111
+[; ;task_scheduler_libraries.c: 103: & 0b11111101
+[; ;task_scheduler_libraries.c: 104: & 0b11011111
+[; ;task_scheduler_libraries.c: 105: & 0b11111111);
 "105
-[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 107: WriteTimer1(0);
-"107
-[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-[; ;task_scheduler.c: 109: }
+[e ( _OpenTimer1 (1 -> & & & & -> 127 `i -> 255 `i -> 253 `i -> 223 `i -> 255 `i `uc ]
+[; ;task_scheduler_libraries.c: 109: T1CONbits.TMR1ON = 0;
 "109
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+[; ;task_scheduler_libraries.c: 111: WriteTimer1(0);
+"111
+[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
+[; ;task_scheduler_libraries.c: 113: }
+"113
 [e :UE 761 ]
 }
-"112
+"116
 [v _ConfigureTimer2 `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 112: void ConfigureTimer2(void) {
+[; ;task_scheduler_libraries.c: 116: void ConfigureTimer2(void) {
 [e :U _ConfigureTimer2 ]
 [f ]
-[; ;task_scheduler.c: 114: OpenTimer2(0b01111111
-[; ;task_scheduler.c: 115: & 0b11111100
-[; ;task_scheduler.c: 116: & 0b10000111);
-"116
-[e ( _OpenTimer2 (1 -> & & -> 127 `i -> 252 `i -> 135 `i `uc ]
-[; ;task_scheduler.c: 120: }
+[; ;task_scheduler_libraries.c: 118: OpenTimer2(0b01111111
+[; ;task_scheduler_libraries.c: 119: & 0b11111100
+[; ;task_scheduler_libraries.c: 120: & 0b10000111);
 "120
+[e ( _OpenTimer2 (1 -> & & -> 127 `i -> 252 `i -> 135 `i `uc ]
+[; ;task_scheduler_libraries.c: 124: }
+"124
 [e :UE 762 ]
 }
-"123
+"127
 [v _ConfigurePWM `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 123: void ConfigurePWM(void) {
+[; ;task_scheduler_libraries.c: 127: void ConfigurePWM(void) {
 [e :U _ConfigurePWM ]
 [f ]
-[; ;task_scheduler.c: 125: OpenPWM4(130);
-"125
+[; ;task_scheduler_libraries.c: 129: OpenPWM4(130);
+"129
 [e ( _OpenPWM4 (1 -> -> 130 `i `uc ]
-[; ;task_scheduler.c: 126: OpenPWM5(130);
-"126
+[; ;task_scheduler_libraries.c: 130: OpenPWM5(130);
+"130
 [e ( _OpenPWM5 (1 -> -> 130 `i `uc ]
-[; ;task_scheduler.c: 143: }
-"143
+[; ;task_scheduler_libraries.c: 147: }
+"147
 [e :UE 763 ]
 }
-"146
+"150
 [v _ConfigureBuggyIO `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 146: void ConfigureBuggyIO(void) {
+[; ;task_scheduler_libraries.c: 150: void ConfigureBuggyIO(void) {
 [e :U _ConfigureBuggyIO ]
 [f ]
-[; ;task_scheduler.c: 149: TRISA = 0xFF;
-"149
+[; ;task_scheduler_libraries.c: 153: TRISA = 0xFF;
+"153
 [e = _TRISA -> -> 255 `i `uc ]
-[; ;task_scheduler.c: 152: TRISB = 0xFF;
-"152
+[; ;task_scheduler_libraries.c: 156: TRISB = 0xFF;
+"156
 [e = _TRISB -> -> 255 `i `uc ]
-[; ;task_scheduler.c: 155: TRISC = 0xBF;
-"155
+[; ;task_scheduler_libraries.c: 159: TRISC = 0xBF;
+"159
 [e = _TRISC -> -> 191 `i `uc ]
-[; ;task_scheduler.c: 158: TRISD = 0xFF;
-"158
+[; ;task_scheduler_libraries.c: 162: TRISD = 0xFF;
+"162
 [e = _TRISD -> -> 255 `i `uc ]
-[; ;task_scheduler.c: 161: TRISE = 0x80;
-"161
+[; ;task_scheduler_libraries.c: 165: TRISE = 0x80;
+"165
 [e = _TRISE -> -> 128 `i `uc ]
-[; ;task_scheduler.c: 164: TRISG = 0xE7;
-"164
+[; ;task_scheduler_libraries.c: 168: TRISG = 0xE7;
+"168
 [e = _TRISG -> -> 231 `i `uc ]
-[; ;task_scheduler.c: 167: TRISJ = 0xEF;
-"167
+[; ;task_scheduler_libraries.c: 171: TRISJ = 0xEF;
+"171
 [e = _TRISJ -> -> 239 `i `uc ]
-[; ;task_scheduler.c: 169: }
-"169
+[; ;task_scheduler_libraries.c: 173: }
+"173
 [e :UE 764 ]
 }
-"172
+"176
 [v _ConfigureADC `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 172: void ConfigureADC(void) {
+[; ;task_scheduler_libraries.c: 176: void ConfigureADC(void) {
 [e :U _ConfigureADC ]
 [f ]
-[; ;task_scheduler.c: 174: OpenADC(0b10011111
-[; ;task_scheduler.c: 175: & 0b11111111
-[; ;task_scheduler.c: 176: & 0b11110101,
-[; ;task_scheduler.c: 177: 0b10000111
-[; ;task_scheduler.c: 178: & 0b01111111
-[; ;task_scheduler.c: 179: & 0b11111110
-[; ;task_scheduler.c: 180: & 0b11111101,
-[; ;task_scheduler.c: 181: 10);
-"181
+[; ;task_scheduler_libraries.c: 178: OpenADC(0b10011111
+[; ;task_scheduler_libraries.c: 179: & 0b11111111
+[; ;task_scheduler_libraries.c: 180: & 0b11110101,
+[; ;task_scheduler_libraries.c: 181: 0b10000111
+[; ;task_scheduler_libraries.c: 182: & 0b01111111
+[; ;task_scheduler_libraries.c: 183: & 0b11111110
+[; ;task_scheduler_libraries.c: 184: & 0b11111101,
+[; ;task_scheduler_libraries.c: 185: 10);
+"185
 [e ( _OpenADC (3 , , -> & & -> 159 `i -> 255 `i -> 245 `i `uc -> & & & -> 135 `i -> 127 `i -> 254 `i -> 253 `i `uc -> -> 10 `i `uc ]
-[; ;task_scheduler.c: 183: }
-"183
+[; ;task_scheduler_libraries.c: 187: }
+"187
 [e :UE 765 ]
 }
-"186
+"190
 [v _ConfigureSerial `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 186: void ConfigureSerial(void) {
+[; ;task_scheduler_libraries.c: 190: void ConfigureSerial(void) {
 [e :U _ConfigureSerial ]
 [f ]
-[; ;task_scheduler.c: 188: Open1USART(0b01111111
-[; ;task_scheduler.c: 189: & 0b10111111
-[; ;task_scheduler.c: 190: & 0b11111110
-[; ;task_scheduler.c: 191: & 0b11111101
-[; ;task_scheduler.c: 192: & 0b11111111
-[; ;task_scheduler.c: 193: & 0b11111111,
-[; ;task_scheduler.c: 194: 64);
-"194
+[; ;task_scheduler_libraries.c: 192: Open1USART(0b01111111
+[; ;task_scheduler_libraries.c: 193: & 0b10111111
+[; ;task_scheduler_libraries.c: 194: & 0b11111110
+[; ;task_scheduler_libraries.c: 195: & 0b11111101
+[; ;task_scheduler_libraries.c: 196: & 0b11111111
+[; ;task_scheduler_libraries.c: 197: & 0b11111111,
+[; ;task_scheduler_libraries.c: 198: 64);
+"198
 [e ( _Open1USART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
-[; ;task_scheduler.c: 196: }
-"196
+[; ;task_scheduler_libraries.c: 200: }
+"200
 [e :UE 766 ]
 }
-"199
-[v _GetDistance `(v ~T0 @X0 1 ef ]
-{
-[; ;task_scheduler.c: 199: void GetDistance(void) {
-[e :U _GetDistance ]
-[f ]
-[; ;task_scheduler.c: 201: LATEbits.LATE5 = 1;
-"201
-[e = . . _LATEbits 0 5 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 202: Delay1TCYx(25);
-"202
-[e ( _Delay1TCYx (1 -> -> 25 `i `uc ]
-[; ;task_scheduler.c: 203: LATEbits.LATE5 = 0;
 "203
-[e = . . _LATEbits 0 5 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 204: INTCONbits.RBIE = 1;
-"204
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 205: echo_acq_done = 0;
-"205
-[e = _echo_acq_done -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 207: }
-"207
-[e :UE 767 ]
-}
-"210
-[v _BusyDistanceAcq `(uc ~T0 @X0 1 ef ]
-{
-[; ;task_scheduler.c: 210: unsigned char BusyDistanceAcq(void) {
-[e :U _BusyDistanceAcq ]
-[f ]
-[; ;task_scheduler.c: 212: return (echo_acq_done);
-"212
-[e ) _echo_acq_done ]
-[e $UE 768  ]
-[; ;task_scheduler.c: 214: }
-"214
-[e :UE 768 ]
-}
-"217
-[v _ReadEchoLength `(ui ~T0 @X0 1 ef ]
-{
-[; ;task_scheduler.c: 217: unsigned int ReadEchoLength(void) {
-[e :U _ReadEchoLength ]
-[f ]
-[; ;task_scheduler.c: 219: return(ReadTimer1());
-"219
-[e ) ( _ReadTimer1 ..  ]
-[e $UE 769  ]
-[; ;task_scheduler.c: 221: }
-"221
-[e :UE 769 ]
-}
-"224
-[v _ConvertDistanceCM `(f ~T0 @X0 1 ef ]
-{
-[; ;task_scheduler.c: 224: float ConvertDistanceCM(void) {
-[e :U _ConvertDistanceCM ]
-[f ]
-[; ;task_scheduler.c: 226: return (echo_time * 0.0137);
-"226
-[e ) -> * -> _echo_time `d .0.0137 `f ]
-[e $UE 770  ]
-[; ;task_scheduler.c: 228: }
-"228
-[e :UE 770 ]
-}
-"231
-[v _ConvertDistanceIN `(f ~T0 @X0 1 ef ]
-{
-[; ;task_scheduler.c: 231: float ConvertDistanceIN(void) {
-[e :U _ConvertDistanceIN ]
-[f ]
-[; ;task_scheduler.c: 233: return (echo_time * 0.054);
-"233
-[e ) -> * -> _echo_time `d .0.054 `f ]
-[e $UE 771  ]
-[; ;task_scheduler.c: 235: }
-"235
-[e :UE 771 ]
-}
-"238
 [v _SetADCChannel `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;task_scheduler.c: 238: void SetADCChannel(unsigned char channel) {
+[; ;task_scheduler_libraries.c: 203: void SetADCChannel(unsigned char channel) {
 [e :U _SetADCChannel ]
 [v _channel `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;task_scheduler.c: 240: switch (channel) {
-"240
-[e $U 774  ]
+[; ;task_scheduler_libraries.c: 205: switch (channel) {
+"205
+[e $U 769  ]
 {
-[; ;task_scheduler.c: 241: case 0:
-"241
-[e :U 775 ]
-[; ;task_scheduler.c: 242: SetChanADC(0b10000111);
-"242
+[; ;task_scheduler_libraries.c: 206: case 0:
+"206
+[e :U 770 ]
+[; ;task_scheduler_libraries.c: 207: SetChanADC(0b10000111);
+"207
 [e ( _SetChanADC (1 -> -> 135 `i `uc ]
-[; ;task_scheduler.c: 243: break;
-"243
-[e $U 773  ]
-[; ;task_scheduler.c: 244: case 1:
-"244
-[e :U 776 ]
-[; ;task_scheduler.c: 245: SetChanADC(0b10001111);
-"245
+[; ;task_scheduler_libraries.c: 208: break;
+"208
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 209: case 1:
+"209
+[e :U 771 ]
+[; ;task_scheduler_libraries.c: 210: SetChanADC(0b10001111);
+"210
 [e ( _SetChanADC (1 -> -> 143 `i `uc ]
-[; ;task_scheduler.c: 246: break;
-"246
-[e $U 773  ]
-[; ;task_scheduler.c: 247: case 2:
-"247
-[e :U 777 ]
-[; ;task_scheduler.c: 248: SetChanADC(0b10010111);
-"248
+[; ;task_scheduler_libraries.c: 211: break;
+"211
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 212: case 2:
+"212
+[e :U 772 ]
+[; ;task_scheduler_libraries.c: 213: SetChanADC(0b10010111);
+"213
 [e ( _SetChanADC (1 -> -> 151 `i `uc ]
-[; ;task_scheduler.c: 249: break;
-"249
-[e $U 773  ]
-[; ;task_scheduler.c: 250: case 3:
-"250
-[e :U 778 ]
-[; ;task_scheduler.c: 251: SetChanADC(0b10011111);
-"251
-[e ( _SetChanADC (1 -> -> 159 `i `uc ]
-[; ;task_scheduler.c: 252: break;
-"252
-[e $U 773  ]
-[; ;task_scheduler.c: 253: case 4:
-"253
-[e :U 779 ]
-[; ;task_scheduler.c: 254: SetChanADC(0b10100111);
-"254
-[e ( _SetChanADC (1 -> -> 167 `i `uc ]
-[; ;task_scheduler.c: 255: break;
-"255
-[e $U 773  ]
-[; ;task_scheduler.c: 256: case 5:
-"256
-[e :U 780 ]
-[; ;task_scheduler.c: 257: SetChanADC(0b10101111);
-"257
-[e ( _SetChanADC (1 -> -> 175 `i `uc ]
-[; ;task_scheduler.c: 258: break;
-"258
-[e $U 773  ]
-[; ;task_scheduler.c: 259: case 6:
-"259
-[e :U 781 ]
-[; ;task_scheduler.c: 260: SetChanADC(0b10110111);
-"260
-[e ( _SetChanADC (1 -> -> 183 `i `uc ]
-[; ;task_scheduler.c: 261: break;
-"261
-[e $U 773  ]
-[; ;task_scheduler.c: 262: case 7:
-"262
-[e :U 782 ]
-[; ;task_scheduler.c: 263: SetChanADC(0b10111111);
-"263
-[e ( _SetChanADC (1 -> -> 191 `i `uc ]
-[; ;task_scheduler.c: 264: break;
-"264
-[e $U 773  ]
-[; ;task_scheduler.c: 265: case 8:
-"265
-[e :U 783 ]
-[; ;task_scheduler.c: 266: SetChanADC(0b11000111);
-"266
-[e ( _SetChanADC (1 -> -> 199 `i `uc ]
-[; ;task_scheduler.c: 267: break;
-"267
-[e $U 773  ]
-[; ;task_scheduler.c: 268: case 9:
-"268
-[e :U 784 ]
-[; ;task_scheduler.c: 269: SetChanADC(0b11001111);
-"269
-[e ( _SetChanADC (1 -> -> 207 `i `uc ]
-[; ;task_scheduler.c: 270: break;
-"270
-[e $U 773  ]
-[; ;task_scheduler.c: 271: case 10:
-"271
-[e :U 785 ]
-[; ;task_scheduler.c: 272: SetChanADC(0b11010111);
-"272
-[e ( _SetChanADC (1 -> -> 215 `i `uc ]
-[; ;task_scheduler.c: 273: break;
-"273
-[e $U 773  ]
-[; ;task_scheduler.c: 274: case 11:
-"274
-[e :U 786 ]
-[; ;task_scheduler.c: 275: SetChanADC(0b11011111);
-"275
-[e ( _SetChanADC (1 -> -> 223 `i `uc ]
-[; ;task_scheduler.c: 276: break;
-"276
-[e $U 773  ]
-[; ;task_scheduler.c: 277: case 12:
-"277
-[e :U 787 ]
-[; ;task_scheduler.c: 278: SetChanADC(0b11100111);
-"278
-[e ( _SetChanADC (1 -> -> 231 `i `uc ]
-[; ;task_scheduler.c: 279: break;
-"279
-[e $U 773  ]
-[; ;task_scheduler.c: 280: case 13:
-"280
-[e :U 788 ]
-[; ;task_scheduler.c: 281: SetChanADC(0b11101111);
-"281
-[e ( _SetChanADC (1 -> -> 239 `i `uc ]
-[; ;task_scheduler.c: 282: break;
-"282
-[e $U 773  ]
-[; ;task_scheduler.c: 283: case 14:
-"283
-[e :U 789 ]
-[; ;task_scheduler.c: 284: SetChanADC(0b11110111);
-"284
-[e ( _SetChanADC (1 -> -> 247 `i `uc ]
-[; ;task_scheduler.c: 285: break;
-"285
-[e $U 773  ]
-[; ;task_scheduler.c: 286: case 15:
-"286
-[e :U 790 ]
-[; ;task_scheduler.c: 287: SetChanADC(0b11111111);
-"287
-[e ( _SetChanADC (1 -> -> 255 `i `uc ]
-[; ;task_scheduler.c: 288: break;
-"288
-[e $U 773  ]
-[; ;task_scheduler.c: 289: default:
-"289
-[e :U 791 ]
-[; ;task_scheduler.c: 290: break;
-"290
-[e $U 773  ]
-"291
-}
-[; ;task_scheduler.c: 291: }
-[e $U 773  ]
-"240
-[e :U 774 ]
-[e [\ _channel , $ -> -> 0 `i `uc 775
- , $ -> -> 1 `i `uc 776
- , $ -> -> 2 `i `uc 777
- , $ -> -> 3 `i `uc 778
- , $ -> -> 4 `i `uc 779
- , $ -> -> 5 `i `uc 780
- , $ -> -> 6 `i `uc 781
- , $ -> -> 7 `i `uc 782
- , $ -> -> 8 `i `uc 783
- , $ -> -> 9 `i `uc 784
- , $ -> -> 10 `i `uc 785
- , $ -> -> 11 `i `uc 786
- , $ -> -> 12 `i `uc 787
- , $ -> -> 13 `i `uc 788
- , $ -> -> 14 `i `uc 789
- , $ -> -> 15 `i `uc 790
- 791 ]
-"291
+[; ;task_scheduler_libraries.c: 214: break;
+"214
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 215: case 3:
+"215
 [e :U 773 ]
-[; ;task_scheduler.c: 293: }
-"293
-[e :UE 772 ]
+[; ;task_scheduler_libraries.c: 216: SetChanADC(0b10011111);
+"216
+[e ( _SetChanADC (1 -> -> 159 `i `uc ]
+[; ;task_scheduler_libraries.c: 217: break;
+"217
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 218: case 4:
+"218
+[e :U 774 ]
+[; ;task_scheduler_libraries.c: 219: SetChanADC(0b10100111);
+"219
+[e ( _SetChanADC (1 -> -> 167 `i `uc ]
+[; ;task_scheduler_libraries.c: 220: break;
+"220
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 221: case 5:
+"221
+[e :U 775 ]
+[; ;task_scheduler_libraries.c: 222: SetChanADC(0b10101111);
+"222
+[e ( _SetChanADC (1 -> -> 175 `i `uc ]
+[; ;task_scheduler_libraries.c: 223: break;
+"223
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 224: case 6:
+"224
+[e :U 776 ]
+[; ;task_scheduler_libraries.c: 225: SetChanADC(0b10110111);
+"225
+[e ( _SetChanADC (1 -> -> 183 `i `uc ]
+[; ;task_scheduler_libraries.c: 226: break;
+"226
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 227: case 7:
+"227
+[e :U 777 ]
+[; ;task_scheduler_libraries.c: 228: SetChanADC(0b10111111);
+"228
+[e ( _SetChanADC (1 -> -> 191 `i `uc ]
+[; ;task_scheduler_libraries.c: 229: break;
+"229
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 230: case 8:
+"230
+[e :U 778 ]
+[; ;task_scheduler_libraries.c: 231: SetChanADC(0b11000111);
+"231
+[e ( _SetChanADC (1 -> -> 199 `i `uc ]
+[; ;task_scheduler_libraries.c: 232: break;
+"232
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 233: case 9:
+"233
+[e :U 779 ]
+[; ;task_scheduler_libraries.c: 234: SetChanADC(0b11001111);
+"234
+[e ( _SetChanADC (1 -> -> 207 `i `uc ]
+[; ;task_scheduler_libraries.c: 235: break;
+"235
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 236: case 10:
+"236
+[e :U 780 ]
+[; ;task_scheduler_libraries.c: 237: SetChanADC(0b11010111);
+"237
+[e ( _SetChanADC (1 -> -> 215 `i `uc ]
+[; ;task_scheduler_libraries.c: 238: break;
+"238
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 239: case 11:
+"239
+[e :U 781 ]
+[; ;task_scheduler_libraries.c: 240: SetChanADC(0b11011111);
+"240
+[e ( _SetChanADC (1 -> -> 223 `i `uc ]
+[; ;task_scheduler_libraries.c: 241: break;
+"241
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 242: case 12:
+"242
+[e :U 782 ]
+[; ;task_scheduler_libraries.c: 243: SetChanADC(0b11100111);
+"243
+[e ( _SetChanADC (1 -> -> 231 `i `uc ]
+[; ;task_scheduler_libraries.c: 244: break;
+"244
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 245: case 13:
+"245
+[e :U 783 ]
+[; ;task_scheduler_libraries.c: 246: SetChanADC(0b11101111);
+"246
+[e ( _SetChanADC (1 -> -> 239 `i `uc ]
+[; ;task_scheduler_libraries.c: 247: break;
+"247
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 248: case 14:
+"248
+[e :U 784 ]
+[; ;task_scheduler_libraries.c: 249: SetChanADC(0b11110111);
+"249
+[e ( _SetChanADC (1 -> -> 247 `i `uc ]
+[; ;task_scheduler_libraries.c: 250: break;
+"250
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 251: case 15:
+"251
+[e :U 785 ]
+[; ;task_scheduler_libraries.c: 252: SetChanADC(0b11111111);
+"252
+[e ( _SetChanADC (1 -> -> 255 `i `uc ]
+[; ;task_scheduler_libraries.c: 253: break;
+"253
+[e $U 768  ]
+[; ;task_scheduler_libraries.c: 254: default:
+"254
+[e :U 786 ]
+[; ;task_scheduler_libraries.c: 255: break;
+"255
+[e $U 768  ]
+"256
 }
-"296
+[; ;task_scheduler_libraries.c: 256: }
+[e $U 768  ]
+"205
+[e :U 769 ]
+[e [\ _channel , $ -> -> 0 `i `uc 770
+ , $ -> -> 1 `i `uc 771
+ , $ -> -> 2 `i `uc 772
+ , $ -> -> 3 `i `uc 773
+ , $ -> -> 4 `i `uc 774
+ , $ -> -> 5 `i `uc 775
+ , $ -> -> 6 `i `uc 776
+ , $ -> -> 7 `i `uc 777
+ , $ -> -> 8 `i `uc 778
+ , $ -> -> 9 `i `uc 779
+ , $ -> -> 10 `i `uc 780
+ , $ -> -> 11 `i `uc 781
+ , $ -> -> 12 `i `uc 782
+ , $ -> -> 13 `i `uc 783
+ , $ -> -> 14 `i `uc 784
+ , $ -> -> 15 `i `uc 785
+ 786 ]
+"256
+[e :U 768 ]
+[; ;task_scheduler_libraries.c: 258: }
+"258
+[e :UE 767 ]
+}
+"261
 [v _GetSensorReadings `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 296: void GetSensorReadings(void) {
+[; ;task_scheduler_libraries.c: 261: void GetSensorReadings(void) {
 [e :U _GetSensorReadings ]
 [f ]
-[; ;task_scheduler.c: 298: sensor_acq_index = 0;
-"298
+[; ;task_scheduler_libraries.c: 263: sensor_acq_index = 0;
+"263
 [e = _sensor_acq_index -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 299: sensor_acq_done = 0;
-"299
+[; ;task_scheduler_libraries.c: 264: sensor_acq_done = 0;
+"264
 [e = _sensor_acq_done -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 300: SetADCChannel(sensor_acq_index);
-"300
+[; ;task_scheduler_libraries.c: 265: SetADCChannel(sensor_acq_index);
+"265
 [e ( _SetADCChannel (1 _sensor_acq_index ]
-[; ;task_scheduler.c: 301: ConvertADC();
-"301
+[; ;task_scheduler_libraries.c: 266: ConvertADC();
+"266
 [e ( _ConvertADC ..  ]
-[; ;task_scheduler.c: 302: PIE1bits.ADIE = 1;
-"302
+[; ;task_scheduler_libraries.c: 267: PIE1bits.ADIE = 1;
+"267
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 304: }
-"304
-[e :UE 792 ]
+[; ;task_scheduler_libraries.c: 269: }
+"269
+[e :UE 787 ]
 }
-"307
+"272
 [v _BusySensorAcq `(uc ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 307: unsigned char BusySensorAcq(void) {
+[; ;task_scheduler_libraries.c: 272: unsigned char BusySensorAcq(void) {
 [e :U _BusySensorAcq ]
 [f ]
-[; ;task_scheduler.c: 309: return(sensor_acq_done);
-"309
+[; ;task_scheduler_libraries.c: 274: return (sensor_acq_done);
+"274
 [e ) _sensor_acq_done ]
-[e $UE 793  ]
-[; ;task_scheduler.c: 311: }
-"311
-[e :UE 793 ]
+[e $UE 788  ]
+[; ;task_scheduler_libraries.c: 276: }
+"276
+[e :UE 788 ]
 }
-[v F7190 `(v ~T0 @X0 1 tf ]
-"314
-[v _isrHP `IHF7190 ~T0 @X0 1 e ]
+"279
+[v _ReadMillis `(ui ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 314: void interrupt high_priority isrHP(void) {
+[; ;task_scheduler_libraries.c: 279: unsigned int ReadMillis(void) {
+[e :U _ReadMillis ]
+[f ]
+[; ;task_scheduler_libraries.c: 281: return(millisecond_COUNT);
+"281
+[e ) _millisecond_COUNT ]
+[e $UE 789  ]
+[; ;task_scheduler_libraries.c: 283: }
+"283
+[e :UE 789 ]
+}
+"287
+[v _ResetMillis `(v ~T0 @X0 1 ef ]
+{
+[; ;task_scheduler_libraries.c: 287: void ResetMillis(void) {
+[e :U _ResetMillis ]
+[f ]
+[; ;task_scheduler_libraries.c: 289: WriteTimer0(63036);
+"289
+[e ( _WriteTimer0 (1 -> -> 63036 `l `ui ]
+[; ;task_scheduler_libraries.c: 290: millisecond_COUNT = 0;
+"290
+[e = _millisecond_COUNT -> -> 0 `i `ui ]
+[; ;task_scheduler_libraries.c: 292: }
+"292
+[e :UE 790 ]
+}
+[v F7217 `(v ~T0 @X0 1 tf ]
+"295
+[v _isrHP `IHF7217 ~T0 @X0 1 e ]
+{
+[; ;task_scheduler_libraries.c: 295: void interrupt high_priority isrHP(void) {
 [e :U _isrHP ]
 [f ]
-[; ;task_scheduler.c: 317: if(INTCONbits.TMR0IF == 1) {
-"317
-[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 795  ]
+[; ;task_scheduler_libraries.c: 298: if (INTCONbits.TMR0IF == 1) {
+"298
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 792  ]
 {
-[; ;task_scheduler.c: 318: INTCONbits.TMR0IF = 0;
-"318
+[; ;task_scheduler_libraries.c: 299: INTCONbits.TMR0IF = 0;
+"299
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 319: ms_count++;
-"319
-[e ++ _ms_count -> -> 1 `i `ui ]
-[; ;task_scheduler.c: 320: WriteTimer0(63036);
-"320
+[; ;task_scheduler_libraries.c: 300: WriteTimer0(63036);
+"300
 [e ( _WriteTimer0 (1 -> -> 63036 `l `ui ]
-"321
+[; ;task_scheduler_libraries.c: 301: millisecond_COUNT++;
+"301
+[e ++ _millisecond_COUNT -> -> 1 `i `ui ]
+"305
 }
-[e :U 795 ]
-[; ;task_scheduler.c: 321: }
-[; ;task_scheduler.c: 324: if(INTCONbits.RBIF == 1) {
-"324
-[e $ ! == -> . . _INTCONbits 0 0 `i -> 1 `i 796  ]
+[e :U 792 ]
+[; ;task_scheduler_libraries.c: 305: }
+[; ;task_scheduler_libraries.c: 308: if (INTCONbits.RBIF == 1) {
+"308
+[e $ ! == -> . . _INTCONbits 0 0 `i -> 1 `i 793  ]
 {
-[; ;task_scheduler.c: 325: INTCONbits.RBIE = 0;
-"325
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 326: if(PORTBbits.RB4 == 1) {
-"326
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 797  ]
-{
-[; ;task_scheduler.c: 327: T1CONbits.TMR1ON = 1;
-"327
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 328: WriteTimer1(0);
-"328
-[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-"329
-}
-[e :U 797 ]
-[; ;task_scheduler.c: 329: }
-[; ;task_scheduler.c: 330: if(PORTBbits.RB4 == 0) {
-"330
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 798  ]
-{
-[; ;task_scheduler.c: 331: T1CONbits.TMR1ON = 0;
-"331
-[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 332: echo_acq_done = 1;
-"332
-[e = _echo_acq_done -> -> 1 `i `uc ]
-"333
-}
-[e :U 798 ]
-[; ;task_scheduler.c: 333: }
-[; ;task_scheduler.c: 334: INTCONbits.RBIE = 1;
-"334
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 335: INTCONbits.RBIF = 0;
-"335
+[; ;task_scheduler_libraries.c: 309: INTCONbits.RBIF = 0;
+"309
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"336
+"311
 }
-[e :U 796 ]
-[; ;task_scheduler.c: 336: }
-[; ;task_scheduler.c: 339: }
-"339
-[e :UE 794 ]
+[e :U 793 ]
+[; ;task_scheduler_libraries.c: 311: }
+[; ;task_scheduler_libraries.c: 314: }
+"314
+[e :UE 791 ]
 }
-[v F7193 `(v ~T0 @X0 1 tf ]
-"342
-[v _isrLP `ILF7193 ~T0 @X0 1 e ]
+[v F7220 `(v ~T0 @X0 1 tf ]
+"317
+[v _isrLP `ILF7220 ~T0 @X0 1 e ]
 {
-[; ;task_scheduler.c: 342: void interrupt low_priority isrLP(void) {
+[; ;task_scheduler_libraries.c: 317: void interrupt low_priority isrLP(void) {
 [e :U _isrLP ]
 [f ]
-[; ;task_scheduler.c: 345: if(INTCON3bits.INT1IF == 1) {
-"345
-[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 800  ]
+[; ;task_scheduler_libraries.c: 320: if (INTCON3bits.INT1IF == 1) {
+"320
+[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 795  ]
 {
-[; ;task_scheduler.c: 347: INTCON3bits.INT1IF = 0;
-"347
+[; ;task_scheduler_libraries.c: 322: INTCON3bits.INT1IF = 0;
+"322
 [e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-"348
+"323
 }
-[e :U 800 ]
-[; ;task_scheduler.c: 348: }
-[; ;task_scheduler.c: 351: if(INTCON3bits.INT2IF == 1) {
-"351
-[e $ ! == -> . . _INTCON3bits 0 1 `i -> 1 `i 801  ]
+[e :U 795 ]
+[; ;task_scheduler_libraries.c: 323: }
+[; ;task_scheduler_libraries.c: 326: if (INTCON3bits.INT2IF == 1) {
+"326
+[e $ ! == -> . . _INTCON3bits 0 1 `i -> 1 `i 796  ]
 {
-[; ;task_scheduler.c: 353: INTCON3bits.INT2IF = 0;
-"353
+[; ;task_scheduler_libraries.c: 328: INTCON3bits.INT2IF = 0;
+"328
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"354
+"329
 }
-[e :U 801 ]
-[; ;task_scheduler.c: 354: }
-[; ;task_scheduler.c: 357: if(PIR1bits.ADIF == 1) {
-"357
-[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 802  ]
+[e :U 796 ]
+[; ;task_scheduler_libraries.c: 329: }
+[; ;task_scheduler_libraries.c: 332: if (PIR1bits.ADIF == 1) {
+"332
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 797  ]
 {
-[; ;task_scheduler.c: 358: PIR1bits.ADIF = 0;
-"358
+[; ;task_scheduler_libraries.c: 333: PIR1bits.ADIF = 0;
+"333
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;task_scheduler.c: 359: if(sensor_acq_index < 5) {
-"359
-[e $ ! < -> _sensor_acq_index `i -> 5 `i 803  ]
+[; ;task_scheduler_libraries.c: 334: if (sensor_acq_index < 5) {
+"334
+[e $ ! < -> _sensor_acq_index `i -> 5 `i 798  ]
 {
-[; ;task_scheduler.c: 360: *(sensor_readings_ptr + sensor_acq_index) = ReadADC();
-"360
+[; ;task_scheduler_libraries.c: 335: *(sensor_readings_ptr + sensor_acq_index) = ReadADC();
+"335
 [e = *U + _sensor_readings_ptr * -> _sensor_acq_index `ux -> -> # *U _sensor_readings_ptr `ui `ux ( _ReadADC ..  ]
-[; ;task_scheduler.c: 361: sensor_acq_index++;
-"361
+[; ;task_scheduler_libraries.c: 336: sensor_acq_index++;
+"336
 [e ++ _sensor_acq_index -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 362: SetADCChannel(sensor_acq_index);
-"362
+[; ;task_scheduler_libraries.c: 337: SetADCChannel(sensor_acq_index);
+"337
 [e ( _SetADCChannel (1 _sensor_acq_index ]
-[; ;task_scheduler.c: 363: ConvertADC();
-"363
+[; ;task_scheduler_libraries.c: 338: ConvertADC();
+"338
 [e ( _ConvertADC ..  ]
-"364
+"339
 }
-[; ;task_scheduler.c: 364: }
-[e $U 804  ]
-"365
-[e :U 803 ]
-[; ;task_scheduler.c: 365: else {
+[; ;task_scheduler_libraries.c: 339: } else {
+[e $U 799  ]
+[e :U 798 ]
 {
-[; ;task_scheduler.c: 366: sensor_acq_done = 1;
-"366
+[; ;task_scheduler_libraries.c: 340: sensor_acq_done = 1;
+"340
 [e = _sensor_acq_done -> -> 1 `i `uc ]
-[; ;task_scheduler.c: 367: PIE1bits.ADIE = 0;
-"367
+[; ;task_scheduler_libraries.c: 341: PIE1bits.ADIE = 0;
+"341
 [e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-"368
+"342
 }
-[e :U 804 ]
-"369
+[e :U 799 ]
+"343
 }
-[e :U 802 ]
-[; ;task_scheduler.c: 368: }
-[; ;task_scheduler.c: 369: }
-[; ;task_scheduler.c: 371: }
-"371
-[e :UE 799 ]
+[e :U 797 ]
+[; ;task_scheduler_libraries.c: 342: }
+[; ;task_scheduler_libraries.c: 343: }
+[; ;task_scheduler_libraries.c: 345: }
+"345
+[e :UE 794 ]
 }
-"374
+"348
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;task_scheduler.c: 374: void main(void) {
+[; ;task_scheduler_libraries.c: 348: void main(void) {
 [e :U _main ]
 [f ]
-[; ;task_scheduler.c: 377: sensor_readings_ptr = sensor_readings;
-"377
+[; ;task_scheduler_libraries.c: 351: sensor_readings_ptr = sensor_readings;
+"351
 [e = _sensor_readings_ptr -> &U _sensor_readings `*i ]
-[; ;task_scheduler.c: 382: }
-"382
-[e :UE 805 ]
+[; ;task_scheduler_libraries.c: 353: ConfigureUltrasound(0.0137, 0.054);
+"353
+[e ( _ConfigureUltrasound (2 , -> .0.0137 `f -> .0.054 `f ]
+[; ;task_scheduler_libraries.c: 358: }
+"358
+[e :UE 800 ]
 }

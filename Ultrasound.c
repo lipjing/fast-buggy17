@@ -27,7 +27,6 @@ inline void UltrasoundISR(void) {
 }
 
 //Start a distance acquisition from ultrasonic sensor
-
 void GetDistance(void) {
 
     LATEbits.LATE5 = 1; //Send a trigger pulse to the ultrasound module (minimum 10uS)
@@ -39,7 +38,6 @@ void GetDistance(void) {
 }
 
 //Checks if a distance acquisition is ongoing
-
 unsigned char BusyDistanceAcq(void) {
 
     return (echo_acq_done); //Return the value of the echo_ready flag
@@ -47,7 +45,6 @@ unsigned char BusyDistanceAcq(void) {
 }
 
 //Reads raw timer value upon completion of distance acquisition, assumes distance acquisition is complete
-
 unsigned int ReadEchoLength(void) {
 
     return (ReadTimer1());
@@ -55,7 +52,6 @@ unsigned int ReadEchoLength(void) {
 }
 
 //Converts echo length to distance in CM, assumes distance acquisition is complete
-
 float ConvertDistanceCM(unsigned int echo_time) {
 
     return (echo_time * convert_cm);
@@ -63,7 +59,6 @@ float ConvertDistanceCM(unsigned int echo_time) {
 }
 
 //Converts echo length to distance in INCHES, assumes distance acquisition is complete
-
 float ConvertDistanceIN(unsigned int echo_time) {
 
     return (echo_time * convert_in);

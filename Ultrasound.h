@@ -12,9 +12,11 @@
 extern "C" {
 #endif
     
-    void GetDistance(void);
+    void ConfigureUltrasound(float echo_to_cm, float echo_to_in);
     
     inline void UltrasoundISR(void);
+    
+    void GetDistance(void);
     
     unsigned char BusyDistanceAcq(void);
     

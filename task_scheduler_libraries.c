@@ -13,6 +13,8 @@
 #include "plib/usart.h"
 #include "stdio.h"
 #include "Ultrasound.h"
+#include "SystemClock.h"
+
 
 #define TIMER0_VALUE    63036    //Value written to Timer0 to generate ~1ms delay
 #define PERIOD_REG      130      //Value written to PR2 register to set PWM frequency (approx. 19kHz)
@@ -20,8 +22,9 @@
 #define ECHO_TO_DIST_IN 0.054    //Multiplier for echo pulse length to convert to distance in INCHES
 #define NO_OF_SENSORS   5        //Number of sensors in use
 
+
 volatile unsigned char sensor_acq_done, sensor_acq_index;
-volatile unsigned int ms_count;
+volatile unsigned int millisecond_COUNT;
 volatile int sensor_readings[5];
 
 int *sensor_readings_ptr;
@@ -272,19 +275,39 @@ unsigned char BusySensorAcq(void) {
 
 }
 
+//Returns value of millisecond counter
+unsigned int ReadMillis(void) {
+    
+    return(millisecond_COUNT);
+    
+}
+
+//Resets millisecond counter and re-loads Timer0. 
+//Be careful when using this whilst system clock is in use, resetting millisecond count may cause inaccurate timekeeping by system clock
+void ResetMillis(void) {
+    
+    WriteTimer0(TIMER0_VALUE);
+    millisecond_COUNT = 0;
+    
+}
+
 //High-priority ISR
 void interrupt high_priority isrHP(void) {
 
     //Timer0 ISR
     if (INTCONbits.TMR0IF == 1) {
-        INTCONbits.TMR0IF = 0;
-        ms_count++;
-        WriteTimer0(TIMER0_VALUE);
+        INTCONbits.TMR0IF = 0;          //Clear interrupt flag                
+        WriteTimer0(TIMER0_VALUE);      //Re-load Timer0 for next delay
+        millisecond_COUNT++;            //Increment millisecond counter
+        
+        //SystemClockISR();               //Uncomment this line if system clock functionality is needed - there will be a slight performance slowdown          
+        
     }
 
     //PORTB ISR
-    if (INTCONbits.RBIF == 1) { //Check to see if interrupt has come from PORTB (ultrasonic sensor return pulse)
-        UltrasoundISR();
+    if (INTCONbits.RBIF == 1) {                 //Check to see if interrupt has come from PORTB (ultrasonic sensor return pulse)
+        INTCONbits.RBIF = 0;
+        //UltrasoundISR();
     }
 
 
