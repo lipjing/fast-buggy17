@@ -19,6 +19,9 @@
         <itemPath>Ultrasound.c</itemPath>
         <itemPath>Sensors_code.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="f4" displayName="Library Files" projectFiles="true">
+        <itemPath>Ultrasound.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="PWM" projectFiles="true">
         <itemPath>PWM_adj_DC.c</itemPath>
         <itemPath>PWM_gen_freq.c</itemPath>
@@ -30,7 +33,6 @@
       </logicalFolder>
       <itemPath>task_scheduler.c</itemPath>
       <itemPath>task_scheduler_libraries.c</itemPath>
-      <itemPath>Ultrasound.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
