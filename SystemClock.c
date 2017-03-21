@@ -6,7 +6,7 @@ typedef struct {
 } SYSTEMTIME;
 
 volatile SYSTEMTIME SystemClock;
-volatile unsigned char second_rollover_flag, 
+volatile unsigned char second_rollover_flag; 
 unsigned char system_clock_enable;
 
 //Resets System Clock back to zero

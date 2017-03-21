@@ -11,25 +11,62 @@
 #include "plib/timers.h"
 #include "plib/delays.h"
 #include "plib/usart.h"
+#include "plib/pwm.h"
 #include "stdio.h"
 #include "math.h"
 #include "Ultrasound.h"
 #include "SystemClock.h"
+#include "Motors.h"
+#include "MillisecondTimer.h"
+#include "global_defines.h"     //Some global pre-processor definitions for things like motor drive board pin connections etc.
 
-#define TIMER0_VALUE    63036    //Value written to Timer0 to generate ~1ms delay
 #define PERIOD_REG      130      //Value written to PR2 register to set PWM frequency (approx. 19kHz)
 #define ECHO_TO_DIST_CM 0.0137   //Multiplier for echo pulse length to convert to distance in CM
 #define ECHO_TO_DIST_IN 0.054    //Multiplier for echo pulse length to convert to distance in INCHES
 #define NO_OF_SENSORS   5        //Number of sensors in use
 
 //PID defines
-#define PID_KP  1
-#define PID_KD  1
-#define PID_KI  1
+#define PID_KP  10  //Proportional constant
+#define PID_KD  1   //Derivative constant
+#define PID_KI  1   //Integral constant
+
+//Mode defines
+#define MODE_P   0
+#define MODE_PD  1
+#define MODE_PI  2
+#define MODE_PID 3
+
+#define MODE_BI  0
+#define MODE_UNI 1
+
+//Sensor weighting defines - expand the code fold below for a description
+/* Sensor weightings - adjusting these WILL have an effect on the control algorithm
+ * Sensors are weighted with values as shown in the diagram below:
+ *      ---------------------------------
+ *     |   [0]   [1]   [2]   [3]   [4]   |
+ *      ---------------------------------
+ *          |_____|_____|_____|_____|
+ *          |  |  |  |  |  |  |  |  |
+ *          |  W1 |  W3 |  W5 |  W7 |
+ *          W0    W2    W4   W6     W8
+ * Upper row indicates weighting when line is under two sensors
+ * Lower row indicates weighting when line is under a single sensor
+ * 
+ * Weightings influence the contribution that each sensor will have to the overall sensor error
+ * therefore they must be tuned WITH the PID variables
+ */
+#define W0  -16
+#define W1  -9
+#define W2  -4
+#define W3  -1
+#define W4  0
+#define W5  1
+#define W6  4
+#define W7  9
+#define W8  16
 
 //Global volatile variables
 volatile unsigned char sensor_acq_done, sensor_acq_index;
-volatile unsigned int millisecond_COUNT;
 volatile int sensor_readings_raw[NO_OF_SENSORS];
 
 //Global volatile pointer variables
@@ -112,6 +149,7 @@ void ConfigureTimer1(void) {
             & T1_16BIT_RW //16-bit mode
             & T1_SOURCE_INT //Increment on internal instruction clock
             & T1_PS_1_2 //Prescaler 1:2
+            & T1_OSC1EN_OFF //Disable oscillator attached to OSC1 pins
             & T1_SYNC_EXT_OFF); //External clock synchronisation off
 
     //T1CON = 0x9D;              //Achieves same as OpenTimer1 function, uncomment if OpenTimerX doesn't work on some versions of XC8
@@ -127,7 +165,14 @@ void ConfigureTimer2(void) {
 
     OpenTimer2(TIMER_INT_OFF //Interrupts disabled
             & T2_PS_1_1 //Prescaler 1:1
-            & T2_POST_1_1); //Postscaler 1:1
+            & T2_POST_1_1 //Postscaler 1:1
+            & T12_SOURCE_CCP);
+    
+//    PIE1bits.TMR2IE = 0;        //Disable Timer2 interrupts
+//    T2CONbits.T2CKPS1 = 0;      //Set Timer2 pre-scaler to 1:1
+//    T2CONbits.T2CKPS0 = 0;
+//    T2CONbits.TMR2ON = 1;       //Turn on Timer2
+//    PR2 = PERIOD_REG;           //Write PWM Period value to period register
 
     //T2CON = 0x04;               //Achieves same as OpenTimer2 function, uncomment if OpenTimerX doesn't work on some versions of XC8
 
@@ -139,20 +184,20 @@ void ConfigurePWM(void) {
     OpenPWM4(PERIOD_REG); //Set up CCP4 in PWM mode
     OpenPWM5(PERIOD_REG); //Set up CCP5 in PWM mode
 
-    //    //Uncomment lines below if OpenPWMX functions are not working on the version of XC8 used
-    //    //Configure CCP4 module for PWM operation
-    //    CCP4CONbits.CCP4M3 = 1;     
-    //    CCP4CONbits.CCP4M2 = 1;
-    //    CCP4CONbits.CCP4M1 = 0;
-    //    CCP4CONbits.CCP4M0 = 0;
-    //
-    //    //Configure CCP5 module for PWM operation
-    //    CCP5CONbits.CCP5M3 = 1;     
-    //    CCP5CONbits.CCP5M2 = 1;
-    //    CCP5CONbits.CCP5M1 = 0;
-    //    CCP5CONbits.CCP5M0 = 0;
-    //    
-    //    PR2 = PERIOD_REG;
+//        //Uncomment lines below if OpenPWMX functions are not working on the version of XC8 used
+//        //Configure CCP4 module for PWM operation
+//        CCP4CONbits.CCP4M3 = 1;     
+//        CCP4CONbits.CCP4M2 = 1;
+//        CCP4CONbits.CCP4M1 = 0;
+//        CCP4CONbits.CCP4M0 = 0;
+//    
+//        //Configure CCP5 module for PWM operation
+//        CCP5CONbits.CCP5M3 = 1;     
+//        CCP5CONbits.CCP5M2 = 1;
+//        CCP5CONbits.CCP5M1 = 0;
+//        CCP5CONbits.CCP5M0 = 0;
+//        
+//        PR2 = PERIOD_REG;
 
 }
 
@@ -169,7 +214,7 @@ void ConfigureBuggyIO(void) {
     TRISC = 0xBF;
 
     //TRISD
-    TRISD = 0xFF;
+    TRISD = 0xE0;
 
     //TRISE
     TRISE = 0x80;
@@ -317,6 +362,8 @@ void CalibrateSensors(void) {
 void CalibrateLine(void) {
     unsigned char index;
     
+    LATJ = 0x00;
+    
     //Get threshold potentiometer reading
     SetADCChannel(5);
     ConvertADC();
@@ -330,15 +377,21 @@ void CalibrateLine(void) {
 
     NormaliseSensorReadings();
     
+    //WHITE LINE ON BLACK DETECTION
+//    for (index = 0; index < NO_OF_SENSORS; index++) {
+//        if (sensor_readings_normalised[index] > sensor_threshold) {
+//            LATJ |= (1 << index);
+//        }
+//    }
+    
+    //BLACK LINE ON WHITE DETECTION
     for (index = 0; index < NO_OF_SENSORS; index++) {
-        if (sensor_readings_normalised[index] > sensor_threshold) {
+        if (sensor_readings_normalised[index] < sensor_threshold) {
             LATJ |= (1 << index);
         }
     }
 
-    Delay10KTCYx(5);
 
-    LATJ = 0x00; 
     
 }
 
@@ -346,9 +399,22 @@ void CalibrateLine(void) {
 void CalculateSensorStatuses(void) {
     unsigned char index;
     
+    //WHITE LINE ON BLACK DETECTION
+//    for(index = 0; index < NO_OF_SENSORS; index++) {
+//        
+//        if(sensor_readings_normalised[index] > sensor_threshold) {
+//            sensor_status[index] = 1;
+//        }
+//        else {
+//            sensor_status[index] = 0;
+//        }
+//        
+//    }
+    
+    //BLACK LINE ON WHITE DETECTION
     for(index = 0; index < NO_OF_SENSORS; index++) {
         
-        if(sensor_readings_normalised[index] > sensor_threshold) {
+        if(sensor_readings_normalised[index] < sensor_threshold) {
             sensor_status[index] = 1;
         }
         else {
@@ -356,7 +422,8 @@ void CalculateSensorStatuses(void) {
         }
         
     }
-    
+
+     
 }
 
 //Calculate sensor sums
@@ -378,23 +445,23 @@ int CalculateSensorError(unsigned char sum) {
     
     switch(sum) {
         case(16)    :
-            return(-16);
+            return(W8);
         case(24) :
-            return(-9);
+            return(W7);
         case(8) :
-            return(-4);
+            return(W6);
         case(12) :
-            return(-1);
+            return(W5);
         case(4) : 
-            return(0);
+            return(W4);
         case(6) :
-            return(1);
+            return(W3);
         case(2) :
-            return(4);
+            return(W2);
         case(3) :
-            return(9);
+            return(W1);
         case(1) :
-            return(16);
+            return(W0);
         default :
             break;
     }
@@ -410,43 +477,14 @@ void EnableSensorLEDS(void) {
     
 }
 
-//Illuminate a specific LED as determined by index passed into function
-void IlluminateLED(unsigned char sel) { 
-    switch (sel) {
-        case 0:
-            LATJ = 0x01;
-            break;
-        case 1:
-            LATJ = 0x02;
-            break;
-        case 2:
-            LATJ = 0x04;
-            break;
-        case 3:
-            LATJ = 0x08;
-            break;
-        case 4:
-            LATJ = 0x10;
-            break;
-    }
-}
-
-//Returns value of millisecond counter
-unsigned int ReadMillis(void) {
+//Turn off all TCRT5000 IR LEDs
+void DisableSensorLEDS(void) {
     
-    return(millisecond_COUNT);
+    LATE &= 0xE0;       //AND used to avoid disturbing other IO connected to PORTE
     
 }
 
-//Resets millisecond counter and re-loads Timer0. 
-//Be careful when using this whilst system clock is in use, resetting millisecond count may cause inaccurate timekeeping by system clock
-void ResetMillis(void) {
-    
-    WriteTimer0(TIMER0_VALUE);
-    millisecond_COUNT = 0;
-    
-}
-
+//Flashes LEDs to indicate changing of mode
 void ChangeMode(void) {
     LATJ = 0x00;
     LATJ = 0x1F;
@@ -463,15 +501,15 @@ void interrupt high_priority isrHP(void) {
 
     //Timer0 ISR
     if (INTCONbits.TMR0IF == 1) {
-        INTCONbits.TMR0IF = 0;          //Clear interrupt flag                
-        WriteTimer0(TIMER0_VALUE);      //Re-load Timer0 for next delay
-        millisecond_COUNT++;            //Increment millisecond counter
+        INTCONbits.TMR0IF = 0;      //Clear interrupt flag                
         
-        //SystemClockISR();               //Uncomment this line if system clock functionality is needed - there will be a slight performance slowdown          
+        MillisecondTimerISR();      //ISR for millisecond timer functionality
+        
+        //SystemClockISR();           //Uncomment this line if system clock functionality is needed - there will be a slight performance slowdown          
         
     }
 
-//    //PORTB ISR
+//    //PORTB ISR (for ultrasound)
 //    if (INTCONbits.RBIF == 1) {                 //Check to see if interrupt has come from PORTB (ultrasonic sensor return pulse)
 //        INTCONbits.RBIF = 0;
 //        UltrasoundISR();
@@ -526,6 +564,8 @@ void main(void) {
     ConfigureBuggyIO();
     ConfigureInterrupts();
     ConfigureTimer0();
+    ConfigureTimer2();
+    ConfigurePWM();
     ConfigureADC();
 
     EnableSensorLEDS();
@@ -533,10 +573,12 @@ void main(void) {
     PID_error = 0;
     PID_output = 0;
     
+    LATJ = 0x00;
+    
     while(PORTBbits.RB1 == 0) {
         
         CalibrateSensors();
-        Delay10KTCYx(5);
+        Delay10KTCYx(10);
         
     }
     
@@ -545,11 +587,17 @@ void main(void) {
     while(PORTBbits.RB1 == 0) {
         
         CalibrateLine();
-        Delay10KTCYx(5);
+        Delay10KTCYx(10);
         
     }
     
     ChangeMode();
+    
+    SetUnipolar();
+    SetDCMotorL(DC_STOP);
+    SetDCMotorR(DC_STOP);
+    EnableMotors();
+    SetDirectionForward();
     
     while(1) {
         
@@ -567,20 +615,24 @@ void main(void) {
         PID_error = CalculateSensorError(sensor_sum);
         PID_output = PID_KP * PID_error;
         
+        SetDCMotorPID(PID_output);
         
+        for (index = 0; index < NO_OF_SENSORS; index++) {
+            if (sensor_readings_normalised[index] > sensor_threshold) {
+                LATJ |= (1 << index);
+            }
+        }
         
-//        for (index = 0; index < NO_OF_SENSORS; index++) {
-//            if (sensor_readings_normalised[index] > sensor_threshold) {
-//                LATJ |= (1 << index);
-//            }
-//        }
-        
-        Delay10KTCYx(5);
+        ResetMillis();
+        while(ReadMillis() < 5);
         LATJ = 0x00;
        
     }
 
 }
+
+
+
 
 
 

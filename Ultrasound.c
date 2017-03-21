@@ -40,7 +40,7 @@ void GetDistance(void) {
 //Checks if a distance acquisition is ongoing
 unsigned char BusyDistanceAcq(void) {
 
-    return (echo_acq_done); //Return the value of the echo_ready flag
+    return (!echo_acq_done); //Return the value of the echo_ready flag
 
 }
 
