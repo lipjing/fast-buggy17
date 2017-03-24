@@ -4,12 +4,25 @@
 void SetDCMotorL(unsigned int duty_cycle) {
     
     SetDCPWM5(duty_cycle);
+//    if(duty_cycle >= DC_STOP) {
+//        SetDCPWM5(DC_STOP);
+//        
+//    } else {
+//        SetDCPWM5(duty_cycle);        
+//    }
+
     
 }
 
 void SetDCMotorR(unsigned int duty_cycle) {
     
     SetDCPWM4(duty_cycle);
+//    if(duty_cycle >= DC_STOP) {
+//        SetDCPWM4(DC_STOP);
+//        
+//    } else {
+//        SetDCPWM4(duty_cycle);        
+//    }
     
 }
 
@@ -96,3 +109,15 @@ void StopMotors(void) {
     SetDCMotorL(DC_STOP);
     
 }
+
+//void Ramp_Motors_Down(void){
+//    for(int DC = ;DC > 0;DC--){
+//        SetDCMotorL(DC);
+//        SetDCMotorR(DC);
+//    }
+//}
+
+//void Ramp_Motors_Up(void){
+//    
+//
+//}

@@ -8470,6 +8470,8 @@ unsigned char BusyDistanceAcq(void);
 
 unsigned int ReadEchoLength(void);
 
+void ResetEchoLength(void);
+
 float ConvertDistanceCM(unsigned int echo_time);
 
 float ConvertDistanceIN(unsigned int echo_time);
@@ -8529,15 +8531,12 @@ void ResetMillis(void);
 
 inline void MillisecondTimerISR(void);
 
-# 69 "FastBuggy17_Main_Code.c"
+# 63 "FastBuggy17_Main_Code.c"
 volatile unsigned char sensor_acq_done, sensor_acq_index;
 volatile int sensor_readings_raw[5];
 
 
-volatile int *sensor_readings_ptr;
-
-
-unsigned char sensor_status[5];
+unsigned char sensor_status[5], line_mode;
 int sensor_offsets[5], sensor_readings_normalised[5];
 int sensor_threshold, PID_error, PID_output;
 
@@ -8548,17 +8547,22 @@ INTCONbits.GIE = 1;
 INTCONbits.PEIE = 1;
 RCONbits.IPEN = 1;
 
-# 107
+# 93
+INTCONbits.RBIE = 0;
+INTCONbits.RBIF = 0;
+INTCON2bits.RBIP = 1;
+
+
 INTCONbits.TMR0IE = 1;
 INTCONbits.TMR0IF = 0;
 INTCON2bits.TMR0IP = 1;
 
-# 118
+# 109
 PIE1bits.ADIE = 0;
 PIR1bits.ADIF = 0;
 IPR1bits.ADIP = 0;
 
-# 129
+# 120
 }
 
 
@@ -8601,7 +8605,7 @@ OpenTimer2(0b01111111
 & 0b10000111
 & 0b10110111);
 
-# 179
+# 170
 }
 
 
@@ -8610,7 +8614,7 @@ void ConfigurePWM(void) {
 OpenPWM4(130);
 OpenPWM5(130);
 
-# 202
+# 193
 }
 
 
@@ -8755,56 +8759,23 @@ sensor_readings_normalised[index] = sensor_readings_raw[index] + sensor_offsets[
 }
 
 
-void CalibrateSensors(void) {
-unsigned char index;
-
-GetSensorReadings();
-
-while(BusySensorAcq());
-
-for(index = 0; index < 5; index++) {
-
-sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
-
-}
-
-}
-
-
-void CalibrateLine(void) {
-unsigned char index;
-
-LATJ = 0x00;
-
-
-SetADCChannel(5);
-ConvertADC();
-while(BusyADC());
-sensor_threshold = ReadADC();
-
-
-GetSensorReadings();
-
-while(BusySensorAcq());
-
-NormaliseSensorReadings();
-
-# 388
-for (index = 0; index < 5; index++) {
-if (sensor_readings_normalised[index] < sensor_threshold) {
-LATJ |= (1 << index);
-}
-}
-
-
-
-}
-
-
 void CalculateSensorStatuses(void) {
 unsigned char index;
 
-# 415
+
+if(line_mode == 1) {
+for(index = 0; index < 5; index++) {
+
+if(sensor_readings_normalised[index] > sensor_threshold) {
+sensor_status[index] = 1;
+}
+else {
+sensor_status[index] = 0;
+}
+}
+}
+else if(line_mode == 0) {
+
 for(index = 0; index < 5; index++) {
 
 if(sensor_readings_normalised[index] < sensor_threshold) {
@@ -8814,6 +8785,7 @@ else {
 sensor_status[index] = 0;
 }
 
+}
 }
 
 
@@ -8834,32 +8806,42 @@ return(sum);
 }
 
 
-int CalculateSensorError(unsigned char sum) {
+int CalculateSensorError(const unsigned char *sum) {
 
-switch(sum) {
+switch(*sum) {
 case(16) :
-return(16);
+return(50);
 case(24) :
-return(9);
+return(30);
 case(8) :
-return(4);
+return(22);
 case(12) :
-return(1);
+return(17);
 case(4) :
 return(0);
 case(6) :
-return(-1);
+return(-17);
 case(2) :
-return(-4);
+return(-22);
 case(3) :
-return(-9);
+return(-30);
 case(1) :
-return(-16);
+return(-50);
 default :
 break;
 }
 
 return(0);
+
+}
+
+
+void DisplaySensorStatuses(const unsigned char *status_array) {
+unsigned char index;
+
+for (index = 0; index < 5; index++) {
+LATJ ^= *(status_array + index) << index;
+}
 
 }
 
@@ -8875,6 +8857,50 @@ void DisableSensorLEDS(void) {
 
 LATE &= 0xE0;
 
+}
+
+
+void CalibrateSensors(void) {
+unsigned char index;
+
+GetSensorReadings();
+
+while(BusySensorAcq());
+
+for(index = 0; index < 5; index++) {
+
+sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
+
+}
+
+}
+
+
+void CalibrateLine(void) {
+unsigned char index, sum;
+
+
+
+LATJ = 0x00;
+
+
+SetADCChannel(5);
+ConvertADC();
+while(BusyADC());
+sensor_threshold = ReadADC();
+
+
+GetSensorReadings();
+
+while(BusySensorAcq());
+
+NormaliseSensorReadings();
+
+CalculateSensorStatuses();
+
+DisplaySensorStatuses(sensor_status);
+
+# 499
 }
 
 
@@ -8902,17 +8928,22 @@ MillisecondTimerISR();
 
 }
 
-# 519
+
+if (INTCONbits.RBIF == 1) {
+UltrasoundISR();
+}
+
+
 }
 
 
 void interrupt low_priority isrLP(void) {
 
-# 537
+# 550
 if (PIR1bits.ADIF == 1) {
 PIR1bits.ADIF = 0;
 if (sensor_acq_index < 5) {
-*(sensor_readings_ptr + sensor_acq_index) = ReadADC();
+*(sensor_readings_raw + sensor_acq_index) = ReadADC();
 sensor_acq_index++;
 SetADCChannel(sensor_acq_index);
 ConvertADC();
@@ -8928,41 +8959,61 @@ PIE1bits.ADIE = 0;
 void main(void) {
 
 
-unsigned char index;
-int sensor_sum;
+unsigned char sensor_sum;
 
 
-sensor_readings_ptr = sensor_readings_raw;
+unsigned char *sensor_sum_ptr;
+sensor_sum_ptr = &sensor_sum;
 
-
-
+ConfigureUltrasound(0.0137, 0.054);
 ConfigureBuggyIO();
 ConfigureInterrupts();
 ConfigureTimer0();
+ConfigureTimer1();
 ConfigureTimer2();
 ConfigurePWM();
 ConfigureADC();
 
 EnableSensorLEDS();
 
+line_mode = 0;
+
 PID_error = 0;
 PID_output = 0;
 
 LATJ = 0x00;
+
+ResetMillis();
+
 
 while(PORTBbits.RB1 == 0) {
 
 CalibrateSensors();
 Delay10KTCYx(10);
 
+if(ReadMillis() >= 100) {
+LATJbits.LATJ0 ^= 1;
+ResetMillis();
+}
+
 }
 
 ChangeMode();
+ResetMillis();
 
+# 623
 while(PORTBbits.RB1 == 0) {
 
 CalibrateLine();
 Delay10KTCYx(10);
+
+}
+
+while(PORTBbits.RB1 == 0) {
+if(ReadMillis() >= 100) {
+LATJbits.LATJ0 ^= 1;
+ResetMillis();
+}
 
 }
 
@@ -8973,6 +9024,9 @@ SetDCMotorL(500);
 SetDCMotorR(500);
 EnableMotors();
 SetDirectionForward();
+
+GetDistance();
+
 
 while(1) {
 
@@ -8987,16 +9041,70 @@ CalculateSensorStatuses();
 sensor_sum = CalculateSensorSums();
 
 
-PID_error = CalculateSensorError(sensor_sum);
-PID_output = 10 * PID_error;
+
+
+PID_error = CalculateSensorError(sensor_sum_ptr);
+PID_output = 12 * PID_error;
 
 SetDCMotorPID(PID_output);
 
-for (index = 0; index < 5; index++) {
-if (sensor_readings_normalised[index] > sensor_threshold) {
-LATJ |= (1 << index);
+
+
+DisplaySensorStatuses(sensor_status);
+
+# 681
+if(BusyDistanceAcq() == 0) {
+if(ReadEchoLength() <= 1232 ) {
+
+DisableMotors();
+
+if(PID_output < 0){
+SetForwardsMotorR();
+SetReverseMotorL();
+}
+if(PID_output > 0){
+SetForwardsMotorL();
+SetReverseMotorR();
+}
+
+
+SetDCMotorL(400);
+SetDCMotorR(400);
+
+EnableMotors();
+
+ResetMillis();
+while(ReadMillis() < 30);
+sensor_sum = 0;
+
+
+
+while(sensor_sum == 0) {
+GetSensorReadings();
+while(BusySensorAcq());
+NormaliseSensorReadings();
+CalculateSensorStatuses();
+sensor_sum = CalculateSensorSums();
+DisplaySensorStatuses(sensor_status);
+
+}
+
+ResetEchoLength();
+
+DisableMotors();
+SetDirectionForward();
+EnableMotors();
+
+PID_error = 0;
+
+GetDistance();
+}
+else {
+GetDistance();
 }
 }
+
+
 
 ResetMillis();
 while(ReadMillis() < 5);
@@ -9005,4 +9113,3 @@ LATJ = 0x00;
 }
 
 }
-

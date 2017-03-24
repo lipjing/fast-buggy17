@@ -22,6 +22,8 @@ extern "C" {
     
     unsigned int ReadEchoLength(void);
     
+    void ResetEchoLength(void);
+    
     float ConvertDistanceCM(unsigned int echo_time);
     
     float ConvertDistanceIN(unsigned int echo_time);

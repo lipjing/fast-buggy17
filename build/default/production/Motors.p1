@@ -6429,218 +6429,218 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motors.c: 6: SetDCPWM5(duty_cycle);
 "6
 [e ( _SetDCPWM5 (1 _duty_cycle ]
-[; ;Motors.c: 8: }
-"8
+[; ;Motors.c: 15: }
+"15
 [e :UE 758 ]
 }
-"10
+"17
 [v _SetDCMotorR `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;Motors.c: 10: void SetDCMotorR(unsigned int duty_cycle) {
+[; ;Motors.c: 17: void SetDCMotorR(unsigned int duty_cycle) {
 [e :U _SetDCMotorR ]
 [v _duty_cycle `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;Motors.c: 12: SetDCPWM4(duty_cycle);
-"12
+[; ;Motors.c: 19: SetDCPWM4(duty_cycle);
+"19
 [e ( _SetDCPWM4 (1 _duty_cycle ]
-[; ;Motors.c: 14: }
-"14
+[; ;Motors.c: 27: }
+"27
 [e :UE 759 ]
 }
-"16
+"29
 [v _SetDCMotorPID `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Motors.c: 16: void SetDCMotorPID(int PIDoutput) {
+[; ;Motors.c: 29: void SetDCMotorPID(int PIDoutput) {
 [e :U _SetDCMotorPID ]
 [v _PIDoutput `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Motors.c: 18: if(PIDoutput < 0) {
-"18
+[; ;Motors.c: 31: if(PIDoutput < 0) {
+"31
 [e $ ! < _PIDoutput -> 0 `i 761  ]
 {
-[; ;Motors.c: 19: SetDCMotorL(425 - PIDoutput);
-"19
-[e ( _SetDCMotorL (1 -> - -> 425 `i _PIDoutput `ui ]
-[; ;Motors.c: 20: SetDCMotorR(425);
-"20
-[e ( _SetDCMotorR (1 -> -> 425 `i `ui ]
-"21
+[; ;Motors.c: 32: SetDCMotorL(410 - PIDoutput);
+"32
+[e ( _SetDCMotorL (1 -> - -> 410 `i _PIDoutput `ui ]
+[; ;Motors.c: 33: SetDCMotorR(410);
+"33
+[e ( _SetDCMotorR (1 -> -> 410 `i `ui ]
+"34
 }
-[; ;Motors.c: 21: }
+[; ;Motors.c: 34: }
 [e $U 762  ]
-"22
+"35
 [e :U 761 ]
-[; ;Motors.c: 22: else {
+[; ;Motors.c: 35: else {
 {
-[; ;Motors.c: 23: SetDCMotorL(425);
-"23
-[e ( _SetDCMotorL (1 -> -> 425 `i `ui ]
-[; ;Motors.c: 24: SetDCMotorR(425 + PIDoutput);
-"24
-[e ( _SetDCMotorR (1 -> + -> 425 `i _PIDoutput `ui ]
-"25
+[; ;Motors.c: 36: SetDCMotorL(410);
+"36
+[e ( _SetDCMotorL (1 -> -> 410 `i `ui ]
+[; ;Motors.c: 37: SetDCMotorR(410 + PIDoutput);
+"37
+[e ( _SetDCMotorR (1 -> + -> 410 `i _PIDoutput `ui ]
+"38
 }
 [e :U 762 ]
-[; ;Motors.c: 25: }
-[; ;Motors.c: 27: }
-"27
+[; ;Motors.c: 38: }
+[; ;Motors.c: 40: }
+"40
 [e :UE 760 ]
 }
-"29
+"42
 [v _SetDirectionForward `(v ~T0 @X0 1 ef ]
 {
-[; ;Motors.c: 29: void SetDirectionForward(void) {
+[; ;Motors.c: 42: void SetDirectionForward(void) {
 [e :U _SetDirectionForward ]
 [f ]
-[; ;Motors.c: 31: LATDbits.LATD1 = 1;
-"31
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-[; ;Motors.c: 32: LATDbits.LATD3 = 1;
-"32
+[; ;Motors.c: 44: LATDbits.LATD3 = 1;
+"44
 [e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-[; ;Motors.c: 34: }
-"34
-[e :UE 763 ]
-}
-"36
-[v _SetDirectionReverse `(v ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 36: void SetDirectionReverse(void) {
-[e :U _SetDirectionReverse ]
-[f ]
-[; ;Motors.c: 38: LATDbits.LATD1 = 0;
-"38
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;Motors.c: 39: LATDbits.LATD3 = 0;
-"39
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;Motors.c: 41: }
-"41
-[e :UE 764 ]
-}
-"43
-[v _SetForwardsMotorR `(v ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 43: void SetForwardsMotorR(void) {
-[e :U _SetForwardsMotorR ]
-[f ]
-[; ;Motors.c: 45: LATDbits.LATD3 = 1;
+[; ;Motors.c: 45: LATDbits.LATD1 = 1;
 "45
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
 [; ;Motors.c: 47: }
 "47
-[e :UE 765 ]
+[e :UE 763 ]
 }
 "49
+[v _SetDirectionReverse `(v ~T0 @X0 1 ef ]
+{
+[; ;Motors.c: 49: void SetDirectionReverse(void) {
+[e :U _SetDirectionReverse ]
+[f ]
+[; ;Motors.c: 51: LATDbits.LATD3 = 0;
+"51
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;Motors.c: 52: LATDbits.LATD1 = 0;
+"52
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;Motors.c: 54: }
+"54
+[e :UE 764 ]
+}
+"56
+[v _SetForwardsMotorR `(v ~T0 @X0 1 ef ]
+{
+[; ;Motors.c: 56: void SetForwardsMotorR(void) {
+[e :U _SetForwardsMotorR ]
+[f ]
+[; ;Motors.c: 58: LATDbits.LATD1 = 1;
+"58
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+[; ;Motors.c: 60: }
+"60
+[e :UE 765 ]
+}
+"62
 [v _SetForwardsMotorL `(v ~T0 @X0 1 ef ]
 {
-[; ;Motors.c: 49: void SetForwardsMotorL(void) {
+[; ;Motors.c: 62: void SetForwardsMotorL(void) {
 [e :U _SetForwardsMotorL ]
 [f ]
-[; ;Motors.c: 51: LATDbits.LATD1 = 1;
-"51
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-[; ;Motors.c: 53: }
-"53
+[; ;Motors.c: 64: LATDbits.LATD3 = 1;
+"64
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[; ;Motors.c: 66: }
+"66
 [e :UE 766 ]
 }
-"55
+"68
 [v _SetReverseMotorR `(v ~T0 @X0 1 ef ]
 {
-[; ;Motors.c: 55: void SetReverseMotorR(void) {
+[; ;Motors.c: 68: void SetReverseMotorR(void) {
 [e :U _SetReverseMotorR ]
 [f ]
-[; ;Motors.c: 57: LATDbits.LATD3 = 0;
-"57
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;Motors.c: 59: }
-"59
+[; ;Motors.c: 70: LATDbits.LATD1 = 0;
+"70
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;Motors.c: 72: }
+"72
 [e :UE 767 ]
 }
-"61
+"74
 [v _SetReverseMotorL `(v ~T0 @X0 1 ef ]
 {
-[; ;Motors.c: 61: void SetReverseMotorL(void) {
+[; ;Motors.c: 74: void SetReverseMotorL(void) {
 [e :U _SetReverseMotorL ]
 [f ]
-[; ;Motors.c: 63: LATDbits.LATD1 = 0;
-"63
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;Motors.c: 65: }
-"65
+[; ;Motors.c: 76: LATDbits.LATD3 = 0;
+"76
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;Motors.c: 78: }
+"78
 [e :UE 768 ]
 }
-"67
+"80
 [v _EnableMotors `(v ~T0 @X0 1 ef ]
 {
-[; ;Motors.c: 67: void EnableMotors(void) {
+[; ;Motors.c: 80: void EnableMotors(void) {
 [e :U _EnableMotors ]
 [f ]
-[; ;Motors.c: 69: LATDbits.LATD4 = 1;
-"69
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;Motors.c: 71: }
-"71
-[e :UE 769 ]
-}
-"73
-[v _DisableMotors `(v ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 73: void DisableMotors(void) {
-[e :U _DisableMotors ]
-[f ]
-[; ;Motors.c: 75: LATDbits.LATD4 = 0;
-"75
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;Motors.c: 77: }
-"77
-[e :UE 770 ]
-}
-"79
-[v _SetBipolar `(v ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 79: void SetBipolar(void) {
-[e :U _SetBipolar ]
-[f ]
-[; ;Motors.c: 81: LATDbits.LATD2 = 1;
-"81
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;Motors.c: 82: LATDbits.LATD0 = 1;
+[; ;Motors.c: 82: LATDbits.LATD4 = 1;
 "82
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 [; ;Motors.c: 84: }
 "84
-[e :UE 771 ]
+[e :UE 769 ]
 }
 "86
+[v _DisableMotors `(v ~T0 @X0 1 ef ]
+{
+[; ;Motors.c: 86: void DisableMotors(void) {
+[e :U _DisableMotors ]
+[f ]
+[; ;Motors.c: 88: LATDbits.LATD4 = 0;
+"88
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;Motors.c: 90: }
+"90
+[e :UE 770 ]
+}
+"92
+[v _SetBipolar `(v ~T0 @X0 1 ef ]
+{
+[; ;Motors.c: 92: void SetBipolar(void) {
+[e :U _SetBipolar ]
+[f ]
+[; ;Motors.c: 94: LATDbits.LATD0 = 1;
+"94
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+[; ;Motors.c: 95: LATDbits.LATD2 = 1;
+"95
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
+[; ;Motors.c: 97: }
+"97
+[e :UE 771 ]
+}
+"99
 [v _SetUnipolar `(v ~T0 @X0 1 ef ]
 {
-[; ;Motors.c: 86: void SetUnipolar(void) {
+[; ;Motors.c: 99: void SetUnipolar(void) {
 [e :U _SetUnipolar ]
 [f ]
-[; ;Motors.c: 88: LATDbits.LATD2 = 0;
-"88
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-[; ;Motors.c: 89: LATDbits.LATD0 = 0;
-"89
+[; ;Motors.c: 101: LATDbits.LATD0 = 0;
+"101
 [e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-[; ;Motors.c: 91: }
-"91
+[; ;Motors.c: 102: LATDbits.LATD2 = 0;
+"102
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;Motors.c: 104: }
+"104
 [e :UE 772 ]
 }
-"93
+"106
 [v _StopMotors `(v ~T0 @X0 1 ef ]
 {
-[; ;Motors.c: 93: void StopMotors(void) {
+[; ;Motors.c: 106: void StopMotors(void) {
 [e :U _StopMotors ]
 [f ]
-[; ;Motors.c: 95: SetDCMotorR(500);
-"95
+[; ;Motors.c: 108: SetDCMotorR(500);
+"108
 [e ( _SetDCMotorR (1 -> -> 500 `i `ui ]
-[; ;Motors.c: 96: SetDCMotorL(500);
-"96
+[; ;Motors.c: 109: SetDCMotorL(500);
+"109
 [e ( _SetDCMotorL (1 -> -> 500 `i `ui ]
-[; ;Motors.c: 98: }
-"98
+[; ;Motors.c: 111: }
+"111
 [e :UE 773 ]
 }

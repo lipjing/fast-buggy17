@@ -3,11 +3,14 @@
 
 float convert_cm, convert_in;
 unsigned char echo_acq_done;
+volatile unsigned int echo_time;
 
 //Configure ultrasound distance conversion
 void ConfigureUltrasound(float echo_to_cm, float echo_to_in) {
     convert_cm = echo_to_cm;
     convert_in = echo_to_in;
+    echo_acq_done = 1;
+    WriteTimer1(0);
 
 }
 
@@ -20,6 +23,7 @@ inline void UltrasoundISR(void) {
     }
     if (PORTBbits.RB4 == 0) {   //If RB4 edge is falling edge (end of echo pulse)
         T1CONbits.TMR1ON = 0;   //Turn off Timer1 to stop timing pulse length
+        echo_time = ReadTimer1();
         echo_acq_done = 1;      //Set echo flag to indicate that echo reading is ready for processing
     }
     INTCONbits.RBIE = 1;        //Re-enable PORTB interrupts
@@ -47,8 +51,15 @@ unsigned char BusyDistanceAcq(void) {
 //Reads raw timer value upon completion of distance acquisition, assumes distance acquisition is complete
 unsigned int ReadEchoLength(void) {
 
-    return (ReadTimer1());
+    return (echo_time);
 
+}
+
+void ResetEchoLength(void) {
+    
+    echo_time = 0;
+    echo_acq_done = 0;
+    
 }
 
 //Converts echo length to distance in CM, assumes distance acquisition is complete

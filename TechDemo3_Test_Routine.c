@@ -165,7 +165,7 @@ void IlluminateLED(unsigned char sel) {
 }
 
 //Initiate a distance measurement
-void GetDistance(void) {
+void _GetDistance(void) {
     LATEbits.LATE5 = 1;     //Send a trigger pulse to the ultrasound module (minimum 10uS)
     Delay1TCYx(25);
     LATEbits.LATE5 = 0;

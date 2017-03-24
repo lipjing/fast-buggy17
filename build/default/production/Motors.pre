@@ -8298,62 +8298,64 @@ void SetDCMotorL(unsigned int duty_cycle) {
 
 SetDCPWM5(duty_cycle);
 
+# 15
 }
 
 void SetDCMotorR(unsigned int duty_cycle) {
 
 SetDCPWM4(duty_cycle);
 
+# 27
 }
 
 void SetDCMotorPID(int PIDoutput) {
 
 if(PIDoutput < 0) {
-SetDCMotorL(425 - PIDoutput);
-SetDCMotorR(425);
+SetDCMotorL(410 - PIDoutput);
+SetDCMotorR(410);
 }
 else {
-SetDCMotorL(425);
-SetDCMotorR(425 + PIDoutput);
+SetDCMotorL(410);
+SetDCMotorR(410 + PIDoutput);
 }
 
 }
 
 void SetDirectionForward(void) {
 
-LATDbits.LATD1 = 1;
 LATDbits.LATD3 = 1;
+LATDbits.LATD1 = 1;
 
 }
 
 void SetDirectionReverse(void) {
 
-LATDbits.LATD1 = 0;
 LATDbits.LATD3 = 0;
+LATDbits.LATD1 = 0;
 
 }
 
 void SetForwardsMotorR(void) {
 
-LATDbits.LATD3 = 1;
+LATDbits.LATD1 = 1;
 
 }
 
 void SetForwardsMotorL(void) {
 
-LATDbits.LATD1 = 1;
+LATDbits.LATD3 = 1;
 
 }
 
 void SetReverseMotorR(void) {
 
-LATDbits.LATD3 = 0;
+LATDbits.LATD1 = 0;
 
 }
 
 void SetReverseMotorL(void) {
 
-LATDbits.LATD1 = 0;
+LATDbits.LATD3 = 0;
 
 }
 
@@ -8371,15 +8373,15 @@ LATDbits.LATD4 = 0;
 
 void SetBipolar(void) {
 
-LATDbits.LATD2 = 1;
 LATDbits.LATD0 = 1;
+LATDbits.LATD2 = 1;
 
 }
 
 void SetUnipolar(void) {
 
-LATDbits.LATD2 = 0;
 LATDbits.LATD0 = 0;
+LATDbits.LATD2 = 0;
 
 }
 
@@ -8389,3 +8391,4 @@ SetDCMotorR(500);
 SetDCMotorL(500);
 
 }
+

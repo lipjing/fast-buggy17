@@ -7282,11 +7282,14 @@ void Delay10KTCYx(unsigned char);
 # 4 "Ultrasound.c"
 float convert_cm, convert_in;
 unsigned char echo_acq_done;
+volatile unsigned int echo_time;
 
 
 void ConfigureUltrasound(float echo_to_cm, float echo_to_in) {
 convert_cm = echo_to_cm;
 convert_in = echo_to_in;
+echo_acq_done = 1;
+WriteTimer1(0);
 
 }
 
@@ -7299,6 +7302,7 @@ WriteTimer1(0);
 }
 if (PORTBbits.RB4 == 0) {
 T1CONbits.TMR1ON = 0;
+echo_time = ReadTimer1();
 echo_acq_done = 1;
 }
 INTCONbits.RBIE = 1;
@@ -7326,7 +7330,14 @@ return (!echo_acq_done);
 
 unsigned int ReadEchoLength(void) {
 
-return (ReadTimer1());
+return (echo_time);
+
+}
+
+void ResetEchoLength(void) {
+
+echo_time = 0;
+echo_acq_done = 0;
 
 }
 
