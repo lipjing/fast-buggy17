@@ -1,6 +1,8 @@
 #include "xc.h"
 #include "global_defines.h"
 
+unsigned int DCmotorL, DCmotorR;
+
 void SetDCMotorL(unsigned int duty_cycle) {
     
     SetDCPWM5(duty_cycle);
@@ -26,15 +28,35 @@ void SetDCMotorR(unsigned int duty_cycle) {
     
 }
 
+unsigned int ReadDCMotorL(void) {
+    unsigned int DCreg = 0;
+    
+    DCreg ^= 0x03FF & ((CCPR5L << 2) | (CCP5CON >> 4));
+    
+    return(DCreg);
+}
+
+unsigned int ReadDCMotorR(void) {
+    unsigned int DCreg = 0;
+    
+    DCreg ^= 0x03FF & ((CCPR4L << 2) | (CCP4CON >> 4));
+    
+    return(DCreg);
+}
+
 void SetDCMotorPID(int PIDoutput) {
     
-    if(PIDoutput < 0) {
+    if(PIDoutput <= 0) {
         SetDCMotorL(DC_MAX_SPEED - PIDoutput);
         SetDCMotorR(DC_MAX_SPEED);
     }
-    else {
+    else if(PIDoutput > 0) {
         SetDCMotorL(DC_MAX_SPEED);
         SetDCMotorR(DC_MAX_SPEED + PIDoutput);
+    }
+    else if(PIDoutput == 0) {
+        SetDCMotorL(DC_MAX_SPEED);
+        SetDCMotorR(DC_MAX_SPEED);
     }
     
 }
@@ -111,12 +133,15 @@ void StopMotors(void) {
 }
 
 //void Ramp_Motors_Down(void){
+//    DCmotorL ^= 0x03FF & ((CCPR5L << 2) | (CCP5CON >> 4));
+//    DCmotorR ^= 0x03FF & ((CCPR4L << 2) | (CCP4CON >> 4));
+//
 //    for(int DC = ;DC > 0;DC--){
 //        SetDCMotorL(DC);
 //        SetDCMotorR(DC);
 //    }
 //}
-
+//
 //void Ramp_Motors_Up(void){
 //    
 //

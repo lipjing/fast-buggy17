@@ -20,9 +20,9 @@ extern "C" {
 #define MOTOR_EN    LATDbits.LATD4
 
     //Motor duty cycle defines - duty cycles are in reverse - lower numbers equal higher motor speeds
-#define DC_MAX_SPEED 410
+#define DC_MAX_SPEED 408
 #define DC_MAX_SPEED_REV 400
-#define DC_STOP 500
+#define DC_STOP 526
 
 #define TIMER0_VALUE    63036    //Value written to Timer0 to generate ~1ms delay
 

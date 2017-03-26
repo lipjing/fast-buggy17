@@ -49,15 +49,15 @@
  * Weightings influence the contribution that each sensor will have to the overall sensor error
  * therefore they must be tuned WITH the PID variables
  */
-#define W0  -50
-#define W1  -30
-#define W2  -22
-#define W3  -17
+#define W0  -64
+#define W1  -27
+#define W2  -8
+#define W3  -1
 #define W4  0
-#define W5  17
-#define W6  22
-#define W7  30
-#define W8  50
+#define W5  1
+#define W6  8
+#define W7  27
+#define W8  64
 
 //Global volatile variables
 volatile unsigned char sensor_acq_done, sensor_acq_index;
@@ -349,8 +349,9 @@ void CalculateSensorStatuses(void) {
             }
         }
     }
-    else if(line_mode == BLACK_ON_WHITE) {
     //BLACK LINE ON WHITE DETECTION
+    else if(line_mode == BLACK_ON_WHITE) {
+
         for(index = 0; index < NO_OF_SENSORS; index++) {
 
             if(sensor_readings_normalised[index] < sensor_threshold) {
@@ -583,7 +584,7 @@ void main(void) {
 
     EnableSensorLEDS();
     
-    line_mode = BLACK_ON_WHITE;
+    line_mode = WHITE_ON_BLACK;
     
     PID_error = 0;
     PID_output = 0;
@@ -638,8 +639,7 @@ void main(void) {
     ChangeMode();
     
     SetUnipolar();
-    SetDCMotorL(DC_STOP);
-    SetDCMotorR(DC_STOP);
+    StopMotors();
     EnableMotors();
     SetDirectionForward();
     
@@ -670,14 +670,8 @@ void main(void) {
         //DISPLAY SENSOR STATUSES
         DisplaySensorStatuses(sensor_status);
         
-        //END OF LINE STOP
-//        if(sensor_sum == 0){
-//            DisableMotors();
-//        }
         
         //ULTRASOUND DISTANCE
-        
-        
         if(BusyDistanceAcq() == 0) {
             if(ReadEchoLength() <= 1232 /* || sensor_sum == 0*/ ) {
                 

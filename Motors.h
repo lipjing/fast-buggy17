@@ -17,6 +17,10 @@ extern "C" {
     void SetDCMotorL(unsigned int duty_cycle);
 
     void SetDCMotorR(unsigned int duty_cycle);
+    
+    unsigned int ReadDCMotorL(void);
+    
+    unsigned int ReadDCMotorR(void);
 
     void SetDirectionForward(void);
 

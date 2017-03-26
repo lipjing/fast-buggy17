@@ -8294,29 +8294,51 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 4 "Motors.c"
+unsigned int DCmotorL, DCmotorR;
+
 void SetDCMotorL(unsigned int duty_cycle) {
 
 SetDCPWM5(duty_cycle);
 
-# 15
+# 17
 }
 
 void SetDCMotorR(unsigned int duty_cycle) {
 
 SetDCPWM4(duty_cycle);
 
-# 27
+# 29
+}
+
+unsigned int ReadDCMotorL(void) {
+unsigned int DCreg = 0;
+
+DCreg ^= 0x03FF & ((CCPR5L << 2) | (CCP5CON >> 4));
+
+return(DCreg);
+}
+
+unsigned int ReadDCMotorR(void) {
+unsigned int DCreg = 0;
+
+DCreg ^= 0x03FF & ((CCPR4L << 2) | (CCP4CON >> 4));
+
+return(DCreg);
 }
 
 void SetDCMotorPID(int PIDoutput) {
 
-if(PIDoutput < 0) {
-SetDCMotorL(410 - PIDoutput);
-SetDCMotorR(410);
+if(PIDoutput <= 0) {
+SetDCMotorL(408 - PIDoutput);
+SetDCMotorR(408);
 }
-else {
-SetDCMotorL(410);
-SetDCMotorR(410 + PIDoutput);
+else if(PIDoutput > 0) {
+SetDCMotorL(408);
+SetDCMotorR(408 + PIDoutput);
+}
+else if(PIDoutput == 0) {
+SetDCMotorL(408);
+SetDCMotorR(408);
 }
 
 }
@@ -8387,8 +8409,8 @@ LATDbits.LATD2 = 0;
 
 void StopMotors(void) {
 
-SetDCMotorR(500);
-SetDCMotorL(500);
+SetDCMotorR(526);
+SetDCMotorL(526);
 
 }
 

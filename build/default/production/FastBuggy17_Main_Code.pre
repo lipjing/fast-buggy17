@@ -8502,6 +8502,10 @@ void SetDCMotorL(unsigned int duty_cycle);
 
 void SetDCMotorR(unsigned int duty_cycle);
 
+unsigned int ReadDCMotorL(void);
+
+unsigned int ReadDCMotorR(void);
+
 void SetDirectionForward(void);
 
 void SetDirectionReverse(void);
@@ -8630,7 +8634,7 @@ TRISB = 0xFF;
 TRISC = 0xBF;
 
 
-TRISD = 0xE0;
+TRISD = 0b11100000;
 
 
 TRISE = 0x80;
@@ -8774,6 +8778,7 @@ sensor_status[index] = 0;
 }
 }
 }
+
 else if(line_mode == 0) {
 
 for(index = 0; index < 5; index++) {
@@ -8810,23 +8815,23 @@ int CalculateSensorError(const unsigned char *sum) {
 
 switch(*sum) {
 case(16) :
-return(50);
+return(64);
 case(24) :
-return(30);
+return(27);
 case(8) :
-return(22);
+return(8);
 case(12) :
-return(17);
+return(1);
 case(4) :
 return(0);
 case(6) :
-return(-17);
+return(-1);
 case(2) :
-return(-22);
+return(-8);
 case(3) :
-return(-30);
+return(-27);
 case(1) :
-return(-50);
+return(-64);
 default :
 break;
 }
@@ -8900,7 +8905,7 @@ CalculateSensorStatuses();
 
 DisplaySensorStatuses(sensor_status);
 
-# 499
+# 500
 }
 
 
@@ -8939,7 +8944,7 @@ UltrasoundISR();
 
 void interrupt low_priority isrLP(void) {
 
-# 550
+# 551
 if (PIR1bits.ADIF == 1) {
 PIR1bits.ADIF = 0;
 if (sensor_acq_index < 5) {
@@ -8976,7 +8981,7 @@ ConfigureADC();
 
 EnableSensorLEDS();
 
-line_mode = 0;
+line_mode = 1;
 
 PID_error = 0;
 PID_output = 0;
@@ -9001,7 +9006,7 @@ ResetMillis();
 ChangeMode();
 ResetMillis();
 
-# 623
+# 624
 while(PORTBbits.RB1 == 0) {
 
 CalibrateLine();
@@ -9020,8 +9025,7 @@ ResetMillis();
 ChangeMode();
 
 SetUnipolar();
-SetDCMotorL(500);
-SetDCMotorR(500);
+StopMotors();
 EnableMotors();
 SetDirectionForward();
 
@@ -9052,7 +9056,8 @@ SetDCMotorPID(PID_output);
 
 DisplaySensorStatuses(sensor_status);
 
-# 681
+
+
 if(BusyDistanceAcq() == 0) {
 if(ReadEchoLength() <= 1232 ) {
 
