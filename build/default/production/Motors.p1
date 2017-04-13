@@ -6512,12 +6512,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "49
 [e $ ! <= _PIDoutput -> 0 `i 763  ]
 {
-[; ;Motors.c: 50: SetDCMotorL(408 - PIDoutput);
+[; ;Motors.c: 50: SetDCMotorL(400 - PIDoutput);
 "50
-[e ( _SetDCMotorL (1 -> - -> 408 `i _PIDoutput `ui ]
-[; ;Motors.c: 51: SetDCMotorR(408);
+[e ( _SetDCMotorL (1 -> - -> 400 `i _PIDoutput `ui ]
+[; ;Motors.c: 51: SetDCMotorR(400);
 "51
-[e ( _SetDCMotorR (1 -> -> 408 `i `ui ]
+[e ( _SetDCMotorR (1 -> -> 400 `i `ui ]
 "52
 }
 [; ;Motors.c: 52: }
@@ -6527,12 +6527,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motors.c: 53: else if(PIDoutput > 0) {
 [e $ ! > _PIDoutput -> 0 `i 765  ]
 {
-[; ;Motors.c: 54: SetDCMotorL(408);
+[; ;Motors.c: 54: SetDCMotorL(400);
 "54
-[e ( _SetDCMotorL (1 -> -> 408 `i `ui ]
-[; ;Motors.c: 55: SetDCMotorR(408 + PIDoutput);
+[e ( _SetDCMotorL (1 -> -> 400 `i `ui ]
+[; ;Motors.c: 55: SetDCMotorR(400 + PIDoutput);
 "55
-[e ( _SetDCMotorR (1 -> + -> 408 `i _PIDoutput `ui ]
+[e ( _SetDCMotorR (1 -> + -> 400 `i _PIDoutput `ui ]
 "56
 }
 [; ;Motors.c: 56: }
@@ -6542,12 +6542,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motors.c: 57: else if(PIDoutput == 0) {
 [e $ ! == _PIDoutput -> 0 `i 767  ]
 {
-[; ;Motors.c: 58: SetDCMotorL(408);
+[; ;Motors.c: 58: SetDCMotorL(400);
 "58
-[e ( _SetDCMotorL (1 -> -> 408 `i `ui ]
-[; ;Motors.c: 59: SetDCMotorR(408);
+[e ( _SetDCMotorL (1 -> -> 400 `i `ui ]
+[; ;Motors.c: 59: SetDCMotorR(400);
 "59
-[e ( _SetDCMotorR (1 -> -> 408 `i `ui ]
+[e ( _SetDCMotorR (1 -> -> 400 `i `ui ]
 "60
 }
 [e :U 767 ]

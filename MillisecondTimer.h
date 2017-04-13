@@ -14,9 +14,20 @@ extern "C" {
 
     unsigned int ReadMillis(void);
     
-    void ResetMillis(void);
+    void ResetMillis0(void);
+
+    void ResetMillis1(void);
+    
+    void ResetMillis2(void);
     
     inline void MillisecondTimerISR(void);
+    
+    unsigned int ReadMillis0(void);
+    
+    unsigned int ReadMillis1(void);
+    
+    unsigned int ReadMillis2(void);
+
 
 
 

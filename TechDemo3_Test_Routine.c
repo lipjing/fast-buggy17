@@ -62,6 +62,9 @@ void ConfigIO(void) {
     TRISA = 0xFF;
 
     TRISB = 0xFF;
+    
+    TRISC = 0x10;
+    LATC = 0x20; 
 
     TRISJ = 0x00;
     LATJ = 0x00;
@@ -165,7 +168,7 @@ void IlluminateLED(unsigned char sel) {
 }
 
 //Initiate a distance measurement
-void _GetDistance(void) {
+void GetDistance(void) {
     LATEbits.LATE5 = 1;     //Send a trigger pulse to the ultrasound module (minimum 10uS)
     Delay1TCYx(25);
     LATEbits.LATE5 = 0;

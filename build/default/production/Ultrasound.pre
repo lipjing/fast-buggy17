@@ -7288,25 +7288,27 @@ volatile unsigned int echo_time;
 void ConfigureUltrasound(float echo_to_cm, float echo_to_in) {
 convert_cm = echo_to_cm;
 convert_in = echo_to_in;
-echo_acq_done = 1;
 WriteTimer1(0);
 
 }
 
 
 inline void UltrasoundISR(void) {
-INTCONbits.RBIE = 0;
-if (PORTBbits.RB4 == 1) {
+
+# 32
+INTCON3bits.INT3IE = 0;
+if(T1CONbits.TMR1ON == 0) {
 T1CONbits.TMR1ON = 1;
 WriteTimer1(0);
+INTCON2bits.INTEDG3 = 0;
 }
-if (PORTBbits.RB4 == 0) {
+else {
 T1CONbits.TMR1ON = 0;
 echo_time = ReadTimer1();
 echo_acq_done = 1;
 }
-INTCONbits.RBIE = 1;
-INTCONbits.RBIF = 0;
+INTCON3bits.INT3IF = 0;
+INTCON3bits.INT3IE = 1;
 }
 
 
@@ -7315,7 +7317,9 @@ void GetDistance(void) {
 LATEbits.LATE5 = 1;
 Delay1TCYx(25);
 LATEbits.LATE5 = 0;
-INTCONbits.RBIE = 1;
+INTCON2bits.INTEDG3 = 1;
+INTCON3bits.INT3IE = 1;
+
 echo_acq_done = 0;
 
 }

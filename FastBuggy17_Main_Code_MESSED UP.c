@@ -29,7 +29,7 @@
 #define WHITE_ON_BLACK  1       //Line mode white on black
 
 //PID defines
-#define PID_KP  12  //Proportional constant
+#define PID_KP  13  //Proportional constant
 #define PID_KD  1   //Derivative constant
 #define PID_KI  1   //Integral constant
 
@@ -208,7 +208,7 @@ void ConfigureBuggyIO(void) {
     TRISD = 0xE0;
 
     //TRISE
-    TRISE = 0x80;
+    TRISE = 0x00;
 
     //TRISG
     TRISG = 0xE7;
@@ -567,7 +567,8 @@ void interrupt low_priority isrLP(void) {
 void main(void) {
 
     //Variable declarations
-    unsigned char sensor_sum;
+    unsigned char sensor_sum, loop_count = 0;
+    unsigned int echo_length;
     
     //Pointer declarations
     unsigned char *sensor_sum_ptr;
@@ -583,6 +584,7 @@ void main(void) {
     ConfigureADC();
 
     EnableSensorLEDS();
+    DisableMotors();
     
     line_mode = WHITE_ON_BLACK;
     
@@ -591,7 +593,7 @@ void main(void) {
     
     LATJ = 0x00;
     
-    ResetMillis();
+    ResetMillis0();
     
     //CALIBRATE SENSORS
     while(PORTBbits.RB1 == 0) {
@@ -599,21 +601,21 @@ void main(void) {
         CalibrateSensors();
         Delay10KTCYx(10);
         
-        if(ReadMillis() >= 100) {
+        if(ReadMillis0() >= 100) {
             LATJbits.LATJ0 ^= 1;
-            ResetMillis();
+            ResetMillis0();
         }
         
     }
     
     ChangeMode();
-    ResetMillis();
+    ResetMillis0();
     
     //CALIBRATE LINE    
 //    while(PORTBbits.RB1 == 0) {
-//        if(ReadMillis() >= 100) {
+//        if(ReadMillis0() >= 100) {
 //            LATJbits.LATJ0 ^= 1;
-//            ResetMillis();
+//            ResetMillis0();
 //        }    
 //    }
 //    
@@ -629,9 +631,9 @@ void main(void) {
     }
 
     while(PORTBbits.RB1 == 0) {
-        if(ReadMillis() >= 100) {
+        if(ReadMillis0() >= 100) {
             LATJbits.LATJ0 ^= 1;
-            ResetMillis();
+            ResetMillis0();
         }    
         
     }
@@ -640,10 +642,12 @@ void main(void) {
     
     SetUnipolar();
     StopMotors();
-    EnableMotors();
     SetDirectionForward();
+    EnableMotors();
     
-    GetDistance();
+    ResetMillis1();
+    
+//    GetDistance();
     
     //PID LOOP 
     while(1) {
@@ -657,47 +661,61 @@ void main(void) {
         
         CalculateSensorStatuses();
         sensor_sum = CalculateSensorSums();
-        
-
-        
+                
         //PID LOOP
         PID_error = CalculateSensorError(sensor_sum_ptr);
         PID_output = PID_KP * PID_error;
         
         SetDCMotorPID(PID_output);
-        
-        
+                
         //DISPLAY SENSOR STATUSES
         DisplaySensorStatuses(sensor_status);
         
+        //END OF LINE DETECTION
+//        if(sensor_sum == 0) {
+//            ResetMillis0();
+//            while(ReadMillis0() < 10);
+//            
+//            GetSensorReadings();
+//
+//            while(BusySensorAcq());
+//
+//            NormaliseSensorReadings();
+//
+//            CalculateSensorStatuses();
+//            sensor_sum = CalculateSensorSums();
+//            
+//            if(sensor_sum == 0) {
+//                StopMotors();
+//                DisableMotors();
+//                while(1);                
+//            }
+//        }
+        
         
         //ULTRASOUND DISTANCE
-        if(BusyDistanceAcq() == 0) {
-            if(ReadEchoLength() <= 1232 /* || sensor_sum == 0*/ ) {
-                
+        
+        if(ReadMillis1() >= 60) {
+            GetDistance();
+            
+            while(BusyDistanceAcq());
+        
+            if(ReadEchoLength() < 1232) {
+                                
                 DisableMotors();
-                
-                if(PID_output < 0){
-                    SetForwardsMotorR();
-                    SetReverseMotorL();
-                }
-                if(PID_output > 0){
-                    SetForwardsMotorL();
-                    SetReverseMotorR();
-                }
-                
-                
-                SetDCMotorL(DC_MAX_SPEED_REV);
-                SetDCMotorR(DC_MAX_SPEED_REV);
-                
+
+                SetForwardsMotorR();
+                SetReverseMotorL();                
+
+                SetDCMotorL(DC_MAX_SPEED_REV_L);
+                SetDCMotorR(DC_MAX_SPEED_REV_R);
+
                 EnableMotors();
-                
-                ResetMillis();
-                while(ReadMillis() < 30);
+
+                ResetMillis0();
+                while(ReadMillis0() < 120);
                 sensor_sum = 0;
-                
-                
-                
+
                 while(sensor_sum == 0) {
                     GetSensorReadings();
                     while(BusySensorAcq());
@@ -705,29 +723,29 @@ void main(void) {
                     CalculateSensorStatuses();
                     sensor_sum = CalculateSensorSums();
                     DisplaySensorStatuses(sensor_status);
-                    
+
                 }
-                
-                ResetEchoLength();
-                               
+
                 DisableMotors();
                 SetDirectionForward();
                 EnableMotors();
                 
-                PID_error = 0;
-                
-                GetDistance();
+                ResetMillis1();
+
+                //PID_error = 0;
+
             }
-            else {
-                GetDistance();
-            }   
+            
         }
+        
+        
 
         
         //ITERATE LOOP EVERY X MILLISECONDS
-        ResetMillis();
-        while(ReadMillis() < 5);
+        ResetMillis0();
+        while(ReadMillis0() < 5);
         LATJ = 0x00;
+        loop_count++;
        
     }
 

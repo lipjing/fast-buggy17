@@ -133,15 +133,19 @@ void StopMotors(void) {
 }
 
 //void Ramp_Motors_Down(void){
-//    DCmotorL ^= 0x03FF & ((CCPR5L << 2) | (CCP5CON >> 4));
-//    DCmotorR ^= 0x03FF & ((CCPR4L << 2) | (CCP4CON >> 4));
+//    unsigned int stepL, stepR;
+//    unsigned char index;
 //
-//    for(int DC = ;DC > 0;DC--){
-//        SetDCMotorL(DC);
-//        SetDCMotorR(DC);
+//    
+//    stepL = ReadDCMotorL() / NO_OF_STEPS;
+//    stepR = ReadDCMotorR() / NO_OF_STEPS;
+//
+//    for(index = NO_OF_STEPS; index >= 0; index--) {
+//        SetDCMotorL(ReadDCMotorL() - stepL);
+//        SetDCMotorR(ReadDCMotorR() - stepR);
 //    }
 //}
-//
+
 //void Ramp_Motors_Up(void){
 //    
 //

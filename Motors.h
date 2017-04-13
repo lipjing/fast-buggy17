@@ -18,9 +18,9 @@ extern "C" {
 
     void SetDCMotorR(unsigned int duty_cycle);
     
-    unsigned int ReadDCMotorL(void);
-    
-    unsigned int ReadDCMotorR(void);
+//    unsigned int ReadDCMotorL(void);
+//    
+//    unsigned int ReadDCMotorR(void);
 
     void SetDirectionForward(void);
 
@@ -43,6 +43,8 @@ extern "C" {
     void SetUnipolar(void);
 
     void StopMotors(void);
+    
+//    void Ramp_Motors_Down(void);
 
 
 #ifdef	__cplusplus

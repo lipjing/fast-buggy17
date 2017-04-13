@@ -1,49 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "239 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib/timers.h
 [v _WriteTimer1 `(v ~T0 @X0 0 ef1`ui ]
-"13593 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S711 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S711 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"13603
-[s S712 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S712 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-"13613
-[s S713 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S713 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
-"13623
-[s S714 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S714 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"13633
-[s S715 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S715 . . GIEL GIEH ]
-"13592
-[u S710 `S711 1 `S712 1 `S713 1 `S714 1 `S715 1 ]
-[n S710 . . . . . . ]
-"13639
-[v _INTCONbits `VS710 ~T0 @X0 0 e@4082 ]
-"2788
-[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S143 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"2798
-[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . INT0 INT1 INT2 INT3 KBI0 KBI1 KBI2 KBI3 ]
-"2808
-[s S145 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S145 . FLT0 . ECCP2 ]
-"2813
-[s S146 :3 `uc 1 :1 `uc 1 ]
-[n S146 . . CCP2 ]
-"2817
-[s S147 :3 `uc 1 :1 `uc 1 ]
-[n S147 . . P2A ]
-"2821
-[s S148 :3 `uc 1 :1 `uc 1 ]
-[n S148 . . CCP2_PA2 ]
-"2787
-[u S142 `S143 1 `S144 1 `S145 1 `S146 1 `S147 1 `S148 1 ]
-[n S142 . . . . . . . ]
-"2826
-[v _PORTBbits `VS142 ~T0 @X0 0 e@3969 ]
+"13390 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+[s S704 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S704 . INT1IF INT2IF INT3IF INT1IE INT2IE INT3IE INT1IP INT2IP ]
+"13400
+[s S705 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S705 . INT1F INT2F INT3F INT1E INT2E INT3E INT1P INT2P ]
+"13389
+[u S703 `S704 1 `S705 1 ]
+[n S703 . . . ]
+"13411
+[v _INTCON3bits `VS703 ~T0 @X0 0 e@4080 ]
 "12420
 [s S664 :2 `uc 1 :1 `uc 1 ]
 [n S664 . . NOT_T1SYNC ]
@@ -67,6 +35,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S663 . . . . . . . ]
 "12453
 [v _T1CONbits `VS663 ~T0 @X0 0 e@4045 ]
+"13501
+[s S707 :7 `uc 1 :1 `uc 1 ]
+[n S707 . . NOT_RBPU ]
+"13505
+[s S708 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S708 . RBIP INT3IP TMR0IP INTEDG3 INTEDG2 INTEDG1 INTEDG0 nRBPU ]
+"13515
+[s S709 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S709 . . INT3P T0IP . RBPU ]
+"13500
+[u S706 `S707 1 `S708 1 `S709 1 ]
+[n S706 . . . . ]
+"13523
+[v _INTCON2bits `VS706 ~T0 @X0 0 e@4081 ]
 "238 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib/timers.h
 [v _ReadTimer1 `(ui ~T0 @X0 0 ef ]
 "5084 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
@@ -5792,163 +5774,166 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Ultrasound.c: 11: convert_in = echo_to_in;
 "11
 [e = _convert_in _echo_to_in ]
-[; ;Ultrasound.c: 12: echo_acq_done = 1;
+[; ;Ultrasound.c: 12: WriteTimer1(0);
 "12
-[e = _echo_acq_done -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 13: WriteTimer1(0);
-"13
 [e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-[; ;Ultrasound.c: 15: }
-"15
+[; ;Ultrasound.c: 14: }
+"14
 [e :UE 721 ]
 }
 [v F6182 `(v ~T0 @X0 1 tf ]
-"18
+"17
 [v _UltrasoundISR `TF6182 ~T0 @X0 1 e ]
 {
-[; ;Ultrasound.c: 18: inline void UltrasoundISR(void) {
+[; ;Ultrasound.c: 17: inline void UltrasoundISR(void) {
 [e :U _UltrasoundISR ]
 [f ]
-[; ;Ultrasound.c: 19: INTCONbits.RBIE = 0;
-"19
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 20: if (PORTBbits.RB4 == 1) {
-"20
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 723  ]
+[; ;Ultrasound.c: 32: INTCON3bits.INT3IE = 0;
+"32
+[e = . . _INTCON3bits 0 5 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 33: if(T1CONbits.TMR1ON == 0) {
+"33
+[e $ ! == -> . . _T1CONbits 1 0 `i -> 0 `i 723  ]
 {
-[; ;Ultrasound.c: 21: T1CONbits.TMR1ON = 1;
-"21
+[; ;Ultrasound.c: 34: T1CONbits.TMR1ON = 1;
+"34
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 22: WriteTimer1(0);
-"22
+[; ;Ultrasound.c: 35: WriteTimer1(0);
+"35
 [e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-"23
+[; ;Ultrasound.c: 36: INTCON2bits.INTEDG3 = 0;
+"36
+[e = . . _INTCON2bits 1 3 -> -> 0 `i `uc ]
+"37
 }
+[; ;Ultrasound.c: 37: }
+[e $U 724  ]
+"38
 [e :U 723 ]
-[; ;Ultrasound.c: 23: }
-[; ;Ultrasound.c: 24: if (PORTBbits.RB4 == 0) {
-"24
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 724  ]
+[; ;Ultrasound.c: 38: else {
 {
-[; ;Ultrasound.c: 25: T1CONbits.TMR1ON = 0;
-"25
+[; ;Ultrasound.c: 39: T1CONbits.TMR1ON = 0;
+"39
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 26: echo_time = ReadTimer1();
-"26
+[; ;Ultrasound.c: 40: echo_time = ReadTimer1();
+"40
 [e = _echo_time ( _ReadTimer1 ..  ]
-[; ;Ultrasound.c: 27: echo_acq_done = 1;
-"27
+[; ;Ultrasound.c: 41: echo_acq_done = 1;
+"41
 [e = _echo_acq_done -> -> 1 `i `uc ]
-"28
+"42
 }
 [e :U 724 ]
-[; ;Ultrasound.c: 28: }
-[; ;Ultrasound.c: 29: INTCONbits.RBIE = 1;
-"29
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 30: INTCONbits.RBIF = 0;
-"30
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 31: }
-"31
+[; ;Ultrasound.c: 42: }
+[; ;Ultrasound.c: 43: INTCON3bits.INT3IF = 0;
+"43
+[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 44: INTCON3bits.INT3IE = 1;
+"44
+[e = . . _INTCON3bits 0 5 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 45: }
+"45
 [e :UE 722 ]
 }
-"34
+"48
 [v _GetDistance `(v ~T0 @X0 1 ef ]
 {
-[; ;Ultrasound.c: 34: void GetDistance(void) {
+[; ;Ultrasound.c: 48: void GetDistance(void) {
 [e :U _GetDistance ]
 [f ]
-[; ;Ultrasound.c: 36: LATEbits.LATE5 = 1;
-"36
+[; ;Ultrasound.c: 50: LATEbits.LATE5 = 1;
+"50
 [e = . . _LATEbits 0 5 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 37: Delay1TCYx(25);
-"37
+[; ;Ultrasound.c: 51: Delay1TCYx(25);
+"51
 [e ( _Delay1TCYx (1 -> -> 25 `i `uc ]
-[; ;Ultrasound.c: 38: LATEbits.LATE5 = 0;
-"38
+[; ;Ultrasound.c: 52: LATEbits.LATE5 = 0;
+"52
 [e = . . _LATEbits 0 5 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 39: INTCONbits.RBIE = 1;
-"39
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 40: echo_acq_done = 0;
-"40
+[; ;Ultrasound.c: 53: INTCON2bits.INTEDG3 = 1;
+"53
+[e = . . _INTCON2bits 1 3 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 54: INTCON3bits.INT3IE = 1;
+"54
+[e = . . _INTCON3bits 0 5 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 56: echo_acq_done = 0;
+"56
 [e = _echo_acq_done -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 42: }
-"42
+[; ;Ultrasound.c: 58: }
+"58
 [e :UE 725 ]
 }
-"45
+"61
 [v _BusyDistanceAcq `(uc ~T0 @X0 1 ef ]
 {
-[; ;Ultrasound.c: 45: unsigned char BusyDistanceAcq(void) {
+[; ;Ultrasound.c: 61: unsigned char BusyDistanceAcq(void) {
 [e :U _BusyDistanceAcq ]
 [f ]
-[; ;Ultrasound.c: 47: return (!echo_acq_done);
-"47
+[; ;Ultrasound.c: 63: return (!echo_acq_done);
+"63
 [e ) -> -> ! != -> _echo_acq_done `i -> -> -> 0 `i `uc `i `i `uc ]
 [e $UE 726  ]
-[; ;Ultrasound.c: 49: }
-"49
+[; ;Ultrasound.c: 65: }
+"65
 [e :UE 726 ]
 }
-"52
+"68
 [v _ReadEchoLength `(ui ~T0 @X0 1 ef ]
 {
-[; ;Ultrasound.c: 52: unsigned int ReadEchoLength(void) {
+[; ;Ultrasound.c: 68: unsigned int ReadEchoLength(void) {
 [e :U _ReadEchoLength ]
 [f ]
-[; ;Ultrasound.c: 54: return (echo_time);
-"54
+[; ;Ultrasound.c: 70: return (echo_time);
+"70
 [e ) _echo_time ]
 [e $UE 727  ]
-[; ;Ultrasound.c: 56: }
-"56
+[; ;Ultrasound.c: 72: }
+"72
 [e :UE 727 ]
 }
-"58
+"74
 [v _ResetEchoLength `(v ~T0 @X0 1 ef ]
 {
-[; ;Ultrasound.c: 58: void ResetEchoLength(void) {
+[; ;Ultrasound.c: 74: void ResetEchoLength(void) {
 [e :U _ResetEchoLength ]
 [f ]
-[; ;Ultrasound.c: 60: echo_time = 0;
-"60
+[; ;Ultrasound.c: 76: echo_time = 0;
+"76
 [e = _echo_time -> -> 0 `i `ui ]
-[; ;Ultrasound.c: 61: echo_acq_done = 0;
-"61
+[; ;Ultrasound.c: 77: echo_acq_done = 0;
+"77
 [e = _echo_acq_done -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 63: }
-"63
+[; ;Ultrasound.c: 79: }
+"79
 [e :UE 728 ]
 }
-"66
+"82
 [v _ConvertDistanceCM `(f ~T0 @X0 1 ef1`ui ]
 {
-[; ;Ultrasound.c: 66: float ConvertDistanceCM(unsigned int echo_time) {
+[; ;Ultrasound.c: 82: float ConvertDistanceCM(unsigned int echo_time) {
 [e :U _ConvertDistanceCM ]
 [v _echo_time `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;Ultrasound.c: 68: return (echo_time * convert_cm);
-"68
+[; ;Ultrasound.c: 84: return (echo_time * convert_cm);
+"84
 [e ) * -> _echo_time `f _convert_cm ]
 [e $UE 729  ]
-[; ;Ultrasound.c: 70: }
-"70
+[; ;Ultrasound.c: 86: }
+"86
 [e :UE 729 ]
 }
-"73
+"89
 [v _ConvertDistanceIN `(f ~T0 @X0 1 ef1`ui ]
 {
-[; ;Ultrasound.c: 73: float ConvertDistanceIN(unsigned int echo_time) {
+[; ;Ultrasound.c: 89: float ConvertDistanceIN(unsigned int echo_time) {
 [e :U _ConvertDistanceIN ]
 [v _echo_time `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;Ultrasound.c: 75: return (echo_time * convert_in);
-"75
+[; ;Ultrasound.c: 91: return (echo_time * convert_in);
+"91
 [e ) * -> _echo_time `f _convert_in ]
 [e $UE 730  ]
-[; ;Ultrasound.c: 77: }
-"77
+[; ;Ultrasound.c: 93: }
+"93
 [e :UE 730 ]
 }

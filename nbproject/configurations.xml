@@ -10,6 +10,8 @@
       <itemPath>Motors.h</itemPath>
       <itemPath>global_defines.h</itemPath>
       <itemPath>MillisecondTimer.h</itemPath>
+      <itemPath>EEPROM.h</itemPath>
+      <itemPath>Wireless.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,9 +30,10 @@
       <logicalFolder name="f4" displayName="Library Files" projectFiles="true">
         <itemPath>Ultrasound.c</itemPath>
         <itemPath>SystemClock.c</itemPath>
-        <itemPath>Sensors.c</itemPath>
         <itemPath>Motors.c</itemPath>
         <itemPath>MillisecondTimer.c</itemPath>
+        <itemPath>eeprom.c</itemPath>
+        <itemPath>Wireless.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="PWM" projectFiles="true">
         <itemPath>PWM_adj_DC.c</itemPath>
@@ -40,8 +43,9 @@
       <logicalFolder name="f2" displayName="Tech Demo Routines" projectFiles="true">
         <itemPath>TechDemo3_Test_Routine.c</itemPath>
         <itemPath>TechDemo2_Test_Routine.c</itemPath>
+        <itemPath>TechDemo3_Test_Routine_INT3_ULTRA.c</itemPath>
       </logicalFolder>
-      <itemPath>FastBuggy17_Main_Code.c</itemPath>
+      <itemPath>FastBuggy17_Main_Code_WORKING.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -87,7 +91,15 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
-      <item path="FastBuggy17_Main_Code_EXPERIMENTAL.c" ex="true" overriding="false">
+      <item path="FastBuggy17_Main_Code_EXPERIMENTAL.c" ex="false" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="FastBuggy17_Main_Code_WORKING.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>
@@ -206,6 +218,22 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </ICD3PlatformTool>
+      <item path="MillisecondTimer.c" ex="false" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="Motors.c" ex="false" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
       <PICkit3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="Freeze Peripherals" value="true"/>
@@ -310,6 +338,14 @@
         <XC8-config-global>
         </XC8-config-global>
       </item>
+      <item path="TechDemo3_Test_Routine_INT3_ULTRA.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
       <item path="Ultra2.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
@@ -319,6 +355,14 @@
         </XC8-config-global>
       </item>
       <item path="Ultrasound.c" ex="false" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="Ultrasound.h" ex="false" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>

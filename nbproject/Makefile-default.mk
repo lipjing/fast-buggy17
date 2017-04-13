@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Ultrasound.c SystemClock.c Sensors.c Motors.c MillisecondTimer.c FastBuggy17_Main_Code.c
+SOURCEFILES_QUOTED_IF_SPACED=FastBuggy17_Main_Code_EXPERIMENTAL.c Ultrasound.c SystemClock.c Motors.c MillisecondTimer.c eeprom.c Wireless.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Ultrasound.p1 ${OBJECTDIR}/SystemClock.p1 ${OBJECTDIR}/Sensors.p1 ${OBJECTDIR}/Motors.p1 ${OBJECTDIR}/MillisecondTimer.p1 ${OBJECTDIR}/FastBuggy17_Main_Code.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/Ultrasound.p1.d ${OBJECTDIR}/SystemClock.p1.d ${OBJECTDIR}/Sensors.p1.d ${OBJECTDIR}/Motors.p1.d ${OBJECTDIR}/MillisecondTimer.p1.d ${OBJECTDIR}/FastBuggy17_Main_Code.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1 ${OBJECTDIR}/Ultrasound.p1 ${OBJECTDIR}/SystemClock.p1 ${OBJECTDIR}/Motors.p1 ${OBJECTDIR}/MillisecondTimer.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/Wireless.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1.d ${OBJECTDIR}/Ultrasound.p1.d ${OBJECTDIR}/SystemClock.p1.d ${OBJECTDIR}/Motors.p1.d ${OBJECTDIR}/MillisecondTimer.p1.d ${OBJECTDIR}/eeprom.p1.d ${OBJECTDIR}/Wireless.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Ultrasound.p1 ${OBJECTDIR}/SystemClock.p1 ${OBJECTDIR}/Sensors.p1 ${OBJECTDIR}/Motors.p1 ${OBJECTDIR}/MillisecondTimer.p1 ${OBJECTDIR}/FastBuggy17_Main_Code.p1
+OBJECTFILES=${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1 ${OBJECTDIR}/Ultrasound.p1 ${OBJECTDIR}/SystemClock.p1 ${OBJECTDIR}/Motors.p1 ${OBJECTDIR}/MillisecondTimer.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/Wireless.p1
 
 # Source Files
-SOURCEFILES=Ultrasound.c SystemClock.c Sensors.c Motors.c MillisecondTimer.c FastBuggy17_Main_Code.c
+SOURCEFILES=FastBuggy17_Main_Code_EXPERIMENTAL.c Ultrasound.c SystemClock.c Motors.c MillisecondTimer.c eeprom.c Wireless.c
 
 
 CFLAGS=
@@ -87,6 +87,14 @@ MP_PROCESSOR_OPTION=18F8722
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1: FastBuggy17_Main_Code_EXPERIMENTAL.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1.d 
+	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1  FastBuggy17_Main_Code_EXPERIMENTAL.c 
+	@-${MV} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.d ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/Ultrasound.p1: Ultrasound.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Ultrasound.p1.d 
@@ -102,14 +110,6 @@ ${OBJECTDIR}/SystemClock.p1: SystemClock.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/SystemClock.p1  SystemClock.c 
 	@-${MV} ${OBJECTDIR}/SystemClock.d ${OBJECTDIR}/SystemClock.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/SystemClock.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/Sensors.p1: Sensors.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Sensors.p1.d 
-	@${RM} ${OBJECTDIR}/Sensors.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/Sensors.p1  Sensors.c 
-	@-${MV} ${OBJECTDIR}/Sensors.d ${OBJECTDIR}/Sensors.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Sensors.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/Motors.p1: Motors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -127,15 +127,31 @@ ${OBJECTDIR}/MillisecondTimer.p1: MillisecondTimer.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/MillisecondTimer.d ${OBJECTDIR}/MillisecondTimer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MillisecondTimer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/FastBuggy17_Main_Code.p1: FastBuggy17_Main_Code.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/eeprom.p1: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code.p1.d 
-	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/FastBuggy17_Main_Code.p1  FastBuggy17_Main_Code.c 
-	@-${MV} ${OBJECTDIR}/FastBuggy17_Main_Code.d ${OBJECTDIR}/FastBuggy17_Main_Code.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/FastBuggy17_Main_Code.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/eeprom.p1.d 
+	@${RM} ${OBJECTDIR}/eeprom.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/eeprom.p1  eeprom.c 
+	@-${MV} ${OBJECTDIR}/eeprom.d ${OBJECTDIR}/eeprom.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Wireless.p1: Wireless.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Wireless.p1.d 
+	@${RM} ${OBJECTDIR}/Wireless.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/Wireless.p1  Wireless.c 
+	@-${MV} ${OBJECTDIR}/Wireless.d ${OBJECTDIR}/Wireless.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Wireless.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
+${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1: FastBuggy17_Main_Code_EXPERIMENTAL.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1.d 
+	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1  FastBuggy17_Main_Code_EXPERIMENTAL.c 
+	@-${MV} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.d ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FastBuggy17_Main_Code_EXPERIMENTAL.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/Ultrasound.p1: Ultrasound.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Ultrasound.p1.d 
@@ -151,14 +167,6 @@ ${OBJECTDIR}/SystemClock.p1: SystemClock.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/SystemClock.p1  SystemClock.c 
 	@-${MV} ${OBJECTDIR}/SystemClock.d ${OBJECTDIR}/SystemClock.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/SystemClock.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/Sensors.p1: Sensors.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Sensors.p1.d 
-	@${RM} ${OBJECTDIR}/Sensors.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/Sensors.p1  Sensors.c 
-	@-${MV} ${OBJECTDIR}/Sensors.d ${OBJECTDIR}/Sensors.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Sensors.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/Motors.p1: Motors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -176,13 +184,21 @@ ${OBJECTDIR}/MillisecondTimer.p1: MillisecondTimer.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/MillisecondTimer.d ${OBJECTDIR}/MillisecondTimer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MillisecondTimer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/FastBuggy17_Main_Code.p1: FastBuggy17_Main_Code.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/eeprom.p1: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code.p1.d 
-	@${RM} ${OBJECTDIR}/FastBuggy17_Main_Code.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/FastBuggy17_Main_Code.p1  FastBuggy17_Main_Code.c 
-	@-${MV} ${OBJECTDIR}/FastBuggy17_Main_Code.d ${OBJECTDIR}/FastBuggy17_Main_Code.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/FastBuggy17_Main_Code.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/eeprom.p1.d 
+	@${RM} ${OBJECTDIR}/eeprom.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/eeprom.p1  eeprom.c 
+	@-${MV} ${OBJECTDIR}/eeprom.d ${OBJECTDIR}/eeprom.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Wireless.p1: Wireless.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Wireless.p1.d 
+	@${RM} ${OBJECTDIR}/Wireless.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/Wireless.p1  Wireless.c 
+	@-${MV} ${OBJECTDIR}/Wireless.d ${OBJECTDIR}/Wireless.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Wireless.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
