@@ -35,12 +35,12 @@ unsigned char WriteEEPROM(unsigned int address, unsigned char data) {
 }
 
 unsigned char ReadEEPROM(unsigned int address) {
-    if(address > 0x3FF) {
+    if(address > 0x03FF) {
         return(0);
     }
     else {
-        EEADR = address & 0x0F;
-        EEADRH = (address >> 8) & 0x03;
+        EEADR = address & 0x00FF;
+        EEADRH = (address >> 8) & 0x0003;
         EECON1bits.EEPGD = 0;
         EECON1bits.CFGS = 0;
         EECON1bits.RD = 1;

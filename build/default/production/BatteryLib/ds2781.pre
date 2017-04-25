@@ -1,5 +1,5 @@
 
-# 1 "FastBuggy17_Main_Code_EXPERIMENTAL.c"
+# 1 "BatteryLib/ds2781.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8293,329 +8293,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-
-# 35 "config_18f8722.h"
-#pragma config OSC = HS
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = 0
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config MODE = MC
-#pragma config ADDRBW = ADDR20BIT
-#pragma config DATABW = DATA16BIT
-#pragma config WAIT = OFF
-
-
-#pragma config CCP2MX = PORTC
-#pragma config ECCPMX = PORTH
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = OFF
-#pragma config LVP = OFF
-#pragma config BBSIZ = BB2K
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CP4 = OFF
-#pragma config CP5 = OFF
-#pragma config CP6 = OFF
-#pragma config CP7 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRT4 = OFF
-#pragma config WRT5 = OFF
-#pragma config WRT6 = OFF
-#pragma config WRT7 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTR4 = OFF
-#pragma config EBTR5 = OFF
-#pragma config EBTR6 = OFF
-#pragma config EBTR7 = OFF
-
-
-#pragma config EBTRB = OFF
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 24 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
-extern int errno;
-
-# 55
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 17 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\conio.h"
-extern int errno;
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 100 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 192
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 30 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\math.h"
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double) ;
-extern double cos(double) ;
-extern double tan(double) ;
-extern double asin(double) ;
-extern double acos(double) ;
-extern double atan(double);
-extern double atan2(double, double) ;
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double) ;
-extern double exp(double) ;
-extern double sinh(double) ;
-extern double cosh(double) ;
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
-
-# 15 "Ultrasound.h"
-void ConfigureUltrasound(float echo_to_cm, float echo_to_in);
-
-inline void UltrasoundISR(void);
-
-void GetDistance(void);
-
-unsigned char BusyDistanceAcq(void);
-
-unsigned int ReadEchoLength(void);
-
-void ResetEchoLength(void);
-
-float ConvertDistanceCM(unsigned int echo_time);
-
-float ConvertDistanceIN(unsigned int echo_time);
-
-# 15 "SystemClock.h"
-void ResetSystemClock(void);
-
-void EnableSystemClock(void);
-
-void DisableSystemClock(void);
-
-inline void SystemClockISR(void);
-
-void SystemClockCalcTime(void);
-
-unsigned int SystemClockGetMillis(void);
-
-unsigned char SystemClockGetSecs(void);
-
-unsigned char SystemClockGetMins(void);
-
-unsigned int SystemClockGetHrs(void);
-
-# 15 "Motors.h"
-void SetDCMotorPID(int PIDoutput);
-
-void SetDCMotorL(unsigned int duty_cycle);
-
-void SetDCMotorR(unsigned int duty_cycle);
-
-# 25
-void SetDirectionForward(void);
-
-void SetDirectionReverse(void);
-
-void SetForwardsMotorR(void);
-
-void SetForwardsMotorL(void);
-
-void SetReverseMotorR(void);
-
-void SetReverseMotorL(void);
-
-void EnableMotors(void);
-
-void DisableMotors(void);
-
-void SetBipolar(void);
-
-void SetUnipolar(void);
-
-void StopMotors(void);
-
-# 15 "MillisecondTimer.h"
-unsigned int ReadMillis(void);
-
-void ResetMillis0(void);
-
-void ResetMillis1(void);
-
-void ResetMillis2(void);
-
-inline void MillisecondTimerISR(void);
-
-unsigned int ReadMillis0(void);
-
-unsigned int ReadMillis1(void);
-
-unsigned int ReadMillis2(void);
-
-# 15 "EEPROM.h"
-unsigned char WriteEEPROM(unsigned int address, unsigned char data);
-
-unsigned char ReadEEPROM(unsigned int address);
-
-void WriteIntEEPROM(unsigned int address, unsigned int data);
-
-void WriteCharEEPROM(unsigned int address, unsigned char data);
-
-unsigned int ReadIntEEPROM(unsigned int address);
-
-unsigned char ReadCharEEPROM(unsigned int address);
-
-# 15 "Wireless.h"
-void PutCharTxBuf(unsigned char ch);
-
-unsigned char GetCharTxBuf(void);
-
-void PutCharRxBuf(unsigned char ch);
-
-unsigned char GetCharRxBuf(void);
-
-void StartTx(void);
-
-void StopTx(void);
-
-void StartRx(void);
-
-void StopRx(void);
-
-inline void WirelessTx_ISR(void);
-
-inline void WirelessRx_ISR(void);
-
-void FlushTxBuf(void);
-
-void FlushRxBuf(void);
-
-void ConfigureWireless(void);
-
-unsigned char BusyTx(void);
-
-unsigned char BusyRx(void);
-
-void SendStatus(const unsigned char status_code);
-
-void SendLineMode(const unsigned char *line_mode);
-
-void SendOffsets(const int *offsets_array);
-
-void SendThreshold(const int *sensor_threshold);
-
-void SendDefaultPIDValues(int Kp, int Kd, int Ki);
-
-void SendStoredPIDValues(int Kp, int Kd, int Ki);
-
-void SendCurrentPIDValues(int Kp, int Kd, int Ki);
-
-void SendBattVoltageInitial(const unsigned int *reading);
-
-void SendBattVoltage(const unsigned int *reading);
-
-void SendBattCurrent(const unsigned int *reading);
-
-void SendBattCurrentAcc(const unsigned long int *reading);
-
-void ReceiveCommandsEnable(void);
-
-void ReceiveCommandsDisable(void);
-
-unsigned char CommandAvailable(void);
-
-unsigned char GetCommand(void);
-
 # 19 "BatteryLib/OneWire.h"
 BOOL OWReset (void);
 void OWWriteBit (BYTE);
@@ -8640,934 +8317,225 @@ void CopyEEPROM (BYTE addr);
 void RecallEEPROM (BYTE addr);
 void Delay100MSx(BYTE counts);
 
-# 69 "FastBuggy17_Main_Code_EXPERIMENTAL.c"
-volatile unsigned char sensor_acq_done, sensor_acq_index;
-volatile int sensor_readings_raw[5];
+# 33 "BatteryLib/ds2781.c"
+WORD ReadVoltage (void)
+{
+WORD result = 0;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x69 );
+OWWriteByte( 0x0C );
+result = ((WORD)OWReadByte() ) << 8;
+result |= ((WORD)OWReadByte() );
+}
+return (result >> 5);
+}
+
+# 56
+WORD ReadCurrent (void)
+{
+WORD result = 0;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x69 );
+OWWriteByte( 0x0E );
+result = ((WORD)OWReadByte() ) << 8;
+result |= ((WORD)OWReadByte() );
+}
+return result;
+}
+
+# 79
+DWORD ReadAccumulatedCurrent (void)
+{
+DWORD result = 0;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x69 );
+OWWriteByte( 0x10 );
+result = ((DWORD)OWReadByte() ) << 24;
+result |= ((DWORD)OWReadByte() ) << 16;
+result |= ((DWORD)OWReadByte() ) << 8;
+result |= ((DWORD)OWReadByte() );
+}
+return (result >> 4);
+}
+
+# 103
+void ResetAccumulatedCurrent (void)
+{
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x6C );
+OWWriteByte( 0x10 );
+OWWriteByte( 0x00 );
+OWWriteByte( 0x00 );
+}
+}
+
+# 123
+QWORD ReadNetAddress (void)
+{
+QWORD result = 0;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0x33 );
+
+# 137
+}
+return result;
+}
+
+# 150
+WORD ReadTemperature (void)
+{
+WORD result = 0;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x69 );
+OWWriteByte( 0x0A );
+result = ((WORD)OWReadByte() ) << 8;
+result |= ((WORD)OWReadByte() );
+}
+return (result >> 5);
+}
+
+# 173
+BYTE ReadCurrentOffset (void)
+{
+BYTE result = 0;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x69 );
+OWWriteByte( 0x7B );
+result = OWReadByte();
+}
+return result;
+}
 
-
-unsigned char sensor_status[5], line_mode;
-int sensor_offsets[5], sensor_readings_normalised[5];
-int sensor_threshold, PID_error, PID_output, PID_Kp, PID_Kd, PID_Ki;
-
-
-int *sensor_threshold_ptr;
-
-
-void ConfigureInterrupts(void) {
-
-INTCONbits.GIE = 1;
-INTCONbits.PEIE = 1;
-RCONbits.IPEN = 1;
-
-# 107
-INTCON3bits.INT3IE = 0;
-INTCON3bits.INT3IF = 0;
-INTCON2bits.INTEDG3 = 1;
-INTCON2bits.INT3IP = 1;
-
-
-INTCONbits.TMR0IE = 1;
-INTCONbits.TMR0IF = 0;
-INTCON2bits.TMR0IP = 1;
-
-# 124
-PIE1bits.ADIE = 0;
-PIR1bits.ADIF = 0;
-IPR1bits.ADIP = 0;
-
-
-PIE1bits.RC1IE = 0;
-PIE1bits.TX1IE = 0;
-PIR1bits.RC1IF = 0;
-PIR1bits.TX1IF = 0;
-IPR1bits.RC1IP = 0;
-IPR1bits.TX1IP = 0;
-}
-
-
-void ConfigureTimer0(void) {
-
-OpenTimer0(0b11111111
-& 0b10111111
-& 0b11011111
-& 0b11111111);
-
-
-
-WriteTimer0(63036);
-
-}
-
-
-void ConfigureTimer1(void) {
-
-OpenTimer1(0b01111111
-& 0b11111111
-& 0b11111101
-& 0b11011111
-& 0b11110111
-& 0b11111111);
-
-
-
-T1CONbits.TMR1ON = 0;
-
-WriteTimer1(0);
-
-}
-
-
-void ConfigureTimer2(void) {
-
-OpenTimer2(0b01111111
-& 0b11111100
-& 0b10000111
-& 0b10110111);
-
-# 185
-}
-
-
-void ConfigurePWM(void) {
-
-OpenPWM4(130);
-OpenPWM5(130);
-
-# 208
-}
-
-
-void ConfigureBuggyIO(void) {
-
-
-TRISA = 0xFF;
-
-
-TRISB = 0xFF;
-
-
-TRISC = 0x9F;
-
-
-TRISD = 0xE0;
-
-
-TRISE = 0x00;
-
-
-TRISG = 0xE7;
-
-
-TRISJ = 0x00;
-
-}
-
-
-void ConfigureADC(void) {
-
-OpenADC(0b10011111
-& 0b11111111
-& 0b11110101,
-0b10000111
-& 0b01111111
-& 0b11111110
-& 0b11111101,
-9);
-
-}
-
-
-void ConfigureSerial(void) {
-
-Open1USART(0b01111111
-& 0b10111111
-& 0b11111110
-& 0b11111101
-& 0b11111111
-& 0b11111111,
-64);
-
-}
-
-
-void SetADCChannel(unsigned char channel) {
-
-switch (channel) {
-case 0:
-SetChanADC(0b10000111);
-break;
-case 1:
-SetChanADC(0b10001111);
-break;
-case 2:
-SetChanADC(0b10010111);
-break;
-case 3:
-SetChanADC(0b10011111);
-break;
-case 4:
-SetChanADC(0b10100111);
-break;
-case 5:
-SetChanADC(0b10101111);
-break;
-case 6:
-SetChanADC(0b10110111);
-break;
-case 7:
-SetChanADC(0b10111111);
-break;
-case 8:
-SetChanADC(0b11000111);
-break;
-case 9:
-SetChanADC(0b11001111);
-break;
-case 10:
-SetChanADC(0b11010111);
-break;
-case 11:
-SetChanADC(0b11011111);
-break;
-case 12:
-SetChanADC(0b11100111);
-break;
-case 13:
-SetChanADC(0b11101111);
-break;
-case 14:
-SetChanADC(0b11110111);
-break;
-case 15:
-SetChanADC(0b11111111);
-break;
-default:
-break;
-}
-
-}
-
-
-void GetSensorReadings(void) {
-
-sensor_acq_index = 0;
-sensor_acq_done = 0;
-SetADCChannel(sensor_acq_index);
-ConvertADC();
-PIE1bits.ADIE = 1;
-
-}
-
-
-unsigned char BusySensorAcq(void) {
-
-return (!sensor_acq_done);
-
-}
-
-
-void NormaliseSensorReadings(void) {
-unsigned char index;
-
-for(index = 0; index < 5; index++) {
-
-sensor_readings_normalised[index] = sensor_readings_raw[index] + sensor_offsets[index];
-
-}
-
-}
-
-
-void CalculateSensorStatuses(void) {
-unsigned char index;
-
-
-if(line_mode == 1) {
-for(index = 0; index < 5; index++) {
-
-if(sensor_readings_normalised[index] > sensor_threshold) {
-sensor_status[index] = 1;
-}
-else {
-sensor_status[index] = 0;
-}
-}
-}
-
-else if(line_mode == 0) {
-
-for(index = 0; index < 5; index++) {
-
-if(sensor_readings_normalised[index] < sensor_threshold) {
-sensor_status[index] = 1;
-}
-else {
-sensor_status[index] = 0;
-}
-
-}
-}
-
-
-}
-
-
-unsigned char CalculateSensorSums(void) {
-unsigned char index, sum = 0;
-
-for(index = 0; index < 5; index++) {
-
-sum += (unsigned char) (sensor_status[index] * pow(2, index));
-
-}
-
-return(sum);
-
-}
-
-
-int CalculateSensorError(const unsigned char *sum) {
-
-switch(*sum) {
-case(16) :
-return(8);
-case(24) :
-return(6);
-case(8) :
-return(4);
-case(12) :
-return(2);
-case(4) :
-return(0);
-case(6) :
-return(-2);
-case(2) :
-return(-4);
-case(3) :
-return(-6);
-case(1) :
-return(-8);
-default :
-break;
-}
-
-return(0);
-
-}
-
-
-void DisplaySensorStatuses(const unsigned char *status_array) {
-unsigned char index;
-
-for (index = 0; index < 5; index++) {
-LATJ ^= *(status_array + index) << index;
-}
-
-}
-
-
-void EnableSensorLEDS(void) {
-
-LATE = 0x1F;
-
-}
-
-
-void DisableSensorLEDS(void) {
-
-LATE &= 0xE0;
-
-}
-
-
-void FlashLEDS(void) {
-LATJ = 0x00;
-LATJ = 0x1F;
-Delay10KTCYx(75);
-LATJ = 0x00;
-Delay10KTCYx(75);
-LATJ = 0x1F;
-Delay10KTCYx(75);
-LATJ = 0x00;
-}
-
-
-unsigned char PB1pressed(void) {
-if(CommandAvailable() == 1) {
-if(GetCommand() == 0x05) {
-return(1);
-}
-else {
-return(0);
-}
-}
-else if(PORTBbits.RB1 == 0) {
-return(0);
-}
-else if(PORTBbits.RB1 == 1) {
-ResetMillis2();
-while(ReadMillis2() < 10);
-if(PORTBbits.RB1 == 1) {
-return(1);
-}
-else {
-return(0);
-}
-}
-
-return(0);
-
-}
-
-
-unsigned char PB2pressed(void) {
-if(CommandAvailable() == 1) {
-if(GetCommand() == 0x06) {
-return(1);
-}
-else {
-return(0);
-}
-}
-else if(PORTBbits.RB2 == 0) {
-return(0);
-}
-else if(PORTBbits.RB2 == 1) {
-ResetMillis2();
-while(ReadMillis2() < 10);
-if(PORTBbits.RB2 == 1) {
-return(1);
-}
-else {
-return(0);
-}
-}
-
-return(0);
-}
-
-
-void CalibrateOffsets(void) {
-unsigned char index;
-
-GetSensorReadings();
-
-while(BusySensorAcq());
-
-for(index = 0; index < 5; index++) {
-
-sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
-
-}
-
-}
-
-
-void CalibrateThreshold(void) {
-unsigned char index, sum;
-
-LATJ = 0x00;
-
-
-SetADCChannel(5);
-ConvertADC();
-while(BusyADC());
-sensor_threshold = ReadADC();
-
-
-GetSensorReadings();
-
-while(BusySensorAcq());
-
-NormaliseSensorReadings();
-
-CalculateSensorStatuses();
-
-DisplaySensorStatuses(sensor_status);
-
-# 580
-}
-
-
-void GenerateCalibration(void) {
-unsigned char index;
-
-
-SendStatus(0x03);
-LATJ = 0x07;
-
-while(PB1pressed() == 0) {
-
-CalibrateOffsets();
-Delay10KTCYx(10);
-
-}
-
-for(index = 0; index < 5; index++) {
-WriteIntEEPROM(0x0006 + (2 * index), sensor_offsets[index]);
-}
-
-SendOffsets(sensor_offsets);
-
-FlashLEDS();
-
-
-SendStatus(0x04);
-
-while(PB1pressed() == 0) {
-
-CalibrateThreshold();
-Delay10KTCYx(10);
-
-}
-
-if(line_mode == 0) {
-WriteIntEEPROM(0x0002, sensor_threshold);
-WriteCharEEPROM(0x0000, 1);
-}
-else if(line_mode == 1) {
-WriteIntEEPROM(0x0004, sensor_threshold);
-WriteCharEEPROM(0x0001, 1);
-}
-
-SendThreshold(sensor_threshold_ptr);
-
-}
-
-
-void LoadCalibration(void) {
-unsigned char index;
-
-if(line_mode == 0 && ReadCharEEPROM(0x0000) == 0xFF) {
-FlashLEDS();
-GenerateCalibration();
-}
-else if(line_mode == 0 && ReadCharEEPROM(0x0000) == 0x01) {
-sensor_threshold = ReadIntEEPROM(0x0002);
-for(index = 0; index < 5; index++) {
-sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
-}
-}
-
-else if(line_mode == 1 && ReadCharEEPROM(0x0001) == 0xFF) {
-FlashLEDS();
-GenerateCalibration();
-}
-else if(line_mode == 1 && ReadCharEEPROM(0x0001) == 0x01) {
-sensor_threshold = ReadIntEEPROM(0x0004);
-for(index = 0; index < 5; index++) {
-sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
-}
-}
-
-SendOffsets(sensor_offsets);
-SendThreshold(sensor_threshold_ptr);
-
-}
-
-void SetPIDValues(void) {
-SendStatus(0x07);
-
-unsigned char char_index;
-
-FlushRxBuf();
-
-for(char_index = 0; char_index <= 8; char_index++) {
-while(!(PIR1bits.RCIF));
-
-PutCharRxBuf(Read1USART());
-}
-
-while(GetCharRxBuf() != 0xAA);
-while(GetCharRxBuf() != 0x01);
-
-PID_Kp = (GetCharRxBuf() << 8) & 0xFF00;
-PID_Kp |= (GetCharRxBuf() & 0x00FF);
-
-PID_Kd = (GetCharRxBuf() << 8) & 0xFF00;
-PID_Kd |= (GetCharRxBuf() & 0x00FF);
-
-PID_Ki = (GetCharRxBuf() << 8) & 0xFF00;
-PID_Ki |= (GetCharRxBuf() & 0x00FF);
-
-WriteIntEEPROM(0x0011, PID_Kp);
-WriteIntEEPROM(0x0013, PID_Kd);
-WriteIntEEPROM(0x0015, PID_Ki);
-
-WriteCharEEPROM(0x0010, 1);
-}
-
-void LoadPIDValues(void) {
-SendStatus(0x06);
-
-while(1) {
-if(PB1pressed() == 1) {
-PID_Kp = 20;
-PID_Kd = 0;
-PID_Ki = 0;
-WriteIntEEPROM(0x0011, PID_Kp);
-WriteIntEEPROM(0x0013, PID_Kd);
-WriteIntEEPROM(0x0015, PID_Ki);
-
-WriteCharEEPROM(0x10, 1);
-break;
-}
-else if(PB2pressed() == 1) {
-if(ReadCharEEPROM(0x10) == 0xFF) {
-SetPIDValues();
-}
-else {
-PID_Kp = ReadIntEEPROM(0x0011);
-PID_Kd = ReadIntEEPROM(0x0013);
-PID_Ki = ReadIntEEPROM(0x0015);
-}
-break;
-}
-}
-
-}
-
-
-void interrupt high_priority isrHP(void) {
-
-
-if (INTCONbits.TMR0IF == 1) {
-INTCONbits.TMR0IF = 0;
-
-MillisecondTimerISR();
-
-
-
-}
-
-
-else if (INTCON3bits.INT3IF == 1) {
-INTCON3bits.INT3IF = 0;
-
-UltrasoundISR();
-}
-
-}
-
-
-void interrupt low_priority isrLP(void) {
-
-# 759
-if (PIR1bits.ADIF == 1) {
-PIR1bits.ADIF = 0;
-if (sensor_acq_index < 5) {
-*(sensor_readings_raw + sensor_acq_index) = ReadADC();
-sensor_acq_index++;
-SetADCChannel(sensor_acq_index);
-ConvertADC();
-} else {
-sensor_acq_done = 1;
-PIE1bits.ADIE = 0;
-}
-}
-
-else if(PIR1bits.TX1IF == 1) {
-PIR1bits.TX1IF = 0;
-WirelessTx_ISR();
-}
-
-# 782
+# 195
+void WriteCurrentOffset (CHAR offset)
+{
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x6C );
+OWWriteByte( 0x7B );
+OWWriteByte( offset );
 }
-
-
-void main(void) {
-
-
-unsigned char sensor_sum, loop_count = 0, stop_flag, find_line_flag, line_end_flag, wall_detected_flag, send_battery_stats_flag, command_msg;
-unsigned int echo_length, battery_voltage, battery_current;
-unsigned long int battery_current_acc;
-int D_temp, I_temp;
-
-
-unsigned char *sensor_sum_ptr, *line_mode_ptr;
-sensor_sum_ptr = &sensor_sum;
-line_mode_ptr = &line_mode;
-
-unsigned int *battery_voltage_ptr, *battery_current_ptr;
-unsigned long int *battery_current_acc_ptr;
-
-battery_voltage_ptr = &battery_voltage;
-battery_current_ptr = &battery_current;
-battery_current_acc_ptr = &battery_current_acc;
-
-sensor_threshold_ptr = &sensor_threshold;
-
-ConfigureUltrasound(0.0137, 0.054);
-ConfigureBuggyIO();
-ConfigureInterrupts();
-ConfigureTimer0();
-ConfigureTimer1();
-ConfigureTimer2();
-ConfigurePWM();
-ConfigureADC();
-ConfigureWireless();
-
-DisableMotors();
-
-Delay10KTCYx(100);
-
-battery_voltage = ReadVoltage();
-
-SendStatus(0x00);
-
-SendBattVoltageInitial(battery_voltage_ptr);
-
-
-LATJ = 0x1F;
-SendStatus(0x01);
-
-while(1) {
-if(PB1pressed() == 1) {
-line_mode = 0;
-break;
-}
-else if(PB2pressed() == 1) {
-line_mode = 1;
-break;
-}
-}
-
-SendLineMode(line_mode_ptr);
-FlashLEDS();
-
-EnableSensorLEDS();
-
-
-LATJ = 0x0F;
-SendStatus(0x02);
-
-while(1) {
-if(PB1pressed() == 1) {
-FlashLEDS();
-GenerateCalibration();
-break;
-}
-else if(PB2pressed() == 1) {
-FlashLEDS();
-LoadCalibration();
-break;
-}
-
 }
 
-FlashLEDS();
+# 216
+void AdjustCurrentOffset (void)
+{
+CHAR offset = 0;
 
+WriteCurrentOffset ( 0x0 );
 
-LATJ = 0x03;
-SendStatus(0x05);
+Delay100MSx(36);
 
-SendDefaultPIDValues(20, 0, 0);
-
-int Kp_stored, Kd_stored, Ki_stored;
-
-Kp_stored = ReadIntEEPROM(0x0011);
-Kd_stored = ReadIntEEPROM(0x0013);
-Ki_stored = ReadIntEEPROM(0x0015);
-
-SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
-
-while(1) {
-if(PB1pressed() == 1) {
-FlashLEDS();
-LATJ = 0x03;
-SetPIDValues();
-break;
-}
-else if(PB2pressed() == 1) {
-FlashLEDS();
-LATJ = 0x03;
-LoadPIDValues();
-break;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x69 );
+OWWriteByte( 0x0F );
+offset = OWReadByte();
 }
-}
-
-SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);
 
+offset = 256 - offset;
 
-while(1) {
-
-
-FlashLEDS();
-
-LATJ = 0x01;
-SendStatus(0x08);
-
-while(1) {
-if(PB1pressed() == 1) {
-break;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x6C );
+OWWriteByte( 0x7B );
+OWWriteByte( offset );
 }
-if(CommandAvailable() == 1 && GetCommand() == 0x02) {
-break;
 }
-}
-
-
-PID_error = 0;
-PID_output = 0;
-D_temp = 0;
-I_temp = 0;
-
-stop_flag = 0;
-find_line_flag = 0;
-line_end_flag = 0;
-wall_detected_flag = 0;
-send_battery_stats_flag = 0;
-
-LATJ = 0x00;
-
-FlashLEDS();
-SendStatus(0x09);
-
-ResetAccumulatedCurrent();
-
-ResetMillis0();
-ResetMillis1();
 
-SetUnipolar();
-StopMotors();
-SetDirectionForward();
-EnableMotors();
-
-GetDistance();
-
-
-while(1) {
-
-
-GetSensorReadings();
-
-while(BusySensorAcq());
-
-NormaliseSensorReadings();
-
-CalculateSensorStatuses();
-sensor_sum = CalculateSensorSums();
-
-
-PID_error = CalculateSensorError(sensor_sum_ptr);
-PID_output = PID_Kp * PID_error + PID_Kd * (D_temp - PID_error) + PID_Ki * I_temp;
-D_temp = PID_error;
-I_temp += PID_error;
-
-SetDCMotorPID(PID_output);
-
-
-DisplaySensorStatuses(sensor_status);
-
-
-if(BusyDistanceAcq() == 0 && wall_detected_flag == 0) {
-
-if(ReadEchoLength() < 1232) {
-wall_detected_flag = 1;
-
-
-DisableMotors();
-
-PID_error = 0;
-PID_output = 0;
-D_temp = 0;
-I_temp = 0;
-
-SetForwardsMotorR();
-SetReverseMotorL();
-
-SetDCMotorL(150);
-SetDCMotorR(275);
-
-EnableMotors();
-
-sensor_sum = 0;
-
-ResetMillis0();
-while(ReadMillis0() < 300);
-
-while(sensor_sum == 0) {
-GetSensorReadings();
-while(BusySensorAcq());
-NormaliseSensorReadings();
-CalculateSensorStatuses();
-sensor_sum = CalculateSensorSums();
-DisplaySensorStatuses(sensor_status);
-
+# 253
+void UpdateControlRegister (BYTE control)
+{
+if( OWReset() == TRUE )
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x6C );
+OWWriteByte( 0x60 );
+OWWriteByte( control );
 }
 
-SetDCMotorL(526);
-SetDCMotorR(526);
-SetDirectionForward();
-
-}
-else {
-GetDistance();
+if( OWReset() == TRUE )
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x48 );
+OWWriteByte( 0x60 );
 }
 }
 
-
-if(sensor_sum == 0 && line_end_flag == 0) {
-ResetMillis2();
-line_end_flag = 1;
+# 280
+BYTE ReadRAM (BYTE addr)
+{
+BYTE result = 0;
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x69 );
+OWWriteByte( addr );
+result = OWReadByte();
 }
-
-else if(sensor_sum == 0 && line_end_flag == 1 && ReadMillis2() >= 100) {
-stop_flag = 1;
+return result;
 }
-
 
-else if(ReadMillis1() >= 1000) {
-ResetMillis1();
-battery_voltage = ReadVoltage();
-Delay1KTCYx(25);
-battery_current = ReadCurrent();
-Delay1KTCYx(25);
-battery_current_acc = ReadAccumulatedCurrent();
-send_battery_stats_flag = 1;
+# 302
+void WriteRAM (BYTE byte, BYTE addr)
+{
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x6C );
+OWWriteByte( addr );
+OWWriteByte( byte );
 }
-
-else if(send_battery_stats_flag == 1) {
-SendBattVoltage(battery_voltage_ptr);
-
-SendBattCurrent(battery_current_ptr);
-
-SendBattCurrentAcc(battery_current_acc_ptr);
-send_battery_stats_flag = 0;
 }
 
-
-else if(CommandAvailable() == 1) {
-command_msg = GetCommand();
-if(command_msg == 0x03) {
-find_line_flag = 1;
+# 324
+void CopyEEPROM (BYTE addr)
+{
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0x48 );
+OWWriteByte( addr );
 }
-else if(command_msg == 0x04) {
-stop_flag = 1;
-}
-
 }
 
-
-else if(PB1pressed() == 1 | PB2pressed() == 1) {
-stop_flag = 1;
+# 343
+void RecallEEPROM (BYTE addr)
+{
+if( OWReset() == TRUE)
+{
+OWWriteByte( 0xCC );
+OWWriteByte( 0xB8 );
+OWWriteByte( addr );
 }
-
-
-else if(find_line_flag == 1) {
-
-
 }
-
 
-else if(stop_flag == 1) {
-StopMotors();
-break;
+# 363
+void Delay100MSx(BYTE counts)
+{
+BYTE i,j;
+for(i = 0; i < counts; i++)
+{
+for(j=0;j<10;j++)
+{
+_delay((unsigned long)((1)*(10000000/4000.0)));
 }
-
-# 1080
 }
-
 }
 
-}

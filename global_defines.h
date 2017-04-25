@@ -22,25 +22,38 @@ extern "C" {
 #define MOTOR_EN    LATDbits.LATD4
 
     //Motor duty cycle defines - duty cycles are in reverse - lower numbers equal higher motor speeds
-#define DC_MAX_SPEED 400
-#define DC_MAX_SPEED_REV_L 406
-#define DC_MAX_SPEED_REV_R 390
+#define DC_MAX_SPEED 240
+#define DC_MAX_SPEED_REV_L 250
+#define DC_MAX_SPEED_REV_R 340 
 #define DC_STOP 526
     
 #define NO_OF_STEPS 10
 
 #define TIMER0_VALUE    63036    //Value written to Timer0 to generate ~1ms delay
     
-#define BUFFER_SIZE 20      //RX and TX buffer sizes in bytes
+#define BUFFER_SIZE 25      //RX and TX buffer sizes in bytes
     
-#define MSG_STATUS 0x01
-#define MSG_LINE_MODE 0x11
-#define MSG_SENS_OFFSETS 0x21
-#define MSG_SENS_THRESHOLD 0x31
-#define MSG_PID_VALUES 0x41
-#define MSG_BATT_VOL 0x03
-#define MSG_BATT_CURR 0x04
-#define MSG_BATT_CURR_ACC 0x05
+#define TX_MSG_START 0xAA
+#define RX_MSG_START 0xAA
+    
+#define TX_MSG_STATUS 0x01
+#define TX_MSG_LINE_MODE 0x11
+#define TX_MSG_SENS_OFFSETS 0x21
+#define TX_MSG_SENS_THRESHOLD 0x31
+#define TX_MSG_DEFAULT_PID_VALUES 0x41
+#define TX_MSG_STORED_PID_VALUES 0x42
+#define TX_MSG_CURRENT_PID_VALUES 0x43
+#define TX_MSG_BATT_VOLT 0x03
+#define TX_MSG_BATT_CURR 0x04
+#define TX_MSG_BATT_CURR_ACC 0x05
+#define TX_MSG_BATT_VOLT_INITIAL 0x06
+    
+#define RX_MSG_PID_VALUES 0x01
+#define RX_MSG_START_RACE 0x02
+#define RX_MSG_FIND_LINE 0x03
+#define RX_MSG_STOP_BUGGY 0x04
+#define RX_MSG_PB1 0x05
+#define RX_MSG_PB2 0x06
     
 #define STATUS_0 0x00
 #define STATUS_1 0x01
@@ -51,6 +64,8 @@ extern "C" {
 #define STATUS_6 0x06
 #define STATUS_7 0x07
 #define STATUS_8 0x08
+#define STATUS_9 0x09
+#define STATUS_10 0x0A
 #define STATUS_ERR 0x0E
     
 #define CR 0x0D

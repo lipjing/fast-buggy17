@@ -20,6 +20,7 @@
 #include "MillisecondTimer.h"
 #include "EEPROM.h"
 #include "Wireless.h"
+#include "BatteryLib/ds2781.h"
 #include "global_defines.h"     //Some global pre-processor definitions for things like motor drive board pin connections etc.
 
 #define PERIOD_REG      130      //Value written to PR2 register to set PWM frequency (approx. 19kHz)
@@ -30,11 +31,13 @@
 #define WHITE_ON_BLACK  1       //Line mode white on black
 #define DEBOUNCE_DELAY  10      //Debounce delay in milliseconds
 #define LED_FLASH_DELAY 200     //LED flash delay for waiting for user input
+#define END_OF_LINE_DELAY 100   //Delay in ms until a sensor reading of 0 is classed as the end of the line
+#define BATTERY_STATS_DELAY 800
 
 //PID defines
-#define PID_KP  13  //Proportional constant
-#define PID_KD  1   //Derivative constant
-#define PID_KI  1   //Integral constant
+#define DEFAULT_PID_KP  20  //Proportional constant
+#define DEFAULT_PID_KD  0   //Derivative constant
+#define DEFAULT_PID_KI  0   //Integral constant
 
 //Sensor weighting defines - expand the code fold below for a description
 /* Sensor weightings - adjusting these WILL have an effect on the control algorithm
@@ -52,15 +55,15 @@
  * Weightings influence the contribution that each sensor will have to the overall sensor error
  * therefore they must be tuned WITH the PID variables
  */
-#define W0  -64
-#define W1  -27
-#define W2  -8
-#define W3  -1
+#define W0  -8
+#define W1  -6
+#define W2  -4
+#define W3  -2
 #define W4  0
-#define W5  1
-#define W6  8
-#define W7  27
-#define W8  64
+#define W5  2
+#define W6  4
+#define W7  6
+#define W8  8
 
 //Global volatile variables
 volatile unsigned char sensor_acq_done, sensor_acq_index;
@@ -69,7 +72,7 @@ volatile int sensor_readings_raw[NO_OF_SENSORS];
 //Global variables
 unsigned char sensor_status[NO_OF_SENSORS], line_mode;
 int sensor_offsets[NO_OF_SENSORS], sensor_readings_normalised[NO_OF_SENSORS];
-int sensor_threshold, PID_error, PID_output;
+int sensor_threshold, PID_error, PID_output, PID_Kp, PID_Kd, PID_Ki;
 
 //Global pointer variables
 int *sensor_threshold_ptr;
@@ -397,26 +400,26 @@ unsigned char CalculateSensorSums(void) {
 int CalculateSensorError(const unsigned char *sum) {
     
     switch(*sum) {
-        case(16)    :
-            return(W8);
-        case(24) :
-            return(W7);
-        case(8) :
-            return(W6);
-        case(12) :
-            return(W5);
-        case(4) : 
-            return(W4);
-        case(6) :
-            return(W3);
-        case(2) :
-            return(W2);
-        case(3) :
-            return(W1);
-        case(1) :
-            return(W0);
-        default :
-            break;
+            case(16)    :
+                return(W8);
+            case(24) :
+                return(W7);
+            case(8) :
+                return(W6);
+            case(12) :
+                return(W5);
+            case(4) : 
+                return(W4);
+            case(6) :
+                return(W3);
+            case(2) :
+                return(W2);
+            case(3) :
+                return(W1);
+            case(1) :
+                return(W0);
+            default :
+                break;
     }
     
     return(0);
@@ -461,7 +464,15 @@ void FlashLEDS(void) {
 
 //Returns the value of PB1 with a debounce delay
 unsigned char PB1pressed(void) {
-    if(PORTBbits.RB1 == 0) {
+    if(CommandAvailable() == 1) {
+        if(GetCommand() == RX_MSG_PB1) {
+            return(1);
+        }
+        else {
+            return(0);
+        }
+    }
+    else if(PORTBbits.RB1 == 0) {
         return(0);
     }
     else if(PORTBbits.RB1 == 1) {
@@ -481,7 +492,15 @@ unsigned char PB1pressed(void) {
 
 //Returns the value of PB2 with a debounce delay
 unsigned char PB2pressed(void) {
-    if(PORTBbits.RB2 == 0) {
+    if(CommandAvailable() == 1) {
+        if(GetCommand() == RX_MSG_PB2) {
+            return(1);
+        }
+        else {
+            return(0);
+        }
+    }
+    else if(PORTBbits.RB2 == 0) {
         return(0);
     }
     else if(PORTBbits.RB2 == 1) {
@@ -566,7 +585,7 @@ void GenerateCalibration(void) {
     
     //GENERATE SENSOR OFFSETS
     SendStatus(STATUS_3);
-    LATJ = 0x03;
+    LATJ = 0x07;
     
     while(PB1pressed() == 0) {
         
@@ -576,7 +595,7 @@ void GenerateCalibration(void) {
     }
     
     for(index = 0; index < NO_OF_SENSORS; index++) {
-        WriteIntEEPROM(0x03 + (2 * index), sensor_offsets[index]);
+        WriteIntEEPROM(0x0006 + (2 * index), sensor_offsets[index]);
     }
     
     SendOffsets(sensor_offsets);
@@ -593,8 +612,14 @@ void GenerateCalibration(void) {
         
     }
     
-    WriteIntEEPROM(0x01, sensor_threshold);
-    WriteCharEEPROM(0x00, 1);
+    if(line_mode == BLACK_ON_WHITE) {
+        WriteIntEEPROM(0x0002, sensor_threshold);
+        WriteCharEEPROM(0x0000, 1);
+    }
+    else if(line_mode == WHITE_ON_BLACK) {
+        WriteIntEEPROM(0x0004, sensor_threshold);
+        WriteCharEEPROM(0x0001, 1);
+    }
     
     SendThreshold(sensor_threshold_ptr);
     
@@ -604,16 +629,91 @@ void GenerateCalibration(void) {
 void LoadCalibration(void) {
     unsigned char index;
     
-    if(ReadCharEEPROM(0x00) == 0) {
+    if(line_mode == BLACK_ON_WHITE && ReadCharEEPROM(0x0000) == 0xFF) {
         FlashLEDS();
-        GenerateCalibration();        
+        GenerateCalibration();
+    }
+    else if(line_mode == BLACK_ON_WHITE && ReadCharEEPROM(0x0000) == 0x01) {
+        sensor_threshold = ReadIntEEPROM(0x0002);
+        for(index = 0; index < NO_OF_SENSORS; index++) {
+            sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
+        }
     }
     
-    else {
-        sensor_threshold = ReadIntEEPROM(0x01);
+    else if(line_mode == WHITE_ON_BLACK && ReadCharEEPROM(0x0001) == 0xFF) {
+        FlashLEDS();
+        GenerateCalibration();
+    }
+    else if(line_mode == WHITE_ON_BLACK && ReadCharEEPROM(0x0001) == 0x01) {
+        sensor_threshold = ReadIntEEPROM(0x0004);
         for(index = 0; index < NO_OF_SENSORS; index++) {
-            sensor_offsets[index] = ReadIntEEPROM(0x03 + (2 * index));
+            sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
+        }      
+    }
+    
+    SendOffsets(sensor_offsets);
+    SendThreshold(sensor_threshold_ptr);
+    
+}
+
+void SetPIDValues(void) {
+    SendStatus(STATUS_7);
+    
+    unsigned char char_index;
+    
+    FlushRxBuf();
+    
+    for(char_index = 0; char_index <= 8; char_index++) {
+        while(!DataRdy1USART());
+        
+        PutCharRxBuf(Read1USART());        
+    }
+    
+    while(GetCharRxBuf() != RX_MSG_START);
+    while(GetCharRxBuf() != RX_MSG_PID_VALUES);
+    
+    PID_Kp = (GetCharRxBuf() << 8) & 0xFF00;
+    PID_Kp |= (GetCharRxBuf() & 0x00FF);
+    
+    PID_Kd = (GetCharRxBuf() << 8) & 0xFF00;
+    PID_Kd |= (GetCharRxBuf() & 0x00FF);
+    
+    PID_Ki = (GetCharRxBuf() << 8) & 0xFF00;
+    PID_Ki |= (GetCharRxBuf() & 0x00FF);
+    
+    WriteIntEEPROM(0x0011, PID_Kp);
+    WriteIntEEPROM(0x0013, PID_Kd);
+    WriteIntEEPROM(0x0015, PID_Ki);
+    
+    WriteCharEEPROM(0x0010, 1);
+}
+
+void LoadPIDValues(void) {
+    SendStatus(STATUS_6);
+    
+    while(1) {
+        if(PB1pressed() == 1) {
+            PID_Kp = DEFAULT_PID_KP;
+            PID_Kd = DEFAULT_PID_KD;
+            PID_Ki = DEFAULT_PID_KI;
+            WriteIntEEPROM(0x0011, PID_Kp);
+            WriteIntEEPROM(0x0013, PID_Kd);
+            WriteIntEEPROM(0x0015, PID_Ki);
+            
+            WriteCharEEPROM(0x10, 1);
+            break;
         }
+        else if(PB2pressed() == 1) {
+            if(ReadCharEEPROM(0x10) == 0xFF) {
+                SetPIDValues();
+            }
+            else {
+                PID_Kp = ReadIntEEPROM(0x0011);
+                PID_Kd = ReadIntEEPROM(0x0013);
+                PID_Ki = ReadIntEEPROM(0x0015);
+            }
+            break;
+        }    
     }
     
 }
@@ -631,11 +731,6 @@ void interrupt high_priority isrHP(void) {
         
     }
 
-    //PORTB ISR (for ultrasound)
-//    else if (INTCONbits.RBIF == 1) {                 //Check to see if interrupt has come from PORTB (ultrasonic sensor return pulse)
-//        UltrasoundISR();
-//    }
-    
     //INT3 ISR (for ultrasound)
     else if (INTCON3bits.INT3IF == 1) {
         INTCON3bits.INT3IF = 0;
@@ -678,6 +773,11 @@ void interrupt low_priority isrLP(void) {
         PIR1bits.TX1IF = 0;
         WirelessTx_ISR();        
     }
+    
+//    else if(PIR1bits.RC1IF == 1) {
+//        PIR1bits.RC1IF = 0;
+//        WirelessRx_ISR();
+//    }
 
 }
 
@@ -685,15 +785,24 @@ void interrupt low_priority isrLP(void) {
 void main(void) {
 
     //Variable declarations
-    unsigned char sensor_sum, loop_count = 0;
-    unsigned int echo_length;
+    unsigned char sensor_sum, loop_count = 0, stop_flag, find_line_flag, line_end_flag, wall_detected_flag, send_battery_stats_flag, command_msg;
+    unsigned int echo_length, battery_voltage, battery_current;
+    unsigned long int battery_current_acc;
+    int D_temp, I_temp, Kp_stored, Kd_stored, Ki_stored;
     
     //Pointer declarations
     unsigned char *sensor_sum_ptr, *line_mode_ptr;
     sensor_sum_ptr = &sensor_sum;
     line_mode_ptr = &line_mode;
     
-    sensor_threshold_ptr = &sensor_threshold;    
+    unsigned int *battery_voltage_ptr, *battery_current_ptr;
+    unsigned long int *battery_current_acc_ptr;
+    
+    battery_voltage_ptr = &battery_voltage;
+    battery_current_ptr = &battery_current;
+    battery_current_acc_ptr = &battery_current_acc;
+    
+    sensor_threshold_ptr = &sensor_threshold; 
     
     ConfigureUltrasound(ECHO_TO_DIST_CM, ECHO_TO_DIST_IN);
     ConfigureBuggyIO();
@@ -708,13 +817,15 @@ void main(void) {
     DisableMotors();
     
     Delay10KTCYx(100);
+    
+    battery_voltage = ReadVoltage();
 
     SendStatus(STATUS_0);
     
-    //STARTUP ROUTINE
-    
+    SendBattVoltageInitial(battery_voltage_ptr);
+        
     //LINE MODE SETTING
-    LATJ = 0x0F;
+    LATJ = 0x1F;
     SendStatus(STATUS_1);
     
     while(1) {
@@ -734,7 +845,7 @@ void main(void) {
     EnableSensorLEDS();
    
     //GENERATE / LOAD CALIBRATION
-    LATJ = 0x07;
+    LATJ = 0x0F;
     SendStatus(STATUS_2);
     
     while(1) {
@@ -746,8 +857,6 @@ void main(void) {
         else if(PB2pressed() == 1) {
             FlashLEDS();
             LoadCalibration();
-            SendOffsets(sensor_offsets);
-            SendThreshold(sensor_threshold_ptr);
             break;
         }
 
@@ -755,121 +864,250 @@ void main(void) {
     
     FlashLEDS();
     
-    //READY TO RACE
-    LATJ = 0x01;
-    SendStatus(STATUS_6);
+    //SET / LOAD PID VALUES
+    LATJ = 0x03;
+    SendStatus(STATUS_5);
     
-    while(PB1pressed() == 0);    
+    SendDefaultPIDValues(DEFAULT_PID_KP, DEFAULT_PID_KD, DEFAULT_PID_KI);
     
-    //RACE INITIALISATION
-    PID_error = 0;
-    PID_output = 0;
+    Kp_stored = ReadIntEEPROM(0x0011);
+    Kd_stored = ReadIntEEPROM(0x0013);
+    Ki_stored = ReadIntEEPROM(0x0015);
     
-    LATJ = 0x00;
+    SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
     
-    ResetMillis0();
+    while(1) {
+        if(PB1pressed() == 1) {
+            FlashLEDS();
+            LATJ = 0x03;
+            SetPIDValues();
+            break;
+        }
+        else if(PB2pressed() == 1) {
+            FlashLEDS();
+            LATJ = 0x03;
+            LoadPIDValues();
+            break;            
+        }       
+    }
     
-    FlashLEDS();
-    SendStatus(STATUS_7);
+    SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);
     
-    SetUnipolar();
-    StopMotors();
-    SetDirectionForward();
-    EnableMotors();
-    
-    //RACE ROUTINE
+    //READY TO RACE / RACE MODE
     while(1) {
         
-        //GET SENSOR READINGS AND STATUSES
-        GetSensorReadings();
+        //READY TO RACE
+        FlashLEDS();
         
-        while(BusySensorAcq());
-        
-        NormaliseSensorReadings();
-        
-        CalculateSensorStatuses();
-        sensor_sum = CalculateSensorSums();
-                
-        //PID LOOP
-        PID_error = CalculateSensorError(sensor_sum_ptr);
-        PID_output = PID_KP * PID_error;
-        
-        SetDCMotorPID(PID_output);
-                
-        //DISPLAY SENSOR STATUSES
-        DisplaySensorStatuses(sensor_status);
-        
-        //END OF LINE DETECTION
-//        if(sensor_sum == 0) {
-//            ResetMillis0();
-//            while(ReadMillis0() < 10);
-//            
-//            GetSensorReadings();
-//
-//            while(BusySensorAcq());
-//
-//            NormaliseSensorReadings();
-//
-//            CalculateSensorStatuses();
-//            sensor_sum = CalculateSensorSums();
-//            
-//            if(sensor_sum == 0) {
-//                StopMotors();
-//                DisableMotors();
-//                while(1);                
-//            }
-//        }
-        
-        
-        //ULTRASOUND DISTANCE
-        if(BusyDistanceAcq() == 0) {
-            echo_length = ReadEchoLength();
-            if(echo_length < 1232) {
-                                
-                DisableMotors();
-                
-                SetForwardsMotorR();
-                SetReverseMotorL();                
-                
-                SetDCMotorL(DC_MAX_SPEED_REV_L);
-                SetDCMotorR(DC_MAX_SPEED_REV_R);
-                
-                EnableMotors();
-                
-                ResetMillis0();
-                while(ReadMillis0() < 30);
-                sensor_sum = 0;
-               
-                while(sensor_sum == 0) {
-                    GetSensorReadings();
-                    while(BusySensorAcq());
-                    NormaliseSensorReadings();
-                    CalculateSensorStatuses();
-                    sensor_sum = CalculateSensorSums();
-                    DisplaySensorStatuses(sensor_status);
-                    
-                }
-                               
-                DisableMotors();
-                SetDirectionForward();
-                EnableMotors();
-                
-                //PID_error = 0;
-                
-                GetDistance();
+        LATJ = 0x01;
+        SendStatus(STATUS_8);
+
+        while(1) {
+            if(PB1pressed() == 1) {
+                break;
             }
-            else {
-                GetDistance();
-            }   
+            if(CommandAvailable() == 1 && GetCommand() == RX_MSG_START_RACE) {
+                break;
+            }
+        }    
+
+        //RACE INITIALISATION
+        PID_error = 0;
+        PID_output = 0;
+        D_temp = 0;
+        I_temp = 0;
+        
+        stop_flag = 0;
+        find_line_flag = 0;
+        line_end_flag = 0;
+        wall_detected_flag = 0;
+        send_battery_stats_flag = 0;
+
+        LATJ = 0x00;
+
+        FlashLEDS();
+        SendStatus(STATUS_9);
+        
+        ResetAccumulatedCurrent();
+        
+        ResetMillis0();
+        ResetMillis1();
+
+        SetUnipolar();
+        StopMotors();
+        SetDirectionForward();
+        EnableMotors();
+        
+        GetDistance();
+
+        //RACE ROUTINE
+        while(1) {
+            
+            //GET SENSOR READINGS
+            GetSensorReadings();
+
+            while(BusySensorAcq());
+
+            NormaliseSensorReadings();
+
+            CalculateSensorStatuses();
+            sensor_sum = CalculateSensorSums();
+
+            //PID LOOP
+            PID_error = CalculateSensorError(sensor_sum_ptr);
+            PID_output = PID_Kp * PID_error + PID_Kd * (D_temp - PID_error) + PID_Ki * I_temp;
+            D_temp = PID_error;
+            I_temp += PID_error;
+
+            SetDCMotorPID(PID_output);
+
+            //DISPLAY SENSOR STATUSES ON LEDS
+            DisplaySensorStatuses(sensor_status);
+
+            //WALL DETECTION
+            if(BusyDistanceAcq() == 0 && wall_detected_flag == 0) {
+                
+                if(ReadEchoLength() < 1232) {
+                    wall_detected_flag = 1;
+                                    
+                    //TURN AROUND ROUTINE
+                    DisableMotors();
+                                        
+                    PID_error = 0;
+                    PID_output = 0;
+                    D_temp = 0;
+                    I_temp = 0;
+                    
+                    SetForwardsMotorR();
+                    SetReverseMotorL();                
+                    
+                    SetDCMotorL(DC_MAX_SPEED_REV_L);
+                    SetDCMotorR(DC_MAX_SPEED_REV_R);
+                    
+                    EnableMotors();
+                    
+                    sensor_sum = 0;
+                    
+                    ResetMillis0();
+                    while(ReadMillis0() < 300);
+                   
+                    while(sensor_sum == 0) {
+                        GetSensorReadings();
+                        while(BusySensorAcq());
+                        NormaliseSensorReadings();
+                        CalculateSensorStatuses();
+                        sensor_sum = CalculateSensorSums();
+                        DisplaySensorStatuses(sensor_status);
+                        
+                    }
+                                   
+                    SetDCMotorL(DC_STOP);
+                    SetDCMotorR(DC_STOP);
+                    SetDirectionForward();
+
+                }
+                else {
+                    GetDistance();
+                }   
+            }
+            
+            //END OF LINE DETECTION
+            if(sensor_sum == 0 && line_end_flag == 0) {
+                ResetMillis2();
+                line_end_flag = 1;                
+            }
+            
+            else if(sensor_sum == 0 && line_end_flag == 1 && ReadMillis2() >= END_OF_LINE_DELAY) {                  
+                stop_flag = 1;
+            }
+            
+            //BATTERY MONITORING
+            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 0) {
+                ResetMillis1();
+                battery_voltage = ReadVoltage();
+                SendBattVoltage(battery_voltage_ptr);
+                send_battery_stats_flag++;
+            }
+            
+            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 1) {
+                ResetMillis1();
+                battery_current = ReadCurrent();
+                SendBattCurrent(battery_current_ptr);
+                send_battery_stats_flag++;
+            }
+            
+            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 2) {
+                ResetMillis1();
+                battery_current_acc = ReadAccumulatedCurrent();
+                SendBattCurrentAcc(battery_current_acc_ptr);
+                send_battery_stats_flag = 0;
+            }
+            
+            //WIRELESS COMMAND HANDLING
+            else if(CommandAvailable() == 1) {
+                command_msg = GetCommand();
+                if(command_msg == RX_MSG_FIND_LINE) {
+                    find_line_flag = 1;
+                }
+                else if(command_msg == RX_MSG_STOP_BUGGY) {
+                    stop_flag = 1;
+                }
+                
+            }
+            
+            //PB1/PB2 STOP FUNCTIONALITY
+            else if(PB1pressed() == 1 | PB2pressed() == 1) {
+                stop_flag = 1;
+            }
+            
+            //BUGGY FIND LINE COMMAND
+            else if(find_line_flag == 1) {
+                //Find line routine
+                
+            }
+            
+            //BUGGY STOP COMMAND
+            else if(stop_flag == 1) {
+                StopMotors();
+                break;
+            }
+            
+            //ITERATE LOOP EVERY X MILLISECONDS
+//            ResetMillis0();
+//            while(ReadMillis0() < 5);
+            LATJ = 0x00;
+
+        }
+        
+        //SET PID VALUES FOR NEXT LOOP - FOR PID TUNING
+        LATJ = 0x03;
+        SendStatus(STATUS_5);
+
+        SendDefaultPIDValues(DEFAULT_PID_KP, DEFAULT_PID_KD, DEFAULT_PID_KI);
+
+        Kp_stored = ReadIntEEPROM(0x0011);
+        Kd_stored = ReadIntEEPROM(0x0013);
+        Ki_stored = ReadIntEEPROM(0x0015);
+
+        SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
+
+        while(1) {
+            if(PB1pressed() == 1) {
+                FlashLEDS();
+                LATJ = 0x03;
+                SetPIDValues();
+                break;
+            }
+            else if(PB2pressed() == 1) {
+                FlashLEDS();
+                LATJ = 0x03;
+                LoadPIDValues();
+                break;            
+            }       
         }
 
+        SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);  
         
-        //ITERATE LOOP EVERY X MILLISECONDS
-        ResetMillis0();
-        while(ReadMillis0() < 5);
-        LATJ = 0x00;
-        loop_count++;
-       
     }
 
 }

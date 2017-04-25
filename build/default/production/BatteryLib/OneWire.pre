@@ -1,5 +1,5 @@
 
-# 1 "TechDemo3_Test_Routine.c"
+# 1 "BatteryLib/OneWire.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8293,379 +8293,118 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 19 "BatteryLib/OneWire.h"
+BOOL OWReset (void);
+void OWWriteBit (BYTE);
+BYTE OWReadBit (void);
+void OWWriteByte (BYTE byte);
+BYTE OWReadByte (void);
 
-# 35 "config_18f8722.h"
-#pragma config OSC = HS
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = 0
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config MODE = MC
-#pragma config ADDRBW = ADDR20BIT
-#pragma config DATABW = DATA16BIT
-#pragma config WAIT = OFF
-
-
-#pragma config CCP2MX = PORTC
-#pragma config ECCPMX = PORTH
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = OFF
-#pragma config LVP = OFF
-#pragma config BBSIZ = BB2K
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CP4 = OFF
-#pragma config CP5 = OFF
-#pragma config CP6 = OFF
-#pragma config CP7 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRT4 = OFF
-#pragma config WRT5 = OFF
-#pragma config WRT6 = OFF
-#pragma config WRT7 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTR4 = OFF
-#pragma config EBTR5 = OFF
-#pragma config EBTR6 = OFF
-#pragma config EBTR7 = OFF
-
-
-#pragma config EBTRB = OFF
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 24 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
-extern int errno;
-
-# 55
-struct __prbuf
+# 41 "BatteryLib/OneWire.c"
+BOOL OWReset (void)
 {
-char * ptr;
-void (* func)(char);
-};
+BOOL result = FALSE;
 
-# 17 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\conio.h"
-extern int errno;
+LATHbits.LATH3 = 0;
+TRISHbits.TRISH3 = 0;
 
+_delay((unsigned long)((480)*(10000000/4000000.0)));;
 
-extern void init_uart(void);
+TRISHbits.TRISH3 = 1;
+_delay((unsigned long)((68)*(10000000/4000000.0)));;
 
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 100 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 192
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 24 "TechDemo3_Test_Routine.c"
-volatile unsigned int echo_time;
-volatile unsigned char echo_ready;
-volatile unsigned char mode = 0;
-
-
-float dist_cm;
-unsigned char i, i2;
-unsigned int sensors[5], threshold = 0;
-char buffer[16];
-
-
-void interrupt isr() {
-if (INTCON3bits.INT1IF == 1) {
-INTCON3bits.INT1IF = 0;
-mode ^= 0x01;
+if(LATHbits.LATH3 == 0)
+{
+result = TRUE;
 }
+_delay((unsigned long)((405)*(10000000/4000000.0)));;
 
-if (INTCONbits.RBIF == 1) {
-INTCONbits.RBIE = 0;
-if (PORTBbits.RB4 == 1) {
-T0CONbits.TMR0ON = 1;
-WriteTimer0(0);
-}
-if (PORTBbits.RB4 == 0) {
-T0CONbits.TMR0ON = 0;
-echo_time = ReadTimer0();
-echo_ready = 1;
-}
-INTCONbits.RBIE = 1;
-INTCONbits.RBIF = 0;
-}
-}
-
-
-void ConfigIO(void) {
-TRISE = 0xC0;
-LATE = 0x00;
-
-TRISA = 0xFF;
-
-TRISB = 0xFF;
-
-TRISC = 0x10;
-LATC = 0x20;
-
-TRISJ = 0x00;
-LATJ = 0x00;
+return result;
 
 }
 
+# 72
+void OWWriteBit (BYTE b){
 
-void ConfigADC(void) {
-OpenADC(0b11011111
-& 0b11111111
-& 0b11111011,
-0b10000111
-& 0b01111111
-& 0b11111110
-& 0b11111101,
-10);
-}
+if (b)
+{
 
+LATHbits.LATH3 = 0;
+TRISHbits.TRISH3 = 0;
 
-void ConfigTimer0(void) {
-T0CON = 0x00;
-WriteTimer0(0);
-}
+_delay((unsigned long)((5)*(10000000/4000000.0)));;
 
 
-void ConfigInterrupts(void) {
-RCONbits.IPEN = 0;
-INTCONbits.GIE = 1;
-INTCONbits.RBIE = 0;
-INTCON3bits.INT1IE = 1;
-INTCON2bits.INTEDG1 = 1;
-INTCON3bits.INT1IF = 0;
-INTCONbits.RBIF = 0;
+TRISHbits.TRISH3 = 1;
+_delay((unsigned long)((64)*(10000000/4000000.0)));;
 
 }
+else
+{
+
+LATHbits.LATH3 = 0;
+TRISHbits.TRISH3 = 0;
+
+_delay((unsigned long)((60)*(10000000/4000000.0)));;
 
 
-void ConfigUSART(void) {
-Open1USART(0b01111111
-& 0b10111111
-& 0b11111110
-& 0b11111101
-& 0b11111111
-& 0b11111111,
-64);
-
-putrs1USART("USART Configured\r\n");
-
-}
-
-
-unsigned int GetADCReading(unsigned char channel) {
-switch (channel) {
-case 0:
-SetChanADC(0b10000111);
-break;
-case 1:
-SetChanADC(0b10001111);
-break;
-case 2:
-SetChanADC(0b10010111);
-break;
-case 3:
-SetChanADC(0b10011111);
-break;
-case 4:
-SetChanADC(0b10100111);
-break;
-case 5:
-SetChanADC(0b10101111);
-break;
-default:
-return 0;
-}
-
-ConvertADC();
-
-while (BusyADC());
-return ReadADC() & 0x03FF;
-}
-
-
-void IlluminateLED(unsigned char sel) {
-switch (sel) {
-case 0:
-LATJ = 0x01;
-break;
-case 1:
-LATJ = 0x02;
-break;
-case 2:
-LATJ = 0x04;
-break;
-case 3:
-LATJ = 0x08;
-break;
-case 4:
-LATJ = 0x10;
-break;
-}
-}
-
-
-void GetDistance(void) {
-LATEbits.LATE5 = 1;
-Delay1TCYx(25);
-LATEbits.LATE5 = 0;
-INTCONbits.RBIE = 1;
-echo_ready = 0;
-}
-
-
-void ChangeMode(void) {
-LATJ = 0x00;
-LATJ = 0x1F;
-Delay10KTCYx(125);
-LATJ = 0x00;
-Delay10KTCYx(125);
-LATJ = 0x1F;
-Delay10KTCYx(125);
-LATJ = 0x00;
-}
-
-
-void main(void) {
-
-ConfigIO();
-ConfigADC();
-ConfigTimer0();
-ConfigUSART();
-ConfigInterrupts();
-
-putrs1USART("ESP Group 16\r\nTech Demo 3 Test Program\r\n");
-
-while (1) {
-
-putrs1USART("Mode: LINE SENSING\r\n");
-putrs1USART("THRESHOLD\r\n");
-i2 = 0;
-
-while (mode == 0) {
-
-LATJ = 0x00;
-LATE = 0xFF;
-
-for (i = 0; i < 6; i++) {
-if (i < 5) {
-sensors[i] = GetADCReading(i);
-if (sensors[i] > threshold) {
-IlluminateLED(i);
-}
-} else {
-threshold = GetADCReading(5);
-}
-Delay1KTCYx(10);
-if(i2 >= 110) {
-i2 = 0;
-sprintf(buffer, "%d\r\n", threshold);
-puts1USART(buffer);
-}
-else {
-i2++;
-}
-}
-}
-
-ChangeMode();
-putrs1USART("Mode: ULTRASONIC DISTANCE\r\n");
-putrs1USART("DISTANCE (CM)\tTMR0 VALUE\r\n");
-
-while (mode == 1) {
-GetDistance();
-
-LATJbits.LATJ0 = 1;
-Delay1KTCYx(100);
-LATJbits.LATJ0 = 0;
-
-while (!(echo_ready == 1));
-
-dist_cm = 0.0137 * echo_time;
-
-sprintf(buffer, "%.2f cm\t%d\r\n", dist_cm, echo_time);
-puts1USART(buffer);
-
-Delay10KTCYx(200);
-
-}
-
-ChangeMode();
+TRISHbits.TRISH3 = 1;
+_delay((unsigned long)((10)*(10000000/4000000.0)));;
 
 }
 
 }
+
+# 112
+BYTE OWReadBit (void){
+
+BYTE result;
+
+LATHbits.LATH3 = 0;
+TRISHbits.TRISH3 = 0;
+
+_delay((unsigned long)((5)*(10000000/4000000.0)));;
+
+
+
+TRISHbits.TRISH3 = 1;
+_delay((unsigned long)((10)*(10000000/4000000.0)));;
+
+
+result = PORTHbits.RH3;
+_delay((unsigned long)((55)*(10000000/4000000.0)));;
+
+
+return result & 0x01;
+
+}
+
+# 143
+void OWWriteByte (BYTE byte){
+
+BYTE i;
+
+for (i = 0; i < 8; i++)
+{
+OWWriteBit(byte & 0x01);
+byte >>= 1;
+}
+
+}
+
+# 163
+BYTE OWReadByte (void){
+
+BYTE i, result=0;
+
+for (i = 0; i < 8; i++)
+{
+result >>= 1;
+
+if (OWReadBit())
+result |= 0x80;
+}
+return result;
+
+}
+

@@ -16,21 +16,31 @@ extern "C" {
     
     unsigned char GetCharTxBuf(void);
     
+    void PutCharRxBuf(unsigned char ch);
+    
+    unsigned char GetCharRxBuf(void);
+    
     void StartTx(void);
     
     void StopTx(void);
     
+    void StartRx(void);
+    
+    void StopRx(void);
+    
     inline void WirelessTx_ISR(void);
     
-    inline void WirelessRX_ISR(void);
+    inline void WirelessRx_ISR(void);
     
-    void ClearBufTx(void);
+    void FlushTxBuf(void);
     
-    void ClearBufRX(void);
+    void FlushRxBuf(void);
     
     void ConfigureWireless(void);
     
     unsigned char BusyTx(void);
+    
+    unsigned char BusyRx(void);
     
     void SendStatus(const unsigned char status_code);
     
@@ -40,9 +50,27 @@ extern "C" {
     
     void SendThreshold(const int *sensor_threshold);
     
+    void SendDefaultPIDValues(int Kp, int Kd, int Ki);
+
+    void SendStoredPIDValues(int Kp, int Kd, int Ki);
     
-
-
+    void SendCurrentPIDValues(int Kp, int Kd, int Ki);
+    
+    void SendBattVoltageInitial(const unsigned int *reading);
+    
+    void SendBattVoltage(const unsigned int *reading);
+    
+    void SendBattCurrent(const unsigned int *reading);
+    
+    void SendBattCurrentAcc(const unsigned long int *reading);
+    
+    void ReceiveCommandsEnable(void);
+    
+    void ReceiveCommandsDisable(void);
+    
+    unsigned char CommandAvailable(void);
+    
+    unsigned char GetCommand(void);
 
 #ifdef	__cplusplus
 }

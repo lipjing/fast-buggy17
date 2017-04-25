@@ -1,193 +1,92 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"13390 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S704 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S704 . INT1IF INT2IF INT3IF INT1IE INT2IE INT3IE INT1IP INT2IP ]
-"13400
-[s S705 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S705 . INT1F INT2F INT3F INT1E INT2E INT3E INT1P INT2P ]
-"13389
-[u S703 `S704 1 `S705 1 ]
-[n S703 . . . ]
-"13411
-[v _INTCON3bits `VS703 ~T0 @X0 0 e@4080 ]
-"13063
-[s S695 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S695 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
-"13071
-[s S696 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S696 . T0PS0 T0PS1 T0PS2 T0PS3 ]
-"13062
-[u S694 `S695 1 `S696 1 ]
-[n S694 . . . ]
-"13078
-[v _T0CONbits `VS694 ~T0 @X0 0 e@4053 ]
-"121 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\timers.h
-[v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
-"13501 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S707 :7 `uc 1 :1 `uc 1 ]
-[n S707 . . NOT_RBPU ]
-"13505
-[s S708 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S708 . RBIP INT3IP TMR0IP INTEDG3 INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"13515
-[s S709 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S709 . . INT3P T0IP . RBPU ]
-"13500
-[u S706 `S707 1 `S708 1 `S709 1 ]
-[n S706 . . . . ]
-"13523
-[v _INTCON2bits `VS706 ~T0 @X0 0 e@4081 ]
-"120 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\timers.h
-[v _ReadTimer0 `(ui ~T0 @X0 0 ef ]
-"6583 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
-"5078
-[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-"5699
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"5920
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"7395
-[v _TRISJ `Vuc ~T0 @X0 0 e@3994 ]
-"5567
-[v _LATJ `Vuc ~T0 @X0 0 e@3985 ]
-"2040 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
-[v _OpenADC `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"13057 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
-"12551
-[s S671 :1 `uc 1 ]
-[n S671 . NOT_BOR ]
-"12554
-[s S672 :1 `uc 1 :1 `uc 1 ]
-[n S672 . . NOT_POR ]
-"12558
-[s S673 :2 `uc 1 :1 `uc 1 ]
-[n S673 . . NOT_PD ]
-"12562
-[s S674 :3 `uc 1 :1 `uc 1 ]
-[n S674 . . NOT_TO ]
-"12566
-[s S675 :4 `uc 1 :1 `uc 1 ]
-[n S675 . . NOT_RI ]
-"12570
-[s S676 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S676 . nBOR nPOR nPD nTO nRI . SBOREN IPEN ]
-"12580
-[s S677 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S677 . BOR POR PD TO RI ]
-"12550
-[u S670 `S671 1 `S672 1 `S673 1 `S674 1 `S675 1 `S676 1 `S677 1 ]
-[n S670 . . . . . . . . ]
-"12588
-[v _RCONbits `VS670 ~T0 @X0 0 e@4048 ]
-"13593
-[s S711 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S711 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"13603
-[s S712 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S712 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-"13613
-[s S713 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S713 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
-"13623
-[s S714 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S714 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"13633
-[s S715 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S715 . . GIEL GIEH ]
-"13592
-[u S710 `S711 1 `S712 1 `S713 1 `S714 1 `S715 1 ]
-[n S710 . . . . . . ]
-"13639
-[v _INTCONbits `VS710 ~T0 @X0 0 e@4082 ]
-"214 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h
-[v _Open1USART `(v ~T0 @X0 0 ef2`uc`ui ]
-"248
-[v _putrs1USART `(v ~T0 @X0 0 ef1`*Cuc ]
-"2084 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
-[v _SetChanADC `(v ~T0 @X0 0 ef1`uc ]
-"2016
-[v _ConvertADC `(v ~T0 @X0 0 ef ]
-"2014
-[v _BusyADC `(uc ~T0 @X0 0 ef ]
-"2026
-[v _ReadADC `(i ~T0 @X0 0 ef ]
-"5084 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . LATE0 LATE1 LATE2 LATE3 LATE4 LATE5 LATE6 LATE7 ]
-"5094
-[s S270 :1 `uc 1 ]
-[n S270 . LE0 ]
-"5097
-[s S271 :1 `uc 1 :1 `uc 1 ]
-[n S271 . . LE1 ]
-"5101
-[s S272 :2 `uc 1 :1 `uc 1 ]
-[n S272 . . LE2 ]
-"5105
-[s S273 :3 `uc 1 :1 `uc 1 ]
-[n S273 . . LE3 ]
-"5109
-[s S274 :4 `uc 1 :1 `uc 1 ]
-[n S274 . . LE4 ]
-"5113
-[s S275 :5 `uc 1 :1 `uc 1 ]
-[n S275 . . LE5 ]
-"5117
-[s S276 :6 `uc 1 :1 `uc 1 ]
-[n S276 . . LE6 ]
-"5121
-[s S277 :7 `uc 1 :1 `uc 1 ]
-[n S277 . . LE7 ]
-"5083
-[u S268 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 `S274 1 `S275 1 `S276 1 `S277 1 ]
-[n S268 . . . . . . . . . . ]
-"5126
-[v _LATEbits `VS268 ~T0 @X0 0 e@3981 ]
-"13 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\delays.h
-[v _Delay1TCYx `(v ~T0 @X0 0 ef1`uc ]
-"37
-[v _Delay10KTCYx `(v ~T0 @X0 0 ef1`uc ]
-[p mainexit ]
-"31
-[v _Delay1KTCYx `(v ~T0 @X0 0 ef1`uc ]
-"206 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"247 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h
-[v _puts1USART `(v ~T0 @X0 0 ef1`*uc ]
-"5573 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S306 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S306 . LATJ0 LATJ1 LATJ2 LATJ3 LATJ4 LATJ5 LATJ6 LATJ7 ]
-"5583
-[s S307 :1 `uc 1 ]
-[n S307 . LJ0 ]
-"5586
-[s S308 :1 `uc 1 :1 `uc 1 ]
-[n S308 . . LJ1 ]
-"5590
-[s S309 :2 `uc 1 :1 `uc 1 ]
-[n S309 . . LJ2 ]
-"5594
-[s S310 :3 `uc 1 :1 `uc 1 ]
-[n S310 . . LJ3 ]
-"5598
-[s S311 :4 `uc 1 :1 `uc 1 ]
-[n S311 . . LJ4 ]
-"5602
-[s S312 :5 `uc 1 :1 `uc 1 ]
-[n S312 . . LJ5 ]
-"5606
-[s S313 :6 `uc 1 :1 `uc 1 ]
-[n S313 . . LJ6 ]
-"5610
-[s S314 :7 `uc 1 :1 `uc 1 ]
-[n S314 . . LJ7 ]
-"5572
-[u S305 `S306 1 `S307 1 `S308 1 `S309 1 `S310 1 `S311 1 `S312 1 `S313 1 `S314 1 ]
-[n S305 . . . . . . . . . . ]
-"5615
-[v _LATJbits `VS305 ~T0 @X0 0 e@3985 ]
+"42 BatteryLib/OneWire.c
+[c E6350 0 1 .. ]
+[n E6350 _BOOL FALSE TRUE  ]
+"5441 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+[s S296 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S296 . LATH0 LATH1 LATH2 LATH3 LATH4 LATH5 LATH6 LATH7 ]
+"5451
+[s S297 :1 `uc 1 ]
+[n S297 . LH0 ]
+"5454
+[s S298 :1 `uc 1 :1 `uc 1 ]
+[n S298 . . LH1 ]
+"5458
+[s S299 :2 `uc 1 :1 `uc 1 ]
+[n S299 . . LH2 ]
+"5462
+[s S300 :3 `uc 1 :1 `uc 1 ]
+[n S300 . . LH3 ]
+"5466
+[s S301 :4 `uc 1 :1 `uc 1 ]
+[n S301 . . LH4 ]
+"5470
+[s S302 :5 `uc 1 :1 `uc 1 ]
+[n S302 . . LH5 ]
+"5474
+[s S303 :6 `uc 1 :1 `uc 1 ]
+[n S303 . . LH6 ]
+"5478
+[s S304 :7 `uc 1 :1 `uc 1 ]
+[n S304 . . LH7 ]
+"5440
+[u S295 `S296 1 `S297 1 `S298 1 `S299 1 `S300 1 `S301 1 `S302 1 `S303 1 `S304 1 ]
+[n S295 . . . . . . . . . . ]
+"5483
+[v _LATHbits `VS295 ~T0 @X0 0 e@3984 ]
+"7185
+[s S358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S358 . TRISH0 TRISH1 TRISH2 TRISH3 TRISH4 TRISH5 TRISH6 TRISH7 ]
+"7195
+[s S359 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S359 . RH0 RH1 RH2 RH3 RH4 RH5 RH6 RH7 ]
+"7184
+[u S357 `S358 1 `S359 1 ]
+[n S357 . . . ]
+"7206
+[v _TRISHbits `VS357 ~T0 @X0 0 e@3993 ]
+[v F7082 `(v ~T0 @X0 1 tf1`ul ]
+"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
+[v __delay `JF7082 ~T0 @X0 0 e ]
+[p i __delay ]
+"4141 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+[s S207 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S207 . RH0 RH1 RH2 RH3 RH4 RH5 RH6 RH7 ]
+"4151
+[s S208 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S208 . A16 A17 A18 A19 AN12 AN13 AN14 AN15 ]
+"4161
+[s S209 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S209 . . P3C P3B P1C P1B ]
+"4168
+[s S210 :7 `uc 1 :1 `uc 1 ]
+[n S210 . . CCP6 ]
+"4172
+[s S211 :6 `uc 1 :1 `uc 1 ]
+[n S211 . . CCP7 ]
+"4176
+[s S212 :5 `uc 1 :1 `uc 1 ]
+[n S212 . . CCP8 ]
+"4180
+[s S213 :4 `uc 1 :1 `uc 1 ]
+[n S213 . . CCP9 ]
+"4184
+[s S214 :7 `uc 1 :1 `uc 1 ]
+[n S214 . . PB1 ]
+"4188
+[s S215 :5 `uc 1 :1 `uc 1 ]
+[n S215 . . PB3 ]
+"4192
+[s S216 :6 `uc 1 :1 `uc 1 ]
+[n S216 . . PC1 ]
+"4196
+[s S217 :4 `uc 1 :1 `uc 1 ]
+[n S217 . . PC3 ]
+"4140
+[u S206 `S207 1 `S208 1 `S209 1 `S210 1 `S211 1 `S212 1 `S213 1 `S214 1 `S215 1 `S216 1 `S217 1 ]
+[n S206 . . . . . . . . . . . . ]
+"4201
+[v _PORTHbits `VS206 ~T0 @X0 0 e@3975 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f8722.h: 49: extern volatile unsigned char SSP2CON2 @ 0xF62;
@@ -6572,814 +6471,245 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-"35 config_18f8722.h
-[p x OSC=HS ]
-"36
-[p x FCMEN=OFF ]
-"37
-[p x IESO=OFF ]
-"40
-[p x PWRT=OFF ]
-"41
-[p x BOREN=OFF ]
+[; ;OneWire.h: 19: BOOL OWReset (void);
+[; ;OneWire.h: 20: void OWWriteBit (BYTE);
+[; ;OneWire.h: 21: BYTE OWReadBit (void);
+[; ;OneWire.h: 22: void OWWriteByte (BYTE byte);
+[; ;OneWire.h: 23: BYTE OWReadByte (void);
+"41 BatteryLib/OneWire.c
+[v _OWReset `(E6350 ~T0 @X0 1 ef ]
 "42
-[p x BORV=0 ]
-"45
-[p x WDT=OFF ]
-"46
-[p x WDTPS=32768 ]
-"49
-[p x MODE=MC ]
-"50
-[p x ADDRBW=ADDR20BIT ]
-"51
-[p x DATABW=DATA16BIT ]
-"52
-[p x WAIT=OFF ]
-"55
-[p x CCP2MX=PORTC ]
-"56
-[p x ECCPMX=PORTH ]
-"57
-[p x LPT1OSC=OFF ]
-"58
-[p x MCLRE=ON ]
-"61
-[p x STVREN=OFF ]
-"62
-[p x LVP=OFF ]
-"63
-[p x BBSIZ=BB2K ]
-"64
-[p x XINST=OFF ]
-"67
-[p x CP0=OFF ]
-"68
-[p x CP1=OFF ]
-"69
-[p x CP2=OFF ]
-"70
-[p x CP3=OFF ]
-"71
-[p x CP4=OFF ]
-"72
-[p x CP5=OFF ]
-"73
-[p x CP6=OFF ]
-"74
-[p x CP7=OFF ]
-"77
-[p x CPB=OFF ]
-"78
-[p x CPD=OFF ]
-"81
-[p x WRT0=OFF ]
-"82
-[p x WRT1=OFF ]
-"83
-[p x WRT2=OFF ]
-"84
-[p x WRT3=OFF ]
-"85
-[p x WRT4=OFF ]
-"86
-[p x WRT5=OFF ]
-"87
-[p x WRT6=OFF ]
-"88
-[p x WRT7=OFF ]
-"91
-[p x WRTC=OFF ]
-"92
-[p x WRTB=OFF ]
-"93
-[p x WRTD=OFF ]
-"96
-[p x EBTR0=OFF ]
-"97
-[p x EBTR1=OFF ]
-"98
-[p x EBTR2=OFF ]
-"99
-[p x EBTR3=OFF ]
-"100
-[p x EBTR4=OFF ]
-"101
-[p x EBTR5=OFF ]
-"102
-[p x EBTR6=OFF ]
-"103
-[p x EBTR7=OFF ]
-"106
-[p x EBTRB=OFF ]
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 24: extern int errno;
-[; ;stdio.h: 55: struct __prbuf
-[; ;stdio.h: 56: {
-[; ;stdio.h: 57: char * ptr;
-[; ;stdio.h: 58: void (* func)(char);
-[; ;stdio.h: 59: };
-[; ;conio.h: 17: extern int errno;
-[; ;conio.h: 20: extern void init_uart(void);
-[; ;conio.h: 22: extern char getch(void);
-[; ;conio.h: 23: extern char getche(void);
-[; ;conio.h: 24: extern void putch(char);
-[; ;conio.h: 25: extern void ungetch(char);
-[; ;conio.h: 27: extern __bit kbhit(void);
-[; ;conio.h: 31: extern char * cgets(char *);
-[; ;conio.h: 32: extern void cputs(const char *);
-[; ;stdio.h: 100: extern int cprintf(char *, ...);
-[; ;stdio.h: 105: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 195: extern char * gets(char *);
-[; ;stdio.h: 196: extern int puts(const char *);
-[; ;stdio.h: 197: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 199: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 207: extern int printf(const char *, ...);
-"24 TechDemo3_Test_Routine_INT3_ULTRA.c
-[v _echo_time `Vui ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 24: volatile unsigned int echo_time;
-"25
-[v _echo_ready `Vuc ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 25: volatile unsigned char echo_ready;
-"26
-[v _mode `Vuc ~T0 @X0 1 e ]
-[i _mode
--> -> 0 `i `uc
-]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 26: volatile unsigned char mode = 0;
-"29
-[v _dist_cm `f ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 29: float dist_cm;
-"30
-[v _i `uc ~T0 @X0 1 e ]
-[v _i2 `uc ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 30: unsigned char i, i2;
-"31
-[v _sensors `ui ~T0 @X0 -> 5 `i e ]
-[v _threshold `ui ~T0 @X0 1 e ]
-[i _threshold
--> -> 0 `i `ui
-]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 31: unsigned int sensors[5], threshold = 0;
-"32
-[v _buffer `uc ~T0 @X0 -> 16 `i e ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 32: char buffer[16];
-[v F7159 `(v ~T0 @X0 1 tf ]
-"35
-[v _isr `IF7159 ~T0 @X0 1 e ]
 {
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 35: void interrupt isr() {
-[e :U _isr ]
+[; ;OneWire.c: 41: BOOL OWReset (void)
+[; ;OneWire.c: 42: {
+[e :U _OWReset ]
 [f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 36: if (INTCON3bits.INT1IF == 1) {
-"36
-[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 760  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 37: INTCON3bits.INT1IF = 0;
-"37
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 38: mode ^= 0x01;
-"38
-[e =^ _mode -> -> 1 `i `uc ]
-"39
-}
-[e :U 760 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 39: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 41: if(INTCON3bits.INT3IF == 1) {
-"41
-[e $ ! == -> . . _INTCON3bits 0 2 `i -> 1 `i 761  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 42: INTCON3bits.INT3IE = 0;
-"42
-[e = . . _INTCON3bits 0 5 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 43: if(T0CONbits.TMR0ON == 0) {
 "43
-[e $ ! == -> . . _T0CONbits 0 5 `i -> 0 `i 762  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 44: T0CONbits.TMR0ON = 1;
-"44
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 45: WriteTimer0(0);
+[v _result `E6350 ~T0 @X0 1 a ]
+[; ;OneWire.c: 43: BOOL result = FALSE;
+[e = _result . `E6350 0 ]
+[; ;OneWire.c: 45: LATHbits.LATH3 = 0;
 "45
-[e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 46: INTCON2bits.INTEDG3 = 0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 46: TRISHbits.TRISH3 = 0;
 "46
-[e = . . _INTCON2bits 1 3 -> -> 0 `i `uc ]
-"47
-}
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 47: }
-[e $U 763  ]
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 48: _delay((unsigned long)((480)*(10000000/4000000.0)));;
 "48
-[e :U 762 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 48: else {
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 49: T0CONbits.TMR0ON = 0;
-"49
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 50: echo_time = ReadTimer0();
+[e ( __delay (1 -> * -> -> 480 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 50: TRISHbits.TRISH3 = 1;
 "50
-[e = _echo_time ( _ReadTimer0 ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 51: echo_ready = 1;
+[e = . . _TRISHbits 0 3 -> -> 1 `i `uc ]
+[; ;OneWire.c: 51: _delay((unsigned long)((68)*(10000000/4000000.0)));;
 "51
-[e = _echo_ready -> -> 1 `i `uc ]
-"52
-}
-[e :U 763 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 52: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 53: INTCON3bits.INT3IF = 0;
+[e ( __delay (1 -> * -> -> 68 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 53: if(LATHbits.LATH3 == 0)
 "53
-[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 54: INTCON3bits.INT3IE = 1;
+[e $ ! == -> . . _LATHbits 0 3 `i -> 0 `i 759  ]
+[; ;OneWire.c: 54: {
 "54
-[e = . . _INTCON3bits 0 5 -> -> 1 `i `uc ]
+{
+[; ;OneWire.c: 55: result = TRUE;
 "55
+[e = _result . `E6350 1 ]
+"56
 }
-[e :U 761 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 55: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 71: }
-"71
-[e :UE 759 ]
+[e :U 759 ]
+[; ;OneWire.c: 56: }
+[; ;OneWire.c: 57: _delay((unsigned long)((405)*(10000000/4000000.0)));;
+"57
+[e ( __delay (1 -> * -> -> 405 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 59: return result;
+"59
+[e ) _result ]
+[e $UE 758  ]
+[; ;OneWire.c: 61: }
+"61
+[e :UE 758 ]
 }
+"72
+[v _OWWriteBit `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;OneWire.c: 72: void OWWriteBit (BYTE b){
+[e :U _OWWriteBit ]
+[v _b `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;OneWire.c: 74: if (b)
 "74
-[v _ConfigIO `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 74: void ConfigIO(void) {
-[e :U _ConfigIO ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 75: TRISE = 0xC0;
+[e $ ! != -> _b `i -> -> -> 0 `i `uc `i 761  ]
+[; ;OneWire.c: 75: {
 "75
-[e = _TRISE -> -> 192 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 76: LATE = 0x00;
-"76
-[e = _LATE -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 78: TRISA = 0xFF;
+{
+[; ;OneWire.c: 77: LATHbits.LATH3 = 0;
+"77
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 78: TRISHbits.TRISH3 = 0;
 "78
-[e = _TRISA -> -> 255 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 80: TRISB = 0xFF;
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 80: _delay((unsigned long)((5)*(10000000/4000000.0)));;
 "80
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 82: TRISJ = 0x00;
-"82
-[e = _TRISJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 83: LATJ = 0x00;
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 83: TRISHbits.TRISH3 = 1;
 "83
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 85: }
-"85
-[e :UE 764 ]
+[e = . . _TRISHbits 0 3 -> -> 1 `i `uc ]
+[; ;OneWire.c: 84: _delay((unsigned long)((64)*(10000000/4000000.0)));;
+"84
+[e ( __delay (1 -> * -> -> 64 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+"86
 }
+[; ;OneWire.c: 86: }
+[e $U 762  ]
+"87
+[e :U 761 ]
+[; ;OneWire.c: 87: else
+[; ;OneWire.c: 88: {
 "88
-[v _ConfigADC `(v ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 88: void ConfigADC(void) {
-[e :U _ConfigADC ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 89: OpenADC(0b11011111
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 90: & 0b11111111
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 91: & 0b11111011,
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 92: 0b10000111
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 93: & 0b01111111
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 94: & 0b11111110
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 95: & 0b11111101,
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 96: 10);
+[; ;OneWire.c: 90: LATHbits.LATH3 = 0;
+"90
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 91: TRISHbits.TRISH3 = 0;
+"91
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 93: _delay((unsigned long)((60)*(10000000/4000000.0)));;
+"93
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 96: TRISHbits.TRISH3 = 1;
 "96
-[e ( _OpenADC (3 , , -> & & -> 223 `i -> 255 `i -> 251 `i `uc -> & & & -> 135 `i -> 127 `i -> 254 `i -> 253 `i `uc -> -> 10 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 97: }
+[e = . . _TRISHbits 0 3 -> -> 1 `i `uc ]
+[; ;OneWire.c: 97: _delay((unsigned long)((10)*(10000000/4000000.0)));;
 "97
-[e :UE 765 ]
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+"99
 }
-"100
-[v _ConfigTimer0 `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 100: void ConfigTimer0(void) {
-[e :U _ConfigTimer0 ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 101: T0CON = 0x00;
+[e :U 762 ]
+[; ;OneWire.c: 99: }
+[; ;OneWire.c: 101: }
 "101
-[e = _T0CON -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 102: WriteTimer0(0);
-"102
-[e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 103: }
-"103
-[e :UE 766 ]
+[e :UE 760 ]
 }
-"106
-[v _ConfigInterrupts `(v ~T0 @X0 1 ef ]
+"112
+[v _OWReadBit `(uc ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 106: void ConfigInterrupts(void) {
-[e :U _ConfigInterrupts ]
+[; ;OneWire.c: 112: BYTE OWReadBit (void){
+[e :U _OWReadBit ]
 [f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 107: RCONbits.IPEN = 0;
-"107
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 108: INTCONbits.GIE = 1;
-"108
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 109: INTCONbits.RBIE = 0;
-"109
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 110: INTCON3bits.INT1IE = 1;
-"110
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 111: INTCON2bits.INTEDG1 = 1;
-"111
-[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 113: INTCON3bits.INT3IE = 0;
-"113
-[e = . . _INTCON3bits 0 5 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 114: INTCON2bits.INTEDG2 = 1;
 "114
-[e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 115: INTCON3bits.INT2IF = 0;
-"115
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 117: INTCON3bits.INT1IF = 0;
+[v _result `uc ~T0 @X0 1 a ]
+[; ;OneWire.c: 114: BYTE result;
+[; ;OneWire.c: 116: LATHbits.LATH3 = 0;
+"116
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 117: TRISHbits.TRISH3 = 0;
 "117
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 118: INTCONbits.RBIF = 0;
-"118
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 120: }
-"120
-[e :UE 767 ]
-}
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+[; ;OneWire.c: 119: _delay((unsigned long)((5)*(10000000/4000000.0)));;
+"119
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 123: TRISHbits.TRISH3 = 1;
 "123
-[v _ConfigUSART `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 123: void ConfigUSART(void) {
-[e :U _ConfigUSART ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 124: Open1USART(0b01111111
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 125: & 0b10111111
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 126: & 0b11111110
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 127: & 0b11111101
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 128: & 0b11111111
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 129: & 0b11111111,
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 130: 64);
-"130
-[e ( _Open1USART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 132: putrs1USART("USART Configured\r\n");
-"132
-[e ( _putrs1USART (1 :s 1C ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 134: }
-"134
-[e :UE 768 ]
+[e = . . _TRISHbits 0 3 -> -> 1 `i `uc ]
+[; ;OneWire.c: 124: _delay((unsigned long)((10)*(10000000/4000000.0)));;
+"124
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 127: result = PORTHbits.RH3;
+"127
+[e = _result . . _PORTHbits 0 3 ]
+[; ;OneWire.c: 128: _delay((unsigned long)((55)*(10000000/4000000.0)));;
+"128
+[e ( __delay (1 -> * -> -> 55 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+[; ;OneWire.c: 131: return result & 0x01;
+"131
+[e ) -> & -> _result `i -> 1 `i `uc ]
+[e $UE 763  ]
+[; ;OneWire.c: 133: }
+"133
+[e :UE 763 ]
 }
-"137
-[v _GetADCReading `(ui ~T0 @X0 1 ef1`uc ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 137: unsigned int GetADCReading(unsigned char channel) {
-[e :U _GetADCReading ]
-[v _channel `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 138: switch (channel) {
-"138
-[e $U 771  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 139: case 0:
-"139
-[e :U 772 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 140: SetChanADC(0b10000111);
-"140
-[e ( _SetChanADC (1 -> -> 135 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 141: break;
-"141
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 142: case 1:
-"142
-[e :U 773 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 143: SetChanADC(0b10001111);
 "143
-[e ( _SetChanADC (1 -> -> 143 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 144: break;
-"144
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 145: case 2:
+[v _OWWriteByte `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;OneWire.c: 143: void OWWriteByte (BYTE byte){
+[e :U _OWWriteByte ]
+[v _byte `uc ~T0 @X0 1 r1 ]
+[f ]
 "145
-[e :U 774 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 146: SetChanADC(0b10010111);
-"146
-[e ( _SetChanADC (1 -> -> 151 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 147: break;
+[v _i `uc ~T0 @X0 1 a ]
+[; ;OneWire.c: 145: BYTE i;
+[; ;OneWire.c: 147: for (i = 0; i < 8; i++)
 "147
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 148: case 3:
-"148
-[e :U 775 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 149: SetChanADC(0b10011111);
-"149
-[e ( _SetChanADC (1 -> -> 159 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 150: break;
-"150
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 151: case 4:
-"151
-[e :U 776 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 152: SetChanADC(0b10100111);
-"152
-[e ( _SetChanADC (1 -> -> 167 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 153: break;
-"153
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 154: case 5:
-"154
-[e :U 777 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 155: SetChanADC(0b10101111);
-"155
-[e ( _SetChanADC (1 -> -> 175 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 156: break;
-"156
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 157: default:
-"157
-[e :U 778 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 158: return 0;
-"158
-[e ) -> -> 0 `i `ui ]
-[e $UE 769  ]
-"159
-}
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 159: }
-[e $U 770  ]
-"138
-[e :U 771 ]
-[e [\ _channel , $ -> -> 0 `i `uc 772
- , $ -> -> 1 `i `uc 773
- , $ -> -> 2 `i `uc 774
- , $ -> -> 3 `i `uc 775
- , $ -> -> 4 `i `uc 776
- , $ -> -> 5 `i `uc 777
- 778 ]
-"159
-[e :U 770 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 161: ConvertADC();
-"161
-[e ( _ConvertADC ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 163: while (BusyADC());
-"163
-[e $U 779  ]
-[e :U 780 ]
-[e :U 779 ]
-[e $ != -> ( _BusyADC ..  `i -> -> -> 0 `i `uc `i 780  ]
-[e :U 781 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 164: return ReadADC() & 0x03FF;
-"164
-[e ) -> & ( _ReadADC ..  -> 1023 `i `ui ]
-[e $UE 769  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 165: }
-"165
-[e :UE 769 ]
-}
-"168
-[v _IlluminateLED `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 168: void IlluminateLED(unsigned char sel) {
-[e :U _IlluminateLED ]
-[v _sel `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 169: switch (sel) {
-"169
-[e $U 784  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 170: case 0:
-"170
-[e :U 785 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 171: LATJ = 0x01;
-"171
-[e = _LATJ -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 172: break;
-"172
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 173: case 1:
-"173
-[e :U 786 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 174: LATJ = 0x02;
-"174
-[e = _LATJ -> -> 2 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 175: break;
-"175
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 176: case 2:
-"176
-[e :U 787 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 177: LATJ = 0x04;
-"177
-[e = _LATJ -> -> 4 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 178: break;
-"178
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 179: case 3:
-"179
-[e :U 788 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 180: LATJ = 0x08;
-"180
-[e = _LATJ -> -> 8 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 181: break;
-"181
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 182: case 4:
-"182
-[e :U 789 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 183: LATJ = 0x10;
-"183
-[e = _LATJ -> -> 16 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 184: break;
-"184
-[e $U 783  ]
-"185
-}
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 185: }
-[e $U 783  ]
-"169
-[e :U 784 ]
-[e [\ _sel , $ -> -> 0 `i `uc 785
- , $ -> -> 1 `i `uc 786
- , $ -> -> 2 `i `uc 787
- , $ -> -> 3 `i `uc 788
- , $ -> -> 4 `i `uc 789
- 783 ]
-"185
-[e :U 783 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 186: }
-"186
-[e :UE 782 ]
-}
-"189
-[v _GetDistance `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 189: void GetDistance(void) {
-[e :U _GetDistance ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 190: LATEbits.LATE5 = 1;
-"190
-[e = . . _LATEbits 0 5 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 191: Delay1TCYx(25);
-"191
-[e ( _Delay1TCYx (1 -> -> 25 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 192: LATEbits.LATE5 = 0;
-"192
-[e = . . _LATEbits 0 5 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 193: INTCON3bits.INT3IE = 1;
-"193
-[e = . . _INTCON3bits 0 5 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 194: INTCON2bits.INTEDG3 = 1;
-"194
-[e = . . _INTCON2bits 1 3 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 197: echo_ready = 0;
-"197
-[e = _echo_ready -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 198: }
-"198
-[e :UE 790 ]
-}
-"201
-[v _ChangeMode `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 201: void ChangeMode(void) {
-[e :U _ChangeMode ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 202: LATJ = 0x00;
-"202
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 203: LATJ = 0x1F;
-"203
-[e = _LATJ -> -> 31 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 204: Delay10KTCYx(125);
-"204
-[e ( _Delay10KTCYx (1 -> -> 125 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 205: LATJ = 0x00;
-"205
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 206: Delay10KTCYx(125);
-"206
-[e ( _Delay10KTCYx (1 -> -> 125 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 207: LATJ = 0x1F;
-"207
-[e = _LATJ -> -> 31 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 208: Delay10KTCYx(125);
-"208
-[e ( _Delay10KTCYx (1 -> -> 125 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 209: LATJ = 0x00;
-"209
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 210: }
-"210
-[e :UE 791 ]
-}
-"213
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 213: void main(void) {
-[e :U _main ]
-[f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 215: ConfigIO();
-"215
-[e ( _ConfigIO ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 216: ConfigADC();
-"216
-[e ( _ConfigADC ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 217: ConfigTimer0();
-"217
-[e ( _ConfigTimer0 ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 218: ConfigUSART();
-"218
-[e ( _ConfigUSART ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 219: ConfigInterrupts();
-"219
-[e ( _ConfigInterrupts ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 221: putrs1USART("ESP Group 16\r\nTech Demo 3 Test Program\r\n");
-"221
-[e ( _putrs1USART (1 :s 2C ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 223: while (1) {
-"223
-[e :U 794 ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 225: putrs1USART("Mode: LINE SENSING\r\n");
-"225
-[e ( _putrs1USART (1 :s 3C ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 226: putrs1USART("THRESHOLD\r\n");
-"226
-[e ( _putrs1USART (1 :s 4C ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 227: i2 = 0;
-"227
-[e = _i2 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 229: while (mode == 0) {
-"229
-[e $U 796  ]
-[e :U 797 ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 231: LATJ = 0x00;
-"231
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 232: LATE = 0xFF;
-"232
-[e = _LATE -> -> 255 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 234: for (i = 0; i < 6; i++) {
-"234
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 6 `i 799  ]
-[e $U 800  ]
-[e :U 799 ]
+[e $ < -> _i `i -> 8 `i 765  ]
+[e $U 766  ]
+"148
+[e :U 765 ]
+[; ;OneWire.c: 148: {
 {
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 235: if (i < 5) {
-"235
-[e $ ! < -> _i `i -> 5 `i 802  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 236: sensors[i] = GetADCReading(i);
-"236
-[e = *U + &U _sensors * -> _i `ux -> -> # *U &U _sensors `ui `ux ( _GetADCReading (1 _i ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 237: if (sensors[i] > threshold) {
-"237
-[e $ ! > *U + &U _sensors * -> _i `ux -> -> # *U &U _sensors `ui `ux _threshold 803  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 238: IlluminateLED(i);
-"238
-[e ( _IlluminateLED (1 _i ]
-"239
+[; ;OneWire.c: 149: OWWriteBit(byte & 0x01);
+"149
+[e ( _OWWriteBit (1 -> & -> _byte `i -> 1 `i `uc ]
+[; ;OneWire.c: 150: byte >>= 1;
+"150
+[e =>> _byte -> 1 `i ]
+"151
 }
-[e :U 803 ]
-"240
-}
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 239: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 240: } else {
-[e $U 804  ]
-[e :U 802 ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 241: threshold = GetADCReading(5);
-"241
-[e = _threshold ( _GetADCReading (1 -> -> 5 `i `uc ]
-"242
-}
-[e :U 804 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 242: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 243: Delay1KTCYx(10);
-"243
-[e ( _Delay1KTCYx (1 -> -> 10 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 244: if(i2 >= 110) {
-"244
-[e $ ! >= -> _i2 `i -> 110 `i 805  ]
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 245: i2 = 0;
-"245
-[e = _i2 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 246: sprintf(buffer, "%d\r\n", threshold);
-"246
-[e ( _sprintf (1 , (. , &U _buffer :s 5C _threshold ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 247: puts1USART(buffer);
-"247
-[e ( _puts1USART (1 &U _buffer ]
-"248
-}
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 248: }
-[e $U 806  ]
-"249
-[e :U 805 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 249: else {
-{
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 250: i2++;
-"250
-[e ++ _i2 -> -> 1 `i `uc ]
-"251
-}
-[e :U 806 ]
-"252
-}
-"234
+"147
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 6 `i 799  ]
-[e :U 800 ]
-"252
+[e $ < -> _i `i -> 8 `i 765  ]
+[e :U 766 ]
+"151
 }
-"253
+[; ;OneWire.c: 151: }
+[; ;OneWire.c: 153: }
+"153
+[e :UE 764 ]
 }
-[e :U 796 ]
-"229
-[e $ == -> _mode `i -> 0 `i 797  ]
-[e :U 798 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 251: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 252: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 253: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 255: ChangeMode();
-"255
-[e ( _ChangeMode ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 256: putrs1USART("Mode: ULTRASONIC DISTANCE\r\n");
-"256
-[e ( _putrs1USART (1 :s 6C ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 257: putrs1USART("DISTANCE (CM)\tTMR0 VALUE\r\n");
-"257
-[e ( _putrs1USART (1 :s 7C ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 259: while (mode == 1) {
-"259
-[e $U 807  ]
-[e :U 808 ]
+"163
+[v _OWReadByte `(uc ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 260: GetDistance();
-"260
-[e ( _GetDistance ..  ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 262: LATJbits.LATJ0 = 1;
-"262
-[e = . . _LATJbits 0 0 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 263: Delay1KTCYx(100);
-"263
-[e ( _Delay1KTCYx (1 -> -> 100 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 264: LATJbits.LATJ0 = 0;
-"264
-[e = . . _LATJbits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 266: while (!(echo_ready == 1));
-"266
-[e $U 810  ]
-[e :U 811 ]
-[e :U 810 ]
-[e $ ! == -> _echo_ready `i -> 1 `i 811  ]
-[e :U 812 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 268: dist_cm = 0.0137 * echo_time;
-"268
-[e = _dist_cm -> * .0.0137 -> _echo_time `d `f ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 270: sprintf(buffer, "%.2f cm\t%d\r\n", dist_cm, echo_time);
-"270
-[e ( _sprintf (1 , , (. , &U _buffer :s 8C -> _dist_cm `d _echo_time ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 271: puts1USART(buffer);
-"271
-[e ( _puts1USART (1 &U _buffer ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 273: Delay10KTCYx(200);
-"273
-[e ( _Delay10KTCYx (1 -> -> 200 `i `uc ]
-"275
+[; ;OneWire.c: 163: BYTE OWReadByte (void){
+[e :U _OWReadByte ]
+[f ]
+"165
+[v _i `uc ~T0 @X0 1 a ]
+[v _result `uc ~T0 @X0 1 a ]
+[; ;OneWire.c: 165: BYTE i, result=0;
+[e = _result -> -> 0 `i `uc ]
+[; ;OneWire.c: 167: for (i = 0; i < 8; i++)
+"167
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 769  ]
+[e $U 770  ]
+"168
+[e :U 769 ]
+[; ;OneWire.c: 168: {
+{
+[; ;OneWire.c: 169: result >>= 1;
+"169
+[e =>> _result -> 1 `i ]
+[; ;OneWire.c: 171: if (OWReadBit())
+"171
+[e $ ! != -> ( _OWReadBit ..  `i -> -> -> 0 `i `uc `i 772  ]
+[; ;OneWire.c: 172: result |= 0x80;
+"172
+[e =| _result -> -> 128 `i `uc ]
+[e :U 772 ]
+"173
 }
-[e :U 807 ]
-"259
-[e $ == -> _mode `i -> 1 `i 808  ]
-[e :U 809 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 275: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 277: ChangeMode();
-"277
-[e ( _ChangeMode ..  ]
-"279
+"167
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 769  ]
+[e :U 770 ]
+"173
 }
-[e :U 793 ]
-"223
-[e $U 794  ]
-[e :U 795 ]
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 279: }
-[; ;TechDemo3_Test_Routine_INT3_ULTRA.c: 281: }
-"281
-[e :UE 792 ]
+[; ;OneWire.c: 173: }
+[; ;OneWire.c: 174: return result;
+"174
+[e ) _result ]
+[e $UE 768  ]
+[; ;OneWire.c: 176: }
+"176
+[e :UE 768 ]
 }
-[p f _sprintf 8462464 ]
-[a 2C 69 83 80 32 71 114 111 117 112 32 49 54 13 10 84 101 99 104 32 68 101 109 111 32 51 32 84 101 115 116 32 80 114 111 103 114 97 109 13 10 0 ]
-[a 1C 85 83 65 82 84 32 67 111 110 102 105 103 117 114 101 100 13 10 0 ]
-[a 8C 37 46 50 102 32 99 109 9 37 100 13 10 0 ]
-[a 5C 37 100 13 10 0 ]
-[a 3C 77 111 100 101 58 32 76 73 78 69 32 83 69 78 83 73 78 71 13 10 0 ]
-[a 7C 68 73 83 84 65 78 67 69 32 40 67 77 41 9 84 77 82 48 32 86 65 76 85 69 13 10 0 ]
-[a 6C 77 111 100 101 58 32 85 76 84 82 65 83 79 78 73 67 32 68 73 83 84 65 78 67 69 13 10 0 ]
-[a 4C 84 72 82 69 83 72 79 76 68 13 10 0 ]

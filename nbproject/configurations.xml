@@ -12,6 +12,8 @@
       <itemPath>MillisecondTimer.h</itemPath>
       <itemPath>EEPROM.h</itemPath>
       <itemPath>Wireless.h</itemPath>
+      <itemPath>BatteryLib/ds2781.h</itemPath>
+      <itemPath>BatteryLib/OneWire.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,7 +27,6 @@
         <itemPath>Sensors_code.c</itemPath>
         <itemPath>task_scheduler_libraries.c</itemPath>
         <itemPath>task_scheduler.c</itemPath>
-        <itemPath>FastBuggy17_Main_Code_EXPERIMENTAL.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f4" displayName="Library Files" projectFiles="true">
         <itemPath>Ultrasound.c</itemPath>
@@ -34,6 +35,8 @@
         <itemPath>MillisecondTimer.c</itemPath>
         <itemPath>eeprom.c</itemPath>
         <itemPath>Wireless.c</itemPath>
+        <itemPath>BatteryLib/ds2781.c</itemPath>
+        <itemPath>BatteryLib/OneWire.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="PWM" projectFiles="true">
         <itemPath>PWM_adj_DC.c</itemPath>
@@ -46,6 +49,7 @@
         <itemPath>TechDemo3_Test_Routine_INT3_ULTRA.c</itemPath>
       </logicalFolder>
       <itemPath>FastBuggy17_Main_Code_WORKING.c</itemPath>
+      <itemPath>FastBuggy17_Main_Code_TUNING.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -91,14 +95,6 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
-      <item path="FastBuggy17_Main_Code_EXPERIMENTAL.c" ex="false" overriding="false">
-        <HI-TECH-COMP>
-        </HI-TECH-COMP>
-        <HI-TECH-LINK>
-        </HI-TECH-LINK>
-        <XC8-config-global>
-        </XC8-config-global>
-      </item>
       <item path="FastBuggy17_Main_Code_WORKING.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
@@ -248,9 +244,9 @@
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.configurationmemory2" value="true"/>
         <property key="memories.dataflash" value="true"/>
-        <property key="memories.eeprom" value="true"/>
+        <property key="memories.eeprom" value="false"/>
         <property key="memories.flashdata" value="true"/>
-        <property key="memories.id" value="true"/>
+        <property key="memories.id" value="false"/>
         <property key="memories.instruction.ram" value="true"/>
         <property key="memories.instruction.ram.end"
                   value="${memories.instruction.ram.end.value}"/>
@@ -270,7 +266,7 @@
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmspeed" value="2"/>
         <property key="programoptions.preservedataflash" value="false"/>
-        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom" value="true"/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveprogramrange.end" value="0x1ffff"/>
         <property key="programoptions.preserveprogramrange.start" value="0x0"/>

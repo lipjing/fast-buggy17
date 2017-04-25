@@ -1,48 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"519 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\pwm.h
-[v _SetDCPWM5 `(v ~T0 @X0 0 ef1`ui ]
-"515
-[v _SetDCPWM4 `(v ~T0 @X0 0 ef1`ui ]
-"1760 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[v _CCPR5L `Vuc ~T0 @X0 0 e@3953 ]
-"1676
-[v _CCP5CON `Vuc ~T0 @X0 0 e@3952 ]
-"1856
-[v _CCPR4L `Vuc ~T0 @X0 0 e@3956 ]
-"1772
-[v _CCP4CON `Vuc ~T0 @X0 0 e@3955 ]
-"4952
-[s S259 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S259 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"4962
-[s S260 :1 `uc 1 ]
-[n S260 . LD0 ]
-"4965
-[s S261 :1 `uc 1 :1 `uc 1 ]
-[n S261 . . LD1 ]
-"4969
-[s S262 :2 `uc 1 :1 `uc 1 ]
-[n S262 . . LD2 ]
-"4973
-[s S263 :3 `uc 1 :1 `uc 1 ]
-[n S263 . . LD3 ]
-"4977
-[s S264 :4 `uc 1 :1 `uc 1 ]
-[n S264 . . LD4 ]
-"4981
-[s S265 :5 `uc 1 :1 `uc 1 ]
-[n S265 . . LD5 ]
-"4985
-[s S266 :6 `uc 1 :1 `uc 1 ]
-[n S266 . . LD6 ]
-"4989
-[s S267 :7 `uc 1 :1 `uc 1 ]
-[n S267 . . LD7 ]
-"4951
-[u S258 `S259 1 `S260 1 `S261 1 `S262 1 `S263 1 `S264 1 `S265 1 `S266 1 `S267 1 ]
-[n S258 . . . . . . . . . . ]
-"4994
-[v _LATDbits `VS258 ~T0 @X0 0 e@3980 ]
+"36 BatteryLib/ds2781.c
+[c E6350 0 1 .. ]
+[n E6350 _BOOL FALSE TRUE  ]
+"19 BatteryLib/OneWire.h
+[v _OWReset `(E6350 ~T0 @X0 0 ef ]
+"22
+[v _OWWriteByte `(v ~T0 @X0 0 ef1`uc ]
+"23
+[v _OWReadByte `(uc ~T0 @X0 0 ef ]
+"34 BatteryLib/ds2781.h
+[v _Delay100MSx `(v ~T0 @X0 0 ef1`uc ]
+[v F7082 `(v ~T0 @X0 1 tf1`ul ]
+"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
+[v __delay `JF7082 ~T0 @X0 0 e ]
+[p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f8722.h: 49: extern volatile unsigned char SSP2CON2 @ 0xF62;
@@ -6427,292 +6398,694 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-"4 Motors.c
-[v _DCmotorL `ui ~T0 @X0 1 e ]
-[v _DCmotorR `ui ~T0 @X0 1 e ]
-[; ;Motors.c: 4: unsigned int DCmotorL, DCmotorR;
-"6
-[v _SetDCMotorL `(v ~T0 @X0 1 ef1`ui ]
+[; ;OneWire.h: 19: BOOL OWReset (void);
+[; ;OneWire.h: 20: void OWWriteBit (BYTE);
+[; ;OneWire.h: 21: BYTE OWReadBit (void);
+[; ;OneWire.h: 22: void OWWriteByte (BYTE byte);
+[; ;OneWire.h: 23: BYTE OWReadByte (void);
+[; ;ds2781.h: 20: WORD ReadVoltage (void);
+[; ;ds2781.h: 21: WORD ReadCurrent (void);
+[; ;ds2781.h: 22: DWORD ReadAccumulatedCurrent (void);
+[; ;ds2781.h: 23: void ResetAccumulatedCurrent (void);
+[; ;ds2781.h: 24: QWORD ReadNetAddress (void);
+[; ;ds2781.h: 25: WORD ReadTemperature (void);
+[; ;ds2781.h: 26: BYTE ReadCurrentOffset (void);
+[; ;ds2781.h: 27: void WriteCurrentOffset (CHAR offset);
+[; ;ds2781.h: 28: void AdjustCurrentOffset (void);
+[; ;ds2781.h: 29: void UpdateControlRegister (BYTE control);
+[; ;ds2781.h: 30: BYTE ReadRAM (BYTE addr);
+[; ;ds2781.h: 31: void WriteRAM (BYTE byte, BYTE addr);
+[; ;ds2781.h: 32: void CopyEEPROM (BYTE addr);
+[; ;ds2781.h: 33: void RecallEEPROM (BYTE addr);
+[; ;ds2781.h: 34: void Delay100MSx(BYTE counts);
+"33 BatteryLib/ds2781.c
+[v _ReadVoltage `(us ~T0 @X0 1 ef ]
+"34
 {
-[; ;Motors.c: 6: void SetDCMotorL(unsigned int duty_cycle) {
-[e :U _SetDCMotorL ]
-[v _duty_cycle `ui ~T0 @X0 1 r1 ]
+[; ;ds2781.c: 33: WORD ReadVoltage (void)
+[; ;ds2781.c: 34: {
+[e :U _ReadVoltage ]
 [f ]
-[; ;Motors.c: 8: SetDCPWM5(duty_cycle);
-"8
-[e ( _SetDCPWM5 (1 _duty_cycle ]
-[; ;Motors.c: 17: }
-"17
+"35
+[v _result `us ~T0 @X0 1 a ]
+[; ;ds2781.c: 35: WORD result = 0;
+[e = _result -> -> 0 `i `us ]
+[; ;ds2781.c: 36: if( OWReset() == TRUE)
+"36
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 759  ]
+[; ;ds2781.c: 37: {
+"37
+{
+[; ;ds2781.c: 38: OWWriteByte( 0xCC );
+"38
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 39: OWWriteByte( 0x69 );
+"39
+[e ( _OWWriteByte (1 -> -> 105 `i `uc ]
+[; ;ds2781.c: 40: OWWriteByte( 0x0C );
+"40
+[e ( _OWWriteByte (1 -> -> 12 `i `uc ]
+[; ;ds2781.c: 41: result = ((WORD)OWReadByte() ) << 8;
+"41
+[e = _result -> << -> -> ( _OWReadByte ..  `us `ui -> 8 `i `us ]
+[; ;ds2781.c: 42: result |= ((WORD)OWReadByte() );
+"42
+[e =| _result -> ( _OWReadByte ..  `us ]
+"43
+}
+[e :U 759 ]
+[; ;ds2781.c: 43: }
+[; ;ds2781.c: 44: return (result >> 5);
+"44
+[e ) -> >> -> _result `ui -> 5 `i `us ]
+[e $UE 758  ]
+[; ;ds2781.c: 45: }
+"45
 [e :UE 758 ]
 }
-"19
-[v _SetDCMotorR `(v ~T0 @X0 1 ef1`ui ]
+"56
+[v _ReadCurrent `(us ~T0 @X0 1 ef ]
+"57
 {
-[; ;Motors.c: 19: void SetDCMotorR(unsigned int duty_cycle) {
-[e :U _SetDCMotorR ]
-[v _duty_cycle `ui ~T0 @X0 1 r1 ]
+[; ;ds2781.c: 56: WORD ReadCurrent (void)
+[; ;ds2781.c: 57: {
+[e :U _ReadCurrent ]
 [f ]
-[; ;Motors.c: 21: SetDCPWM4(duty_cycle);
-"21
-[e ( _SetDCPWM4 (1 _duty_cycle ]
-[; ;Motors.c: 29: }
-"29
-[e :UE 759 ]
+"58
+[v _result `us ~T0 @X0 1 a ]
+[; ;ds2781.c: 58: WORD result = 0;
+[e = _result -> -> 0 `i `us ]
+[; ;ds2781.c: 59: if( OWReset() == TRUE)
+"59
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 761  ]
+[; ;ds2781.c: 60: {
+"60
+{
+[; ;ds2781.c: 61: OWWriteByte( 0xCC );
+"61
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 62: OWWriteByte( 0x69 );
+"62
+[e ( _OWWriteByte (1 -> -> 105 `i `uc ]
+[; ;ds2781.c: 63: OWWriteByte( 0x0E );
+"63
+[e ( _OWWriteByte (1 -> -> 14 `i `uc ]
+[; ;ds2781.c: 64: result = ((WORD)OWReadByte() ) << 8;
+"64
+[e = _result -> << -> -> ( _OWReadByte ..  `us `ui -> 8 `i `us ]
+[; ;ds2781.c: 65: result |= ((WORD)OWReadByte() );
+"65
+[e =| _result -> ( _OWReadByte ..  `us ]
+"66
 }
-"31
-[v _ReadDCMotorL `(ui ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 31: unsigned int ReadDCMotorL(void) {
-[e :U _ReadDCMotorL ]
-[f ]
-"32
-[v _DCreg `ui ~T0 @X0 1 a ]
-[; ;Motors.c: 32: unsigned int DCreg = 0;
-[e = _DCreg -> -> 0 `i `ui ]
-[; ;Motors.c: 34: DCreg ^= 0x03FF & ((CCPR5L << 2) | (CCP5CON >> 4));
-"34
-[e =^ _DCreg -> & -> 1023 `i | << -> _CCPR5L `i -> 2 `i >> -> _CCP5CON `i -> 4 `i `ui ]
-[; ;Motors.c: 36: return(DCreg);
-"36
-[e ) _DCreg ]
+[e :U 761 ]
+[; ;ds2781.c: 66: }
+[; ;ds2781.c: 67: return result;
+"67
+[e ) _result ]
 [e $UE 760  ]
-[; ;Motors.c: 37: }
-"37
+[; ;ds2781.c: 68: }
+"68
 [e :UE 760 ]
 }
-"39
-[v _ReadDCMotorR `(ui ~T0 @X0 1 ef ]
+"79
+[v _ReadAccumulatedCurrent `(ul ~T0 @X0 1 ef ]
+"80
 {
-[; ;Motors.c: 39: unsigned int ReadDCMotorR(void) {
-[e :U _ReadDCMotorR ]
+[; ;ds2781.c: 79: DWORD ReadAccumulatedCurrent (void)
+[; ;ds2781.c: 80: {
+[e :U _ReadAccumulatedCurrent ]
 [f ]
-"40
-[v _DCreg `ui ~T0 @X0 1 a ]
-[; ;Motors.c: 40: unsigned int DCreg = 0;
-[e = _DCreg -> -> 0 `i `ui ]
-[; ;Motors.c: 42: DCreg ^= 0x03FF & ((CCPR4L << 2) | (CCP4CON >> 4));
-"42
-[e =^ _DCreg -> & -> 1023 `i | << -> _CCPR4L `i -> 2 `i >> -> _CCP4CON `i -> 4 `i `ui ]
-[; ;Motors.c: 44: return(DCreg);
-"44
-[e ) _DCreg ]
-[e $UE 761  ]
-[; ;Motors.c: 45: }
-"45
-[e :UE 761 ]
-}
-"47
-[v _SetDCMotorPID `(v ~T0 @X0 1 ef1`i ]
+"81
+[v _result `ul ~T0 @X0 1 a ]
+[; ;ds2781.c: 81: DWORD result = 0;
+[e = _result -> -> -> 0 `i `l `ul ]
+[; ;ds2781.c: 82: if( OWReset() == TRUE)
+"82
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 763  ]
+[; ;ds2781.c: 83: {
+"83
 {
-[; ;Motors.c: 47: void SetDCMotorPID(int PIDoutput) {
-[e :U _SetDCMotorPID ]
-[v _PIDoutput `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;Motors.c: 49: if(PIDoutput <= 0) {
-"49
-[e $ ! <= _PIDoutput -> 0 `i 763  ]
-{
-[; ;Motors.c: 50: SetDCMotorL(240 - PIDoutput);
-"50
-[e ( _SetDCMotorL (1 -> - -> 240 `i _PIDoutput `ui ]
-[; ;Motors.c: 51: SetDCMotorR(240);
-"51
-[e ( _SetDCMotorR (1 -> -> 240 `i `ui ]
-"52
+[; ;ds2781.c: 84: OWWriteByte( 0xCC );
+"84
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 85: OWWriteByte( 0x69 );
+"85
+[e ( _OWWriteByte (1 -> -> 105 `i `uc ]
+[; ;ds2781.c: 86: OWWriteByte( 0x10 );
+"86
+[e ( _OWWriteByte (1 -> -> 16 `i `uc ]
+[; ;ds2781.c: 87: result = ((DWORD)OWReadByte() ) << 24;
+"87
+[e = _result << -> ( _OWReadByte ..  `ul -> 24 `i ]
+[; ;ds2781.c: 88: result |= ((DWORD)OWReadByte() ) << 16;
+"88
+[e =| _result << -> ( _OWReadByte ..  `ul -> 16 `i ]
+[; ;ds2781.c: 89: result |= ((DWORD)OWReadByte() ) << 8;
+"89
+[e =| _result << -> ( _OWReadByte ..  `ul -> 8 `i ]
+[; ;ds2781.c: 90: result |= ((DWORD)OWReadByte() );
+"90
+[e =| _result -> ( _OWReadByte ..  `ul ]
+"91
 }
-[; ;Motors.c: 52: }
-[e $U 764  ]
-"53
 [e :U 763 ]
-[; ;Motors.c: 53: else if(PIDoutput > 0) {
-[e $ ! > _PIDoutput -> 0 `i 765  ]
-{
-[; ;Motors.c: 54: SetDCMotorL(240);
-"54
-[e ( _SetDCMotorL (1 -> -> 240 `i `ui ]
-[; ;Motors.c: 55: SetDCMotorR(240 + PIDoutput);
-"55
-[e ( _SetDCMotorR (1 -> + -> 240 `i _PIDoutput `ui ]
-"56
-}
-[; ;Motors.c: 56: }
-[e $U 766  ]
-"57
-[e :U 765 ]
-[; ;Motors.c: 57: else if(PIDoutput == 0) {
-[e $ ! == _PIDoutput -> 0 `i 767  ]
-{
-[; ;Motors.c: 58: SetDCMotorL(240);
-"58
-[e ( _SetDCMotorL (1 -> -> 240 `i `ui ]
-[; ;Motors.c: 59: SetDCMotorR(240);
-"59
-[e ( _SetDCMotorR (1 -> -> 240 `i `ui ]
-"60
-}
-[e :U 767 ]
-"62
-[e :U 766 ]
-[e :U 764 ]
-[; ;Motors.c: 60: }
-[; ;Motors.c: 62: }
+[; ;ds2781.c: 91: }
+[; ;ds2781.c: 92: return (result >> 4);
+"92
+[e ) >> _result -> 4 `i ]
+[e $UE 762  ]
+[; ;ds2781.c: 93: }
+"93
 [e :UE 762 ]
 }
-"64
-[v _SetDirectionForward `(v ~T0 @X0 1 ef ]
+"103
+[v _ResetAccumulatedCurrent `(v ~T0 @X0 1 ef ]
+"104
 {
-[; ;Motors.c: 64: void SetDirectionForward(void) {
-[e :U _SetDirectionForward ]
+[; ;ds2781.c: 103: void ResetAccumulatedCurrent (void)
+[; ;ds2781.c: 104: {
+[e :U _ResetAccumulatedCurrent ]
 [f ]
-[; ;Motors.c: 66: LATDbits.LATD3 = 1;
-"66
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-[; ;Motors.c: 67: LATDbits.LATD1 = 1;
-"67
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-[; ;Motors.c: 69: }
-"69
+[; ;ds2781.c: 105: if( OWReset() == TRUE)
+"105
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 765  ]
+[; ;ds2781.c: 106: {
+"106
+{
+[; ;ds2781.c: 107: OWWriteByte( 0xCC );
+"107
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 108: OWWriteByte( 0x6C );
+"108
+[e ( _OWWriteByte (1 -> -> 108 `i `uc ]
+[; ;ds2781.c: 109: OWWriteByte( 0x10 );
+"109
+[e ( _OWWriteByte (1 -> -> 16 `i `uc ]
+[; ;ds2781.c: 110: OWWriteByte( 0x00 );
+"110
+[e ( _OWWriteByte (1 -> -> 0 `i `uc ]
+[; ;ds2781.c: 111: OWWriteByte( 0x00 );
+"111
+[e ( _OWWriteByte (1 -> -> 0 `i `uc ]
+"112
+}
+[e :U 765 ]
+[; ;ds2781.c: 112: }
+[; ;ds2781.c: 113: }
+"113
+[e :UE 764 ]
+}
+"123
+[v _ReadNetAddress `(ul ~T0 @X0 1 ef ]
+"124
+{
+[; ;ds2781.c: 123: QWORD ReadNetAddress (void)
+[; ;ds2781.c: 124: {
+[e :U _ReadNetAddress ]
+[f ]
+"125
+[v _result `ul ~T0 @X0 1 a ]
+[; ;ds2781.c: 125: QWORD result = 0;
+[e = _result -> -> -> 0 `i `l `ul ]
+[; ;ds2781.c: 126: if( OWReset() == TRUE)
+"126
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 767  ]
+[; ;ds2781.c: 127: {
+"127
+{
+[; ;ds2781.c: 128: OWWriteByte( 0x33 );
+"128
+[e ( _OWWriteByte (1 -> -> 51 `i `uc ]
+"137
+}
+[e :U 767 ]
+[; ;ds2781.c: 137: }
+[; ;ds2781.c: 138: return result;
+"138
+[e ) _result ]
+[e $UE 766  ]
+[; ;ds2781.c: 139: }
+"139
+[e :UE 766 ]
+}
+"150
+[v _ReadTemperature `(us ~T0 @X0 1 ef ]
+"151
+{
+[; ;ds2781.c: 150: WORD ReadTemperature (void)
+[; ;ds2781.c: 151: {
+[e :U _ReadTemperature ]
+[f ]
+"152
+[v _result `us ~T0 @X0 1 a ]
+[; ;ds2781.c: 152: WORD result = 0;
+[e = _result -> -> 0 `i `us ]
+[; ;ds2781.c: 153: if( OWReset() == TRUE)
+"153
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 769  ]
+[; ;ds2781.c: 154: {
+"154
+{
+[; ;ds2781.c: 155: OWWriteByte( 0xCC );
+"155
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 156: OWWriteByte( 0x69 );
+"156
+[e ( _OWWriteByte (1 -> -> 105 `i `uc ]
+[; ;ds2781.c: 157: OWWriteByte( 0x0A );
+"157
+[e ( _OWWriteByte (1 -> -> 10 `i `uc ]
+[; ;ds2781.c: 158: result = ((WORD)OWReadByte() ) << 8;
+"158
+[e = _result -> << -> -> ( _OWReadByte ..  `us `ui -> 8 `i `us ]
+[; ;ds2781.c: 159: result |= ((WORD)OWReadByte() );
+"159
+[e =| _result -> ( _OWReadByte ..  `us ]
+"160
+}
+[e :U 769 ]
+[; ;ds2781.c: 160: }
+[; ;ds2781.c: 161: return (result >> 5);
+"161
+[e ) -> >> -> _result `ui -> 5 `i `us ]
+[e $UE 768  ]
+[; ;ds2781.c: 162: }
+"162
 [e :UE 768 ]
 }
-"71
-[v _SetDirectionReverse `(v ~T0 @X0 1 ef ]
+"173
+[v _ReadCurrentOffset `(uc ~T0 @X0 1 ef ]
+"174
 {
-[; ;Motors.c: 71: void SetDirectionReverse(void) {
-[e :U _SetDirectionReverse ]
+[; ;ds2781.c: 173: BYTE ReadCurrentOffset (void)
+[; ;ds2781.c: 174: {
+[e :U _ReadCurrentOffset ]
 [f ]
-[; ;Motors.c: 73: LATDbits.LATD3 = 0;
-"73
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;Motors.c: 74: LATDbits.LATD1 = 0;
-"74
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;Motors.c: 76: }
-"76
-[e :UE 769 ]
+"175
+[v _result `uc ~T0 @X0 1 a ]
+[; ;ds2781.c: 175: BYTE result = 0;
+[e = _result -> -> 0 `i `uc ]
+[; ;ds2781.c: 176: if( OWReset() == TRUE)
+"176
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 771  ]
+[; ;ds2781.c: 177: {
+"177
+{
+[; ;ds2781.c: 178: OWWriteByte( 0xCC );
+"178
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 179: OWWriteByte( 0x69 );
+"179
+[e ( _OWWriteByte (1 -> -> 105 `i `uc ]
+[; ;ds2781.c: 180: OWWriteByte( 0x7B );
+"180
+[e ( _OWWriteByte (1 -> -> 123 `i `uc ]
+[; ;ds2781.c: 181: result = OWReadByte();
+"181
+[e = _result ( _OWReadByte ..  ]
+"182
 }
-"78
-[v _SetForwardsMotorR `(v ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 78: void SetForwardsMotorR(void) {
-[e :U _SetForwardsMotorR ]
-[f ]
-[; ;Motors.c: 80: LATDbits.LATD1 = 1;
-"80
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-[; ;Motors.c: 82: }
-"82
+[e :U 771 ]
+[; ;ds2781.c: 182: }
+[; ;ds2781.c: 183: return result;
+"183
+[e ) _result ]
+[e $UE 770  ]
+[; ;ds2781.c: 184: }
+"184
 [e :UE 770 ]
 }
-"84
-[v _SetForwardsMotorL `(v ~T0 @X0 1 ef ]
+"195
+[v _WriteCurrentOffset `(v ~T0 @X0 1 ef1`c ]
+"196
 {
-[; ;Motors.c: 84: void SetForwardsMotorL(void) {
-[e :U _SetForwardsMotorL ]
+[; ;ds2781.c: 195: void WriteCurrentOffset (CHAR offset)
+[; ;ds2781.c: 196: {
+[e :U _WriteCurrentOffset ]
+"195
+[v _offset `c ~T0 @X0 1 r1 ]
+"196
 [f ]
-[; ;Motors.c: 86: LATDbits.LATD3 = 1;
-"86
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-[; ;Motors.c: 88: }
-"88
-[e :UE 771 ]
+[; ;ds2781.c: 197: if( OWReset() == TRUE)
+"197
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 773  ]
+[; ;ds2781.c: 198: {
+"198
+{
+[; ;ds2781.c: 199: OWWriteByte( 0xCC );
+"199
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 200: OWWriteByte( 0x6C );
+"200
+[e ( _OWWriteByte (1 -> -> 108 `i `uc ]
+[; ;ds2781.c: 201: OWWriteByte( 0x7B );
+"201
+[e ( _OWWriteByte (1 -> -> 123 `i `uc ]
+[; ;ds2781.c: 202: OWWriteByte( offset );
+"202
+[e ( _OWWriteByte (1 -> _offset `uc ]
+"203
 }
-"90
-[v _SetReverseMotorR `(v ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 90: void SetReverseMotorR(void) {
-[e :U _SetReverseMotorR ]
-[f ]
-[; ;Motors.c: 92: LATDbits.LATD1 = 0;
-"92
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;Motors.c: 94: }
-"94
+[e :U 773 ]
+[; ;ds2781.c: 203: }
+[; ;ds2781.c: 204: }
+"204
 [e :UE 772 ]
 }
-"96
-[v _SetReverseMotorL `(v ~T0 @X0 1 ef ]
+"216
+[v _AdjustCurrentOffset `(v ~T0 @X0 1 ef ]
+"217
 {
-[; ;Motors.c: 96: void SetReverseMotorL(void) {
-[e :U _SetReverseMotorL ]
+[; ;ds2781.c: 216: void AdjustCurrentOffset (void)
+[; ;ds2781.c: 217: {
+[e :U _AdjustCurrentOffset ]
 [f ]
-[; ;Motors.c: 98: LATDbits.LATD3 = 0;
-"98
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;Motors.c: 100: }
-"100
-[e :UE 773 ]
+"218
+[v _offset `c ~T0 @X0 1 a ]
+[; ;ds2781.c: 218: CHAR offset = 0;
+[e = _offset -> -> 0 `i `c ]
+[; ;ds2781.c: 220: WriteCurrentOffset ( 0x0 );
+"220
+[e ( _WriteCurrentOffset (1 -> -> 0 `i `c ]
+[; ;ds2781.c: 222: Delay100MSx(36);
+"222
+[e ( _Delay100MSx (1 -> -> 36 `i `uc ]
+[; ;ds2781.c: 224: if( OWReset() == TRUE)
+"224
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 775  ]
+[; ;ds2781.c: 225: {
+"225
+{
+[; ;ds2781.c: 226: OWWriteByte( 0xCC );
+"226
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 227: OWWriteByte( 0x69 );
+"227
+[e ( _OWWriteByte (1 -> -> 105 `i `uc ]
+[; ;ds2781.c: 228: OWWriteByte( 0x0F );
+"228
+[e ( _OWWriteByte (1 -> -> 15 `i `uc ]
+[; ;ds2781.c: 229: offset = OWReadByte();
+"229
+[e = _offset -> ( _OWReadByte ..  `c ]
+"230
 }
-"102
-[v _EnableMotors `(v ~T0 @X0 1 ef ]
+[e :U 775 ]
+[; ;ds2781.c: 230: }
+[; ;ds2781.c: 232: offset = 256 - offset;
+"232
+[e = _offset -> - -> 256 `i -> _offset `i `c ]
+[; ;ds2781.c: 234: if( OWReset() == TRUE)
+"234
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 776  ]
+[; ;ds2781.c: 235: {
+"235
 {
-[; ;Motors.c: 102: void EnableMotors(void) {
-[e :U _EnableMotors ]
-[f ]
-[; ;Motors.c: 104: LATDbits.LATD4 = 1;
-"104
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;Motors.c: 106: }
-"106
+[; ;ds2781.c: 236: OWWriteByte( 0xCC );
+"236
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 237: OWWriteByte( 0x6C );
+"237
+[e ( _OWWriteByte (1 -> -> 108 `i `uc ]
+[; ;ds2781.c: 238: OWWriteByte( 0x7B );
+"238
+[e ( _OWWriteByte (1 -> -> 123 `i `uc ]
+[; ;ds2781.c: 239: OWWriteByte( offset );
+"239
+[e ( _OWWriteByte (1 -> _offset `uc ]
+"240
+}
+[e :U 776 ]
+[; ;ds2781.c: 240: }
+[; ;ds2781.c: 241: }
+"241
 [e :UE 774 ]
 }
-"108
-[v _DisableMotors `(v ~T0 @X0 1 ef ]
+"253
+[v _UpdateControlRegister `(v ~T0 @X0 1 ef1`uc ]
+"254
 {
-[; ;Motors.c: 108: void DisableMotors(void) {
-[e :U _DisableMotors ]
+[; ;ds2781.c: 253: void UpdateControlRegister (BYTE control)
+[; ;ds2781.c: 254: {
+[e :U _UpdateControlRegister ]
+"253
+[v _control `uc ~T0 @X0 1 r1 ]
+"254
 [f ]
-[; ;Motors.c: 110: LATDbits.LATD4 = 0;
-"110
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;Motors.c: 112: }
-"112
-[e :UE 775 ]
+[; ;ds2781.c: 255: if( OWReset() == TRUE )
+"255
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 778  ]
+[; ;ds2781.c: 256: {
+"256
+{
+[; ;ds2781.c: 257: OWWriteByte( 0xCC );
+"257
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 258: OWWriteByte( 0x6C );
+"258
+[e ( _OWWriteByte (1 -> -> 108 `i `uc ]
+[; ;ds2781.c: 259: OWWriteByte( 0x60 );
+"259
+[e ( _OWWriteByte (1 -> -> 96 `i `uc ]
+[; ;ds2781.c: 260: OWWriteByte( control );
+"260
+[e ( _OWWriteByte (1 _control ]
+"261
 }
-"114
-[v _SetBipolar `(v ~T0 @X0 1 ef ]
+[e :U 778 ]
+[; ;ds2781.c: 261: }
+[; ;ds2781.c: 263: if( OWReset() == TRUE )
+"263
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 779  ]
+[; ;ds2781.c: 264: {
+"264
 {
-[; ;Motors.c: 114: void SetBipolar(void) {
-[e :U _SetBipolar ]
-[f ]
-[; ;Motors.c: 116: LATDbits.LATD0 = 1;
-"116
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;Motors.c: 117: LATDbits.LATD2 = 1;
-"117
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;Motors.c: 119: }
-"119
-[e :UE 776 ]
+[; ;ds2781.c: 265: OWWriteByte( 0xCC );
+"265
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 266: OWWriteByte( 0x48 );
+"266
+[e ( _OWWriteByte (1 -> -> 72 `i `uc ]
+[; ;ds2781.c: 267: OWWriteByte( 0x60 );
+"267
+[e ( _OWWriteByte (1 -> -> 96 `i `uc ]
+"268
 }
-"121
-[v _SetUnipolar `(v ~T0 @X0 1 ef ]
-{
-[; ;Motors.c: 121: void SetUnipolar(void) {
-[e :U _SetUnipolar ]
-[f ]
-[; ;Motors.c: 123: LATDbits.LATD0 = 0;
-"123
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-[; ;Motors.c: 124: LATDbits.LATD2 = 0;
-"124
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-[; ;Motors.c: 126: }
-"126
+[e :U 779 ]
+[; ;ds2781.c: 268: }
+[; ;ds2781.c: 269: }
+"269
 [e :UE 777 ]
 }
-"128
-[v _StopMotors `(v ~T0 @X0 1 ef ]
+"280
+[v _ReadRAM `(uc ~T0 @X0 1 ef1`uc ]
+"281
 {
-[; ;Motors.c: 128: void StopMotors(void) {
-[e :U _StopMotors ]
+[; ;ds2781.c: 280: BYTE ReadRAM (BYTE addr)
+[; ;ds2781.c: 281: {
+[e :U _ReadRAM ]
+"280
+[v _addr `uc ~T0 @X0 1 r1 ]
+"281
 [f ]
-[; ;Motors.c: 130: SetDCMotorR(526);
-"130
-[e ( _SetDCMotorR (1 -> -> 526 `i `ui ]
-[; ;Motors.c: 131: SetDCMotorL(526);
-"131
-[e ( _SetDCMotorL (1 -> -> 526 `i `ui ]
-[; ;Motors.c: 133: }
-"133
-[e :UE 778 ]
+"282
+[v _result `uc ~T0 @X0 1 a ]
+[; ;ds2781.c: 282: BYTE result = 0;
+[e = _result -> -> 0 `i `uc ]
+[; ;ds2781.c: 283: if( OWReset() == TRUE)
+"283
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 781  ]
+[; ;ds2781.c: 284: {
+"284
+{
+[; ;ds2781.c: 285: OWWriteByte( 0xCC );
+"285
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 286: OWWriteByte( 0x69 );
+"286
+[e ( _OWWriteByte (1 -> -> 105 `i `uc ]
+[; ;ds2781.c: 287: OWWriteByte( addr );
+"287
+[e ( _OWWriteByte (1 _addr ]
+[; ;ds2781.c: 288: result = OWReadByte();
+"288
+[e = _result ( _OWReadByte ..  ]
+"289
+}
+[e :U 781 ]
+[; ;ds2781.c: 289: }
+[; ;ds2781.c: 290: return result;
+"290
+[e ) _result ]
+[e $UE 780  ]
+[; ;ds2781.c: 291: }
+"291
+[e :UE 780 ]
+}
+"302
+[v _WriteRAM `(v ~T0 @X0 1 ef2`uc`uc ]
+"303
+{
+[; ;ds2781.c: 302: void WriteRAM (BYTE byte, BYTE addr)
+[; ;ds2781.c: 303: {
+[e :U _WriteRAM ]
+"302
+[v _byte `uc ~T0 @X0 1 r1 ]
+[v _addr `uc ~T0 @X0 1 r2 ]
+"303
+[f ]
+[; ;ds2781.c: 304: if( OWReset() == TRUE)
+"304
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 783  ]
+[; ;ds2781.c: 305: {
+"305
+{
+[; ;ds2781.c: 306: OWWriteByte( 0xCC );
+"306
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 307: OWWriteByte( 0x6C );
+"307
+[e ( _OWWriteByte (1 -> -> 108 `i `uc ]
+[; ;ds2781.c: 308: OWWriteByte( addr );
+"308
+[e ( _OWWriteByte (1 _addr ]
+[; ;ds2781.c: 309: OWWriteByte( byte );
+"309
+[e ( _OWWriteByte (1 _byte ]
+"310
+}
+[e :U 783 ]
+[; ;ds2781.c: 310: }
+[; ;ds2781.c: 311: }
+"311
+[e :UE 782 ]
+}
+"324
+[v _CopyEEPROM `(v ~T0 @X0 1 ef1`uc ]
+"325
+{
+[; ;ds2781.c: 324: void CopyEEPROM (BYTE addr)
+[; ;ds2781.c: 325: {
+[e :U _CopyEEPROM ]
+"324
+[v _addr `uc ~T0 @X0 1 r1 ]
+"325
+[f ]
+[; ;ds2781.c: 326: if( OWReset() == TRUE)
+"326
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 785  ]
+[; ;ds2781.c: 327: {
+"327
+{
+[; ;ds2781.c: 328: OWWriteByte( 0xCC );
+"328
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 329: OWWriteByte( 0x48 );
+"329
+[e ( _OWWriteByte (1 -> -> 72 `i `uc ]
+[; ;ds2781.c: 330: OWWriteByte( addr );
+"330
+[e ( _OWWriteByte (1 _addr ]
+"331
+}
+[e :U 785 ]
+[; ;ds2781.c: 331: }
+[; ;ds2781.c: 332: }
+"332
+[e :UE 784 ]
+}
+"343
+[v _RecallEEPROM `(v ~T0 @X0 1 ef1`uc ]
+"344
+{
+[; ;ds2781.c: 343: void RecallEEPROM (BYTE addr)
+[; ;ds2781.c: 344: {
+[e :U _RecallEEPROM ]
+"343
+[v _addr `uc ~T0 @X0 1 r1 ]
+"344
+[f ]
+[; ;ds2781.c: 345: if( OWReset() == TRUE)
+"345
+[e $ ! == -> ( _OWReset ..  `i -> . `E6350 1 `i 787  ]
+[; ;ds2781.c: 346: {
+"346
+{
+[; ;ds2781.c: 347: OWWriteByte( 0xCC );
+"347
+[e ( _OWWriteByte (1 -> -> 204 `i `uc ]
+[; ;ds2781.c: 348: OWWriteByte( 0xB8 );
+"348
+[e ( _OWWriteByte (1 -> -> 184 `i `uc ]
+[; ;ds2781.c: 349: OWWriteByte( addr );
+"349
+[e ( _OWWriteByte (1 _addr ]
+"350
+}
+[e :U 787 ]
+[; ;ds2781.c: 350: }
+[; ;ds2781.c: 351: }
+"351
+[e :UE 786 ]
+}
+"363
+[v _Delay100MSx `(v ~T0 @X0 1 ef1`uc ]
+"364
+{
+[; ;ds2781.c: 363: void Delay100MSx(BYTE counts)
+[; ;ds2781.c: 364: {
+[e :U _Delay100MSx ]
+"363
+[v _counts `uc ~T0 @X0 1 r1 ]
+"364
+[f ]
+"365
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+[; ;ds2781.c: 365: BYTE i,j;
+[; ;ds2781.c: 366: for(i = 0; i < counts; i++)
+"366
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 792  ]
+"367
+[e :U 789 ]
+[; ;ds2781.c: 367: {
+{
+[; ;ds2781.c: 368: for(j=0;j<10;j++)
+"368
+{
+[e = _j -> -> 0 `i `uc ]
+[e $ < -> _j `i -> 10 `i 793  ]
+[e $U 794  ]
+"369
+[e :U 793 ]
+[; ;ds2781.c: 369: {
+{
+[; ;ds2781.c: 370: _delay((unsigned long)((1)*(10000000/4000.0)));
+"370
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"371
+}
+"368
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 10 `i 793  ]
+[e :U 794 ]
+"371
+}
+"372
+}
+"366
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 792 ]
+[e $ < -> _i `i -> _counts `i 789  ]
+[e :U 790 ]
+"372
+}
+[; ;ds2781.c: 371: }
+[; ;ds2781.c: 372: }
+[; ;ds2781.c: 373: }
+"373
+[e :UE 788 ]
 }

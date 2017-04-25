@@ -23,6 +23,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS378 ~T0 @X0 0 e@3998 ]
 "245 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib/usart.h
 [v _Write1USART `(v ~T0 @X0 0 ef1`uc ]
+"244
+[v _Read1USART `(uc ~T0 @X0 0 ef ]
 "214
 [v _Open1USART `(v ~T0 @X0 0 ef2`uc`ui ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -5709,15 +5711,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;delays.h: 31: void Delay1KTCYx(unsigned char);
 [; ;delays.h: 37: void Delay10KTCYx(unsigned char);
 "5 Wireless.c
-[v _Tx_buffer `uc ~T0 @X0 -> 20 `i e ]
-[v _Rx_buffer `uc ~T0 @X0 -> 20 `i e ]
+[v _Tx_buffer `uc ~T0 @X0 -> 25 `i e ]
+[v _Rx_buffer `uc ~T0 @X0 -> 25 `i e ]
 [v _put_Tx_index `uc ~T0 @X0 1 e ]
 [v _get_Tx_index `uc ~T0 @X0 1 e ]
+[v _put_Rx_index `uc ~T0 @X0 1 e ]
+[v _get_Rx_index `uc ~T0 @X0 1 e ]
 [v _Tx_complete `uc ~T0 @X0 1 e ]
-[; ;Wireless.c: 5: unsigned char Tx_buffer[20], Rx_buffer[20], put_Tx_index, get_Tx_index, Tx_complete;
+[; ;Wireless.c: 5: unsigned char Tx_buffer[25], Rx_buffer[25], put_Tx_index, get_Tx_index, put_Rx_index, get_Rx_index, Tx_complete;
 "7
-[v _character `Vuc ~T0 @X0 1 e ]
-[; ;Wireless.c: 7: volatile unsigned char character;
+[v _TxCharacter `Vuc ~T0 @X0 1 e ]
+[v _RxCharacter `Vuc ~T0 @X0 1 e ]
+[v _Rx_chars_received `Vuc ~T0 @X0 1 e ]
+[v _Rx_msg_length `Vuc ~T0 @X0 1 e ]
+[v _Rx_complete `Vuc ~T0 @X0 1 e ]
+[; ;Wireless.c: 7: volatile unsigned char TxCharacter, RxCharacter, Rx_chars_received, Rx_msg_length, Rx_complete;
 "9
 [v _PutCharTxBuf `(v ~T0 @X0 1 ef1`uc ]
 {
@@ -5728,9 +5736,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Wireless.c: 10: Tx_buffer[put_Tx_index] = ch;
 "10
 [e = *U + &U _Tx_buffer * -> _put_Tx_index `ux -> -> # *U &U _Tx_buffer `ui `ux _ch ]
-[; ;Wireless.c: 11: put_Tx_index = (unsigned char)(put_Tx_index + 1) % 20;
+[; ;Wireless.c: 11: put_Tx_index = (unsigned char)(put_Tx_index + 1) % 25;
 "11
-[e = _put_Tx_index -> % -> -> + -> _put_Tx_index `i -> 1 `i `uc `i -> 20 `i `uc ]
+[e = _put_Tx_index -> % -> -> + -> _put_Tx_index `i -> 1 `i `uc `i -> 25 `i `uc ]
 [; ;Wireless.c: 13: }
 "13
 [e :UE 724 ]
@@ -5747,9 +5755,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Wireless.c: 18: ch = Tx_buffer[get_Tx_index];
 "18
 [e = _ch *U + &U _Tx_buffer * -> _get_Tx_index `ux -> -> # *U &U _Tx_buffer `ui `ux ]
-[; ;Wireless.c: 19: get_Tx_index = (unsigned char)(get_Tx_index + 1) % 20;
+[; ;Wireless.c: 19: get_Tx_index = (unsigned char)(get_Tx_index + 1) % 25;
 "19
-[e = _get_Tx_index -> % -> -> + -> _get_Tx_index `i -> 1 `i `uc `i -> 20 `i `uc ]
+[e = _get_Tx_index -> % -> -> + -> _get_Tx_index `i -> 1 `i `uc `i -> 25 `i `uc ]
 [; ;Wireless.c: 21: return(ch);
 "21
 [e ) _ch ]
@@ -5759,403 +5767,980 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 725 ]
 }
 "25
-[v _StartTx `(v ~T0 @X0 1 ef ]
+[v _PutCharRxBuf `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;Wireless.c: 25: void StartTx(void) {
-[e :U _StartTx ]
+[; ;Wireless.c: 25: void PutCharRxBuf(unsigned char ch) {
+[e :U _PutCharRxBuf ]
+[v _ch `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;Wireless.c: 26: Tx_complete = 0;
+[; ;Wireless.c: 26: Rx_buffer[put_Rx_index] = ch;
 "26
-[e = _Tx_complete -> -> 0 `i `uc ]
-[; ;Wireless.c: 27: PIE1bits.TX1IE = 1;
+[e = *U + &U _Rx_buffer * -> _put_Rx_index `ux -> -> # *U &U _Rx_buffer `ui `ux _ch ]
+[; ;Wireless.c: 27: put_Rx_index = (unsigned char)(put_Rx_index + 1) % 25;
 "27
-[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-[; ;Wireless.c: 28: }
-"28
+[e = _put_Rx_index -> % -> -> + -> _put_Rx_index `i -> 1 `i `uc `i -> 25 `i `uc ]
+[; ;Wireless.c: 29: }
+"29
 [e :UE 726 ]
 }
-"30
-[v _StopTx `(v ~T0 @X0 1 ef ]
-{
-[; ;Wireless.c: 30: void StopTx(void) {
-[e :U _StopTx ]
-[f ]
-[; ;Wireless.c: 31: PIE1bits.TX1IE = 0;
 "31
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-[; ;Wireless.c: 32: PIR1bits.TX1IF = 0;
+[v _GetCharRxBuf `(uc ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 31: unsigned char GetCharRxBuf(void) {
+[e :U _GetCharRxBuf ]
+[f ]
 "32
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;Wireless.c: 33: }
-"33
+[v _ch `uc ~T0 @X0 1 a ]
+[; ;Wireless.c: 32: unsigned char ch;
+[; ;Wireless.c: 34: ch = Rx_buffer[get_Rx_index];
+"34
+[e = _ch *U + &U _Rx_buffer * -> _get_Rx_index `ux -> -> # *U &U _Rx_buffer `ui `ux ]
+[; ;Wireless.c: 35: get_Rx_index = (unsigned char)(get_Rx_index + 1) % 25;
+"35
+[e = _get_Rx_index -> % -> -> + -> _get_Rx_index `i -> 1 `i `uc `i -> 25 `i `uc ]
+[; ;Wireless.c: 37: return(ch);
+"37
+[e ) _ch ]
+[e $UE 727  ]
+[; ;Wireless.c: 39: }
+"39
 [e :UE 727 ]
 }
-[v F6207 `(v ~T0 @X0 1 tf ]
-"35
-[v _WirelessTx_ISR `TF6207 ~T0 @X0 1 e ]
-{
-[; ;Wireless.c: 35: inline void WirelessTx_ISR(void) {
-[e :U _WirelessTx_ISR ]
-[f ]
-[; ;Wireless.c: 36: character = GetCharTxBuf();
-"36
-[e = _character ( _GetCharTxBuf ..  ]
-[; ;Wireless.c: 37: if(character == 0x0A) {
-"37
-[e $ ! == -> _character `i -> 10 `i 729  ]
-{
-[; ;Wireless.c: 38: Write1USART(character);
-"38
-[e ( _Write1USART (1 _character ]
-[; ;Wireless.c: 39: Tx_complete = 1;
-"39
-[e = _Tx_complete -> -> 1 `i `uc ]
-[; ;Wireless.c: 40: PIE1bits.TX1IE = 0;
-"40
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
 "41
-}
-[; ;Wireless.c: 41: }
-[e $U 730  ]
-"42
-[e :U 729 ]
-[; ;Wireless.c: 42: else {
+[v _StartTx `(v ~T0 @X0 1 ef ]
 {
-[; ;Wireless.c: 43: Write1USART(character);
+[; ;Wireless.c: 41: void StartTx(void) {
+[e :U _StartTx ]
+[f ]
+[; ;Wireless.c: 42: Tx_complete = 0;
+"42
+[e = _Tx_complete -> -> 0 `i `uc ]
+[; ;Wireless.c: 43: PIE1bits.TX1IE = 1;
 "43
-[e ( _Write1USART (1 _character ]
-"44
-}
-[e :U 730 ]
+[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
 [; ;Wireless.c: 44: }
-[; ;Wireless.c: 45: }
-"45
+"44
 [e :UE 728 ]
 }
-[v F6210 `(v ~T0 @X0 1 tf ]
-"47
-[v _WirelessRx_ISR `TF6210 ~T0 @X0 1 e ]
+"46
+[v _StopTx `(v ~T0 @X0 1 ef ]
 {
-[; ;Wireless.c: 47: inline void WirelessRx_ISR(void) {
-[e :U _WirelessRx_ISR ]
+[; ;Wireless.c: 46: void StopTx(void) {
+[e :U _StopTx ]
 [f ]
-[; ;Wireless.c: 52: }
+[; ;Wireless.c: 47: PIE1bits.TX1IE = 0;
+"47
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+[; ;Wireless.c: 48: PIR1bits.TX1IF = 0;
+"48
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;Wireless.c: 49: }
+"49
+[e :UE 729 ]
+}
+"51
+[v _StartRx `(v ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 51: void StartRx(void) {
+[e :U _StartRx ]
+[f ]
+[; ;Wireless.c: 52: Rx_complete = 0;
 "52
+[e = _Rx_complete -> -> 0 `i `uc ]
+[; ;Wireless.c: 53: PIE1bits.RC1IE = 1;
+"53
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;Wireless.c: 54: }
+"54
+[e :UE 730 ]
+}
+"56
+[v _StopRx `(v ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 56: void StopRx(void) {
+[e :U _StopRx ]
+[f ]
+[; ;Wireless.c: 57: PIR1bits.RC1IF = 0;
+"57
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;Wireless.c: 58: PIE1bits.RC1IE = 0;
+"58
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
+[; ;Wireless.c: 59: }
+"59
 [e :UE 731 ]
 }
-"54
-[v _FlushTxBuf `(v ~T0 @X0 1 ef ]
-{
-[; ;Wireless.c: 54: void FlushTxBuf(void) {
-[e :U _FlushTxBuf ]
-[f ]
-"55
-[v _index `uc ~T0 @X0 1 a ]
-[; ;Wireless.c: 55: unsigned char index;
-[; ;Wireless.c: 57: for(index = 0; index < 20; index++) {
-"57
-{
-[e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 20 `i 733  ]
-[e $U 734  ]
-[e :U 733 ]
-{
-[; ;Wireless.c: 58: Tx_buffer[index] = 0;
-"58
-[e = *U + &U _Tx_buffer * -> _index `ux -> -> # *U &U _Tx_buffer `ui `ux -> -> 0 `i `uc ]
-"59
-}
-"57
-[e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 20 `i 733  ]
-[e :U 734 ]
-"59
-}
-[; ;Wireless.c: 59: }
-[; ;Wireless.c: 61: put_Tx_index = 0;
+[v F6224 `(v ~T0 @X0 1 tf ]
 "61
-[e = _put_Tx_index -> -> 0 `i `uc ]
-[; ;Wireless.c: 62: get_Tx_index = 0;
+[v _WirelessTx_ISR `TF6224 ~T0 @X0 1 e ]
+{
+[; ;Wireless.c: 61: inline void WirelessTx_ISR(void) {
+[e :U _WirelessTx_ISR ]
+[f ]
+[; ;Wireless.c: 62: TxCharacter = GetCharTxBuf();
 "62
-[e = _get_Tx_index -> -> 0 `i `uc ]
-[; ;Wireless.c: 64: }
+[e = _TxCharacter ( _GetCharTxBuf ..  ]
+[; ;Wireless.c: 63: if(TxCharacter == 0x0A) {
+"63
+[e $ ! == -> _TxCharacter `i -> 10 `i 733  ]
+{
+[; ;Wireless.c: 64: Write1USART(TxCharacter);
 "64
+[e ( _Write1USART (1 _TxCharacter ]
+[; ;Wireless.c: 65: Tx_complete = 1;
+"65
+[e = _Tx_complete -> -> 1 `i `uc ]
+[; ;Wireless.c: 66: PIE1bits.TX1IE = 0;
+"66
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+"67
+}
+[; ;Wireless.c: 67: }
+[e $U 734  ]
+"68
+[e :U 733 ]
+[; ;Wireless.c: 68: else {
+{
+[; ;Wireless.c: 69: Write1USART(TxCharacter);
+"69
+[e ( _Write1USART (1 _TxCharacter ]
+"70
+}
+[e :U 734 ]
+[; ;Wireless.c: 70: }
+[; ;Wireless.c: 71: }
+"71
 [e :UE 732 ]
 }
-"66
-[v _FlushRxBuf `(v ~T0 @X0 1 ef ]
+[v F6227 `(v ~T0 @X0 1 tf ]
+"73
+[v _WirelessRx_ISR `TF6227 ~T0 @X0 1 e ]
 {
-[; ;Wireless.c: 66: void FlushRxBuf(void) {
-[e :U _FlushRxBuf ]
+[; ;Wireless.c: 73: inline void WirelessRx_ISR(void) {
+[e :U _WirelessRx_ISR ]
 [f ]
-"67
+[; ;Wireless.c: 74: RxCharacter = Read1USART();
+"74
+[e = _RxCharacter ( _Read1USART ..  ]
+[; ;Wireless.c: 75: Rx_chars_received++;
+"75
+[e ++ _Rx_chars_received -> -> 1 `i `uc ]
+[; ;Wireless.c: 76: if(RxCharacter == 0x0A && Rx_chars_received == Rx_msg_length) {
+"76
+[e $ ! && == -> _RxCharacter `i -> 10 `i == -> _Rx_chars_received `i -> _Rx_msg_length `i 736  ]
+{
+[; ;Wireless.c: 77: PutCharRxBuf(RxCharacter);
+"77
+[e ( _PutCharRxBuf (1 _RxCharacter ]
+[; ;Wireless.c: 78: Rx_complete = 1;
+"78
+[e = _Rx_complete -> -> 1 `i `uc ]
+[; ;Wireless.c: 79: Rx_chars_received = 0;
+"79
+[e = _Rx_chars_received -> -> 0 `i `uc ]
+"80
+}
+[; ;Wireless.c: 80: }
+[e $U 737  ]
+"81
+[e :U 736 ]
+[; ;Wireless.c: 81: else {
+{
+[; ;Wireless.c: 82: PutCharRxBuf(RxCharacter);
+"82
+[e ( _PutCharRxBuf (1 _RxCharacter ]
+[; ;Wireless.c: 83: Rx_complete = 0;
+"83
+[e = _Rx_complete -> -> 0 `i `uc ]
+"84
+}
+[e :U 737 ]
+[; ;Wireless.c: 84: }
+[; ;Wireless.c: 88: }
+"88
+[e :UE 735 ]
+}
+"90
+[v _FlushTxBuf `(v ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 90: void FlushTxBuf(void) {
+[e :U _FlushTxBuf ]
+[f ]
+"91
 [v _index `uc ~T0 @X0 1 a ]
-[; ;Wireless.c: 67: unsigned char index;
-[; ;Wireless.c: 69: for(index = 0; index < 20; index++) {
-"69
+[; ;Wireless.c: 91: unsigned char index;
+[; ;Wireless.c: 93: for(index = 0; index < 25; index++) {
+"93
 {
 [e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 20 `i 737  ]
-[e $U 738  ]
-[e :U 737 ]
+[e $ < -> _index `i -> 25 `i 739  ]
+[e $U 740  ]
+[e :U 739 ]
 {
-[; ;Wireless.c: 70: Rx_buffer[index] = 0;
-"70
-[e = *U + &U _Rx_buffer * -> _index `ux -> -> # *U &U _Rx_buffer `ui `ux -> -> 0 `i `uc ]
-"71
+[; ;Wireless.c: 94: Tx_buffer[index] = 0;
+"94
+[e = *U + &U _Tx_buffer * -> _index `ux -> -> # *U &U _Tx_buffer `ui `ux -> -> 0 `i `uc ]
+"95
 }
-"69
+"93
 [e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 20 `i 737  ]
-[e :U 738 ]
-"71
+[e $ < -> _index `i -> 25 `i 739  ]
+[e :U 740 ]
+"95
 }
-[; ;Wireless.c: 71: }
-[; ;Wireless.c: 73: }
-"73
-[e :UE 736 ]
+[; ;Wireless.c: 95: }
+[; ;Wireless.c: 97: put_Tx_index = 0;
+"97
+[e = _put_Tx_index -> -> 0 `i `uc ]
+[; ;Wireless.c: 98: get_Tx_index = 0;
+"98
+[e = _get_Tx_index -> -> 0 `i `uc ]
+[; ;Wireless.c: 100: }
+"100
+[e :UE 738 ]
 }
-"75
+"102
+[v _FlushRxBuf `(v ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 102: void FlushRxBuf(void) {
+[e :U _FlushRxBuf ]
+[f ]
+"103
+[v _index `uc ~T0 @X0 1 a ]
+[; ;Wireless.c: 103: unsigned char index;
+[; ;Wireless.c: 105: for(index = 0; index < 25; index++) {
+"105
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 25 `i 743  ]
+[e $U 744  ]
+[e :U 743 ]
+{
+[; ;Wireless.c: 106: Rx_buffer[index] = 0;
+"106
+[e = *U + &U _Rx_buffer * -> _index `ux -> -> # *U &U _Rx_buffer `ui `ux -> -> 0 `i `uc ]
+"107
+}
+"105
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 25 `i 743  ]
+[e :U 744 ]
+"107
+}
+[; ;Wireless.c: 107: }
+[; ;Wireless.c: 109: put_Rx_index = 0;
+"109
+[e = _put_Rx_index -> -> 0 `i `uc ]
+[; ;Wireless.c: 110: get_Rx_index = 0;
+"110
+[e = _get_Rx_index -> -> 0 `i `uc ]
+[; ;Wireless.c: 112: }
+"112
+[e :UE 742 ]
+}
+"114
 [v _ConfigureWireless `(v ~T0 @X0 1 ef ]
 {
-[; ;Wireless.c: 75: void ConfigureWireless(void) {
+[; ;Wireless.c: 114: void ConfigureWireless(void) {
 [e :U _ConfigureWireless ]
 [f ]
-[; ;Wireless.c: 77: Open1USART(0b01111111
-[; ;Wireless.c: 78: & 0b10111111
-[; ;Wireless.c: 79: & 0b11111110
-[; ;Wireless.c: 80: & 0b11111101
-[; ;Wireless.c: 81: & 0b11111111
-[; ;Wireless.c: 82: & 0b11111111,
-[; ;Wireless.c: 83: 64);
-"83
+[; ;Wireless.c: 116: Open1USART(0b01111111
+[; ;Wireless.c: 117: & 0b10111111
+[; ;Wireless.c: 118: & 0b11111110
+[; ;Wireless.c: 119: & 0b11111101
+[; ;Wireless.c: 120: & 0b11111111
+[; ;Wireless.c: 121: & 0b11111111,
+[; ;Wireless.c: 122: 64);
+"122
 [e ( _Open1USART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
-[; ;Wireless.c: 85: FlushTxBuf();
-"85
+[; ;Wireless.c: 124: FlushTxBuf();
+"124
 [e ( _FlushTxBuf ..  ]
-[; ;Wireless.c: 86: FlushRxBuf();
-"86
+[; ;Wireless.c: 125: FlushRxBuf();
+"125
 [e ( _FlushRxBuf ..  ]
-[; ;Wireless.c: 88: get_Tx_index = 0;
-"88
-[e = _get_Tx_index -> -> 0 `i `uc ]
-[; ;Wireless.c: 89: put_Tx_index = 0;
-"89
-[e = _put_Tx_index -> -> 0 `i `uc ]
-[; ;Wireless.c: 91: Tx_complete = 1;
-"91
+[; ;Wireless.c: 127: Tx_complete = 1;
+"127
 [e = _Tx_complete -> -> 1 `i `uc ]
-[; ;Wireless.c: 93: }
-"93
-[e :UE 740 ]
+[; ;Wireless.c: 129: }
+"129
+[e :UE 746 ]
 }
-"95
+"131
 [v _BusyTx `(uc ~T0 @X0 1 ef ]
 {
-[; ;Wireless.c: 95: unsigned char BusyTx(void) {
+[; ;Wireless.c: 131: unsigned char BusyTx(void) {
 [e :U _BusyTx ]
 [f ]
-[; ;Wireless.c: 96: return(!Tx_complete);
-"96
+[; ;Wireless.c: 132: return(!Tx_complete);
+"132
 [e ) -> -> ! != -> _Tx_complete `i -> -> -> 0 `i `uc `i `i `uc ]
-[e $UE 741  ]
-[; ;Wireless.c: 97: }
-"97
-[e :UE 741 ]
+[e $UE 747  ]
+[; ;Wireless.c: 133: }
+"133
+[e :UE 747 ]
 }
-"99
+"135
+[v _BusyRx `(uc ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 135: unsigned char BusyRx(void) {
+[e :U _BusyRx ]
+[f ]
+[; ;Wireless.c: 136: return(!Rx_complete);
+"136
+[e ) -> -> ! != -> _Rx_complete `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e $UE 748  ]
+[; ;Wireless.c: 137: }
+"137
+[e :UE 748 ]
+}
+"139
 [v _SendStatus `(v ~T0 @X0 1 ef1`Cuc ]
 {
-[; ;Wireless.c: 99: void SendStatus(const unsigned char status_code) {
+[; ;Wireless.c: 139: void SendStatus(const unsigned char status_code) {
 [e :U _SendStatus ]
 [v _status_code `Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;Wireless.c: 100: while(BusyTx());
-"100
-[e $U 743  ]
-[e :U 744 ]
-[e :U 743 ]
-[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 744  ]
-[e :U 745 ]
-[; ;Wireless.c: 101: FlushTxBuf();
-"101
+[; ;Wireless.c: 140: while(BusyTx());
+"140
+[e $U 750  ]
+[e :U 751 ]
+[e :U 750 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 751  ]
+[e :U 752 ]
+[; ;Wireless.c: 141: FlushTxBuf();
+"141
 [e ( _FlushTxBuf ..  ]
-[; ;Wireless.c: 103: PutCharTxBuf(0xAA);
-"103
+[; ;Wireless.c: 143: PutCharTxBuf(0xAA);
+"143
 [e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
-[; ;Wireless.c: 104: PutCharTxBuf(0x01);
-"104
+[; ;Wireless.c: 144: PutCharTxBuf(0x01);
+"144
 [e ( _PutCharTxBuf (1 -> -> 1 `i `uc ]
-[; ;Wireless.c: 105: PutCharTxBuf(status_code);
-"105
+[; ;Wireless.c: 145: PutCharTxBuf((unsigned char)status_code);
+"145
 [e ( _PutCharTxBuf (1 _status_code ]
-[; ;Wireless.c: 106: PutCharTxBuf('\r');
-"106
+[; ;Wireless.c: 146: PutCharTxBuf('\r');
+"146
 [e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
-[; ;Wireless.c: 107: PutCharTxBuf('\n');
-"107
+[; ;Wireless.c: 147: PutCharTxBuf('\n');
+"147
 [e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
-[; ;Wireless.c: 109: StartTx();
-"109
+[; ;Wireless.c: 149: StartTx();
+"149
 [e ( _StartTx ..  ]
-[; ;Wireless.c: 110: }
-"110
-[e :UE 742 ]
+[; ;Wireless.c: 150: }
+"150
+[e :UE 749 ]
 }
-"112
+"152
 [v _SendLineMode `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;Wireless.c: 112: void SendLineMode(const unsigned char *line_mode) {
+[; ;Wireless.c: 152: void SendLineMode(const unsigned char *line_mode) {
 [e :U _SendLineMode ]
 [v _line_mode `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;Wireless.c: 113: while(BusyTx());
-"113
-[e $U 747  ]
-[e :U 748 ]
-[e :U 747 ]
-[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 748  ]
-[e :U 749 ]
-[; ;Wireless.c: 114: FlushTxBuf();
-"114
+[; ;Wireless.c: 153: while(BusyTx());
+"153
+[e $U 754  ]
+[e :U 755 ]
+[e :U 754 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 755  ]
+[e :U 756 ]
+[; ;Wireless.c: 154: FlushTxBuf();
+"154
 [e ( _FlushTxBuf ..  ]
-[; ;Wireless.c: 116: PutCharTxBuf(0xAA);
-"116
+[; ;Wireless.c: 156: PutCharTxBuf(0xAA);
+"156
 [e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
-[; ;Wireless.c: 117: PutCharTxBuf(0x11);
-"117
+[; ;Wireless.c: 157: PutCharTxBuf(0x11);
+"157
 [e ( _PutCharTxBuf (1 -> -> 17 `i `uc ]
-[; ;Wireless.c: 118: PutCharTxBuf(*line_mode);
-"118
+[; ;Wireless.c: 158: PutCharTxBuf((unsigned char)*line_mode);
+"158
 [e ( _PutCharTxBuf (1 *U _line_mode ]
-[; ;Wireless.c: 119: PutCharTxBuf('\r');
-"119
+[; ;Wireless.c: 159: PutCharTxBuf('\r');
+"159
 [e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
-[; ;Wireless.c: 120: PutCharTxBuf('\n');
-"120
+[; ;Wireless.c: 160: PutCharTxBuf('\n');
+"160
 [e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
-[; ;Wireless.c: 122: StartTx();
-"122
+[; ;Wireless.c: 162: StartTx();
+"162
 [e ( _StartTx ..  ]
-[; ;Wireless.c: 123: }
-"123
-[e :UE 746 ]
+[; ;Wireless.c: 163: }
+"163
+[e :UE 753 ]
 }
-"125
+"165
 [v _SendOffsets `(v ~T0 @X0 1 ef1`*Ci ]
 {
-[; ;Wireless.c: 125: void SendOffsets(const int *offsets_array) {
+[; ;Wireless.c: 165: void SendOffsets(const int *offsets_array) {
 [e :U _SendOffsets ]
 [v _offsets_array `*Ci ~T0 @X0 1 r1 ]
 [f ]
-"126
+"166
 [v _index `uc ~T0 @X0 1 a ]
-[; ;Wireless.c: 126: unsigned char index;
-[; ;Wireless.c: 128: while(BusyTx());
-"128
-[e $U 751  ]
-[e :U 752 ]
-[e :U 751 ]
-[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 752  ]
-[e :U 753 ]
-[; ;Wireless.c: 129: FlushTxBuf();
-"129
+[; ;Wireless.c: 166: unsigned char index;
+[; ;Wireless.c: 168: while(BusyTx());
+"168
+[e $U 758  ]
+[e :U 759 ]
+[e :U 758 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 759  ]
+[e :U 760 ]
+[; ;Wireless.c: 169: FlushTxBuf();
+"169
 [e ( _FlushTxBuf ..  ]
-[; ;Wireless.c: 131: PutCharTxBuf(0xAA);
-"131
+[; ;Wireless.c: 171: PutCharTxBuf(0xAA);
+"171
 [e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
-[; ;Wireless.c: 132: PutCharTxBuf(0x21);
-"132
+[; ;Wireless.c: 172: PutCharTxBuf(0x21);
+"172
 [e ( _PutCharTxBuf (1 -> -> 33 `i `uc ]
-[; ;Wireless.c: 134: for(index = 0; index < 5; index++) {
-"134
+[; ;Wireless.c: 174: for(index = 0; index < 5; index++) {
+"174
 {
 [e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 5 `i 754  ]
-[e $U 755  ]
-[e :U 754 ]
-{
-[; ;Wireless.c: 135: PutCharTxBuf((unsigned char)(*(offsets_array + index) >> 8 & 0x00FF));
-"135
-[e ( _PutCharTxBuf (1 -> & >> *U + _offsets_array * -> _index `ux -> -> # *U _offsets_array `ui `ux -> 8 `i -> 255 `i `uc ]
-[; ;Wireless.c: 136: PutCharTxBuf((unsigned char)(*(offsets_array + index) * 0x00FF));
-"136
-[e ( _PutCharTxBuf (1 -> * *U + _offsets_array * -> _index `ux -> -> # *U _offsets_array `ui `ux -> 255 `i `uc ]
-"137
-}
-"134
-[e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 5 `i 754  ]
-[e :U 755 ]
-"137
-}
-[; ;Wireless.c: 137: }
-[; ;Wireless.c: 139: PutCharTxBuf('\r');
-"139
-[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
-[; ;Wireless.c: 140: PutCharTxBuf('\n');
-"140
-[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
-[; ;Wireless.c: 141: while(BusyTx());
-"141
-[e $U 757  ]
-[e :U 758 ]
-[e :U 757 ]
-[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 758  ]
-[e :U 759 ]
-[; ;Wireless.c: 142: StartTx();
-"142
-[e ( _StartTx ..  ]
-[; ;Wireless.c: 144: }
-"144
-[e :UE 750 ]
-}
-"146
-[v _SendThreshold `(v ~T0 @X0 1 ef1`*Ci ]
-{
-[; ;Wireless.c: 146: void SendThreshold(const int *sensor_threshold) {
-[e :U _SendThreshold ]
-[v _sensor_threshold `*Ci ~T0 @X0 1 r1 ]
-[f ]
-[; ;Wireless.c: 147: while(BusyTx());
-"147
-[e $U 761  ]
-[e :U 762 ]
+[e $ < -> _index `i -> 5 `i 761  ]
+[e $U 762  ]
 [e :U 761 ]
-[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 762  ]
-[e :U 763 ]
-[; ;Wireless.c: 148: FlushTxBuf();
-"148
-[e ( _FlushTxBuf ..  ]
-[; ;Wireless.c: 150: PutCharTxBuf(0xAA);
-"150
-[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
-[; ;Wireless.c: 151: PutCharTxBuf(0x31);
-"151
-[e ( _PutCharTxBuf (1 -> -> 49 `i `uc ]
-[; ;Wireless.c: 153: PutCharTxBuf((unsigned char)(*sensor_threshold >> 8 & 0x00FF));
-"153
-[e ( _PutCharTxBuf (1 -> & >> *U _sensor_threshold -> 8 `i -> 255 `i `uc ]
-[; ;Wireless.c: 154: PutCharTxBuf((unsigned char)(*sensor_threshold & 0x00FF));
-"154
-[e ( _PutCharTxBuf (1 -> & *U _sensor_threshold -> 255 `i `uc ]
-[; ;Wireless.c: 156: PutCharTxBuf('\r');
-"156
+{
+[; ;Wireless.c: 175: PutCharTxBuf((unsigned char)(*(offsets_array + index) >> 8 & 0x00FF));
+"175
+[e ( _PutCharTxBuf (1 -> & >> *U + _offsets_array * -> _index `ux -> -> # *U _offsets_array `ui `ux -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 176: PutCharTxBuf((unsigned char)(*(offsets_array + index) * 0x00FF));
+"176
+[e ( _PutCharTxBuf (1 -> * *U + _offsets_array * -> _index `ux -> -> # *U _offsets_array `ui `ux -> 255 `i `uc ]
+"177
+}
+"174
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 761  ]
+[e :U 762 ]
+"177
+}
+[; ;Wireless.c: 177: }
+[; ;Wireless.c: 179: PutCharTxBuf('\r');
+"179
 [e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
-[; ;Wireless.c: 157: PutCharTxBuf('\n');
-"157
+[; ;Wireless.c: 180: PutCharTxBuf('\n');
+"180
 [e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
-[; ;Wireless.c: 158: while (BusyTx());
-"158
+[; ;Wireless.c: 181: while(BusyTx());
+"181
 [e $U 764  ]
 [e :U 765 ]
 [e :U 764 ]
 [e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 765  ]
 [e :U 766 ]
-[; ;Wireless.c: 159: StartTx();
-"159
+[; ;Wireless.c: 182: StartTx();
+"182
 [e ( _StartTx ..  ]
-[; ;Wireless.c: 161: }
-"161
-[e :UE 760 ]
+[; ;Wireless.c: 184: }
+"184
+[e :UE 757 ]
+}
+"186
+[v _SendThreshold `(v ~T0 @X0 1 ef1`*Ci ]
+{
+[; ;Wireless.c: 186: void SendThreshold(const int *sensor_threshold) {
+[e :U _SendThreshold ]
+[v _sensor_threshold `*Ci ~T0 @X0 1 r1 ]
+[f ]
+[; ;Wireless.c: 187: while(BusyTx());
+"187
+[e $U 768  ]
+[e :U 769 ]
+[e :U 768 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 769  ]
+[e :U 770 ]
+[; ;Wireless.c: 188: FlushTxBuf();
+"188
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 190: PutCharTxBuf(0xAA);
+"190
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 191: PutCharTxBuf(0x31);
+"191
+[e ( _PutCharTxBuf (1 -> -> 49 `i `uc ]
+[; ;Wireless.c: 193: PutCharTxBuf((unsigned char)(*sensor_threshold >> 8 & 0x00FF));
+"193
+[e ( _PutCharTxBuf (1 -> & >> *U _sensor_threshold -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 194: PutCharTxBuf((unsigned char)(*sensor_threshold & 0x00FF));
+"194
+[e ( _PutCharTxBuf (1 -> & *U _sensor_threshold -> 255 `i `uc ]
+[; ;Wireless.c: 196: PutCharTxBuf('\r');
+"196
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 197: PutCharTxBuf('\n');
+"197
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 198: while (BusyTx());
+"198
+[e $U 771  ]
+[e :U 772 ]
+[e :U 771 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 772  ]
+[e :U 773 ]
+[; ;Wireless.c: 199: StartTx();
+"199
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 201: }
+"201
+[e :UE 767 ]
+}
+"203
+[v _SendDefaultPIDValues `(v ~T0 @X0 1 ef3`i`i`i ]
+{
+[; ;Wireless.c: 203: void SendDefaultPIDValues(int Kp, int Kd, int Ki) {
+[e :U _SendDefaultPIDValues ]
+[v _Kp `i ~T0 @X0 1 r1 ]
+[v _Kd `i ~T0 @X0 1 r2 ]
+[v _Ki `i ~T0 @X0 1 r3 ]
+[f ]
+[; ;Wireless.c: 204: while(BusyTx());
+"204
+[e $U 775  ]
+[e :U 776 ]
+[e :U 775 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 776  ]
+[e :U 777 ]
+[; ;Wireless.c: 205: FlushTxBuf();
+"205
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 207: PutCharTxBuf(0xAA);
+"207
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 208: PutCharTxBuf(0x41);
+"208
+[e ( _PutCharTxBuf (1 -> -> 65 `i `uc ]
+[; ;Wireless.c: 210: PutCharTxBuf((unsigned char)(Kp >> 8 & 0x00FF));
+"210
+[e ( _PutCharTxBuf (1 -> & >> _Kp -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 211: PutCharTxBuf((unsigned char)(Kp & 0x00FF));
+"211
+[e ( _PutCharTxBuf (1 -> & _Kp -> 255 `i `uc ]
+[; ;Wireless.c: 212: PutCharTxBuf((unsigned char)(Kd >> 8 & 0x00FF));
+"212
+[e ( _PutCharTxBuf (1 -> & >> _Kd -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 213: PutCharTxBuf((unsigned char)(Kd & 0x00FF));
+"213
+[e ( _PutCharTxBuf (1 -> & _Kd -> 255 `i `uc ]
+[; ;Wireless.c: 214: PutCharTxBuf((unsigned char)(Ki >> 8 & 0x00FF));
+"214
+[e ( _PutCharTxBuf (1 -> & >> _Ki -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 215: PutCharTxBuf((unsigned char)(Ki & 0x00FF));
+"215
+[e ( _PutCharTxBuf (1 -> & _Ki -> 255 `i `uc ]
+[; ;Wireless.c: 217: PutCharTxBuf('\r');
+"217
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 218: PutCharTxBuf('\n');
+"218
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 219: while (BusyTx());
+"219
+[e $U 778  ]
+[e :U 779 ]
+[e :U 778 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 779  ]
+[e :U 780 ]
+[; ;Wireless.c: 220: StartTx();
+"220
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 221: }
+"221
+[e :UE 774 ]
+}
+"223
+[v _SendStoredPIDValues `(v ~T0 @X0 1 ef3`i`i`i ]
+{
+[; ;Wireless.c: 223: void SendStoredPIDValues(int Kp, int Kd, int Ki) {
+[e :U _SendStoredPIDValues ]
+[v _Kp `i ~T0 @X0 1 r1 ]
+[v _Kd `i ~T0 @X0 1 r2 ]
+[v _Ki `i ~T0 @X0 1 r3 ]
+[f ]
+[; ;Wireless.c: 224: while(BusyTx());
+"224
+[e $U 782  ]
+[e :U 783 ]
+[e :U 782 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 783  ]
+[e :U 784 ]
+[; ;Wireless.c: 225: FlushTxBuf();
+"225
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 227: PutCharTxBuf(0xAA);
+"227
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 228: PutCharTxBuf(0x42);
+"228
+[e ( _PutCharTxBuf (1 -> -> 66 `i `uc ]
+[; ;Wireless.c: 230: PutCharTxBuf((unsigned char)(Kp >> 8 & 0x00FF));
+"230
+[e ( _PutCharTxBuf (1 -> & >> _Kp -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 231: PutCharTxBuf((unsigned char)(Kp & 0x00FF));
+"231
+[e ( _PutCharTxBuf (1 -> & _Kp -> 255 `i `uc ]
+[; ;Wireless.c: 232: PutCharTxBuf((unsigned char)(Kd >> 8 & 0x00FF));
+"232
+[e ( _PutCharTxBuf (1 -> & >> _Kd -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 233: PutCharTxBuf((unsigned char)(Kd & 0x00FF));
+"233
+[e ( _PutCharTxBuf (1 -> & _Kd -> 255 `i `uc ]
+[; ;Wireless.c: 234: PutCharTxBuf((unsigned char)(Ki >> 8 & 0x00FF));
+"234
+[e ( _PutCharTxBuf (1 -> & >> _Ki -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 235: PutCharTxBuf((unsigned char)(Ki & 0x00FF));
+"235
+[e ( _PutCharTxBuf (1 -> & _Ki -> 255 `i `uc ]
+[; ;Wireless.c: 237: PutCharTxBuf('\r');
+"237
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 238: PutCharTxBuf('\n');
+"238
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 239: while (BusyTx());
+"239
+[e $U 785  ]
+[e :U 786 ]
+[e :U 785 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 786  ]
+[e :U 787 ]
+[; ;Wireless.c: 240: StartTx();
+"240
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 241: }
+"241
+[e :UE 781 ]
+}
+"243
+[v _SendCurrentPIDValues `(v ~T0 @X0 1 ef3`i`i`i ]
+{
+[; ;Wireless.c: 243: void SendCurrentPIDValues(int Kp, int Kd, int Ki) {
+[e :U _SendCurrentPIDValues ]
+[v _Kp `i ~T0 @X0 1 r1 ]
+[v _Kd `i ~T0 @X0 1 r2 ]
+[v _Ki `i ~T0 @X0 1 r3 ]
+[f ]
+[; ;Wireless.c: 244: while(BusyTx());
+"244
+[e $U 789  ]
+[e :U 790 ]
+[e :U 789 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 790  ]
+[e :U 791 ]
+[; ;Wireless.c: 245: FlushTxBuf();
+"245
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 247: PutCharTxBuf(0xAA);
+"247
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 248: PutCharTxBuf(0x43);
+"248
+[e ( _PutCharTxBuf (1 -> -> 67 `i `uc ]
+[; ;Wireless.c: 250: PutCharTxBuf((unsigned char)(Kp >> 8 & 0x00FF));
+"250
+[e ( _PutCharTxBuf (1 -> & >> _Kp -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 251: PutCharTxBuf((unsigned char)(Kp & 0x00FF));
+"251
+[e ( _PutCharTxBuf (1 -> & _Kp -> 255 `i `uc ]
+[; ;Wireless.c: 252: PutCharTxBuf((unsigned char)(Kd >> 8 & 0x00FF));
+"252
+[e ( _PutCharTxBuf (1 -> & >> _Kd -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 253: PutCharTxBuf((unsigned char)(Kd & 0x00FF));
+"253
+[e ( _PutCharTxBuf (1 -> & _Kd -> 255 `i `uc ]
+[; ;Wireless.c: 254: PutCharTxBuf((unsigned char)(Ki >> 8 & 0x00FF));
+"254
+[e ( _PutCharTxBuf (1 -> & >> _Ki -> 8 `i -> 255 `i `uc ]
+[; ;Wireless.c: 255: PutCharTxBuf((unsigned char)(Ki & 0x00FF));
+"255
+[e ( _PutCharTxBuf (1 -> & _Ki -> 255 `i `uc ]
+[; ;Wireless.c: 257: PutCharTxBuf('\r');
+"257
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 258: PutCharTxBuf('\n');
+"258
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 259: while (BusyTx());
+"259
+[e $U 792  ]
+[e :U 793 ]
+[e :U 792 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 793  ]
+[e :U 794 ]
+[; ;Wireless.c: 260: StartTx();
+"260
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 261: }
+"261
+[e :UE 788 ]
+}
+"265
+[v _SendBattVoltageInitial `(v ~T0 @X0 1 ef1`*Cui ]
+{
+[; ;Wireless.c: 265: void SendBattVoltageInitial(const unsigned int *reading) {
+[e :U _SendBattVoltageInitial ]
+[v _reading `*Cui ~T0 @X0 1 r1 ]
+[f ]
+[; ;Wireless.c: 266: while(BusyTx());
+"266
+[e $U 796  ]
+[e :U 797 ]
+[e :U 796 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 797  ]
+[e :U 798 ]
+[; ;Wireless.c: 267: FlushTxBuf();
+"267
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 269: PutCharTxBuf(0xAA);
+"269
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 270: PutCharTxBuf(0x06);
+"270
+[e ( _PutCharTxBuf (1 -> -> 6 `i `uc ]
+[; ;Wireless.c: 272: PutCharTxBuf((unsigned char)(*reading >> 8 & 0x00FF));
+"272
+[e ( _PutCharTxBuf (1 -> & >> *U _reading -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Wireless.c: 273: PutCharTxBuf((unsigned char)(*reading & 0x00FF));
+"273
+[e ( _PutCharTxBuf (1 -> & *U _reading -> -> 255 `i `ui `uc ]
+[; ;Wireless.c: 275: PutCharTxBuf('\r');
+"275
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 276: PutCharTxBuf('\n');
+"276
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 277: while (BusyTx());
+"277
+[e $U 799  ]
+[e :U 800 ]
+[e :U 799 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 800  ]
+[e :U 801 ]
+[; ;Wireless.c: 278: StartTx();
+"278
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 280: }
+"280
+[e :UE 795 ]
+}
+"282
+[v _SendBattVoltage `(v ~T0 @X0 1 ef1`*Cui ]
+{
+[; ;Wireless.c: 282: void SendBattVoltage(const unsigned int *reading) {
+[e :U _SendBattVoltage ]
+[v _reading `*Cui ~T0 @X0 1 r1 ]
+[f ]
+[; ;Wireless.c: 283: while(BusyTx());
+"283
+[e $U 803  ]
+[e :U 804 ]
+[e :U 803 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 804  ]
+[e :U 805 ]
+[; ;Wireless.c: 284: FlushTxBuf();
+"284
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 286: PutCharTxBuf(0xAA);
+"286
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 287: PutCharTxBuf(0x03);
+"287
+[e ( _PutCharTxBuf (1 -> -> 3 `i `uc ]
+[; ;Wireless.c: 289: PutCharTxBuf((unsigned char)(*reading >> 8 & 0x00FF));
+"289
+[e ( _PutCharTxBuf (1 -> & >> *U _reading -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Wireless.c: 290: PutCharTxBuf((unsigned char)(*reading & 0x00FF));
+"290
+[e ( _PutCharTxBuf (1 -> & *U _reading -> -> 255 `i `ui `uc ]
+[; ;Wireless.c: 292: PutCharTxBuf('\r');
+"292
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 293: PutCharTxBuf('\n');
+"293
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 294: while (BusyTx());
+"294
+[e $U 806  ]
+[e :U 807 ]
+[e :U 806 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 807  ]
+[e :U 808 ]
+[; ;Wireless.c: 295: StartTx();
+"295
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 297: }
+"297
+[e :UE 802 ]
+}
+"299
+[v _SendBattCurrent `(v ~T0 @X0 1 ef1`*Cui ]
+{
+[; ;Wireless.c: 299: void SendBattCurrent(const unsigned int *reading) {
+[e :U _SendBattCurrent ]
+[v _reading `*Cui ~T0 @X0 1 r1 ]
+[f ]
+[; ;Wireless.c: 300: while(BusyTx());
+"300
+[e $U 810  ]
+[e :U 811 ]
+[e :U 810 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 811  ]
+[e :U 812 ]
+[; ;Wireless.c: 301: FlushTxBuf();
+"301
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 303: PutCharTxBuf(0xAA);
+"303
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 304: PutCharTxBuf(0x04);
+"304
+[e ( _PutCharTxBuf (1 -> -> 4 `i `uc ]
+[; ;Wireless.c: 306: PutCharTxBuf((unsigned char)(*reading >> 8 & 0x00FF));
+"306
+[e ( _PutCharTxBuf (1 -> & >> *U _reading -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Wireless.c: 307: PutCharTxBuf((unsigned char)(*reading & 0x00FF));
+"307
+[e ( _PutCharTxBuf (1 -> & *U _reading -> -> 255 `i `ui `uc ]
+[; ;Wireless.c: 309: PutCharTxBuf('\r');
+"309
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 310: PutCharTxBuf('\n');
+"310
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 311: while (BusyTx());
+"311
+[e $U 813  ]
+[e :U 814 ]
+[e :U 813 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 814  ]
+[e :U 815 ]
+[; ;Wireless.c: 312: StartTx();
+"312
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 315: }
+"315
+[e :UE 809 ]
+}
+"317
+[v _SendBattCurrentAcc `(v ~T0 @X0 1 ef1`*Cul ]
+{
+[; ;Wireless.c: 317: void SendBattCurrentAcc(const unsigned long *reading) {
+[e :U _SendBattCurrentAcc ]
+[v _reading `*Cul ~T0 @X0 1 r1 ]
+[f ]
+[; ;Wireless.c: 318: while(BusyTx());
+"318
+[e $U 817  ]
+[e :U 818 ]
+[e :U 817 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 818  ]
+[e :U 819 ]
+[; ;Wireless.c: 319: FlushTxBuf();
+"319
+[e ( _FlushTxBuf ..  ]
+[; ;Wireless.c: 321: PutCharTxBuf(0xAA);
+"321
+[e ( _PutCharTxBuf (1 -> -> 170 `i `uc ]
+[; ;Wireless.c: 322: PutCharTxBuf(0x05);
+"322
+[e ( _PutCharTxBuf (1 -> -> 5 `i `uc ]
+[; ;Wireless.c: 324: PutCharTxBuf((unsigned char)(*reading >> 24 & 0x000000FF));
+"324
+[e ( _PutCharTxBuf (1 -> & >> *U _reading -> 24 `i -> -> -> 255 `i `l `ul `uc ]
+[; ;Wireless.c: 325: PutCharTxBuf((unsigned char)(*reading >> 16 & 0x000000FF));
+"325
+[e ( _PutCharTxBuf (1 -> & >> *U _reading -> 16 `i -> -> -> 255 `i `l `ul `uc ]
+[; ;Wireless.c: 326: PutCharTxBuf((unsigned char)(*reading >> 8 & 0x000000FF));
+"326
+[e ( _PutCharTxBuf (1 -> & >> *U _reading -> 8 `i -> -> -> 255 `i `l `ul `uc ]
+[; ;Wireless.c: 327: PutCharTxBuf((unsigned char)(*reading & 0x000000FF));
+"327
+[e ( _PutCharTxBuf (1 -> & *U _reading -> -> -> 255 `i `l `ul `uc ]
+[; ;Wireless.c: 329: PutCharTxBuf('\r');
+"329
+[e ( _PutCharTxBuf (1 -> -> 13 `ui `uc ]
+[; ;Wireless.c: 330: PutCharTxBuf('\n');
+"330
+[e ( _PutCharTxBuf (1 -> -> 10 `ui `uc ]
+[; ;Wireless.c: 331: while (BusyTx());
+"331
+[e $U 820  ]
+[e :U 821 ]
+[e :U 820 ]
+[e $ != -> ( _BusyTx ..  `i -> -> -> 0 `i `uc `i 821  ]
+[e :U 822 ]
+[; ;Wireless.c: 332: StartTx();
+"332
+[e ( _StartTx ..  ]
+[; ;Wireless.c: 335: }
+"335
+[e :UE 816 ]
+}
+"337
+[v _ReceiveCommandsEnable `(v ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 337: void ReceiveCommandsEnable(void) {
+[e :U _ReceiveCommandsEnable ]
+[f ]
+[; ;Wireless.c: 338: FlushRxBuf();
+"338
+[e ( _FlushRxBuf ..  ]
+[; ;Wireless.c: 340: Rx_chars_received = 0;
+"340
+[e = _Rx_chars_received -> -> 0 `i `uc ]
+[; ;Wireless.c: 341: Rx_msg_length = 4;
+"341
+[e = _Rx_msg_length -> -> 4 `i `uc ]
+[; ;Wireless.c: 343: StartRx();
+"343
+[e ( _StartRx ..  ]
+[; ;Wireless.c: 345: }
+"345
+[e :UE 823 ]
+}
+"347
+[v _ReceiveCommandsDisable `(v ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 347: void ReceiveCommandsDisable(void) {
+[e :U _ReceiveCommandsDisable ]
+[f ]
+[; ;Wireless.c: 348: StopRx();
+"348
+[e ( _StopRx ..  ]
+[; ;Wireless.c: 349: }
+"349
+[e :UE 824 ]
+}
+"351
+[v _CommandAvailable `(uc ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 351: unsigned char CommandAvailable(void) {
+[e :U _CommandAvailable ]
+[f ]
+[; ;Wireless.c: 352: return((PIR1bits.RCIF));
+"352
+[e ) . . _PIR1bits 1 3 ]
+[e $UE 825  ]
+[; ;Wireless.c: 353: }
+"353
+[e :UE 825 ]
+}
+"355
+[v _GetCommand `(uc ~T0 @X0 1 ef ]
+{
+[; ;Wireless.c: 355: unsigned char GetCommand(void) {
+[e :U _GetCommand ]
+[f ]
+[; ;Wireless.c: 357: return(Read1USART());
+"357
+[e ) ( _Read1USART ..  ]
+[e $UE 826  ]
+[; ;Wireless.c: 358: }
+"358
+[e :UE 826 ]
 }

@@ -1,4 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"239 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib/timers.h
+[v _WriteTimer1 `(v ~T0 @X0 0 ef1`ui ]
 "13390 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
 [s S704 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S704 . INT1IF INT2IF INT3IF INT1IE INT2IE INT3IE INT1IP INT2IP ]
@@ -33,9 +35,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S663 . . . . . . . ]
 "12453
 [v _T1CONbits `VS663 ~T0 @X0 0 e@4045 ]
-"239 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib/timers.h
-[v _WriteTimer1 `(v ~T0 @X0 0 ef1`ui ]
-"13501 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+"13501
 [s S707 :7 `uc 1 :1 `uc 1 ]
 [n S707 . . NOT_RBPU ]
 "13505
@@ -5774,6 +5774,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Ultrasound.c: 11: convert_in = echo_to_in;
 "11
 [e = _convert_in _echo_to_in ]
+[; ;Ultrasound.c: 12: WriteTimer1(0);
+"12
+[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
 [; ;Ultrasound.c: 14: }
 "14
 [e :UE 721 ]

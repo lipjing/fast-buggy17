@@ -3,6 +3,34 @@
 [d edition pro ]
 [d chip 18F8722 ]
 [d frameptr 4065 ]
+"36 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\BatteryLib/ds2781.c
+[e E6350 _BOOL `uc
+FALSE 0
+TRUE 1
+]
+"42 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\BatteryLib/OneWire.c
+[e E6350 _BOOL `uc
+FALSE 0
+TRUE 1
+]
+"33 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\BatteryLib/ds2781.c
+[v _ReadVoltage ReadVoltage `(us  1 e 2 0 ]
+"103
+[v _ResetAccumulatedCurrent ResetAccumulatedCurrent `(v  1 e 0 0 ]
+"195
+[v _WriteCurrentOffset WriteCurrentOffset `(v  1 e 0 0 ]
+"363
+[v _Delay100MSx Delay100MSx `(v  1 e 0 0 ]
+"41 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\BatteryLib/OneWire.c
+[v _OWReset OWReset `(E6350  1 e 1 0 ]
+"72
+[v _OWWriteBit OWWriteBit `(v  1 e 0 0 ]
+"112
+[v _OWReadBit OWReadBit `(uc  1 e 1 0 ]
+"143
+[v _OWWriteByte OWWriteByte `(v  1 e 0 0 ]
+"163
+[v _OWReadByte OWReadByte `(uc  1 e 1 0 ]
 "42 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altoft.c
 [v ___altoft __altoft `(f  1 e 3 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
@@ -101,6 +129,8 @@
 [v _OpenTimer2 OpenTimer2 `(v  1 e 0 0 ]
 "72 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\USART\u1open.c
 [v _Open1USART Open1USART `(v  1 e 0 0 ]
+"17 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\USART\u1read.c
+[v _Read1USART Read1USART `(uc  1 e 1 0 ]
 "14 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\USART\u1write.c
 [v _Write1USART Write1USART `(v  1 e 0 0 ]
 "3 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\eeprom.c
@@ -115,65 +145,73 @@
 [v _ReadIntEEPROM ReadIntEEPROM `(ui  1 e 2 0 ]
 "76
 [v _ReadCharEEPROM ReadCharEEPROM `(uc  1 e 1 0 ]
-"78 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"85 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _ConfigureInterrupts ConfigureInterrupts `(v  1 e 0 0 ]
-"135
+"142
 [v _ConfigureTimer0 ConfigureTimer0 `(v  1 e 0 0 ]
-"149
+"156
 [v _ConfigureTimer1 ConfigureTimer1 `(v  1 e 0 0 ]
-"167
+"174
 [v _ConfigureTimer2 ConfigureTimer2 `(v  1 e 0 0 ]
-"185
+"192
 [v _ConfigurePWM ConfigurePWM `(v  1 e 0 0 ]
-"208
+"215
 [v _ConfigureBuggyIO ConfigureBuggyIO `(v  1 e 0 0 ]
-"234
+"241
 [v _ConfigureADC ConfigureADC `(v  1 e 0 0 ]
-"261
+"268
 [v _SetADCChannel SetADCChannel `(v  1 e 0 0 ]
 [v i1_SetADCChannel SetADCChannel `(v  1 e 0 0 ]
-"319
+"326
 [v _GetSensorReadings GetSensorReadings `(v  1 e 0 0 ]
-"330
-[v _BusySensorAcq BusySensorAcq `(uc  1 e 1 0 ]
 "337
+[v _BusySensorAcq BusySensorAcq `(uc  1 e 1 0 ]
+"344
 [v _NormaliseSensorReadings NormaliseSensorReadings `(v  1 e 0 0 ]
-"349
+"356
 [v _CalculateSensorStatuses CalculateSensorStatuses `(v  1 e 0 0 ]
-"383
+"390
 [v _CalculateSensorSums CalculateSensorSums `(uc  1 e 1 0 ]
-"397
+"404
 [v _CalculateSensorError CalculateSensorError `(i  1 e 2 0 ]
-"427
+"434
 [v _DisplaySensorStatuses DisplaySensorStatuses `(v  1 e 0 0 ]
-"437
+"444
 [v _EnableSensorLEDS EnableSensorLEDS `(v  1 e 0 0 ]
-"451
+"458
 [v _FlashLEDS FlashLEDS `(v  1 e 0 0 ]
-"463
+"470
 [v _PB1pressed PB1pressed `(uc  1 e 1 0 ]
-"483
+"498
 [v _PB2pressed PB2pressed `(uc  1 e 1 0 ]
-"502
+"525
 [v _CalibrateOffsets CalibrateOffsets `(v  1 e 0 0 ]
-"518
+"541
 [v _CalibrateThreshold CalibrateThreshold `(v  1 e 0 0 ]
-"564
+"587
 [v _GenerateCalibration GenerateCalibration `(v  1 e 0 0 ]
-"604
+"633
 [v _LoadCalibration LoadCalibration `(v  1 e 0 0 ]
-"622
+"663
+[v _SetPIDValues SetPIDValues `(v  1 e 0 0 ]
+"695
+[v _LoadPIDValues LoadPIDValues `(v  1 e 0 0 ]
+"726
 [v _isrHP isrHP `IIH(v  1 e 0 0 ]
-"649
+"748
 [v _isrLP isrLP `IIL(v  1 e 0 0 ]
-"685
+"789
 [v _main main `(v  1 e 0 0 ]
 "7 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\MillisecondTimer.c
 [v _ReadMillis0 ReadMillis0 `(ui  1 e 2 0 ]
+"13
+[v _ReadMillis1 ReadMillis1 `(ui  1 e 2 0 ]
 "19
 [v _ReadMillis2 ReadMillis2 `(ui  1 e 2 0 ]
 "27
 [v _ResetMillis0 ResetMillis0 `(v  1 e 0 0 ]
+"33
+[v _ResetMillis1 ResetMillis1 `(v  1 e 0 0 ]
 "39
 [v _ResetMillis2 ResetMillis2 `(v  1 e 0 0 ]
 "44
@@ -213,25 +251,45 @@
 "15
 [v _GetCharTxBuf GetCharTxBuf `(uc  1 e 1 0 ]
 "25
+[v _PutCharRxBuf PutCharRxBuf `(v  1 e 0 0 ]
+"31
+[v _GetCharRxBuf GetCharRxBuf `(uc  1 e 1 0 ]
+"41
 [v _StartTx StartTx `(v  1 e 0 0 ]
-"35
+"51
+[v _StartRx StartRx `(v  1 e 0 0 ]
+"56
+[v _StopRx StopRx `(v  1 e 0 0 ]
+"61
 [v _WirelessTx_ISR WirelessTx_ISR `T(v  1 e 0 0 ]
-"54
+"90
 [v _FlushTxBuf FlushTxBuf `(v  1 e 0 0 ]
-"66
+"102
 [v _FlushRxBuf FlushRxBuf `(v  1 e 0 0 ]
-"75
+"114
 [v _ConfigureWireless ConfigureWireless `(v  1 e 0 0 ]
-"95
+"131
 [v _BusyTx BusyTx `(uc  1 e 1 0 ]
-"99
+"139
 [v _SendStatus SendStatus `(v  1 e 0 0 ]
-"112
+"152
 [v _SendLineMode SendLineMode `(v  1 e 0 0 ]
-"125
+"165
 [v _SendOffsets SendOffsets `(v  1 e 0 0 ]
-"146
+"186
 [v _SendThreshold SendThreshold `(v  1 e 0 0 ]
+"203
+[v _SendDefaultPIDValues SendDefaultPIDValues `(v  1 e 0 0 ]
+"223
+[v _SendStoredPIDValues SendStoredPIDValues `(v  1 e 0 0 ]
+"243
+[v _SendCurrentPIDValues SendCurrentPIDValues `(v  1 e 0 0 ]
+"265
+[v _SendBattVoltageInitial SendBattVoltageInitial `(v  1 e 0 0 ]
+"351
+[v _CommandAvailable CommandAvailable `(uc  1 e 1 0 ]
+"355
+[v _GetCommand GetCommand `(uc  1 e 1 0 ]
 "1676 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
 [v _CCP5CON CCP5CON `VEuc  1 e 1 @3952 ]
 "1760
@@ -240,12 +298,12 @@
 [v _CCP4CON CCP4CON `VEuc  1 e 1 @3955 ]
 "1856
 [v _CCPR4L CCPR4L `VEuc  1 e 1 @3956 ]
-[s S1782 . 1 `uc 1 T4CKPS 1 0 :2:0 
+[s S2135 . 1 `uc 1 T4CKPS 1 0 :2:0 
 `uc 1 TMR4ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "1889
-[s S1786 . 1 `uc 1 T4CKPS0 1 0 :1:0 
+[s S2139 . 1 `uc 1 T4CKPS0 1 0 :1:0 
 `uc 1 T4CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T4OUTPS0 1 0 :1:3 
@@ -253,13 +311,13 @@
 `uc 1 T4OUTPS2 1 0 :1:5 
 `uc 1 T4OUTPS3 1 0 :1:6 
 ]
-[u S1794 . 1 `S1782 1 . 1 0 `S1786 1 . 1 0 ]
-[v _T4CONbits T4CONbits `VES1794  1 e 1 @3958 ]
+[u S2147 . 1 `S2135 1 . 1 0 `S2139 1 . 1 0 ]
+[v _T4CONbits T4CONbits `VES2147  1 e 1 @3958 ]
 "1938
 [v _PR4 PR4 `VEuc  1 e 1 @3959 ]
 "2624
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3967 ]
-[s S489 . 1 `uc 1 RB0 1 0 :1:0 
+[s S1443 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -269,7 +327,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "2826
-[s S498 . 1 `uc 1 INT0 1 0 :1:0 
+[s S1452 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 INT3 1 0 :1:3 
@@ -278,22 +336,73 @@
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S507 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S1461 . 1 `uc 1 FLT0 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
 `uc 1 ECCP2 1 0 :1:3 
 ]
-[s S511 . 1 `uc 1 . 1 0 :3:0 
+[s S1465 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2 1 0 :1:3 
 ]
-[s S514 . 1 `uc 1 . 1 0 :3:0 
+[s S1468 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 P2A 1 0 :1:3 
 ]
-[s S517 . 1 `uc 1 . 1 0 :3:0 
+[s S1471 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S520 . 1 `S489 1 . 1 0 `S498 1 . 1 0 `S507 1 . 1 0 `S511 1 . 1 0 `S514 1 . 1 0 `S517 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES520  1 e 1 @3969 ]
-[s S1091 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S1474 . 1 `S1443 1 . 1 0 `S1452 1 . 1 0 `S1461 1 . 1 0 `S1465 1 . 1 0 `S1468 1 . 1 0 `S1471 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES1474  1 e 1 @3969 ]
+[s S936 . 1 `uc 1 RH0 1 0 :1:0 
+`uc 1 RH1 1 0 :1:1 
+`uc 1 RH2 1 0 :1:2 
+`uc 1 RH3 1 0 :1:3 
+`uc 1 RH4 1 0 :1:4 
+`uc 1 RH5 1 0 :1:5 
+`uc 1 RH6 1 0 :1:6 
+`uc 1 RH7 1 0 :1:7 
+]
+"4201
+[s S978 . 1 `uc 1 A16 1 0 :1:0 
+`uc 1 A17 1 0 :1:1 
+`uc 1 A18 1 0 :1:2 
+`uc 1 A19 1 0 :1:3 
+`uc 1 AN12 1 0 :1:4 
+`uc 1 AN13 1 0 :1:5 
+`uc 1 AN14 1 0 :1:6 
+`uc 1 AN15 1 0 :1:7 
+]
+[s S987 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 P3C 1 0 :1:4 
+`uc 1 P3B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1B 1 0 :1:7 
+]
+[s S993 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CCP6 1 0 :1:7 
+]
+[s S996 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CCP7 1 0 :1:6 
+]
+[s S999 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 CCP8 1 0 :1:5 
+]
+[s S1002 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CCP9 1 0 :1:4 
+]
+[s S1005 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 PB1 1 0 :1:7 
+]
+[s S1008 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 PB3 1 0 :1:5 
+]
+[s S1011 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PC1 1 0 :1:6 
+]
+[s S1014 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 PC3 1 0 :1:4 
+]
+[u S1017 . 1 `S936 1 . 1 0 `S978 1 . 1 0 `S987 1 . 1 0 `S993 1 . 1 0 `S996 1 . 1 0 `S999 1 . 1 0 `S1002 1 . 1 0 `S1005 1 . 1 0 `S1008 1 . 1 0 `S1011 1 . 1 0 `S1014 1 . 1 0 ]
+[v _PORTHbits PORTHbits `VES1017  1 e 1 @3975 ]
+[s S335 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -303,34 +412,34 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "4994
-[s S1100 . 1 `uc 1 LD0 1 0 :1:0 
+[s S344 . 1 `uc 1 LD0 1 0 :1:0 
 ]
-[s S1102 . 1 `uc 1 . 1 0 :1:0 
+[s S346 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 ]
-[s S1105 . 1 `uc 1 . 1 0 :2:0 
+[s S349 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LD2 1 0 :1:2 
 ]
-[s S1108 . 1 `uc 1 . 1 0 :3:0 
+[s S352 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LD3 1 0 :1:3 
 ]
-[s S1111 . 1 `uc 1 . 1 0 :4:0 
+[s S355 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LD4 1 0 :1:4 
 ]
-[s S1114 . 1 `uc 1 . 1 0 :5:0 
+[s S358 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LD5 1 0 :1:5 
 ]
-[s S1117 . 1 `uc 1 . 1 0 :6:0 
+[s S361 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LD6 1 0 :1:6 
 ]
-[s S1120 . 1 `uc 1 . 1 0 :7:0 
+[s S364 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S1123 . 1 `S1091 1 . 1 0 `S1100 1 . 1 0 `S1102 1 . 1 0 `S1105 1 . 1 0 `S1108 1 . 1 0 `S1111 1 . 1 0 `S1114 1 . 1 0 `S1117 1 . 1 0 `S1120 1 . 1 0 ]
-[v _LATDbits LATDbits `VES1123  1 e 1 @3980 ]
+[u S367 . 1 `S335 1 . 1 0 `S344 1 . 1 0 `S346 1 . 1 0 `S349 1 . 1 0 `S352 1 . 1 0 `S355 1 . 1 0 `S358 1 . 1 0 `S361 1 . 1 0 `S364 1 . 1 0 ]
+[v _LATDbits LATDbits `VES367  1 e 1 @3980 ]
 "5078
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S950 . 1 `uc 1 LATE0 1 0 :1:0 
+[s S171 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 `uc 1 LATE3 1 0 :1:3 
@@ -340,31 +449,66 @@
 `uc 1 LATE7 1 0 :1:7 
 ]
 "5126
-[s S959 . 1 `uc 1 LE0 1 0 :1:0 
+[s S180 . 1 `uc 1 LE0 1 0 :1:0 
 ]
-[s S961 . 1 `uc 1 . 1 0 :1:0 
+[s S182 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 ]
-[s S964 . 1 `uc 1 . 1 0 :2:0 
+[s S185 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LE2 1 0 :1:2 
 ]
-[s S967 . 1 `uc 1 . 1 0 :3:0 
+[s S188 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LE3 1 0 :1:3 
 ]
-[s S970 . 1 `uc 1 . 1 0 :4:0 
+[s S191 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LE4 1 0 :1:4 
 ]
-[s S973 . 1 `uc 1 . 1 0 :5:0 
+[s S194 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LE5 1 0 :1:5 
 ]
-[s S976 . 1 `uc 1 . 1 0 :6:0 
+[s S197 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LE6 1 0 :1:6 
 ]
-[s S979 . 1 `uc 1 . 1 0 :7:0 
+[s S200 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LE7 1 0 :1:7 
 ]
-[u S982 . 1 `S950 1 . 1 0 `S959 1 . 1 0 `S961 1 . 1 0 `S964 1 . 1 0 `S967 1 . 1 0 `S970 1 . 1 0 `S973 1 . 1 0 `S976 1 . 1 0 `S979 1 . 1 0 ]
-[v _LATEbits LATEbits `VES982  1 e 1 @3981 ]
+[u S203 . 1 `S171 1 . 1 0 `S180 1 . 1 0 `S182 1 . 1 0 `S185 1 . 1 0 `S188 1 . 1 0 `S191 1 . 1 0 `S194 1 . 1 0 `S197 1 . 1 0 `S200 1 . 1 0 ]
+[v _LATEbits LATEbits `VES203  1 e 1 @3981 ]
+[s S852 . 1 `uc 1 LATH0 1 0 :1:0 
+`uc 1 LATH1 1 0 :1:1 
+`uc 1 LATH2 1 0 :1:2 
+`uc 1 LATH3 1 0 :1:3 
+`uc 1 LATH4 1 0 :1:4 
+`uc 1 LATH5 1 0 :1:5 
+`uc 1 LATH6 1 0 :1:6 
+`uc 1 LATH7 1 0 :1:7 
+]
+"5483
+[s S861 . 1 `uc 1 LH0 1 0 :1:0 
+]
+[s S863 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LH1 1 0 :1:1 
+]
+[s S866 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LH2 1 0 :1:2 
+]
+[s S869 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LH3 1 0 :1:3 
+]
+[s S872 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LH4 1 0 :1:4 
+]
+[s S875 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LH5 1 0 :1:5 
+]
+[s S878 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LH6 1 0 :1:6 
+]
+[s S881 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LH7 1 0 :1:7 
+]
+[u S884 . 1 `S852 1 . 1 0 `S861 1 . 1 0 `S863 1 . 1 0 `S866 1 . 1 0 `S869 1 . 1 0 `S872 1 . 1 0 `S875 1 . 1 0 `S878 1 . 1 0 `S881 1 . 1 0 ]
+[v _LATHbits LATHbits `VES884  1 e 1 @3984 ]
 "5567
 [v _LATJ LATJ `VEuc  1 e 1 @3985 ]
 "5699
@@ -373,7 +517,7 @@
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "6141
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S2350 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S2703 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -383,7 +527,7 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "6173
-[s S2359 . 1 `uc 1 RC0 1 0 :1:0 
+[s S2712 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -392,32 +536,44 @@
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S2368 . 1 `S2350 1 . 1 0 `S2359 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES2368  1 e 1 @3988 ]
+[u S2721 . 1 `S2703 1 . 1 0 `S2712 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES2721  1 e 1 @3988 ]
 "6362
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "6583
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 "7025
 [v _TRISG TRISG `VEuc  1 e 1 @3992 ]
-[s S1658 . 1 `uc 1 TRISG0 1 0 :1:0 
+[s S2011 . 1 `uc 1 TRISG0 1 0 :1:0 
 `uc 1 TRISG1 1 0 :1:1 
 `uc 1 TRISG2 1 0 :1:2 
 `uc 1 TRISG3 1 0 :1:3 
 `uc 1 TRISG4 1 0 :1:4 
 ]
 "7051
-[s S1664 . 1 `uc 1 RG0 1 0 :1:0 
+[s S2017 . 1 `uc 1 RG0 1 0 :1:0 
 `uc 1 RG1 1 0 :1:1 
 `uc 1 RG2 1 0 :1:2 
 `uc 1 RG3 1 0 :1:3 
 `uc 1 RG4 1 0 :1:4 
 ]
-[u S1670 . 1 `S1658 1 . 1 0 `S1664 1 . 1 0 ]
-[v _TRISGbits TRISGbits `VES1670  1 e 1 @3992 ]
+[u S2023 . 1 `S2011 1 . 1 0 `S2017 1 . 1 0 ]
+[v _TRISGbits TRISGbits `VES2023  1 e 1 @3992 ]
+[s S927 . 1 `uc 1 TRISH0 1 0 :1:0 
+`uc 1 TRISH1 1 0 :1:1 
+`uc 1 TRISH2 1 0 :1:2 
+`uc 1 TRISH3 1 0 :1:3 
+`uc 1 TRISH4 1 0 :1:4 
+`uc 1 TRISH5 1 0 :1:5 
+`uc 1 TRISH6 1 0 :1:6 
+`uc 1 TRISH7 1 0 :1:7 
+]
+"7206
+[u S945 . 1 `S927 1 . 1 0 `S936 1 . 1 0 ]
+[v _TRISHbits TRISHbits `VES945  1 e 1 @3993 ]
 "7395
 [v _TRISJ TRISJ `VEuc  1 e 1 @3994 ]
-[s S256 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S612 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -427,14 +583,14 @@
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "7763
-[s S265 . 1 `uc 1 . 1 0 :3:0 
+[s S621 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIE 1 0 :1:3 
 `uc 1 TXIE 1 0 :1:4 
 `uc 1 RCIE 1 0 :1:5 
 ]
-[u S270 . 1 `S256 1 . 1 0 `S265 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES270  1 e 1 @3997 ]
-[s S288 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S626 . 1 `S612 1 . 1 0 `S621 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES626  1 e 1 @3997 ]
+[s S644 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -444,14 +600,14 @@
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "7845
-[s S297 . 1 `uc 1 . 1 0 :3:0 
+[s S653 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TXIF 1 0 :1:4 
 `uc 1 RCIF 1 0 :1:5 
 ]
-[u S302 . 1 `S288 1 . 1 0 `S297 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES302  1 e 1 @3998 ]
-[s S320 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S658 . 1 `S644 1 . 1 0 `S653 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES658  1 e 1 @3998 ]
+[s S1311 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSP1IP 1 0 :1:3 
@@ -461,14 +617,14 @@
 `uc 1 PSPIP 1 0 :1:7 
 ]
 "7927
-[s S329 . 1 `uc 1 . 1 0 :3:0 
+[s S1320 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIP 1 0 :1:3 
 `uc 1 TXIP 1 0 :1:4 
 `uc 1 RCIP 1 0 :1:5 
 ]
-[u S334 . 1 `S320 1 . 1 0 `S329 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES334  1 e 1 @3999 ]
-[s S1212 . 1 `uc 1 RD 1 0 :1:0 
+[u S1325 . 1 `S1311 1 . 1 0 `S1320 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES1325  1 e 1 @3999 ]
+[s S462 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -478,11 +634,11 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "8501
-[s S1221 . 1 `uc 1 . 1 0 :6:0 
+[s S471 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S1224 . 1 `S1212 1 . 1 0 `S1221 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES1224  1 e 1 @4006 ]
+[u S474 . 1 `S462 1 . 1 0 `S471 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES474  1 e 1 @4006 ]
 "8545
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "8551
@@ -493,7 +649,7 @@
 [v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
 "8569
 [v _RCSTA1 RCSTA1 `VEuc  1 e 1 @4011 ]
-[s S2253 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S2606 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -503,20 +659,20 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "8622
-[s S2262 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S2615 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S2266 . 1 `uc 1 . 1 0 :6:0 
+[s S2619 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S2269 . 1 `uc 1 . 1 0 :6:0 
+[s S2622 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S2272 . 1 `uc 1 . 1 0 :6:0 
+[s S2625 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S2275 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S2628 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -525,14 +681,14 @@
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S2284 . 1 `uc 1 . 1 0 :5:0 
+[s S2637 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S2287 . 1 `S2253 1 . 1 0 `S2262 1 . 1 0 `S2266 1 . 1 0 `S2269 1 . 1 0 `S2272 1 . 1 0 `S2275 1 . 1 0 `S2284 1 . 1 0 ]
-[v _RCSTA1bits RCSTA1bits `VES2287  1 e 1 @4011 ]
+[u S2640 . 1 `S2606 1 . 1 0 `S2615 1 . 1 0 `S2619 1 . 1 0 `S2622 1 . 1 0 `S2625 1 . 1 0 `S2628 1 . 1 0 `S2637 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES2640  1 e 1 @4011 ]
 "8892
 [v _TXSTA1 TXSTA1 `VEuc  1 e 1 @4012 ]
-[s S2190 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S2543 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -542,17 +698,17 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "8937
-[s S2199 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S2552 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S2203 . 1 `uc 1 . 1 0 :6:0 
+[s S2556 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_TX8 1 0 :1:6 
 ]
-[s S2206 . 1 `uc 1 . 1 0 :6:0 
+[s S2559 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S2209 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S2562 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -561,17 +717,19 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[u S2218 . 1 `S2190 1 . 1 0 `S2199 1 . 1 0 `S2203 1 . 1 0 `S2206 1 . 1 0 `S2209 1 . 1 0 ]
-[v _TXSTA1bits TXSTA1bits `VES2218  1 e 1 @4012 ]
+[u S2571 . 1 `S2543 1 . 1 0 `S2552 1 . 1 0 `S2556 1 . 1 0 `S2559 1 . 1 0 `S2562 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES2571  1 e 1 @4012 ]
 "9179
 [v _TXREG1 TXREG1 `VEuc  1 e 1 @4013 ]
+"9190
+[v _RCREG1 RCREG1 `VEuc  1 e 1 @4014 ]
 "9201
 [v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4015 ]
-[s S1686 . 1 `uc 1 . 1 0 :2:0 
+[s S2039 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "9293
-[s S1689 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S2042 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 TMR3CS 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3CCP1 1 0 :1:3 
@@ -579,76 +737,76 @@
 `uc 1 T3CCP2 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S1697 . 1 `uc 1 . 1 0 :2:0 
+[s S2050 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 ]
-[s S1703 . 1 `uc 1 . 1 0 :2:0 
+[s S2056 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3INSYNC 1 0 :1:2 
 ]
-[s S1706 . 1 `uc 1 . 1 0 :7:0 
+[s S2059 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RD163 1 0 :1:7 
 ]
-[s S1709 . 1 `uc 1 . 1 0 :3:0 
+[s S2062 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 ]
-[s S1712 . 1 `uc 1 . 1 0 :7:0 
+[s S2065 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T3RD16 1 0 :1:7 
 ]
-[u S1715 . 1 `S1686 1 . 1 0 `S1689 1 . 1 0 `S1697 1 . 1 0 `S1703 1 . 1 0 `S1706 1 . 1 0 `S1709 1 . 1 0 `S1712 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES1715  1 e 1 @4017 ]
+[u S2068 . 1 `S2039 1 . 1 0 `S2042 1 . 1 0 `S2050 1 . 1 0 `S2056 1 . 1 0 `S2059 1 . 1 0 `S2062 1 . 1 0 `S2065 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES2068  1 e 1 @4017 ]
 "10321
 [v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
 "10391
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "10481
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S1393 . 1 `uc 1 . 1 0 :1:0 
+[s S1746 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "10529
-[s S1396 . 1 `uc 1 ADON 1 0 :1:0 
+[s S1749 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S1403 . 1 `uc 1 . 1 0 :1:0 
+[s S1756 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S1406 . 1 `uc 1 . 1 0 :1:0 
+[s S1759 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S1413 . 1 `uc 1 . 1 0 :1:0 
+[s S1766 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S1416 . 1 `uc 1 . 1 0 :1:0 
+[s S1769 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S1419 . 1 `uc 1 . 1 0 :1:0 
+[s S1772 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S1422 . 1 `uc 1 . 1 0 :1:0 
+[s S1775 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S1425 . 1 `S1393 1 . 1 0 `S1396 1 . 1 0 `S1393 1 . 1 0 `S1403 1 . 1 0 `S1406 1 . 1 0 `S1413 1 . 1 0 `S1416 1 . 1 0 `S1419 1 . 1 0 `S1422 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES1425  1 e 1 @4034 ]
+[u S1778 . 1 `S1746 1 . 1 0 `S1749 1 . 1 0 `S1746 1 . 1 0 `S1756 1 . 1 0 `S1759 1 . 1 0 `S1766 1 . 1 0 `S1769 1 . 1 0 `S1772 1 . 1 0 `S1775 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1778  1 e 1 @4034 ]
 "10609
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "10615
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "12332
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
-[s S1753 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S2106 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "12353
-[s S1757 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S2110 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -656,19 +814,19 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1765 . 1 `S1753 1 . 1 0 `S1757 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1765  1 e 1 @4042 ]
+[u S2118 . 1 `S2106 1 . 1 0 `S2110 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES2118  1 e 1 @4042 ]
 "12402
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "12408
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
 "12414
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
-[s S367 . 1 `uc 1 . 1 0 :2:0 
+[s S66 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "12453
-[s S370 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S69 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -676,43 +834,43 @@
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S378 . 1 `uc 1 . 1 0 :2:0 
+[s S77 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S384 . 1 `uc 1 . 1 0 :2:0 
+[s S83 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 ]
-[s S387 . 1 `uc 1 . 1 0 :3:0 
+[s S86 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 ]
-[s S390 . 1 `uc 1 . 1 0 :7:0 
+[s S89 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S393 . 1 `S367 1 . 1 0 `S370 1 . 1 0 `S378 1 . 1 0 `S384 1 . 1 0 `S387 1 . 1 0 `S390 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES393  1 e 1 @4045 ]
+[u S92 . 1 `S66 1 . 1 0 `S69 1 . 1 0 `S77 1 . 1 0 `S83 1 . 1 0 `S86 1 . 1 0 `S89 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES92  1 e 1 @4045 ]
 "12533
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "12539
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S108 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S1163 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "12588
-[s S110 . 1 `uc 1 . 1 0 :1:0 
+[s S1165 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S113 . 1 `uc 1 . 1 0 :2:0 
+[s S1168 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S116 . 1 `uc 1 . 1 0 :3:0 
+[s S1171 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S119 . 1 `uc 1 . 1 0 :4:0 
+[s S1174 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S122 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S1177 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -721,17 +879,17 @@
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S131 . 1 `uc 1 BOR 1 0 :1:0 
+[s S1186 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S137 . 1 `S108 1 . 1 0 `S110 1 . 1 0 `S113 1 . 1 0 `S116 1 . 1 0 `S119 1 . 1 0 `S122 1 . 1 0 `S131 1 . 1 0 ]
-[v _RCONbits RCONbits `VES137  1 e 1 @4048 ]
+[u S1192 . 1 `S1163 1 . 1 0 `S1165 1 . 1 0 `S1168 1 . 1 0 `S1171 1 . 1 0 `S1174 1 . 1 0 `S1177 1 . 1 0 `S1186 1 . 1 0 ]
+[v _RCONbits RCONbits `VES1192  1 e 1 @4048 ]
 "13057
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-[s S1992 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2345 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -739,18 +897,18 @@
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "13078
-[s S1999 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2352 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
-[u S2004 . 1 `S1992 1 . 1 0 `S1999 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2004  1 e 1 @4053 ]
+[u S2357 . 1 `S2345 1 . 1 0 `S2352 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2357  1 e 1 @4053 ]
 "13138
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "13144
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S175 . 1 `uc 1 INT1IF 1 0 :1:0 
+[s S26 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 INT3IF 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -760,7 +918,7 @@
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "13411
-[s S184 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S35 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 INT3F 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -769,13 +927,13 @@
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S193 . 1 `S175 1 . 1 0 `S184 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES193  1 e 1 @4080 ]
-[s S215 . 1 `uc 1 . 1 0 :7:0 
+[u S44 . 1 `S26 1 . 1 0 `S35 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES44  1 e 1 @4080 ]
+[s S126 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "13523
-[s S218 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S129 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 INT3IP 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 INTEDG3 1 0 :1:3 
@@ -784,15 +942,15 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S227 . 1 `uc 1 . 1 0 :1:0 
+[s S138 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT3P 1 0 :1:1 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S233 . 1 `S215 1 . 1 0 `S218 1 . 1 0 `S227 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES233  1 e 1 @4081 ]
-[s S21 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S144 . 1 `S126 1 . 1 0 `S129 1 . 1 0 `S138 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES144  1 e 1 @4081 ]
+[s S490 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -802,7 +960,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "13639
-[s S30 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S499 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -811,7 +969,7 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S39 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S508 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -820,7 +978,7 @@
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[s S48 . 1 `uc 1 . 1 0 :1:0 
+[s S517 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -829,47 +987,50 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S57 . 1 `uc 1 . 1 0 :6:0 
+[s S526 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S61 . 1 `S21 1 . 1 0 `S30 1 . 1 0 `S39 1 . 1 0 `S48 1 . 1 0 `S57 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES61  1 e 1 @4082 ]
+[u S530 . 1 `S490 1 . 1 0 `S499 1 . 1 0 `S508 1 . 1 0 `S517 1 . 1 0 `S526 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES530  1 e 1 @4082 ]
 "3 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\errno.c
 [v _errno errno `i  1 e 2 0 ]
-[s S2456 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S2774 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\USART\u1defs.c
-[u S2462 USART1 1 `uc 1 val 1 0 `S2456 1 . 1 0 ]
-[v _USART1_Status USART1_Status `S2462  1 e 1 0 ]
-"66 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+[u S2780 USART1 1 `uc 1 val 1 0 `S2774 1 . 1 0 ]
+[v _USART1_Status USART1_Status `S2780  1 e 1 0 ]
+"73 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _sensor_acq_done sensor_acq_done `VEuc  1 e 1 0 ]
 [v _sensor_acq_index sensor_acq_index `VEuc  1 e 1 0 ]
-"67
+"74
 [v _sensor_readings_raw sensor_readings_raw `VE[5]i  1 e 10 0 ]
-"70
+"77
 [v _sensor_status sensor_status `[5]uc  1 e 5 0 ]
 [v _line_mode line_mode `uc  1 e 1 0 ]
-"71
+"78
 [v _sensor_offsets sensor_offsets `[5]i  1 e 10 0 ]
 [v _sensor_readings_normalised sensor_readings_normalised `[5]i  1 e 10 0 ]
-"72
+"79
 [v _sensor_threshold sensor_threshold `i  1 e 2 0 ]
 [v _PID_error PID_error `i  1 e 2 0 ]
 [v _PID_output PID_output `i  1 e 2 0 ]
-"75
+[v _PID_Kp PID_Kp `i  1 e 2 0 ]
+[v _PID_Kd PID_Kd `i  1 e 2 0 ]
+[v _PID_Ki PID_Ki `i  1 e 2 0 ]
+"82
 [v _sensor_threshold_ptr sensor_threshold_ptr `*.39i  1 e 2 0 ]
 "4 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\MillisecondTimer.c
 [v _millisecond_COUNT0 millisecond_COUNT0 `VEui  1 e 2 0 ]
 [v _millisecond_COUNT1 millisecond_COUNT1 `VEui  1 e 2 0 ]
 [v _millisecond_COUNT2 millisecond_COUNT2 `VEui  1 e 2 0 ]
-[s S1055 . 6 `ui 1 milliseconds 2 0 `uc 1 seconds 1 2 `uc 1 minutes 1 3 `ui 1 hours 2 4 ]
+[s S299 . 6 `ui 1 milliseconds 2 0 `uc 1 seconds 1 2 `uc 1 minutes 1 3 `ui 1 hours 2 4 ]
 "8 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\SystemClock.c
-[v _SystemClock SystemClock `VES1055  1 e 6 0 ]
+[v _SystemClock SystemClock `VES299  1 e 6 0 ]
 "9
 [v _second_rollover_flag second_rollover_flag `VEuc  1 e 1 0 ]
 "10
@@ -882,25 +1043,55 @@
 "6
 [v _echo_time echo_time `VEui  1 e 2 0 ]
 "5 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
-[v _Tx_buffer Tx_buffer `[20]uc  1 e 20 0 ]
-[v _Rx_buffer Rx_buffer `[20]uc  1 e 20 0 ]
+[v _Tx_buffer Tx_buffer `[25]uc  1 e 25 0 ]
+[v _Rx_buffer Rx_buffer `[25]uc  1 e 25 0 ]
 [v _put_Tx_index put_Tx_index `uc  1 e 1 0 ]
 [v _get_Tx_index get_Tx_index `uc  1 e 1 0 ]
+[v _put_Rx_index put_Rx_index `uc  1 e 1 0 ]
+[v _get_Rx_index get_Rx_index `uc  1 e 1 0 ]
 [v _Tx_complete Tx_complete `uc  1 e 1 0 ]
 "7
-[v _character character `VEuc  1 e 1 0 ]
-"685 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+[v _TxCharacter TxCharacter `VEuc  1 e 1 0 ]
+[v _RxCharacter RxCharacter `VEuc  1 e 1 0 ]
+[v _Rx_chars_received Rx_chars_received `VEuc  1 e 1 0 ]
+[v _Rx_msg_length Rx_msg_length `VEuc  1 e 1 0 ]
+[v _Rx_complete Rx_complete `VEuc  1 e 1 0 ]
+"789 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _main main `(v  1 e 0 0 ]
 {
-"692
-[v main@line_mode_ptr line_mode_ptr `*.39uc  1 a 2 27 ]
-[v main@sensor_sum_ptr sensor_sum_ptr `*.39uc  1 a 2 25 ]
-"689
-[v main@echo_length echo_length `ui  1 a 2 23 ]
-"688
-[v main@sensor_sum sensor_sum `uc  1 a 1 29 ]
-[v main@loop_count loop_count `uc  1 a 1 22 ]
-"875
+"794
+[v main@battery_current_acc battery_current_acc `ul  1 a 4 11 ]
+"795
+[v main@I_temp I_temp `i  1 a 2 41 ]
+[v main@Ki_stored Ki_stored `i  1 a 2 39 ]
+[v main@Kd_stored Kd_stored `i  1 a 2 37 ]
+[v main@Kp_stored Kp_stored `i  1 a 2 35 ]
+[v main@I_min I_min `i  1 a 2 32 ]
+[v main@I_max I_max `i  1 a 2 30 ]
+[v main@D_temp D_temp `i  1 a 2 27 ]
+"793
+[v main@battery_voltage battery_voltage `ui  1 a 2 25 ]
+"802
+[v main@battery_voltage_ptr battery_voltage_ptr `*.39ui  1 a 2 21 ]
+"798
+[v main@line_mode_ptr line_mode_ptr `*.39uc  1 a 2 19 ]
+[v main@sensor_sum_ptr sensor_sum_ptr `*.39uc  1 a 2 17 ]
+"793
+[v main@battery_current battery_current `ui  1 a 2 15 ]
+"803
+[v main@battery_current_acc_ptr battery_current_acc_ptr `*.39ul  1 a 2 6 ]
+"802
+[v main@battery_current_ptr battery_current_ptr `*.39ui  1 a 2 4 ]
+"792
+[v main@sensor_sum sensor_sum `uc  1 a 1 43 ]
+[v main@command_msg command_msg `uc  1 a 1 34 ]
+[v main@stop_flag stop_flag `uc  1 a 1 29 ]
+[v main@wall_detected_flag wall_detected_flag `uc  1 a 1 24 ]
+[v main@line_end_flag line_end_flag `uc  1 a 1 23 ]
+[v main@find_line_flag find_line_flag `uc  1 a 1 10 ]
+[v main@send_battery_stats_flag send_battery_stats_flag `uc  1 a 1 9 ]
+[v main@loop_count loop_count `uc  1 a 1 8 ]
+"1151
 } 0
 "128 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Motors.c
 [v _StopMotors StopMotors `(v  1 e 0 0 ]
@@ -930,51 +1121,146 @@
 "47
 [v _SetDCMotorPID SetDCMotorPID `(v  1 e 0 0 ]
 {
-[v SetDCMotorPID@PIDoutput PIDoutput `i  1 p 2 22 ]
+[v SetDCMotorPID@PIDoutput PIDoutput `i  1 p 2 24 ]
 "62
 } 0
 "19
 [v _SetDCMotorR SetDCMotorR `(v  1 e 0 0 ]
 {
-[v SetDCMotorR@duty_cycle duty_cycle `ui  1 p 2 20 ]
+[v SetDCMotorR@duty_cycle duty_cycle `ui  1 p 2 22 ]
 "29
 } 0
 "17 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\PWM\pw4setdc.c
 [v _SetDCPWM4 SetDCPWM4 `(v  1 e 0 0 ]
 {
-[u S1831 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
+[u S2184 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
 "19
-[v SetDCPWM4@DCycle DCycle `S1831  1 a 2 18 ]
+[v SetDCPWM4@DCycle DCycle `S2184  1 a 2 20 ]
 "17
-[v SetDCPWM4@dutycycle dutycycle `ui  1 p 2 14 ]
+[v SetDCPWM4@dutycycle dutycycle `ui  1 p 2 16 ]
 "29
 } 0
 "6 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Motors.c
 [v _SetDCMotorL SetDCMotorL `(v  1 e 0 0 ]
 {
-[v SetDCMotorL@duty_cycle duty_cycle `ui  1 p 2 20 ]
+[v SetDCMotorL@duty_cycle duty_cycle `ui  1 p 2 22 ]
 "17
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\PWM\pw5setdc.c
 [v _SetDCPWM5 SetDCPWM5 `(v  1 e 0 0 ]
 {
-[u S1831 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
+[u S2184 PWMDC 2 `ui 1 lpwm 2 0 `[2]uc 1 bpwm 2 0 ]
 "17
-[v SetDCPWM5@DCycle DCycle `S1831  1 a 2 18 ]
+[v SetDCPWM5@DCycle DCycle `S2184  1 a 2 20 ]
 "15
-[v SetDCPWM5@dutycycle dutycycle `ui  1 p 2 14 ]
+[v SetDCPWM5@dutycycle dutycycle `ui  1 p 2 16 ]
 "27
 } 0
-"112 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+"223 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+[v _SendStoredPIDValues SendStoredPIDValues `(v  1 e 0 0 ]
+{
+[v SendStoredPIDValues@Kp Kp `i  1 p 2 24 ]
+[v SendStoredPIDValues@Kd Kd `i  1 p 2 26 ]
+[v SendStoredPIDValues@Ki Ki `i  1 p 2 28 ]
+"241
+} 0
+"152
 [v _SendLineMode SendLineMode `(v  1 e 0 0 ]
 {
-[v SendLineMode@line_mode line_mode `*.39Cuc  1 p 2 21 ]
-"123
+[v SendLineMode@line_mode line_mode `*.39Cuc  1 p 2 24 ]
+"163
 } 0
-"27 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\MillisecondTimer.c
+"203
+[v _SendDefaultPIDValues SendDefaultPIDValues `(v  1 e 0 0 ]
+{
+[v SendDefaultPIDValues@Kp Kp `i  1 p 2 24 ]
+[v SendDefaultPIDValues@Kd Kd `i  1 p 2 26 ]
+[v SendDefaultPIDValues@Ki Ki `i  1 p 2 28 ]
+"221
+} 0
+"243
+[v _SendCurrentPIDValues SendCurrentPIDValues `(v  1 e 0 0 ]
+{
+[v SendCurrentPIDValues@Kp Kp `i  1 p 2 24 ]
+[v SendCurrentPIDValues@Kd Kd `i  1 p 2 26 ]
+[v SendCurrentPIDValues@Ki Ki `i  1 p 2 28 ]
+"261
+} 0
+"265
+[v _SendBattVoltageInitial SendBattVoltageInitial `(v  1 e 0 0 ]
+{
+[v SendBattVoltageInitial@reading reading `*.39Cui  1 p 2 24 ]
+"280
+} 0
+"33 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\MillisecondTimer.c
+[v _ResetMillis1 ResetMillis1 `(v  1 e 0 0 ]
+{
+"37
+} 0
+"27
 [v _ResetMillis0 ResetMillis0 `(v  1 e 0 0 ]
 {
 "31
+} 0
+"103 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\BatteryLib/ds2781.c
+[v _ResetAccumulatedCurrent ResetAccumulatedCurrent `(v  1 e 0 0 ]
+{
+"113
+} 0
+"33
+[v _ReadVoltage ReadVoltage `(us  1 e 2 0 ]
+{
+"35
+[v ReadVoltage@result result `us  1 a 2 24 ]
+"45
+} 0
+"143 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\BatteryLib/OneWire.c
+[v _OWWriteByte OWWriteByte `(v  1 e 0 0 ]
+{
+[v OWWriteByte@byte byte `uc  1 a 1 wreg ]
+"145
+[v OWWriteByte@i i `uc  1 a 1 18 ]
+"143
+[v OWWriteByte@byte byte `uc  1 a 1 wreg ]
+"147
+[v OWWriteByte@byte byte `uc  1 a 1 17 ]
+"153
+} 0
+"72
+[v _OWWriteBit OWWriteBit `(v  1 e 0 0 ]
+{
+[v OWWriteBit@b b `uc  1 a 1 wreg ]
+[v OWWriteBit@b b `uc  1 a 1 wreg ]
+"74
+[v OWWriteBit@b b `uc  1 a 1 16 ]
+"101
+} 0
+"41
+[v _OWReset OWReset `(E6350  1 e 1 0 ]
+{
+"43
+[v OWReset@result result `E6350  1 a 1 16 ]
+"61
+} 0
+"163
+[v _OWReadByte OWReadByte `(uc  1 e 1 0 ]
+{
+"165
+[v OWReadByte@i i `uc  1 a 1 18 ]
+[v OWReadByte@result result `uc  1 a 1 17 ]
+"176
+} 0
+"112
+[v _OWReadBit OWReadBit `(uc  1 e 1 0 ]
+{
+"114
+[v OWReadBit@result result `uc  1 a 1 16 ]
+"133
+} 0
+"13 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\MillisecondTimer.c
+[v _ReadMillis1 ReadMillis1 `(ui  1 e 2 0 ]
+{
+"17
 } 0
 "7
 [v _ReadMillis0 ReadMillis0 `(ui  1 e 2 0 ]
@@ -986,123 +1272,150 @@
 {
 "72
 } 0
-"483 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"695 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
+[v _LoadPIDValues LoadPIDValues `(v  1 e 0 0 ]
+{
+"723
+} 0
+"663
+[v _SetPIDValues SetPIDValues `(v  1 e 0 0 ]
+{
+"666
+[v SetPIDValues@char_index char_index `uc  1 a 1 28 ]
+"693
+} 0
+"25 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+[v _PutCharRxBuf PutCharRxBuf `(v  1 e 0 0 ]
+{
+[v PutCharRxBuf@ch ch `uc  1 a 1 wreg ]
+[v PutCharRxBuf@ch ch `uc  1 a 1 wreg ]
+[v PutCharRxBuf@ch ch `uc  1 a 1 23 ]
+"29
+} 0
+"31
+[v _GetCharRxBuf GetCharRxBuf `(uc  1 e 1 0 ]
+{
+"32
+[v GetCharRxBuf@ch ch `uc  1 a 1 23 ]
+"39
+} 0
+"498 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _PB2pressed PB2pressed `(uc  1 e 1 0 ]
 {
-"499
+"522
 } 0
-"604
+"633
 [v _LoadCalibration LoadCalibration `(v  1 e 0 0 ]
 {
-"605
-[v LoadCalibration@index index `uc  1 a 1 31 ]
-"619
+"634
+[v LoadCalibration@index index `uc  1 a 1 34 ]
+"661
 } 0
 "66 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\eeprom.c
 [v _ReadIntEEPROM ReadIntEEPROM `(ui  1 e 2 0 ]
 {
 "67
-[v ReadIntEEPROM@data data `ui  1 a 2 21 ]
+[v ReadIntEEPROM@data data `ui  1 a 2 23 ]
 "66
-[v ReadIntEEPROM@address address `ui  1 p 2 16 ]
+[v ReadIntEEPROM@address address `ui  1 p 2 18 ]
 "74
 } 0
 "76
 [v _ReadCharEEPROM ReadCharEEPROM `(uc  1 e 1 0 ]
 {
-[v ReadCharEEPROM@address address `ui  1 p 2 16 ]
+[v ReadCharEEPROM@address address `ui  1 p 2 18 ]
 "79
 } 0
 "37
 [v _ReadEEPROM ReadEEPROM `(uc  1 e 1 0 ]
 {
-[v ReadEEPROM@address address `ui  1 p 2 14 ]
+[v ReadEEPROM@address address `ui  1 p 2 16 ]
 "54
 } 0
-"564 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"587 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _GenerateCalibration GenerateCalibration `(v  1 e 0 0 ]
 {
-"565
-[v GenerateCalibration@index index `uc  1 a 1 28 ]
-"601
+"588
+[v GenerateCalibration@index index `uc  1 a 1 31 ]
+"630
 } 0
 "56 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\eeprom.c
 [v _WriteIntEEPROM WriteIntEEPROM `(v  1 e 0 0 ]
 {
-[v WriteIntEEPROM@address address `ui  1 p 2 17 ]
-[v WriteIntEEPROM@data data `ui  1 p 2 19 ]
+[v WriteIntEEPROM@address address `ui  1 p 2 19 ]
+[v WriteIntEEPROM@data data `ui  1 p 2 21 ]
 "60
 } 0
 "62
 [v _WriteCharEEPROM WriteCharEEPROM `(v  1 e 0 0 ]
 {
-[v WriteCharEEPROM@address address `ui  1 p 2 17 ]
-[v WriteCharEEPROM@data data `uc  1 p 1 19 ]
+[v WriteCharEEPROM@address address `ui  1 p 2 19 ]
+[v WriteCharEEPROM@data data `uc  1 p 1 21 ]
 "64
 } 0
 "3
 [v _WriteEEPROM WriteEEPROM `(uc  1 e 1 0 ]
 {
-[v WriteEEPROM@address address `ui  1 p 2 14 ]
-[v WriteEEPROM@data data `uc  1 p 1 16 ]
+[v WriteEEPROM@address address `ui  1 p 2 16 ]
+[v WriteEEPROM@data data `uc  1 p 1 18 ]
 "35
 } 0
-"146 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+"186 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
 [v _SendThreshold SendThreshold `(v  1 e 0 0 ]
 {
-[v SendThreshold@sensor_threshold sensor_threshold `*.39Ci  1 p 2 21 ]
-"161
+[v SendThreshold@sensor_threshold sensor_threshold `*.39Ci  1 p 2 24 ]
+"201
 } 0
-"99
+"139
 [v _SendStatus SendStatus `(v  1 e 0 0 ]
 {
 [v SendStatus@status_code status_code `Cuc  1 a 1 wreg ]
 [v SendStatus@status_code status_code `Cuc  1 a 1 wreg ]
-[v SendStatus@status_code status_code `Cuc  1 a 1 21 ]
-"110
+[v SendStatus@status_code status_code `Cuc  1 a 1 24 ]
+"150
 } 0
-"125
+"165
 [v _SendOffsets SendOffsets `(v  1 e 0 0 ]
 {
-"126
-[v SendOffsets@index index `uc  1 a 1 25 ]
-"125
-[v SendOffsets@offsets_array offsets_array `*.39Ci  1 p 2 21 ]
-"144
+"166
+[v SendOffsets@index index `uc  1 a 1 28 ]
+"165
+[v SendOffsets@offsets_array offsets_array `*.39Ci  1 p 2 24 ]
+"184
 } 0
-"25
+"41
 [v _StartTx StartTx `(v  1 e 0 0 ]
 {
-"28
+"44
 } 0
 "9
 [v _PutCharTxBuf PutCharTxBuf `(v  1 e 0 0 ]
 {
 [v PutCharTxBuf@ch ch `uc  1 a 1 wreg ]
 [v PutCharTxBuf@ch ch `uc  1 a 1 wreg ]
-[v PutCharTxBuf@ch ch `uc  1 a 1 20 ]
+[v PutCharTxBuf@ch ch `uc  1 a 1 23 ]
 "13
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "11
-[v ___awmod@sign sign `uc  1 a 1 19 ]
-[v ___awmod@counter counter `uc  1 a 1 18 ]
+[v ___awmod@sign sign `uc  1 a 1 21 ]
+[v ___awmod@counter counter `uc  1 a 1 20 ]
 "8
-[v ___awmod@dividend dividend `i  1 p 2 14 ]
-[v ___awmod@divisor divisor `i  1 p 2 16 ]
+[v ___awmod@dividend dividend `i  1 p 2 16 ]
+[v ___awmod@divisor divisor `i  1 p 2 18 ]
 "35
 } 0
-"95 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+"131 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
 [v _BusyTx BusyTx `(uc  1 e 1 0 ]
 {
-"97
+"133
 } 0
-"463 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"470 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _PB1pressed PB1pressed `(uc  1 e 1 0 ]
 {
-"480
+"495
 } 0
 "39 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\MillisecondTimer.c
 [v _ResetMillis2 ResetMillis2 `(v  1 e 0 0 ]
@@ -1114,76 +1427,93 @@
 {
 "23
 } 0
-"451 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"355 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+[v _GetCommand GetCommand `(uc  1 e 1 0 ]
+{
+"358
+} 0
+"17 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\USART\u1read.c
+[v _Read1USART Read1USART `(uc  1 e 1 0 ]
+{
+"19
+[v Read1USART@data data `uc  1 a 1 16 ]
+"39
+} 0
+"351 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+[v _CommandAvailable CommandAvailable `(uc  1 e 1 0 ]
+{
+"353
+} 0
+"458 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _FlashLEDS FlashLEDS `(v  1 e 0 0 ]
 {
-"460
+"467
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\d10ktcyx.c
 [v _Delay10KTCYx Delay10KTCYx `(v  1 e 0 0 ]
 {
 [v Delay10KTCYx@unit unit `uc  1 a 1 wreg ]
 [v Delay10KTCYx@unit unit `uc  1 a 1 wreg ]
-[v Delay10KTCYx@unit unit `uc  1 a 1 14 ]
+[v Delay10KTCYx@unit unit `uc  1 a 1 17 ]
 "13
 } 0
-"518 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"541 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _CalibrateThreshold CalibrateThreshold `(v  1 e 0 0 ]
 {
-"561
+"584
 } 0
 "24 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\ADC\adcread.c
 [v _ReadADC ReadADC `(i  1 e 2 0 ]
 {
 "27
 } 0
-"337 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"344 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _NormaliseSensorReadings NormaliseSensorReadings `(v  1 e 0 0 ]
 {
-"338
-[v NormaliseSensorReadings@index index `uc  1 a 1 29 ]
-"346
+"345
+[v NormaliseSensorReadings@index index `uc  1 a 1 20 ]
+"353
 } 0
-"427
+"434
 [v _DisplaySensorStatuses DisplaySensorStatuses `(v  1 e 0 0 ]
 {
-"428
-[v DisplaySensorStatuses@index index `uc  1 a 1 29 ]
-"427
-[v DisplaySensorStatuses@status_array status_array `*.39Cuc  1 p 2 14 ]
+"435
+[v DisplaySensorStatuses@index index `uc  1 a 1 20 ]
 "434
+[v DisplaySensorStatuses@status_array status_array `*.39Cuc  1 p 2 16 ]
+"441
 } 0
-"349
+"356
 [v _CalculateSensorStatuses CalculateSensorStatuses `(v  1 e 0 0 ]
 {
-"350
-[v CalculateSensorStatuses@index index `uc  1 a 1 29 ]
-"380
+"357
+[v CalculateSensorStatuses@index index `uc  1 a 1 19 ]
+"387
 } 0
 "26 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\ADC\adcbusy.c
 [v _BusyADC BusyADC `(uc  1 e 1 0 ]
 {
 "29
 } 0
-"502 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"525 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _CalibrateOffsets CalibrateOffsets `(v  1 e 0 0 ]
 {
-"503
-[v CalibrateOffsets@index index `uc  1 a 1 18 ]
-"515
+"526
+[v CalibrateOffsets@index index `uc  1 a 1 21 ]
+"538
 } 0
-"319
+"326
 [v _GetSensorReadings GetSensorReadings `(v  1 e 0 0 ]
 {
-"327
+"334
 } 0
-"261
+"268
 [v _SetADCChannel SetADCChannel `(v  1 e 0 0 ]
 {
 [v SetADCChannel@channel channel `uc  1 a 1 wreg ]
 [v SetADCChannel@channel channel `uc  1 a 1 wreg ]
-[v SetADCChannel@channel channel `uc  1 a 1 15 ]
-"316
+[v SetADCChannel@channel channel `uc  1 a 1 18 ]
+"323
 } 0
 "30 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\ADC\adcsetch.c
 [v _SetChanADC SetChanADC `(v  1 e 0 0 ]
@@ -1191,7 +1521,7 @@
 [v SetChanADC@channel channel `uc  1 a 1 wreg ]
 [v SetChanADC@channel channel `uc  1 a 1 wreg ]
 "34
-[v SetChanADC@channel channel `uc  1 a 1 14 ]
+[v SetChanADC@channel channel `uc  1 a 1 17 ]
 "36
 } 0
 "22 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\ADC\adcconv.c
@@ -1199,10 +1529,10 @@
 {
 "25
 } 0
-"330 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"337 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _BusySensorAcq BusySensorAcq `(uc  1 e 1 0 ]
 {
-"334
+"341
 } 0
 "48 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _GetDistance GetDistance `(v  1 e 0 0 ]
@@ -1215,13 +1545,13 @@
 [v Delay1TCYx@unit unit `uc  1 a 1 wreg ]
 [v Delay1TCYx@unit unit `uc  1 a 1 wreg ]
 "7
-[v Delay1TCYx@unit unit `uc  1 a 1 29 ]
+[v Delay1TCYx@unit unit `uc  1 a 1 16 ]
 "9
 } 0
-"437 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"444 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _EnableSensorLEDS EnableSensorLEDS `(v  1 e 0 0 ]
 {
-"441
+"448
 } 0
 "102 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Motors.c
 [v _EnableMotors EnableMotors `(v  1 e 0 0 ]
@@ -1233,46 +1563,46 @@
 {
 "112
 } 0
-"75 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+"114 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
 [v _ConfigureWireless ConfigureWireless `(v  1 e 0 0 ]
 {
-"93
+"129
 } 0
 "72 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\USART\u1open.c
 [v _Open1USART Open1USART `(v  1 e 0 0 ]
 {
 [v Open1USART@config config `uc  1 a 1 wreg ]
 [v Open1USART@config config `uc  1 a 1 wreg ]
-[v Open1USART@spbrg spbrg `ui  1 p 2 14 ]
+[v Open1USART@spbrg spbrg `ui  1 p 2 16 ]
 "74
-[v Open1USART@config config `uc  1 a 1 29 ]
+[v Open1USART@config config `uc  1 a 1 18 ]
 "120
 } 0
-"54 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+"90 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
 [v _FlushTxBuf FlushTxBuf `(v  1 e 0 0 ]
 {
-"55
-[v FlushTxBuf@index index `uc  1 a 1 29 ]
-"64
+"91
+[v FlushTxBuf@index index `uc  1 a 1 16 ]
+"100
 } 0
-"66
+"102
 [v _FlushRxBuf FlushRxBuf `(v  1 e 0 0 ]
 {
-"67
-[v FlushRxBuf@index index `uc  1 a 1 29 ]
-"73
+"103
+[v FlushRxBuf@index index `uc  1 a 1 16 ]
+"112
 } 0
 "9 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _ConfigureUltrasound ConfigureUltrasound `(v  1 e 0 0 ]
 {
-[v ConfigureUltrasound@echo_to_cm echo_to_cm `f  1 p 3 18 ]
-[v ConfigureUltrasound@echo_to_in echo_to_in `f  1 p 3 21 ]
+[v ConfigureUltrasound@echo_to_cm echo_to_cm `f  1 p 3 20 ]
+[v ConfigureUltrasound@echo_to_in echo_to_in `f  1 p 3 23 ]
 "14
 } 0
-"167 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"174 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _ConfigureTimer2 ConfigureTimer2 `(v  1 e 0 0 ]
 {
-"182
+"189
 } 0
 "17 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t2open.c
 [v _OpenTimer2 OpenTimer2 `(v  1 e 0 0 ]
@@ -1280,22 +1610,22 @@
 [v OpenTimer2@config config `uc  1 a 1 wreg ]
 [v OpenTimer2@config config `uc  1 a 1 wreg ]
 "19
-[v OpenTimer2@config config `uc  1 a 1 29 ]
+[v OpenTimer2@config config `uc  1 a 1 16 ]
 "31
 } 0
-"149 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"156 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _ConfigureTimer1 ConfigureTimer1 `(v  1 e 0 0 ]
 {
-"164
+"171
 } 0
 "14 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t1write.c
 [v _WriteTimer1 WriteTimer1 `(v  1 e 0 0 ]
 {
-[u S2028 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[u S2381 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
 "16
-[v WriteTimer1@timer timer `S2028  1 a 2 16 ]
+[v WriteTimer1@timer timer `S2381  1 a 2 18 ]
 "14
-[v WriteTimer1@timer1 timer1 `ui  1 p 2 14 ]
+[v WriteTimer1@timer1 timer1 `ui  1 p 2 16 ]
 "22
 } 0
 "16 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t1open.c
@@ -1304,22 +1634,22 @@
 [v OpenTimer1@config config `uc  1 a 1 wreg ]
 [v OpenTimer1@config config `uc  1 a 1 wreg ]
 "18
-[v OpenTimer1@config config `uc  1 a 1 29 ]
+[v OpenTimer1@config config `uc  1 a 1 16 ]
 "36
 } 0
-"135 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"142 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _ConfigureTimer0 ConfigureTimer0 `(v  1 e 0 0 ]
 {
-"146
+"153
 } 0
 "16 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t0write.c
 [v _WriteTimer0 WriteTimer0 `(v  1 e 0 0 ]
 {
-[u S2028 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[u S2381 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
 "18
-[v WriteTimer0@timer timer `S2028  1 a 2 16 ]
+[v WriteTimer0@timer timer `S2381  1 a 2 18 ]
 "16
-[v WriteTimer0@timer0 timer0 `ui  1 p 2 14 ]
+[v WriteTimer0@timer0 timer0 `ui  1 p 2 16 ]
 "24
 } 0
 "18 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t0open.c
@@ -1328,13 +1658,13 @@
 [v OpenTimer0@config config `uc  1 a 1 wreg ]
 [v OpenTimer0@config config `uc  1 a 1 wreg ]
 "20
-[v OpenTimer0@config config `uc  1 a 1 29 ]
+[v OpenTimer0@config config `uc  1 a 1 16 ]
 "31
 } 0
-"185 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"192 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _ConfigurePWM ConfigurePWM `(v  1 e 0 0 ]
 {
-"205
+"212
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\PWM\pw5open.c
 [v _OpenPWM5 OpenPWM5 `(v  1 e 0 0 ]
@@ -1342,7 +1672,7 @@
 [v OpenPWM5@period period `uc  1 a 1 wreg ]
 [v OpenPWM5@period period `uc  1 a 1 wreg ]
 "17
-[v OpenPWM5@period period `uc  1 a 1 29 ]
+[v OpenPWM5@period period `uc  1 a 1 16 ]
 "31
 } 0
 "14 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\PWM\pw4open.c
@@ -1351,23 +1681,23 @@
 [v OpenPWM4@period period `uc  1 a 1 wreg ]
 [v OpenPWM4@period period `uc  1 a 1 wreg ]
 "16
-[v OpenPWM4@period period `uc  1 a 1 29 ]
+[v OpenPWM4@period period `uc  1 a 1 16 ]
 "36
 } 0
-"78 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"85 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _ConfigureInterrupts ConfigureInterrupts `(v  1 e 0 0 ]
 {
-"132
+"139
 } 0
-"208
+"215
 [v _ConfigureBuggyIO ConfigureBuggyIO `(v  1 e 0 0 ]
 {
-"231
+"238
 } 0
-"234
+"241
 [v _ConfigureADC ConfigureADC `(v  1 e 0 0 ]
 {
-"245
+"252
 } 0
 "68 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\ADC\adcopen.c
 [v _OpenADC OpenADC `(v  1 e 0 0 ]
@@ -1375,40 +1705,40 @@
 [v OpenADC@config config `uc  1 a 1 wreg ]
 [v OpenADC@config config `uc  1 a 1 wreg ]
 "69
-[v OpenADC@config2 config2 `uc  1 p 1 14 ]
+[v OpenADC@config2 config2 `uc  1 p 1 16 ]
 "70
-[v OpenADC@portconfig portconfig `uc  1 p 1 15 ]
+[v OpenADC@portconfig portconfig `uc  1 p 1 17 ]
 "72
-[v OpenADC@config config `uc  1 a 1 29 ]
+[v OpenADC@config config `uc  1 a 1 20 ]
 "89
 } 0
-"383 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"390 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _CalculateSensorSums CalculateSensorSums `(uc  1 e 1 0 ]
 {
-"384
-[v CalculateSensorSums@index index `uc  1 a 1 21 ]
-[v CalculateSensorSums@sum sum `uc  1 a 1 20 ]
-"394
+"391
+[v CalculateSensorSums@index index `uc  1 a 1 106 ]
+[v CalculateSensorSums@sum sum `uc  1 a 1 105 ]
+"401
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
 [v _pow pow `(d  1 e 3 0 ]
 {
 "8
-[v pow@yi yi `ul  1 a 4 13 ]
+[v pow@yi yi `ul  1 a 4 98 ]
 "7
-[v pow@sign sign `uc  1 a 1 12 ]
+[v pow@sign sign `uc  1 a 1 97 ]
 "5
-[v pow@x x `d  1 p 3 0 ]
-[v pow@y y `d  1 p 3 3 ]
+[v pow@x x `d  1 p 3 85 ]
+[v pow@y y `d  1 p 3 88 ]
 "31
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
 [v _log log `(d  1 e 3 0 ]
 {
 "7
-[v log@exponent exponent `i  1 a 2 67 ]
+[v log@exponent exponent `i  1 a 2 70 ]
 "5
-[v log@x x `d  1 p 3 64 ]
+[v log@x x `d  1 p 3 67 ]
 "9
 [v log@coeff coeff `C[9]d  1 s 27 coeff ]
 "36
@@ -1417,11 +1747,11 @@
 [v _exp exp `(d  1 e 3 0 ]
 {
 "14
-[v exp@exponent exponent `i  1 a 2 79 ]
+[v exp@exponent exponent `i  1 a 2 82 ]
 "15
-[v exp@sign sign `uc  1 a 1 81 ]
+[v exp@sign sign `uc  1 a 1 84 ]
 "12
-[v exp@x x `d  1 p 3 73 ]
+[v exp@x x `d  1 p 3 76 ]
 "17
 [v exp@coeff coeff `C[10]d  1 s 30 coeff ]
 "57
@@ -1429,147 +1759,147 @@
 "277 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
 [v _ldexp ldexp `(d  1 e 3 0 ]
 {
-[v ldexp@value value `d  1 p 3 64 ]
-[v ldexp@newexp newexp `i  1 p 2 67 ]
+[v ldexp@value value `d  1 p 3 67 ]
+[v ldexp@newexp newexp `i  1 p 2 70 ]
 "307
 } 0
 "13 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
 [v _floor floor `(d  1 e 3 0 ]
 {
 "15
-[v floor@i i `d  1 a 3 68 ]
+[v floor@i i `d  1 a 3 71 ]
 "16
-[v floor@expon expon `i  1 a 2 71 ]
+[v floor@expon expon `i  1 a 2 74 ]
 "13
-[v floor@x x `d  1 p 3 65 ]
+[v floor@x x `d  1 p 3 68 ]
 "30
 } 0
 "254 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
 [v _frexp frexp `(d  1 e 3 0 ]
 {
-[v frexp@value value `d  1 p 3 14 ]
-[v frexp@eptr eptr `*.39i  1 p 2 17 ]
+[v frexp@value value `d  1 p 3 16 ]
+[v frexp@eptr eptr `*.39i  1 p 2 19 ]
 "274
 } 0
 "44 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
 {
 "47
-[v ___fttol@lval lval `ul  1 a 4 50 ]
+[v ___fttol@lval lval `ul  1 a 4 53 ]
 "46
-[v ___fttol@exp1 exp1 `uc  1 a 1 54 ]
-[v ___fttol@sign1 sign1 `uc  1 a 1 49 ]
+[v ___fttol@exp1 exp1 `uc  1 a 1 57 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 52 ]
 "44
-[v ___fttol@f1 f1 `f  1 p 3 40 ]
+[v ___fttol@f1 f1 `f  1 p 3 43 ]
 "73
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
 {
-[v ___ftge@ff1 ff1 `f  1 p 3 14 ]
-[v ___ftge@ff2 ff2 `f  1 p 3 17 ]
+[v ___ftge@ff1 ff1 `f  1 p 3 16 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 19 ]
 "13
 } 0
 "42 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altoft.c
 [v ___altoft __altoft `(f  1 e 3 0 ]
 {
 "44
-[v ___altoft@sign sign `uc  1 a 1 64 ]
-[v ___altoft@exp exp `uc  1 a 1 63 ]
+[v ___altoft@sign sign `uc  1 a 1 67 ]
+[v ___altoft@exp exp `uc  1 a 1 66 ]
 "42
-[v ___altoft@c c `l  1 p 4 55 ]
+[v ___altoft@c c `l  1 p 4 58 ]
 "57
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
 [v _eval_poly eval_poly `(d  1 e 3 0 ]
 {
 "6
-[v eval_poly@res res `d  1 a 3 61 ]
+[v eval_poly@res res `d  1 a 3 64 ]
 "4
-[v eval_poly@x x `d  1 p 3 52 ]
-[v eval_poly@d d `*.32Cd  1 p 2 55 ]
-[v eval_poly@n n `i  1 p 2 57 ]
+[v eval_poly@x x `d  1 p 3 55 ]
+[v eval_poly@d d `*.32Cd  1 p 2 58 ]
+[v eval_poly@n n `i  1 p 2 60 ]
 "12
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 18 ]
+[v ___wmul@product product `ui  1 a 2 20 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 14 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 16 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 16 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 18 ]
 "53
 } 0
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 {
 "65
-[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 35 ]
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 38 ]
 "64
-[v ___ftmul@sign sign `uc  1 a 1 39 ]
-[v ___ftmul@cntr cntr `uc  1 a 1 38 ]
-[v ___ftmul@exp exp `uc  1 a 1 34 ]
+[v ___ftmul@sign sign `uc  1 a 1 42 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 41 ]
+[v ___ftmul@exp exp `uc  1 a 1 37 ]
 "62
-[v ___ftmul@f1 f1 `f  1 p 3 25 ]
-[v ___ftmul@f2 f2 `f  1 p 3 28 ]
+[v ___ftmul@f1 f1 `f  1 p 3 28 ]
+[v ___ftmul@f2 f2 `f  1 p 3 31 ]
 "157
 } 0
 "20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 {
-[v ___ftsub@f1 f1 `f  1 p 3 52 ]
-[v ___ftsub@f2 f2 `f  1 p 3 55 ]
+[v ___ftsub@f1 f1 `f  1 p 3 55 ]
+[v ___ftsub@f2 f2 `f  1 p 3 58 ]
 "27
 } 0
 "86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
 {
 "88
-[v ___ftadd@exp1 exp1 `uc  1 a 1 51 ]
-[v ___ftadd@exp2 exp2 `uc  1 a 1 50 ]
-[v ___ftadd@sign sign `uc  1 a 1 49 ]
+[v ___ftadd@exp1 exp1 `uc  1 a 1 54 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 53 ]
+[v ___ftadd@sign sign `uc  1 a 1 52 ]
 "86
-[v ___ftadd@f1 f1 `f  1 p 3 40 ]
-[v ___ftadd@f2 f2 `f  1 p 3 43 ]
+[v ___ftadd@f1 f1 `f  1 p 3 43 ]
+[v ___ftadd@f2 f2 `f  1 p 3 46 ]
 "148
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftneg.c
 [v ___ftneg __ftneg `(f  1 e 3 0 ]
 {
-[v ___ftneg@f1 f1 `f  1 p 3 14 ]
+[v ___ftneg@f1 f1 `f  1 p 3 16 ]
 "20
 } 0
 "54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
 {
 "60
-[v ___ftdiv@f3 f3 `f  1 a 3 32 ]
+[v ___ftdiv@f3 f3 `f  1 a 3 34 ]
 "59
-[v ___ftdiv@sign sign `uc  1 a 1 36 ]
-[v ___ftdiv@exp exp `uc  1 a 1 35 ]
-[v ___ftdiv@cntr cntr `uc  1 a 1 31 ]
+[v ___ftdiv@sign sign `uc  1 a 1 38 ]
+[v ___ftdiv@exp exp `uc  1 a 1 37 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 33 ]
 "54
-[v ___ftdiv@f1 f1 `f  1 p 3 22 ]
-[v ___ftdiv@f2 f2 `f  1 p 3 25 ]
+[v ___ftdiv@f1 f1 `f  1 p 3 24 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 27 ]
 "86
 } 0
 "32 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtoft.c
 [v ___awtoft __awtoft `(f  1 e 3 0 ]
 {
 "34
-[v ___awtoft@sign sign `uc  1 a 1 29 ]
+[v ___awtoft@sign sign `uc  1 a 1 27 ]
 "32
-[v ___awtoft@c c `i  1 p 2 22 ]
+[v ___awtoft@c c `i  1 p 2 24 ]
 "42
 } 0
 "35 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltoft.c
 [v ___lltoft __lltoft `(f  1 e 3 0 ]
 {
 "37
-[v ___lltoft@exp exp `uc  1 a 1 29 ]
+[v ___lltoft@exp exp `uc  1 a 1 32 ]
 "35
-[v ___lltoft@c c `ul  1 p 4 22 ]
+[v ___lltoft@c c `ul  1 p 4 24 ]
 "46
 } 0
 "27 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lbtoft.c
@@ -1578,40 +1908,40 @@
 [v ___lbtoft@c c `uc  1 a 1 wreg ]
 [v ___lbtoft@c c `uc  1 a 1 wreg ]
 "29
-[v ___lbtoft@c c `uc  1 a 1 29 ]
+[v ___lbtoft@c c `uc  1 a 1 27 ]
 "30
 } 0
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 {
-[v ___ftpack@arg arg `um  1 p 3 14 ]
-[v ___ftpack@exp exp `uc  1 p 1 17 ]
-[v ___ftpack@sign sign `uc  1 p 1 18 ]
+[v ___ftpack@arg arg `um  1 p 3 16 ]
+[v ___ftpack@exp exp `uc  1 p 1 19 ]
+[v ___ftpack@sign sign `uc  1 p 1 20 ]
 "86
 } 0
-"397 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"404 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _CalculateSensorError CalculateSensorError `(i  1 e 2 0 ]
 {
-[v CalculateSensorError@sum sum `*.39Cuc  1 p 2 14 ]
-"424
+[v CalculateSensorError@sum sum `*.39Cuc  1 p 2 16 ]
+"431
 } 0
 "61 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _BusyDistanceAcq BusyDistanceAcq `(uc  1 e 1 0 ]
 {
 "65
 } 0
-"649 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"748 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _isrLP isrLP `IIL(v  1 e 0 0 ]
 {
-"682
+"786
 } 0
-"261
+"268
 [v i1_SetADCChannel SetADCChannel `(v  1 e 0 0 ]
 {
 [v i1SetADCChannel@channel channel `uc  1 a 1 wreg ]
 [v i1SetADCChannel@channel channel `uc  1 a 1 wreg ]
 [v i1SetADCChannel@channel channel `uc  1 a 1 2 ]
-"316
+"323
 } 0
 "30 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\ADC\adcsetch.c
 [v i1_SetChanADC SetChanADC `(v  1 e 0 0 ]
@@ -1632,10 +1962,10 @@
 {
 "25
 } 0
-"35 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
+"61 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
 [v _WirelessTx_ISR WirelessTx_ISR `T(v  1 e 0 0 ]
 {
-"45
+"71
 } 0
 "14 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\USART\u1write.c
 [v _Write1USART Write1USART `(v  1 e 0 0 ]
@@ -1662,10 +1992,10 @@
 [v i1___awmod@divisor divisor `i  1 p 2 2 ]
 "35
 } 0
-"622 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_EXPERIMENTAL.c
+"726 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _isrHP isrHP `IIH(v  1 e 0 0 ]
 {
-"646
+"745
 } 0
 "17 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _UltrasoundISR UltrasoundISR `T(v  1 e 0 0 ]
@@ -1675,17 +2005,17 @@
 "14 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t1write.c
 [v i2_WriteTimer1 WriteTimer1 `(v  1 e 0 0 ]
 {
-[u S2028 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
-[v i2WriteTimer1@timer WriteTimer1 `S2028  1 a 2 27 ]
+[u S2381 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[v i2WriteTimer1@timer WriteTimer1 `S2381  1 a 2 0 ]
 [v i2WriteTimer1@timer1 timer1 `ui  1 p 2 25 ]
 "22
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t1read.c
 [v _ReadTimer1 ReadTimer1 `(ui  1 e 2 0 ]
 {
-[u S2028 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[u S2381 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
 "17
-[v ReadTimer1@timer timer `S2028  1 a 2 27 ]
+[v ReadTimer1@timer timer `S2381  1 a 2 0 ]
 "23
 } 0
 "44 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\MillisecondTimer.c
@@ -1696,8 +2026,8 @@
 "16 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t0write.c
 [v i2_WriteTimer0 WriteTimer0 `(v  1 e 0 0 ]
 {
-[u S2028 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
-[v i2WriteTimer0@timer WriteTimer0 `S2028  1 a 2 27 ]
+[u S2381 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[v i2WriteTimer0@timer WriteTimer0 `S2381  1 a 2 0 ]
 [v i2WriteTimer0@timer0 timer0 `ui  1 p 2 25 ]
 "24
 } 0

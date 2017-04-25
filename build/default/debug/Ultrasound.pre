@@ -7288,7 +7288,7 @@ volatile unsigned int echo_time;
 void ConfigureUltrasound(float echo_to_cm, float echo_to_in) {
 convert_cm = echo_to_cm;
 convert_in = echo_to_in;
-
+WriteTimer1(0);
 
 }
 

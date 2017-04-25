@@ -6628,7 +6628,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _ReadEEPROM ]
 [v _address `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;eeprom.c: 38: if(address > 0x3FF) {
+[; ;eeprom.c: 38: if(address > 0x03FF) {
 "38
 [e $ ! > _address -> -> 1023 `i `ui 767  ]
 {
@@ -6644,10 +6644,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 767 ]
 [; ;eeprom.c: 41: else {
 {
-[; ;eeprom.c: 42: EEADR = address & 0x0F;
+[; ;eeprom.c: 42: EEADR = address & 0x00FF;
 "42
-[e = _EEADR -> & _address -> -> 15 `i `ui `uc ]
-[; ;eeprom.c: 43: EEADRH = (address >> 8) & 0x03;
+[e = _EEADR -> & _address -> -> 255 `i `ui `uc ]
+[; ;eeprom.c: 43: EEADRH = (address >> 8) & 0x0003;
 "43
 [e = _EEADRH -> & >> _address -> 8 `i -> -> 3 `i `ui `uc ]
 [; ;eeprom.c: 44: EECON1bits.EEPGD = 0;

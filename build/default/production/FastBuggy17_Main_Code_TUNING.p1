@@ -1,16 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"13390 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S704 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S704 . INT1IF INT2IF INT3IF INT1IE INT2IE INT3IE INT1IP INT2IP ]
-"13400
-[s S705 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S705 . INT1F INT2F INT3F INT1E INT2E INT3E INT1P INT2P ]
-"13389
-[u S703 `S704 1 `S705 1 ]
-[n S703 . . . ]
-"13411
-[v _INTCON3bits `VS703 ~T0 @X0 0 e@4080 ]
-"13593
+"13593 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
 [s S711 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S711 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "13603
@@ -30,64 +19,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S710 . . . . . . ]
 "13639
 [v _INTCONbits `VS710 ~T0 @X0 0 e@4082 ]
-"2788
-[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S143 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"2798
-[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . INT0 INT1 INT2 INT3 KBI0 KBI1 KBI2 KBI3 ]
-"2808
-[s S145 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S145 . FLT0 . ECCP2 ]
-"2813
-[s S146 :3 `uc 1 :1 `uc 1 ]
-[n S146 . . CCP2 ]
-"2817
-[s S147 :3 `uc 1 :1 `uc 1 ]
-[n S147 . . P2A ]
-"2821
-[s S148 :3 `uc 1 :1 `uc 1 ]
-[n S148 . . CCP2_PA2 ]
-"2787
-[u S142 `S143 1 `S144 1 `S145 1 `S146 1 `S147 1 `S148 1 ]
-[n S142 . . . . . . . ]
-"2826
-[v _PORTBbits `VS142 ~T0 @X0 0 e@3969 ]
-"13063
-[s S695 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S695 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
-"13071
-[s S696 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S696 . T0PS0 T0PS1 T0PS2 T0PS3 ]
-"13062
-[u S694 `S695 1 `S696 1 ]
-[n S694 . . . ]
-"13078
-[v _T0CONbits `VS694 ~T0 @X0 0 e@4053 ]
-"121 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\timers.h
-[v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
-"120
-[v _ReadTimer0 `(ui ~T0 @X0 0 ef ]
-"6583 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
-"5078
-[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-"5699
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"5920
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"6141
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"4814
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"7395
-[v _TRISJ `Vuc ~T0 @X0 0 e@3994 ]
-"5567
-[v _LATJ `Vuc ~T0 @X0 0 e@3985 ]
-"2040 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
-[v _OpenADC `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"13057 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
 "12551
 [s S671 :1 `uc 1 ]
 [n S671 . NOT_BOR ]
@@ -114,6 +45,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S670 . . . . . . . . ]
 "12588
 [v _RCONbits `VS670 ~T0 @X0 0 e@4048 ]
+"13390
+[s S704 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S704 . INT1IF INT2IF INT3IF INT1IE INT2IE INT3IE INT1IP INT2IP ]
+"13400
+[s S705 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S705 . INT1F INT2F INT3F INT1E INT2E INT3E INT1P INT2P ]
+"13389
+[u S703 `S704 1 `S705 1 ]
+[n S703 . . . ]
+"13411
+[v _INTCON3bits `VS703 ~T0 @X0 0 e@4080 ]
 "13501
 [s S707 :7 `uc 1 :1 `uc 1 ]
 [n S707 . . NOT_RBPU ]
@@ -128,93 +70,225 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S706 . . . . ]
 "13523
 [v _INTCON2bits `VS706 ~T0 @X0 0 e@4081 ]
+"7746
+[s S376 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S376 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE PSPIE ]
+"7756
+[s S377 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S377 . . SSPIE TXIE RCIE ]
+"7745
+[u S375 `S376 1 `S377 1 ]
+[n S375 . . . ]
+"7763
+[v _PIE1bits `VS375 ~T0 @X0 0 e@3997 ]
+"7828
+[s S379 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S379 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PSPIF ]
+"7838
+[s S380 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S380 . . SSPIF TXIF RCIF ]
+"7827
+[u S378 `S379 1 `S380 1 ]
+[n S378 . . . ]
+"7845
+[v _PIR1bits `VS378 ~T0 @X0 0 e@3998 ]
+"7910
+[s S382 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S382 . TMR1IP TMR2IP CCP1IP SSP1IP TX1IP RC1IP ADIP PSPIP ]
+"7920
+[s S383 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S383 . . SSPIP TXIP RCIP ]
+"7909
+[u S381 `S382 1 `S383 1 ]
+[n S381 . . . ]
+"7927
+[v _IPR1bits `VS381 ~T0 @X0 0 e@3999 ]
+"118 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\timers.h
+[v _OpenTimer0 `(v ~T0 @X0 0 ef1`uc ]
+"121
+[v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
+"236
+[v _OpenTimer1 `(v ~T0 @X0 0 ef1`uc ]
+"12420 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+[s S664 :2 `uc 1 :1 `uc 1 ]
+[n S664 . . NOT_T1SYNC ]
+"12424
+[s S665 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S665 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS T1RUN RD16 ]
+"12433
+[s S666 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S666 . . T1SYNC . T1CKPS0 T1CKPS1 ]
+"12440
+[s S667 :2 `uc 1 :1 `uc 1 ]
+[n S667 . . T1INSYNC ]
+"12444
+[s S668 :3 `uc 1 :1 `uc 1 ]
+[n S668 . . SOSCEN ]
+"12448
+[s S669 :7 `uc 1 :1 `uc 1 ]
+[n S669 . . T1RD16 ]
+"12419
+[u S663 `S664 1 `S665 1 `S666 1 `S667 1 `S668 1 `S669 1 ]
+[n S663 . . . . . . . ]
+"12453
+[v _T1CONbits `VS663 ~T0 @X0 0 e@4045 ]
+"239 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\timers.h
+[v _WriteTimer1 `(v ~T0 @X0 0 ef1`ui ]
+"325
+[v _OpenTimer2 `(v ~T0 @X0 0 ef1`uc ]
+"514 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\pwm.h
+[v _OpenPWM4 `(v ~T0 @X0 0 ef1`uc ]
+"518
+[v _OpenPWM5 `(v ~T0 @X0 0 ef1`uc ]
+"5699 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"5920
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"6141
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"6362
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"6583
+[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
+"7025
+[v _TRISG `Vuc ~T0 @X0 0 e@3992 ]
+"7395
+[v _TRISJ `Vuc ~T0 @X0 0 e@3994 ]
+"2040 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
+[v _OpenADC `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "214 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h
 [v _Open1USART `(v ~T0 @X0 0 ef2`uc`ui ]
-"248
-[v _putrs1USART `(v ~T0 @X0 0 ef1`*Cuc ]
 "2084 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
 [v _SetChanADC `(v ~T0 @X0 0 ef1`uc ]
 "2016
 [v _ConvertADC `(v ~T0 @X0 0 ef ]
-"2014
+"45 C:\Program Files (x86)\Microchip\xc8\v1.34\include\math.h
+[v _pow `(d ~T0 @X0 0 ef2`d`d ]
+"5567 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+[v _LATJ `Vuc ~T0 @X0 0 e@3985 ]
+"5078
+[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
+"37 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\delays.h
+[v _Delay10KTCYx `(v ~T0 @X0 0 ef1`uc ]
+"71 Wireless.h
+[v _CommandAvailable `(uc ~T0 @X0 0 ef ]
+"73
+[v _GetCommand `(uc ~T0 @X0 0 ef ]
+"2788 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S143 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"2798
+[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S144 . INT0 INT1 INT2 INT3 KBI0 KBI1 KBI2 KBI3 ]
+"2808
+[s S145 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S145 . FLT0 . ECCP2 ]
+"2813
+[s S146 :3 `uc 1 :1 `uc 1 ]
+[n S146 . . CCP2 ]
+"2817
+[s S147 :3 `uc 1 :1 `uc 1 ]
+[n S147 . . P2A ]
+"2821
+[s S148 :3 `uc 1 :1 `uc 1 ]
+[n S148 . . CCP2_PA2 ]
+"2787
+[u S142 `S143 1 `S144 1 `S145 1 `S146 1 `S147 1 `S148 1 ]
+[n S142 . . . . . . . ]
+"2826
+[v _PORTBbits `VS142 ~T0 @X0 0 e@3969 ]
+"21 MillisecondTimer.h
+[v _ResetMillis2 `(v ~T0 @X0 0 ef ]
+"29
+[v _ReadMillis2 `(ui ~T0 @X0 0 ef ]
+"2014 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h
 [v _BusyADC `(uc ~T0 @X0 0 ef ]
 "2026
 [v _ReadADC `(i ~T0 @X0 0 ef ]
-"5084 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . LATE0 LATE1 LATE2 LATE3 LATE4 LATE5 LATE6 LATE7 ]
-"5094
-[s S270 :1 `uc 1 ]
-[n S270 . LE0 ]
-"5097
-[s S271 :1 `uc 1 :1 `uc 1 ]
-[n S271 . . LE1 ]
-"5101
-[s S272 :2 `uc 1 :1 `uc 1 ]
-[n S272 . . LE2 ]
-"5105
-[s S273 :3 `uc 1 :1 `uc 1 ]
-[n S273 . . LE3 ]
-"5109
-[s S274 :4 `uc 1 :1 `uc 1 ]
-[n S274 . . LE4 ]
-"5113
-[s S275 :5 `uc 1 :1 `uc 1 ]
-[n S275 . . LE5 ]
-"5117
-[s S276 :6 `uc 1 :1 `uc 1 ]
-[n S276 . . LE6 ]
-"5121
-[s S277 :7 `uc 1 :1 `uc 1 ]
-[n S277 . . LE7 ]
-"5083
-[u S268 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 `S274 1 `S275 1 `S276 1 `S277 1 ]
-[n S268 . . . . . . . . . . ]
-"5126
-[v _LATEbits `VS268 ~T0 @X0 0 e@3981 ]
-"13 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\delays.h
-[v _Delay1TCYx `(v ~T0 @X0 0 ef1`uc ]
-"37
-[v _Delay10KTCYx `(v ~T0 @X0 0 ef1`uc ]
+"45 Wireless.h
+[v _SendStatus `(v ~T0 @X0 0 ef1`Cuc ]
+"19 EEPROM.h
+[v _WriteIntEEPROM `(v ~T0 @X0 0 ef2`ui`ui ]
+"49 Wireless.h
+[v _SendOffsets `(v ~T0 @X0 0 ef1`*Ci ]
+"21 EEPROM.h
+[v _WriteCharEEPROM `(v ~T0 @X0 0 ef2`ui`uc ]
+"51 Wireless.h
+[v _SendThreshold `(v ~T0 @X0 0 ef1`*Ci ]
+"25 EEPROM.h
+[v _ReadCharEEPROM `(uc ~T0 @X0 0 ef1`ui ]
+"23
+[v _ReadIntEEPROM `(ui ~T0 @X0 0 ef1`ui ]
+"37 Wireless.h
+[v _FlushRxBuf `(v ~T0 @X0 0 ef ]
+"19
+[v _PutCharRxBuf `(v ~T0 @X0 0 ef1`uc ]
+"244 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h
+[v _Read1USART `(uc ~T0 @X0 0 ef ]
+"21 Wireless.h
+[v _GetCharRxBuf `(uc ~T0 @X0 0 ef ]
+[v F7284 `(v ~T0 @X0 1 tf ]
+"23 MillisecondTimer.h
+[v _MillisecondTimerISR `TF7284 ~T0 @X0 0 e ]
+[v F7214 `(v ~T0 @X0 1 tf ]
+"17 Ultrasound.h
+[v _UltrasoundISR `TF7214 ~T0 @X0 0 e ]
+[v F7324 `(v ~T0 @X0 1 tf ]
+"31 Wireless.h
+[v _WirelessTx_ISR `TF7324 ~T0 @X0 0 e ]
 [p mainexit ]
-"31
-[v _Delay1KTCYx `(v ~T0 @X0 0 ef1`uc ]
-"206 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"247 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h
-[v _puts1USART `(v ~T0 @X0 0 ef1`*uc ]
-"5573 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
-[s S306 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S306 . LATJ0 LATJ1 LATJ2 LATJ3 LATJ4 LATJ5 LATJ6 LATJ7 ]
-"5583
-[s S307 :1 `uc 1 ]
-[n S307 . LJ0 ]
-"5586
-[s S308 :1 `uc 1 :1 `uc 1 ]
-[n S308 . . LJ1 ]
-"5590
-[s S309 :2 `uc 1 :1 `uc 1 ]
-[n S309 . . LJ2 ]
-"5594
-[s S310 :3 `uc 1 :1 `uc 1 ]
-[n S310 . . LJ3 ]
-"5598
-[s S311 :4 `uc 1 :1 `uc 1 ]
-[n S311 . . LJ4 ]
-"5602
-[s S312 :5 `uc 1 :1 `uc 1 ]
-[n S312 . . LJ5 ]
-"5606
-[s S313 :6 `uc 1 :1 `uc 1 ]
-[n S313 . . LJ6 ]
-"5610
-[s S314 :7 `uc 1 :1 `uc 1 ]
-[n S314 . . LJ7 ]
-"5572
-[u S305 `S306 1 `S307 1 `S308 1 `S309 1 `S310 1 `S311 1 `S312 1 `S313 1 `S314 1 ]
-[n S305 . . . . . . . . . . ]
-"5615
-[v _LATJbits `VS305 ~T0 @X0 0 e@3985 ]
+"15 Ultrasound.h
+[v _ConfigureUltrasound `(v ~T0 @X0 0 ef2`f`f ]
+"39 Wireless.h
+[v _ConfigureWireless `(v ~T0 @X0 0 ef ]
+"39 Motors.h
+[v _DisableMotors `(v ~T0 @X0 0 ef ]
+"20 BatteryLib/ds2781.h
+[v _ReadVoltage `(us ~T0 @X0 0 ef ]
+"59 Wireless.h
+[v _SendBattVoltageInitial `(v ~T0 @X0 0 ef1`*Cui ]
+"47
+[v _SendLineMode `(v ~T0 @X0 0 ef1`*Cuc ]
+"53
+[v _SendDefaultPIDValues `(v ~T0 @X0 0 ef3`i`i`i ]
+"55
+[v _SendStoredPIDValues `(v ~T0 @X0 0 ef3`i`i`i ]
+"57
+[v _SendCurrentPIDValues `(v ~T0 @X0 0 ef3`i`i`i ]
+"19 Ultrasound.h
+[v _GetDistance `(v ~T0 @X0 0 ef ]
+"23 BatteryLib/ds2781.h
+[v _ResetAccumulatedCurrent `(v ~T0 @X0 0 ef ]
+"17 MillisecondTimer.h
+[v _ResetMillis0 `(v ~T0 @X0 0 ef ]
+"19
+[v _ResetMillis1 `(v ~T0 @X0 0 ef ]
+"43 Motors.h
+[v _SetUnipolar `(v ~T0 @X0 0 ef ]
+"45
+[v _StopMotors `(v ~T0 @X0 0 ef ]
+"25
+[v _SetDirectionForward `(v ~T0 @X0 0 ef ]
+"37
+[v _EnableMotors `(v ~T0 @X0 0 ef ]
+"15
+[v _SetDCMotorPID `(v ~T0 @X0 0 ef1`i ]
+"21 Ultrasound.h
+[v _BusyDistanceAcq `(uc ~T0 @X0 0 ef ]
+"25 MillisecondTimer.h
+[v _ReadMillis0 `(ui ~T0 @X0 0 ef ]
+"23 Ultrasound.h
+[v _ReadEchoLength `(ui ~T0 @X0 0 ef ]
+"29 Motors.h
+[v _SetForwardsMotorR `(v ~T0 @X0 0 ef ]
+"35
+[v _SetReverseMotorL `(v ~T0 @X0 0 ef ]
+"17
+[v _SetDCMotorL `(v ~T0 @X0 0 ef1`ui ]
+"19
+[v _SetDCMotorR `(v ~T0 @X0 0 ef1`ui ]
+"27 MillisecondTimer.h
+[v _ReadMillis1 `(ui ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f8722.h: 49: extern volatile unsigned char SSP2CON2 @ 0xF62;
@@ -6729,675 +6803,2578 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 207: extern int printf(const char *, ...);
-"24 TechDemo3_Test_Routine.c
-[v _echo_time `Vui ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine.c: 24: volatile unsigned int echo_time;
-"25
-[v _echo_ready `Vuc ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine.c: 25: volatile unsigned char echo_ready;
-"26
-[v _mode `Vuc ~T0 @X0 1 e ]
-[i _mode
--> -> 0 `i `uc
-]
-[; ;TechDemo3_Test_Routine.c: 26: volatile unsigned char mode = 0;
-"29
-[v _dist_cm `f ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine.c: 29: float dist_cm;
-"30
-[v _i `uc ~T0 @X0 1 e ]
-[v _i2 `uc ~T0 @X0 1 e ]
-[; ;TechDemo3_Test_Routine.c: 30: unsigned char i, i2;
-"31
-[v _sensors `ui ~T0 @X0 -> 5 `i e ]
-[v _threshold `ui ~T0 @X0 1 e ]
-[i _threshold
--> -> 0 `i `ui
-]
-[; ;TechDemo3_Test_Routine.c: 31: unsigned int sensors[5], threshold = 0;
-"32
-[v _buffer `uc ~T0 @X0 -> 16 `i e ]
-[; ;TechDemo3_Test_Routine.c: 32: char buffer[16];
-[v F7159 `(v ~T0 @X0 1 tf ]
-"35
-[v _isr `IF7159 ~T0 @X0 1 e ]
+[; ;math.h: 30: extern double fabs(double);
+[; ;math.h: 31: extern double floor(double);
+[; ;math.h: 32: extern double ceil(double);
+[; ;math.h: 33: extern double modf(double, double *);
+[; ;math.h: 34: extern double sqrt(double);
+[; ;math.h: 35: extern double atof(const char *);
+[; ;math.h: 36: extern double sin(double) ;
+[; ;math.h: 37: extern double cos(double) ;
+[; ;math.h: 38: extern double tan(double) ;
+[; ;math.h: 39: extern double asin(double) ;
+[; ;math.h: 40: extern double acos(double) ;
+[; ;math.h: 41: extern double atan(double);
+[; ;math.h: 42: extern double atan2(double, double) ;
+[; ;math.h: 43: extern double log(double);
+[; ;math.h: 44: extern double log10(double);
+[; ;math.h: 45: extern double pow(double, double) ;
+[; ;math.h: 46: extern double exp(double) ;
+[; ;math.h: 47: extern double sinh(double) ;
+[; ;math.h: 48: extern double cosh(double) ;
+[; ;math.h: 49: extern double tanh(double);
+[; ;math.h: 50: extern double eval_poly(double, const double *, int);
+[; ;math.h: 51: extern double frexp(double, int *);
+[; ;math.h: 52: extern double ldexp(double, int);
+[; ;math.h: 53: extern double fmod(double, double);
+[; ;math.h: 54: extern double trunc(double);
+[; ;math.h: 55: extern double round(double);
+[; ;Ultrasound.h: 15: void ConfigureUltrasound(float echo_to_cm, float echo_to_in);
+[; ;Ultrasound.h: 17: inline void UltrasoundISR(void);
+[; ;Ultrasound.h: 19: void GetDistance(void);
+[; ;Ultrasound.h: 21: unsigned char BusyDistanceAcq(void);
+[; ;Ultrasound.h: 23: unsigned int ReadEchoLength(void);
+[; ;Ultrasound.h: 25: void ResetEchoLength(void);
+[; ;Ultrasound.h: 27: float ConvertDistanceCM(unsigned int echo_time);
+[; ;Ultrasound.h: 29: float ConvertDistanceIN(unsigned int echo_time);
+[; ;SystemClock.h: 15: void ResetSystemClock(void);
+[; ;SystemClock.h: 17: void EnableSystemClock(void);
+[; ;SystemClock.h: 19: void DisableSystemClock(void);
+[; ;SystemClock.h: 21: inline void SystemClockISR(void);
+[; ;SystemClock.h: 23: void SystemClockCalcTime(void);
+[; ;SystemClock.h: 25: unsigned int SystemClockGetMillis(void);
+[; ;SystemClock.h: 27: unsigned char SystemClockGetSecs(void);
+[; ;SystemClock.h: 29: unsigned char SystemClockGetMins(void);
+[; ;SystemClock.h: 31: unsigned int SystemClockGetHrs(void);
+[; ;Motors.h: 15: void SetDCMotorPID(int PIDoutput);
+[; ;Motors.h: 17: void SetDCMotorL(unsigned int duty_cycle);
+[; ;Motors.h: 19: void SetDCMotorR(unsigned int duty_cycle);
+[; ;Motors.h: 25: void SetDirectionForward(void);
+[; ;Motors.h: 27: void SetDirectionReverse(void);
+[; ;Motors.h: 29: void SetForwardsMotorR(void);
+[; ;Motors.h: 31: void SetForwardsMotorL(void);
+[; ;Motors.h: 33: void SetReverseMotorR(void);
+[; ;Motors.h: 35: void SetReverseMotorL(void);
+[; ;Motors.h: 37: void EnableMotors(void);
+[; ;Motors.h: 39: void DisableMotors(void);
+[; ;Motors.h: 41: void SetBipolar(void);
+[; ;Motors.h: 43: void SetUnipolar(void);
+[; ;Motors.h: 45: void StopMotors(void);
+[; ;MillisecondTimer.h: 15: unsigned int ReadMillis(void);
+[; ;MillisecondTimer.h: 17: void ResetMillis0(void);
+[; ;MillisecondTimer.h: 19: void ResetMillis1(void);
+[; ;MillisecondTimer.h: 21: void ResetMillis2(void);
+[; ;MillisecondTimer.h: 23: inline void MillisecondTimerISR(void);
+[; ;MillisecondTimer.h: 25: unsigned int ReadMillis0(void);
+[; ;MillisecondTimer.h: 27: unsigned int ReadMillis1(void);
+[; ;MillisecondTimer.h: 29: unsigned int ReadMillis2(void);
+[; ;EEPROM.h: 15: unsigned char WriteEEPROM(unsigned int address, unsigned char data);
+[; ;EEPROM.h: 17: unsigned char ReadEEPROM(unsigned int address);
+[; ;EEPROM.h: 19: void WriteIntEEPROM(unsigned int address, unsigned int data);
+[; ;EEPROM.h: 21: void WriteCharEEPROM(unsigned int address, unsigned char data);
+[; ;EEPROM.h: 23: unsigned int ReadIntEEPROM(unsigned int address);
+[; ;EEPROM.h: 25: unsigned char ReadCharEEPROM(unsigned int address);
+[; ;Wireless.h: 15: void PutCharTxBuf(unsigned char ch);
+[; ;Wireless.h: 17: unsigned char GetCharTxBuf(void);
+[; ;Wireless.h: 19: void PutCharRxBuf(unsigned char ch);
+[; ;Wireless.h: 21: unsigned char GetCharRxBuf(void);
+[; ;Wireless.h: 23: void StartTx(void);
+[; ;Wireless.h: 25: void StopTx(void);
+[; ;Wireless.h: 27: void StartRx(void);
+[; ;Wireless.h: 29: void StopRx(void);
+[; ;Wireless.h: 31: inline void WirelessTx_ISR(void);
+[; ;Wireless.h: 33: inline void WirelessRx_ISR(void);
+[; ;Wireless.h: 35: void FlushTxBuf(void);
+[; ;Wireless.h: 37: void FlushRxBuf(void);
+[; ;Wireless.h: 39: void ConfigureWireless(void);
+[; ;Wireless.h: 41: unsigned char BusyTx(void);
+[; ;Wireless.h: 43: unsigned char BusyRx(void);
+[; ;Wireless.h: 45: void SendStatus(const unsigned char status_code);
+[; ;Wireless.h: 47: void SendLineMode(const unsigned char *line_mode);
+[; ;Wireless.h: 49: void SendOffsets(const int *offsets_array);
+[; ;Wireless.h: 51: void SendThreshold(const int *sensor_threshold);
+[; ;Wireless.h: 53: void SendDefaultPIDValues(int Kp, int Kd, int Ki);
+[; ;Wireless.h: 55: void SendStoredPIDValues(int Kp, int Kd, int Ki);
+[; ;Wireless.h: 57: void SendCurrentPIDValues(int Kp, int Kd, int Ki);
+[; ;Wireless.h: 59: void SendBattVoltageInitial(const unsigned int *reading);
+[; ;Wireless.h: 61: void SendBattVoltage(const unsigned int *reading);
+[; ;Wireless.h: 63: void SendBattCurrent(const unsigned int *reading);
+[; ;Wireless.h: 65: void SendBattCurrentAcc(const unsigned long int *reading);
+[; ;Wireless.h: 67: void ReceiveCommandsEnable(void);
+[; ;Wireless.h: 69: void ReceiveCommandsDisable(void);
+[; ;Wireless.h: 71: unsigned char CommandAvailable(void);
+[; ;Wireless.h: 73: unsigned char GetCommand(void);
+[; ;OneWire.h: 19: BOOL OWReset (void);
+[; ;OneWire.h: 20: void OWWriteBit (BYTE);
+[; ;OneWire.h: 21: BYTE OWReadBit (void);
+[; ;OneWire.h: 22: void OWWriteByte (BYTE byte);
+[; ;OneWire.h: 23: BYTE OWReadByte (void);
+[; ;ds2781.h: 20: WORD ReadVoltage (void);
+[; ;ds2781.h: 21: WORD ReadCurrent (void);
+[; ;ds2781.h: 22: DWORD ReadAccumulatedCurrent (void);
+[; ;ds2781.h: 23: void ResetAccumulatedCurrent (void);
+[; ;ds2781.h: 24: QWORD ReadNetAddress (void);
+[; ;ds2781.h: 25: WORD ReadTemperature (void);
+[; ;ds2781.h: 26: BYTE ReadCurrentOffset (void);
+[; ;ds2781.h: 27: void WriteCurrentOffset (CHAR offset);
+[; ;ds2781.h: 28: void AdjustCurrentOffset (void);
+[; ;ds2781.h: 29: void UpdateControlRegister (BYTE control);
+[; ;ds2781.h: 30: BYTE ReadRAM (BYTE addr);
+[; ;ds2781.h: 31: void WriteRAM (BYTE byte, BYTE addr);
+[; ;ds2781.h: 32: void CopyEEPROM (BYTE addr);
+[; ;ds2781.h: 33: void RecallEEPROM (BYTE addr);
+[; ;ds2781.h: 34: void Delay100MSx(BYTE counts);
+"73 FastBuggy17_Main_Code_TUNING.c
+[v _sensor_acq_done `Vuc ~T0 @X0 1 e ]
+[v _sensor_acq_index `Vuc ~T0 @X0 1 e ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 73: volatile unsigned char sensor_acq_done, sensor_acq_index;
+"74
+[v _sensor_readings_raw `Vi ~T0 @X0 -> 5 `i e ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 74: volatile int sensor_readings_raw[5];
+"77
+[v _sensor_status `uc ~T0 @X0 -> 5 `i e ]
+[v _line_mode `uc ~T0 @X0 1 e ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 77: unsigned char sensor_status[5], line_mode;
+"78
+[v _sensor_offsets `i ~T0 @X0 -> 5 `i e ]
+[v _sensor_readings_normalised `i ~T0 @X0 -> 5 `i e ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 78: int sensor_offsets[5], sensor_readings_normalised[5];
+"79
+[v _sensor_threshold `i ~T0 @X0 1 e ]
+[v _PID_error `i ~T0 @X0 1 e ]
+[v _PID_output `i ~T0 @X0 1 e ]
+[v _PID_Kp `i ~T0 @X0 1 e ]
+[v _PID_Kd `i ~T0 @X0 1 e ]
+[v _PID_Ki `i ~T0 @X0 1 e ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 79: int sensor_threshold, PID_error, PID_output, PID_Kp, PID_Kd, PID_Ki;
+"82
+[v _sensor_threshold_ptr `*i ~T0 @X0 1 e ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 82: int *sensor_threshold_ptr;
+"85
+[v _ConfigureInterrupts `(v ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine.c: 35: void interrupt isr() {
-[e :U _isr ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 85: void ConfigureInterrupts(void) {
+[e :U _ConfigureInterrupts ]
 [f ]
-[; ;TechDemo3_Test_Routine.c: 36: if (INTCON3bits.INT1IF == 1) {
-"36
-[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 760  ]
-{
-[; ;TechDemo3_Test_Routine.c: 37: INTCON3bits.INT1IF = 0;
-"37
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 38: mode ^= 0x01;
-"38
-[e =^ _mode -> -> 1 `i `uc ]
-"39
-}
-[e :U 760 ]
-[; ;TechDemo3_Test_Routine.c: 39: }
-[; ;TechDemo3_Test_Routine.c: 41: if (INTCONbits.RBIF == 1) {
-"41
-[e $ ! == -> . . _INTCONbits 0 0 `i -> 1 `i 761  ]
-{
-[; ;TechDemo3_Test_Routine.c: 42: INTCONbits.RBIE = 0;
-"42
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 43: if (PORTBbits.RB4 == 1) {
-"43
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 762  ]
-{
-[; ;TechDemo3_Test_Routine.c: 44: T0CONbits.TMR0ON = 1;
-"44
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 45: WriteTimer0(0);
-"45
-[e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
-"46
-}
-[e :U 762 ]
-[; ;TechDemo3_Test_Routine.c: 46: }
-[; ;TechDemo3_Test_Routine.c: 47: if (PORTBbits.RB4 == 0) {
-"47
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 763  ]
-{
-[; ;TechDemo3_Test_Routine.c: 48: T0CONbits.TMR0ON = 0;
-"48
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 49: echo_time = ReadTimer0();
-"49
-[e = _echo_time ( _ReadTimer0 ..  ]
-[; ;TechDemo3_Test_Routine.c: 50: echo_ready = 1;
-"50
-[e = _echo_ready -> -> 1 `i `uc ]
-"51
-}
-[e :U 763 ]
-[; ;TechDemo3_Test_Routine.c: 51: }
-[; ;TechDemo3_Test_Routine.c: 52: INTCONbits.RBIE = 1;
-"52
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 53: INTCONbits.RBIF = 0;
-"53
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"54
-}
-[e :U 761 ]
-[; ;TechDemo3_Test_Routine.c: 54: }
-[; ;TechDemo3_Test_Routine.c: 55: }
-"55
+[; ;FastBuggy17_Main_Code_TUNING.c: 87: INTCONbits.GIE = 1;
+"87
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 88: INTCONbits.PEIE = 1;
+"88
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 89: RCONbits.IPEN = 1;
+"89
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 111: INTCON3bits.INT3IE = 0;
+"111
+[e = . . _INTCON3bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 112: INTCON3bits.INT3IF = 0;
+"112
+[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 113: INTCON2bits.INTEDG3 = 1;
+"113
+[e = . . _INTCON2bits 1 3 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 114: INTCON2bits.INT3IP = 1;
+"114
+[e = . . _INTCON2bits 1 1 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 117: INTCONbits.TMR0IE = 1;
+"117
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 118: INTCONbits.TMR0IF = 0;
+"118
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 119: INTCON2bits.TMR0IP = 1;
+"119
+[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 128: PIE1bits.ADIE = 0;
+"128
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 129: PIR1bits.ADIF = 0;
+"129
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 130: IPR1bits.ADIP = 0;
+"130
+[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 133: PIE1bits.RC1IE = 0;
+"133
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 134: PIE1bits.TX1IE = 0;
+"134
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 135: PIR1bits.RC1IF = 0;
+"135
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 136: PIR1bits.TX1IF = 0;
+"136
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 137: IPR1bits.RC1IP = 0;
+"137
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 138: IPR1bits.TX1IP = 0;
+"138
+[e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 139: }
+"139
 [e :UE 759 ]
 }
-"58
-[v _ConfigIO `(v ~T0 @X0 1 ef ]
+"142
+[v _ConfigureTimer0 `(v ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine.c: 58: void ConfigIO(void) {
-[e :U _ConfigIO ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 142: void ConfigureTimer0(void) {
+[e :U _ConfigureTimer0 ]
 [f ]
-[; ;TechDemo3_Test_Routine.c: 59: TRISE = 0xC0;
-"59
-[e = _TRISE -> -> 192 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 60: LATE = 0x00;
-"60
-[e = _LATE -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 62: TRISA = 0xFF;
-"62
-[e = _TRISA -> -> 255 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 64: TRISB = 0xFF;
-"64
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 66: TRISC = 0x10;
-"66
-[e = _TRISC -> -> 16 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 67: LATC = 0x20;
-"67
-[e = _LATC -> -> 32 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 69: TRISJ = 0x00;
-"69
-[e = _TRISJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 70: LATJ = 0x00;
-"70
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 72: }
-"72
-[e :UE 764 ]
-}
-"75
-[v _ConfigADC `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine.c: 75: void ConfigADC(void) {
-[e :U _ConfigADC ]
-[f ]
-[; ;TechDemo3_Test_Routine.c: 76: OpenADC(0b11011111
-[; ;TechDemo3_Test_Routine.c: 77: & 0b11111111
-[; ;TechDemo3_Test_Routine.c: 78: & 0b11111011,
-[; ;TechDemo3_Test_Routine.c: 79: 0b10000111
-[; ;TechDemo3_Test_Routine.c: 80: & 0b01111111
-[; ;TechDemo3_Test_Routine.c: 81: & 0b11111110
-[; ;TechDemo3_Test_Routine.c: 82: & 0b11111101,
-[; ;TechDemo3_Test_Routine.c: 83: 10);
-"83
-[e ( _OpenADC (3 , , -> & & -> 223 `i -> 255 `i -> 251 `i `uc -> & & & -> 135 `i -> 127 `i -> 254 `i -> 253 `i `uc -> -> 10 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 84: }
-"84
-[e :UE 765 ]
-}
-"87
-[v _ConfigTimer0 `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine.c: 87: void ConfigTimer0(void) {
-[e :U _ConfigTimer0 ]
-[f ]
-[; ;TechDemo3_Test_Routine.c: 88: T0CON = 0x00;
-"88
-[e = _T0CON -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 89: WriteTimer0(0);
-"89
-[e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
-[; ;TechDemo3_Test_Routine.c: 90: }
-"90
-[e :UE 766 ]
-}
-"93
-[v _ConfigInterrupts `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine.c: 93: void ConfigInterrupts(void) {
-[e :U _ConfigInterrupts ]
-[f ]
-[; ;TechDemo3_Test_Routine.c: 94: RCONbits.IPEN = 0;
-"94
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 95: INTCONbits.GIE = 1;
-"95
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 96: INTCONbits.RBIE = 0;
-"96
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 97: INTCON3bits.INT1IE = 1;
-"97
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 98: INTCON2bits.INTEDG1 = 1;
-"98
-[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 99: INTCON3bits.INT1IF = 0;
-"99
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 100: INTCONbits.RBIF = 0;
-"100
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 102: }
-"102
-[e :UE 767 ]
-}
-"105
-[v _ConfigUSART `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine.c: 105: void ConfigUSART(void) {
-[e :U _ConfigUSART ]
-[f ]
-[; ;TechDemo3_Test_Routine.c: 106: Open1USART(0b01111111
-[; ;TechDemo3_Test_Routine.c: 107: & 0b10111111
-[; ;TechDemo3_Test_Routine.c: 108: & 0b11111110
-[; ;TechDemo3_Test_Routine.c: 109: & 0b11111101
-[; ;TechDemo3_Test_Routine.c: 110: & 0b11111111
-[; ;TechDemo3_Test_Routine.c: 111: & 0b11111111,
-[; ;TechDemo3_Test_Routine.c: 112: 64);
-"112
-[e ( _Open1USART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
-[; ;TechDemo3_Test_Routine.c: 114: putrs1USART("USART Configured\r\n");
-"114
-[e ( _putrs1USART (1 :s 1C ]
-[; ;TechDemo3_Test_Routine.c: 116: }
-"116
-[e :UE 768 ]
-}
-"119
-[v _GetADCReading `(ui ~T0 @X0 1 ef1`uc ]
-{
-[; ;TechDemo3_Test_Routine.c: 119: unsigned int GetADCReading(unsigned char channel) {
-[e :U _GetADCReading ]
-[v _channel `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;TechDemo3_Test_Routine.c: 120: switch (channel) {
-"120
-[e $U 771  ]
-{
-[; ;TechDemo3_Test_Routine.c: 121: case 0:
-"121
-[e :U 772 ]
-[; ;TechDemo3_Test_Routine.c: 122: SetChanADC(0b10000111);
-"122
-[e ( _SetChanADC (1 -> -> 135 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 123: break;
-"123
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine.c: 124: case 1:
-"124
-[e :U 773 ]
-[; ;TechDemo3_Test_Routine.c: 125: SetChanADC(0b10001111);
-"125
-[e ( _SetChanADC (1 -> -> 143 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 126: break;
-"126
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine.c: 127: case 2:
-"127
-[e :U 774 ]
-[; ;TechDemo3_Test_Routine.c: 128: SetChanADC(0b10010111);
-"128
-[e ( _SetChanADC (1 -> -> 151 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 129: break;
-"129
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine.c: 130: case 3:
-"130
-[e :U 775 ]
-[; ;TechDemo3_Test_Routine.c: 131: SetChanADC(0b10011111);
-"131
-[e ( _SetChanADC (1 -> -> 159 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 132: break;
-"132
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine.c: 133: case 4:
-"133
-[e :U 776 ]
-[; ;TechDemo3_Test_Routine.c: 134: SetChanADC(0b10100111);
-"134
-[e ( _SetChanADC (1 -> -> 167 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 135: break;
-"135
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine.c: 136: case 5:
-"136
-[e :U 777 ]
-[; ;TechDemo3_Test_Routine.c: 137: SetChanADC(0b10101111);
-"137
-[e ( _SetChanADC (1 -> -> 175 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 138: break;
-"138
-[e $U 770  ]
-[; ;TechDemo3_Test_Routine.c: 139: default:
-"139
-[e :U 778 ]
-[; ;TechDemo3_Test_Routine.c: 140: return 0;
-"140
-[e ) -> -> 0 `i `ui ]
-[e $UE 769  ]
-"141
-}
-[; ;TechDemo3_Test_Routine.c: 141: }
-[e $U 770  ]
-"120
-[e :U 771 ]
-[e [\ _channel , $ -> -> 0 `i `uc 772
- , $ -> -> 1 `i `uc 773
- , $ -> -> 2 `i `uc 774
- , $ -> -> 3 `i `uc 775
- , $ -> -> 4 `i `uc 776
- , $ -> -> 5 `i `uc 777
- 778 ]
-"141
-[e :U 770 ]
-[; ;TechDemo3_Test_Routine.c: 143: ConvertADC();
-"143
-[e ( _ConvertADC ..  ]
-[; ;TechDemo3_Test_Routine.c: 145: while (BusyADC());
-"145
-[e $U 779  ]
-[e :U 780 ]
-[e :U 779 ]
-[e $ != -> ( _BusyADC ..  `i -> -> -> 0 `i `uc `i 780  ]
-[e :U 781 ]
-[; ;TechDemo3_Test_Routine.c: 146: return ReadADC() & 0x03FF;
-"146
-[e ) -> & ( _ReadADC ..  -> 1023 `i `ui ]
-[e $UE 769  ]
-[; ;TechDemo3_Test_Routine.c: 147: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 144: OpenTimer0(0b11111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 145: & 0b10111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 146: & 0b11011111
+[; ;FastBuggy17_Main_Code_TUNING.c: 147: & 0b11111111);
 "147
-[e :UE 769 ]
-}
-"150
-[v _IlluminateLED `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;TechDemo3_Test_Routine.c: 150: void IlluminateLED(unsigned char sel) {
-[e :U _IlluminateLED ]
-[v _sel `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;TechDemo3_Test_Routine.c: 151: switch (sel) {
+[e ( _OpenTimer0 (1 -> & & & -> 255 `i -> 191 `i -> 223 `i -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 151: WriteTimer0(63036);
 "151
-[e $U 784  ]
-{
-[; ;TechDemo3_Test_Routine.c: 152: case 0:
-"152
-[e :U 785 ]
-[; ;TechDemo3_Test_Routine.c: 153: LATJ = 0x01;
+[e ( _WriteTimer0 (1 -> -> 63036 `l `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 153: }
 "153
-[e = _LATJ -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 154: break;
-"154
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine.c: 155: case 1:
-"155
-[e :U 786 ]
-[; ;TechDemo3_Test_Routine.c: 156: LATJ = 0x02;
+[e :UE 760 ]
+}
 "156
-[e = _LATJ -> -> 2 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 157: break;
-"157
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine.c: 158: case 2:
-"158
-[e :U 787 ]
-[; ;TechDemo3_Test_Routine.c: 159: LATJ = 0x04;
-"159
-[e = _LATJ -> -> 4 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 160: break;
-"160
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine.c: 161: case 3:
-"161
-[e :U 788 ]
-[; ;TechDemo3_Test_Routine.c: 162: LATJ = 0x08;
-"162
-[e = _LATJ -> -> 8 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 163: break;
+[v _ConfigureTimer1 `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 156: void ConfigureTimer1(void) {
+[e :U _ConfigureTimer1 ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 158: OpenTimer1(0b01111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 159: & 0b11111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 160: & 0b11111101
+[; ;FastBuggy17_Main_Code_TUNING.c: 161: & 0b11011111
+[; ;FastBuggy17_Main_Code_TUNING.c: 162: & 0b11110111
+[; ;FastBuggy17_Main_Code_TUNING.c: 163: & 0b11111111);
 "163
-[e $U 783  ]
-[; ;TechDemo3_Test_Routine.c: 164: case 4:
-"164
-[e :U 789 ]
-[; ;TechDemo3_Test_Routine.c: 165: LATJ = 0x10;
-"165
-[e = _LATJ -> -> 16 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 166: break;
-"166
-[e $U 783  ]
+[e ( _OpenTimer1 (1 -> & & & & & -> 127 `i -> 255 `i -> 253 `i -> 223 `i -> 247 `i -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 167: T1CONbits.TMR1ON = 0;
 "167
-}
-[; ;TechDemo3_Test_Routine.c: 167: }
-[e $U 783  ]
-"151
-[e :U 784 ]
-[e [\ _sel , $ -> -> 0 `i `uc 785
- , $ -> -> 1 `i `uc 786
- , $ -> -> 2 `i `uc 787
- , $ -> -> 3 `i `uc 788
- , $ -> -> 4 `i `uc 789
- 783 ]
-"167
-[e :U 783 ]
-[; ;TechDemo3_Test_Routine.c: 168: }
-"168
-[e :UE 782 ]
-}
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 169: WriteTimer1(0);
+"169
+[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 171: }
 "171
-[v _GetDistance `(v ~T0 @X0 1 ef ]
-{
-[; ;TechDemo3_Test_Routine.c: 171: void GetDistance(void) {
-[e :U _GetDistance ]
-[f ]
-[; ;TechDemo3_Test_Routine.c: 172: LATEbits.LATE5 = 1;
-"172
-[e = . . _LATEbits 0 5 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 173: Delay1TCYx(25);
-"173
-[e ( _Delay1TCYx (1 -> -> 25 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 174: LATEbits.LATE5 = 0;
-"174
-[e = . . _LATEbits 0 5 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 175: INTCONbits.RBIE = 1;
-"175
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 176: echo_ready = 0;
-"176
-[e = _echo_ready -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 177: }
-"177
-[e :UE 790 ]
+[e :UE 761 ]
 }
-"180
-[v _ChangeMode `(v ~T0 @X0 1 ef ]
+"174
+[v _ConfigureTimer2 `(v ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine.c: 180: void ChangeMode(void) {
-[e :U _ChangeMode ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 174: void ConfigureTimer2(void) {
+[e :U _ConfigureTimer2 ]
 [f ]
-[; ;TechDemo3_Test_Routine.c: 181: LATJ = 0x00;
-"181
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 182: LATJ = 0x1F;
-"182
-[e = _LATJ -> -> 31 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 183: Delay10KTCYx(125);
-"183
-[e ( _Delay10KTCYx (1 -> -> 125 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 184: LATJ = 0x00;
-"184
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 185: Delay10KTCYx(125);
-"185
-[e ( _Delay10KTCYx (1 -> -> 125 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 186: LATJ = 0x1F;
-"186
-[e = _LATJ -> -> 31 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 187: Delay10KTCYx(125);
-"187
-[e ( _Delay10KTCYx (1 -> -> 125 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 188: LATJ = 0x00;
-"188
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 189: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 176: OpenTimer2(0b01111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 177: & 0b11111100
+[; ;FastBuggy17_Main_Code_TUNING.c: 178: & 0b10000111
+[; ;FastBuggy17_Main_Code_TUNING.c: 179: & 0b10110111);
+"179
+[e ( _OpenTimer2 (1 -> & & & -> 127 `i -> 252 `i -> 135 `i -> 183 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 189: }
 "189
-[e :UE 791 ]
+[e :UE 762 ]
 }
 "192
-[v _main `(v ~T0 @X0 1 ef ]
+[v _ConfigurePWM `(v ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine.c: 192: void main(void) {
-[e :U _main ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 192: void ConfigurePWM(void) {
+[e :U _ConfigurePWM ]
 [f ]
-[; ;TechDemo3_Test_Routine.c: 194: ConfigIO();
+[; ;FastBuggy17_Main_Code_TUNING.c: 194: OpenPWM4(130);
 "194
-[e ( _ConfigIO ..  ]
-[; ;TechDemo3_Test_Routine.c: 195: ConfigADC();
+[e ( _OpenPWM4 (1 -> -> 130 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 195: OpenPWM5(130);
 "195
-[e ( _ConfigADC ..  ]
-[; ;TechDemo3_Test_Routine.c: 196: ConfigTimer0();
-"196
-[e ( _ConfigTimer0 ..  ]
-[; ;TechDemo3_Test_Routine.c: 197: ConfigUSART();
-"197
-[e ( _ConfigUSART ..  ]
-[; ;TechDemo3_Test_Routine.c: 198: ConfigInterrupts();
-"198
-[e ( _ConfigInterrupts ..  ]
-[; ;TechDemo3_Test_Routine.c: 200: putrs1USART("ESP Group 16\r\nTech Demo 3 Test Program\r\n");
-"200
-[e ( _putrs1USART (1 :s 2C ]
-[; ;TechDemo3_Test_Routine.c: 202: while (1) {
-"202
-[e :U 794 ]
-{
-[; ;TechDemo3_Test_Routine.c: 204: putrs1USART("Mode: LINE SENSING\r\n");
-"204
-[e ( _putrs1USART (1 :s 3C ]
-[; ;TechDemo3_Test_Routine.c: 205: putrs1USART("THRESHOLD\r\n");
-"205
-[e ( _putrs1USART (1 :s 4C ]
-[; ;TechDemo3_Test_Routine.c: 206: i2 = 0;
-"206
-[e = _i2 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 208: while (mode == 0) {
-"208
-[e $U 796  ]
-[e :U 797 ]
-{
-[; ;TechDemo3_Test_Routine.c: 210: LATJ = 0x00;
-"210
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 211: LATE = 0xFF;
-"211
-[e = _LATE -> -> 255 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 213: for (i = 0; i < 6; i++) {
-"213
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 6 `i 799  ]
-[e $U 800  ]
-[e :U 799 ]
-{
-[; ;TechDemo3_Test_Routine.c: 214: if (i < 5) {
-"214
-[e $ ! < -> _i `i -> 5 `i 802  ]
-{
-[; ;TechDemo3_Test_Routine.c: 215: sensors[i] = GetADCReading(i);
+[e ( _OpenPWM5 (1 -> -> 130 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 212: }
+"212
+[e :UE 763 ]
+}
 "215
-[e = *U + &U _sensors * -> _i `ux -> -> # *U &U _sensors `ui `ux ( _GetADCReading (1 _i ]
-[; ;TechDemo3_Test_Routine.c: 216: if (sensors[i] > threshold) {
-"216
-[e $ ! > *U + &U _sensors * -> _i `ux -> -> # *U &U _sensors `ui `ux _threshold 803  ]
+[v _ConfigureBuggyIO `(v ~T0 @X0 1 ef ]
 {
-[; ;TechDemo3_Test_Routine.c: 217: IlluminateLED(i);
-"217
-[e ( _IlluminateLED (1 _i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 215: void ConfigureBuggyIO(void) {
+[e :U _ConfigureBuggyIO ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 218: TRISA = 0xFF;
 "218
+[e = _TRISA -> -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 221: TRISB = 0xFF;
+"221
+[e = _TRISB -> -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 224: TRISC = 0x9F;
+"224
+[e = _TRISC -> -> 159 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 227: TRISD = 0xE0;
+"227
+[e = _TRISD -> -> 224 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 230: TRISE = 0x00;
+"230
+[e = _TRISE -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 233: TRISG = 0xE7;
+"233
+[e = _TRISG -> -> 231 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 236: TRISJ = 0x00;
+"236
+[e = _TRISJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 238: }
+"238
+[e :UE 764 ]
 }
-[e :U 803 ]
-"219
+"241
+[v _ConfigureADC `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 241: void ConfigureADC(void) {
+[e :U _ConfigureADC ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 243: OpenADC(0b10011111
+[; ;FastBuggy17_Main_Code_TUNING.c: 244: & 0b11111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 245: & 0b11110101,
+[; ;FastBuggy17_Main_Code_TUNING.c: 246: 0b10000111
+[; ;FastBuggy17_Main_Code_TUNING.c: 247: & 0b01111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 248: & 0b11111110
+[; ;FastBuggy17_Main_Code_TUNING.c: 249: & 0b11111101,
+[; ;FastBuggy17_Main_Code_TUNING.c: 250: 9);
+"250
+[e ( _OpenADC (3 , , -> & & -> 159 `i -> 255 `i -> 245 `i `uc -> & & & -> 135 `i -> 127 `i -> 254 `i -> 253 `i `uc -> -> 9 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 252: }
+"252
+[e :UE 765 ]
 }
-[; ;TechDemo3_Test_Routine.c: 218: }
-[; ;TechDemo3_Test_Routine.c: 219: } else {
-[e $U 804  ]
+"255
+[v _ConfigureSerial `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 255: void ConfigureSerial(void) {
+[e :U _ConfigureSerial ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 257: Open1USART(0b01111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 258: & 0b10111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 259: & 0b11111110
+[; ;FastBuggy17_Main_Code_TUNING.c: 260: & 0b11111101
+[; ;FastBuggy17_Main_Code_TUNING.c: 261: & 0b11111111
+[; ;FastBuggy17_Main_Code_TUNING.c: 262: & 0b11111111,
+[; ;FastBuggy17_Main_Code_TUNING.c: 263: 64);
+"263
+[e ( _Open1USART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 265: }
+"265
+[e :UE 766 ]
+}
+"268
+[v _SetADCChannel `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 268: void SetADCChannel(unsigned char channel) {
+[e :U _SetADCChannel ]
+[v _channel `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 270: switch (channel) {
+"270
+[e $U 769  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 271: case 0:
+"271
+[e :U 770 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 272: SetChanADC(0b10000111);
+"272
+[e ( _SetChanADC (1 -> -> 135 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 273: break;
+"273
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 274: case 1:
+"274
+[e :U 771 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 275: SetChanADC(0b10001111);
+"275
+[e ( _SetChanADC (1 -> -> 143 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 276: break;
+"276
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 277: case 2:
+"277
+[e :U 772 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 278: SetChanADC(0b10010111);
+"278
+[e ( _SetChanADC (1 -> -> 151 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 279: break;
+"279
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 280: case 3:
+"280
+[e :U 773 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 281: SetChanADC(0b10011111);
+"281
+[e ( _SetChanADC (1 -> -> 159 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 282: break;
+"282
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 283: case 4:
+"283
+[e :U 774 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 284: SetChanADC(0b10100111);
+"284
+[e ( _SetChanADC (1 -> -> 167 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 285: break;
+"285
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 286: case 5:
+"286
+[e :U 775 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 287: SetChanADC(0b10101111);
+"287
+[e ( _SetChanADC (1 -> -> 175 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 288: break;
+"288
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 289: case 6:
+"289
+[e :U 776 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 290: SetChanADC(0b10110111);
+"290
+[e ( _SetChanADC (1 -> -> 183 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 291: break;
+"291
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 292: case 7:
+"292
+[e :U 777 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 293: SetChanADC(0b10111111);
+"293
+[e ( _SetChanADC (1 -> -> 191 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 294: break;
+"294
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 295: case 8:
+"295
+[e :U 778 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 296: SetChanADC(0b11000111);
+"296
+[e ( _SetChanADC (1 -> -> 199 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 297: break;
+"297
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 298: case 9:
+"298
+[e :U 779 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 299: SetChanADC(0b11001111);
+"299
+[e ( _SetChanADC (1 -> -> 207 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 300: break;
+"300
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 301: case 10:
+"301
+[e :U 780 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 302: SetChanADC(0b11010111);
+"302
+[e ( _SetChanADC (1 -> -> 215 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 303: break;
+"303
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 304: case 11:
+"304
+[e :U 781 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 305: SetChanADC(0b11011111);
+"305
+[e ( _SetChanADC (1 -> -> 223 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 306: break;
+"306
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 307: case 12:
+"307
+[e :U 782 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 308: SetChanADC(0b11100111);
+"308
+[e ( _SetChanADC (1 -> -> 231 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 309: break;
+"309
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 310: case 13:
+"310
+[e :U 783 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 311: SetChanADC(0b11101111);
+"311
+[e ( _SetChanADC (1 -> -> 239 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 312: break;
+"312
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 313: case 14:
+"313
+[e :U 784 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 314: SetChanADC(0b11110111);
+"314
+[e ( _SetChanADC (1 -> -> 247 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 315: break;
+"315
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 316: case 15:
+"316
+[e :U 785 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 317: SetChanADC(0b11111111);
+"317
+[e ( _SetChanADC (1 -> -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 318: break;
+"318
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 319: default:
+"319
+[e :U 786 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 320: break;
+"320
+[e $U 768  ]
+"321
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 321: }
+[e $U 768  ]
+"270
+[e :U 769 ]
+[e [\ _channel , $ -> -> 0 `i `uc 770
+ , $ -> -> 1 `i `uc 771
+ , $ -> -> 2 `i `uc 772
+ , $ -> -> 3 `i `uc 773
+ , $ -> -> 4 `i `uc 774
+ , $ -> -> 5 `i `uc 775
+ , $ -> -> 6 `i `uc 776
+ , $ -> -> 7 `i `uc 777
+ , $ -> -> 8 `i `uc 778
+ , $ -> -> 9 `i `uc 779
+ , $ -> -> 10 `i `uc 780
+ , $ -> -> 11 `i `uc 781
+ , $ -> -> 12 `i `uc 782
+ , $ -> -> 13 `i `uc 783
+ , $ -> -> 14 `i `uc 784
+ , $ -> -> 15 `i `uc 785
+ 786 ]
+"321
+[e :U 768 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 323: }
+"323
+[e :UE 767 ]
+}
+"326
+[v _GetSensorReadings `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 326: void GetSensorReadings(void) {
+[e :U _GetSensorReadings ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 328: sensor_acq_index = 0;
+"328
+[e = _sensor_acq_index -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 329: sensor_acq_done = 0;
+"329
+[e = _sensor_acq_done -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 330: SetADCChannel(sensor_acq_index);
+"330
+[e ( _SetADCChannel (1 _sensor_acq_index ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 331: ConvertADC();
+"331
+[e ( _ConvertADC ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 332: PIE1bits.ADIE = 1;
+"332
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 334: }
+"334
+[e :UE 787 ]
+}
+"337
+[v _BusySensorAcq `(uc ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 337: unsigned char BusySensorAcq(void) {
+[e :U _BusySensorAcq ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 339: return (!sensor_acq_done);
+"339
+[e ) -> -> ! != -> _sensor_acq_done `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e $UE 788  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 341: }
+"341
+[e :UE 788 ]
+}
+"344
+[v _NormaliseSensorReadings `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 344: void NormaliseSensorReadings(void) {
+[e :U _NormaliseSensorReadings ]
+[f ]
+"345
+[v _index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 345: unsigned char index;
+[; ;FastBuggy17_Main_Code_TUNING.c: 347: for(index = 0; index < 5; index++) {
+"347
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 790  ]
+[e $U 791  ]
+[e :U 790 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 349: sensor_readings_normalised[index] = sensor_readings_raw[index] + sensor_offsets[index];
+"349
+[e = *U + &U _sensor_readings_normalised * -> _index `ux -> -> # *U &U _sensor_readings_normalised `ui `ux + *U + &U _sensor_readings_raw * -> _index `ux -> -> # *U &U _sensor_readings_raw `ui `ux *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux ]
+"351
+}
+"347
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 790  ]
+[e :U 791 ]
+"351
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 351: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 353: }
+"353
+[e :UE 789 ]
+}
+"356
+[v _CalculateSensorStatuses `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 356: void CalculateSensorStatuses(void) {
+[e :U _CalculateSensorStatuses ]
+[f ]
+"357
+[v _index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 357: unsigned char index;
+[; ;FastBuggy17_Main_Code_TUNING.c: 360: if(line_mode == 1) {
+"360
+[e $ ! == -> _line_mode `i -> 1 `i 794  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 361: for(index = 0; index < 5; index++) {
+"361
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 795  ]
+[e $U 796  ]
+[e :U 795 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 363: if(sensor_readings_normalised[index] > sensor_threshold) {
+"363
+[e $ ! > *U + &U _sensor_readings_normalised * -> _index `ux -> -> # *U &U _sensor_readings_normalised `ui `ux _sensor_threshold 798  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 364: sensor_status[index] = 1;
+"364
+[e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 1 `i `uc ]
+"365
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 365: }
+[e $U 799  ]
+"366
+[e :U 798 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 366: else {
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 367: sensor_status[index] = 0;
+"367
+[e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 0 `i `uc ]
+"368
+}
+[e :U 799 ]
+"369
+}
+"361
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 795  ]
+[e :U 796 ]
+"369
+}
+"370
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 368: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 369: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 370: }
+[e $U 800  ]
+"372
+[e :U 794 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 372: else if(line_mode == 0) {
+[e $ ! == -> _line_mode `i -> 0 `i 801  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 374: for(index = 0; index < 5; index++) {
+"374
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 802  ]
+[e $U 803  ]
 [e :U 802 ]
 {
-[; ;TechDemo3_Test_Routine.c: 220: threshold = GetADCReading(5);
-"220
-[e = _threshold ( _GetADCReading (1 -> -> 5 `i `uc ]
-"221
-}
-[e :U 804 ]
-[; ;TechDemo3_Test_Routine.c: 221: }
-[; ;TechDemo3_Test_Routine.c: 222: Delay1KTCYx(10);
-"222
-[e ( _Delay1KTCYx (1 -> -> 10 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 223: if(i2 >= 110) {
-"223
-[e $ ! >= -> _i2 `i -> 110 `i 805  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 376: if(sensor_readings_normalised[index] < sensor_threshold) {
+"376
+[e $ ! < *U + &U _sensor_readings_normalised * -> _index `ux -> -> # *U &U _sensor_readings_normalised `ui `ux _sensor_threshold 805  ]
 {
-[; ;TechDemo3_Test_Routine.c: 224: i2 = 0;
-"224
-[e = _i2 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 225: sprintf(buffer, "%d\r\n", threshold);
-"225
-[e ( _sprintf (1 , (. , &U _buffer :s 5C _threshold ]
-[; ;TechDemo3_Test_Routine.c: 226: puts1USART(buffer);
-"226
-[e ( _puts1USART (1 &U _buffer ]
-"227
+[; ;FastBuggy17_Main_Code_TUNING.c: 377: sensor_status[index] = 1;
+"377
+[e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 1 `i `uc ]
+"378
 }
-[; ;TechDemo3_Test_Routine.c: 227: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 378: }
 [e $U 806  ]
-"228
+"379
 [e :U 805 ]
-[; ;TechDemo3_Test_Routine.c: 228: else {
+[; ;FastBuggy17_Main_Code_TUNING.c: 379: else {
 {
-[; ;TechDemo3_Test_Routine.c: 229: i2++;
-"229
-[e ++ _i2 -> -> 1 `i `uc ]
-"230
+[; ;FastBuggy17_Main_Code_TUNING.c: 380: sensor_status[index] = 0;
+"380
+[e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 0 `i `uc ]
+"381
 }
 [e :U 806 ]
-"231
+"383
 }
-"213
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 6 `i 799  ]
+"374
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 802  ]
+[e :U 803 ]
+"383
+}
+"384
+}
+[e :U 801 ]
+"387
 [e :U 800 ]
-"231
+[; ;FastBuggy17_Main_Code_TUNING.c: 381: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 383: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 384: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 387: }
+[e :UE 793 ]
 }
-"232
-}
-[e :U 796 ]
-"208
-[e $ == -> _mode `i -> 0 `i 797  ]
-[e :U 798 ]
-[; ;TechDemo3_Test_Routine.c: 230: }
-[; ;TechDemo3_Test_Routine.c: 231: }
-[; ;TechDemo3_Test_Routine.c: 232: }
-[; ;TechDemo3_Test_Routine.c: 234: ChangeMode();
-"234
-[e ( _ChangeMode ..  ]
-[; ;TechDemo3_Test_Routine.c: 235: putrs1USART("Mode: ULTRASONIC DISTANCE\r\n");
-"235
-[e ( _putrs1USART (1 :s 6C ]
-[; ;TechDemo3_Test_Routine.c: 236: putrs1USART("DISTANCE (CM)\tTMR0 VALUE\r\n");
-"236
-[e ( _putrs1USART (1 :s 7C ]
-[; ;TechDemo3_Test_Routine.c: 238: while (mode == 1) {
-"238
-[e $U 807  ]
+"390
+[v _CalculateSensorSums `(uc ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 390: unsigned char CalculateSensorSums(void) {
+[e :U _CalculateSensorSums ]
+[f ]
+"391
+[v _index `uc ~T0 @X0 1 a ]
+[v _sum `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 391: unsigned char index, sum = 0;
+[e = _sum -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 393: for(index = 0; index < 5; index++) {
+"393
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 808  ]
+[e $U 809  ]
 [e :U 808 ]
 {
-[; ;TechDemo3_Test_Routine.c: 239: GetDistance();
-"239
-[e ( _GetDistance ..  ]
-[; ;TechDemo3_Test_Routine.c: 241: LATJbits.LATJ0 = 1;
-"241
-[e = . . _LATJbits 0 0 -> -> 1 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 242: Delay1KTCYx(100);
-"242
-[e ( _Delay1KTCYx (1 -> -> 100 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 243: LATJbits.LATJ0 = 0;
-"243
-[e = . . _LATJbits 0 0 -> -> 0 `i `uc ]
-[; ;TechDemo3_Test_Routine.c: 245: while (!(echo_ready == 1));
-"245
-[e $U 810  ]
-[e :U 811 ]
-[e :U 810 ]
-[e $ ! == -> _echo_ready `i -> 1 `i 811  ]
-[e :U 812 ]
-[; ;TechDemo3_Test_Routine.c: 247: dist_cm = 0.0137 * echo_time;
-"247
-[e = _dist_cm -> * .0.0137 -> _echo_time `d `f ]
-[; ;TechDemo3_Test_Routine.c: 249: sprintf(buffer, "%.2f cm\t%d\r\n", dist_cm, echo_time);
-"249
-[e ( _sprintf (1 , , (. , &U _buffer :s 8C -> _dist_cm `d _echo_time ]
-[; ;TechDemo3_Test_Routine.c: 250: puts1USART(buffer);
-"250
-[e ( _puts1USART (1 &U _buffer ]
-[; ;TechDemo3_Test_Routine.c: 252: Delay10KTCYx(200);
-"252
-[e ( _Delay10KTCYx (1 -> -> 200 `i `uc ]
-"254
+[; ;FastBuggy17_Main_Code_TUNING.c: 395: sum += (unsigned char) (sensor_status[index] * pow(2, index));
+"395
+[e =+ _sum -> * -> *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux `d ( _pow (2 , -> -> 2 `i `d -> _index `d `uc ]
+"397
 }
-[e :U 807 ]
-"238
-[e $ == -> _mode `i -> 1 `i 808  ]
+"393
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 808  ]
 [e :U 809 ]
-[; ;TechDemo3_Test_Routine.c: 254: }
-[; ;TechDemo3_Test_Routine.c: 256: ChangeMode();
-"256
-[e ( _ChangeMode ..  ]
-"258
+"397
 }
-[e :U 793 ]
-"202
-[e $U 794  ]
-[e :U 795 ]
-[; ;TechDemo3_Test_Routine.c: 258: }
-[; ;TechDemo3_Test_Routine.c: 260: }
-"260
-[e :UE 792 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 397: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 399: return(sum);
+"399
+[e ) _sum ]
+[e $UE 807  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 401: }
+"401
+[e :UE 807 ]
 }
-[p f _sprintf 8462464 ]
-[a 2C 69 83 80 32 71 114 111 117 112 32 49 54 13 10 84 101 99 104 32 68 101 109 111 32 51 32 84 101 115 116 32 80 114 111 103 114 97 109 13 10 0 ]
-[a 1C 85 83 65 82 84 32 67 111 110 102 105 103 117 114 101 100 13 10 0 ]
-[a 8C 37 46 50 102 32 99 109 9 37 100 13 10 0 ]
-[a 5C 37 100 13 10 0 ]
-[a 3C 77 111 100 101 58 32 76 73 78 69 32 83 69 78 83 73 78 71 13 10 0 ]
-[a 7C 68 73 83 84 65 78 67 69 32 40 67 77 41 9 84 77 82 48 32 86 65 76 85 69 13 10 0 ]
-[a 6C 77 111 100 101 58 32 85 76 84 82 65 83 79 78 73 67 32 68 73 83 84 65 78 67 69 13 10 0 ]
-[a 4C 84 72 82 69 83 72 79 76 68 13 10 0 ]
+"404
+[v _CalculateSensorError `(i ~T0 @X0 1 ef1`*Cuc ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 404: int CalculateSensorError(const unsigned char *sum) {
+[e :U _CalculateSensorError ]
+[v _sum `*Cuc ~T0 @X0 1 r1 ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 406: switch(*sum) {
+"406
+[e $U 813  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 407: case(16) :
+"407
+[e :U 814 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 408: return(8);
+"408
+[e ) -> 8 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 409: case(24) :
+"409
+[e :U 815 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 410: return(6);
+"410
+[e ) -> 6 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 411: case(8) :
+"411
+[e :U 816 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 412: return(4);
+"412
+[e ) -> 4 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 413: case(12) :
+"413
+[e :U 817 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 414: return(2);
+"414
+[e ) -> 2 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 415: case(4) :
+"415
+[e :U 818 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 416: return(0);
+"416
+[e ) -> 0 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 417: case(6) :
+"417
+[e :U 819 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 418: return(-2);
+"418
+[e ) -U -> 2 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 419: case(2) :
+"419
+[e :U 820 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 420: return(-4);
+"420
+[e ) -U -> 4 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 421: case(3) :
+"421
+[e :U 821 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 422: return(-6);
+"422
+[e ) -U -> 6 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 423: case(1) :
+"423
+[e :U 822 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 424: return(-8);
+"424
+[e ) -U -> 8 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 425: default :
+"425
+[e :U 823 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 426: break;
+"426
+[e $U 812  ]
+"427
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 427: }
+[e $U 812  ]
+"406
+[e :U 813 ]
+[e [\ *U _sum , $ -> -> 16 `i `uc 814
+ , $ -> -> 24 `i `uc 815
+ , $ -> -> 8 `i `uc 816
+ , $ -> -> 12 `i `uc 817
+ , $ -> -> 4 `i `uc 818
+ , $ -> -> 6 `i `uc 819
+ , $ -> -> 2 `i `uc 820
+ , $ -> -> 3 `i `uc 821
+ , $ -> -> 1 `i `uc 822
+ 823 ]
+"427
+[e :U 812 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 429: return(0);
+"429
+[e ) -> 0 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 431: }
+"431
+[e :UE 811 ]
+}
+"434
+[v _DisplaySensorStatuses `(v ~T0 @X0 1 ef1`*Cuc ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 434: void DisplaySensorStatuses(const unsigned char *status_array) {
+[e :U _DisplaySensorStatuses ]
+[v _status_array `*Cuc ~T0 @X0 1 r1 ]
+[f ]
+"435
+[v _index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 435: unsigned char index;
+[; ;FastBuggy17_Main_Code_TUNING.c: 437: for (index = 0; index < 5; index++) {
+"437
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 825  ]
+[e $U 826  ]
+[e :U 825 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 438: LATJ ^= *(status_array + index) << index;
+"438
+[e =^ _LATJ -> << -> *U + _status_array * -> _index `ux -> -> # *U _status_array `ui `ux `i _index `uc ]
+"439
+}
+"437
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 825  ]
+[e :U 826 ]
+"439
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 439: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 441: }
+"441
+[e :UE 824 ]
+}
+"444
+[v _EnableSensorLEDS `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 444: void EnableSensorLEDS(void) {
+[e :U _EnableSensorLEDS ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 446: LATE = 0x1F;
+"446
+[e = _LATE -> -> 31 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 448: }
+"448
+[e :UE 828 ]
+}
+"451
+[v _DisableSensorLEDS `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 451: void DisableSensorLEDS(void) {
+[e :U _DisableSensorLEDS ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 453: LATE &= 0xE0;
+"453
+[e =& _LATE -> -> 224 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 455: }
+"455
+[e :UE 829 ]
+}
+"458
+[v _FlashLEDS `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 458: void FlashLEDS(void) {
+[e :U _FlashLEDS ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 459: LATJ = 0x00;
+"459
+[e = _LATJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 460: LATJ = 0x1F;
+"460
+[e = _LATJ -> -> 31 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 461: Delay10KTCYx(75);
+"461
+[e ( _Delay10KTCYx (1 -> -> 75 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 462: LATJ = 0x00;
+"462
+[e = _LATJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 463: Delay10KTCYx(75);
+"463
+[e ( _Delay10KTCYx (1 -> -> 75 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 464: LATJ = 0x1F;
+"464
+[e = _LATJ -> -> 31 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 465: Delay10KTCYx(75);
+"465
+[e ( _Delay10KTCYx (1 -> -> 75 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 466: LATJ = 0x00;
+"466
+[e = _LATJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 467: }
+"467
+[e :UE 830 ]
+}
+"470
+[v _PB1pressed `(uc ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 470: unsigned char PB1pressed(void) {
+[e :U _PB1pressed ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 471: if(CommandAvailable() == 1) {
+"471
+[e $ ! == -> ( _CommandAvailable ..  `i -> 1 `i 832  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 472: if(GetCommand() == 0x05) {
+"472
+[e $ ! == -> ( _GetCommand ..  `i -> 5 `i 833  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 473: return(1);
+"473
+[e ) -> -> 1 `i `uc ]
+[e $UE 831  ]
+"474
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 474: }
+[e $U 834  ]
+"475
+[e :U 833 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 475: else {
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 476: return(0);
+"476
+[e ) -> -> 0 `i `uc ]
+[e $UE 831  ]
+"477
+}
+[e :U 834 ]
+"478
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 477: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 478: }
+[e $U 835  ]
+"479
+[e :U 832 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 479: else if(PORTBbits.RB1 == 0) {
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 836  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 480: return(0);
+"480
+[e ) -> -> 0 `i `uc ]
+[e $UE 831  ]
+"481
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 481: }
+[e $U 837  ]
+"482
+[e :U 836 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 482: else if(PORTBbits.RB1 == 1) {
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 838  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 483: ResetMillis2();
+"483
+[e ( _ResetMillis2 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 484: while(ReadMillis2() < 10);
+"484
+[e $U 839  ]
+[e :U 840 ]
+[e :U 839 ]
+[e $ < ( _ReadMillis2 ..  -> -> 10 `i `ui 840  ]
+[e :U 841 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 485: if(PORTBbits.RB1 == 1) {
+"485
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 842  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 486: return(1);
+"486
+[e ) -> -> 1 `i `uc ]
+[e $UE 831  ]
+"487
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 487: }
+[e $U 843  ]
+"488
+[e :U 842 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 488: else {
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 489: return(0);
+"489
+[e ) -> -> 0 `i `uc ]
+[e $UE 831  ]
+"490
+}
+[e :U 843 ]
+"491
+}
+[e :U 838 ]
+"493
+[e :U 837 ]
+[e :U 835 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 490: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 491: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 493: return(0);
+[e ) -> -> 0 `i `uc ]
+[e $UE 831  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 495: }
+"495
+[e :UE 831 ]
+}
+"498
+[v _PB2pressed `(uc ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 498: unsigned char PB2pressed(void) {
+[e :U _PB2pressed ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 499: if(CommandAvailable() == 1) {
+"499
+[e $ ! == -> ( _CommandAvailable ..  `i -> 1 `i 845  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 500: if(GetCommand() == 0x06) {
+"500
+[e $ ! == -> ( _GetCommand ..  `i -> 6 `i 846  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 501: return(1);
+"501
+[e ) -> -> 1 `i `uc ]
+[e $UE 844  ]
+"502
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 502: }
+[e $U 847  ]
+"503
+[e :U 846 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 503: else {
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 504: return(0);
+"504
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+"505
+}
+[e :U 847 ]
+"506
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 505: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 506: }
+[e $U 848  ]
+"507
+[e :U 845 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 507: else if(PORTBbits.RB2 == 0) {
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 849  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 508: return(0);
+"508
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+"509
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 509: }
+[e $U 850  ]
+"510
+[e :U 849 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 510: else if(PORTBbits.RB2 == 1) {
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 851  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 511: ResetMillis2();
+"511
+[e ( _ResetMillis2 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 512: while(ReadMillis2() < 10);
+"512
+[e $U 852  ]
+[e :U 853 ]
+[e :U 852 ]
+[e $ < ( _ReadMillis2 ..  -> -> 10 `i `ui 853  ]
+[e :U 854 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 513: if(PORTBbits.RB2 == 1) {
+"513
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 855  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 514: return(1);
+"514
+[e ) -> -> 1 `i `uc ]
+[e $UE 844  ]
+"515
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 515: }
+[e $U 856  ]
+"516
+[e :U 855 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 516: else {
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 517: return(0);
+"517
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+"518
+}
+[e :U 856 ]
+"519
+}
+[e :U 851 ]
+"521
+[e :U 850 ]
+[e :U 848 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 518: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 519: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 521: return(0);
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 522: }
+"522
+[e :UE 844 ]
+}
+"525
+[v _CalibrateOffsets `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 525: void CalibrateOffsets(void) {
+[e :U _CalibrateOffsets ]
+[f ]
+"526
+[v _index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 526: unsigned char index;
+[; ;FastBuggy17_Main_Code_TUNING.c: 528: GetSensorReadings();
+"528
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 530: while(BusySensorAcq());
+"530
+[e $U 858  ]
+[e :U 859 ]
+[e :U 858 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 859  ]
+[e :U 860 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 532: for(index = 0; index < 5; index++) {
+"532
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 861  ]
+[e $U 862  ]
+[e :U 861 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 534: sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
+"534
+[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux - *U + &U _sensor_readings_raw * -> -> -> 2 `i `ui `ux -> -> # *U &U _sensor_readings_raw `ui `ux *U + &U _sensor_readings_raw * -> _index `ux -> -> # *U &U _sensor_readings_raw `ui `ux ]
+"536
+}
+"532
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 861  ]
+[e :U 862 ]
+"536
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 536: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 538: }
+"538
+[e :UE 857 ]
+}
+"541
+[v _CalibrateThreshold `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 541: void CalibrateThreshold(void) {
+[e :U _CalibrateThreshold ]
+[f ]
+"542
+[v _index `uc ~T0 @X0 1 a ]
+[v _sum `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 542: unsigned char index, sum;
+[; ;FastBuggy17_Main_Code_TUNING.c: 544: LATJ = 0x00;
+"544
+[e = _LATJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 547: SetADCChannel(5);
+"547
+[e ( _SetADCChannel (1 -> -> 5 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 548: ConvertADC();
+"548
+[e ( _ConvertADC ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 549: while(BusyADC());
+"549
+[e $U 865  ]
+[e :U 866 ]
+[e :U 865 ]
+[e $ != -> ( _BusyADC ..  `i -> -> -> 0 `i `uc `i 866  ]
+[e :U 867 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 550: sensor_threshold = ReadADC();
+"550
+[e = _sensor_threshold ( _ReadADC ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 553: GetSensorReadings();
+"553
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 555: while(BusySensorAcq());
+"555
+[e $U 868  ]
+[e :U 869 ]
+[e :U 868 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 869  ]
+[e :U 870 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 557: NormaliseSensorReadings();
+"557
+[e ( _NormaliseSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 559: CalculateSensorStatuses();
+"559
+[e ( _CalculateSensorStatuses ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 561: DisplaySensorStatuses(sensor_status);
+"561
+[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 584: }
+"584
+[e :UE 864 ]
+}
+"587
+[v _GenerateCalibration `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 587: void GenerateCalibration(void) {
+[e :U _GenerateCalibration ]
+[f ]
+"588
+[v _index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 588: unsigned char index;
+[; ;FastBuggy17_Main_Code_TUNING.c: 591: SendStatus(0x03);
+"591
+[e ( _SendStatus (1 -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 592: LATJ = 0x07;
+"592
+[e = _LATJ -> -> 7 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 594: while(PB1pressed() == 0) {
+"594
+[e $U 872  ]
+[e :U 873 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 596: CalibrateOffsets();
+"596
+[e ( _CalibrateOffsets ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 597: Delay10KTCYx(10);
+"597
+[e ( _Delay10KTCYx (1 -> -> 10 `i `uc ]
+"599
+}
+[e :U 872 ]
+"594
+[e $ == -> ( _PB1pressed ..  `i -> 0 `i 873  ]
+[e :U 874 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 599: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 601: for(index = 0; index < 5; index++) {
+"601
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 875  ]
+[e $U 876  ]
+[e :U 875 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 602: WriteIntEEPROM(0x0006 + (2 * index), sensor_offsets[index]);
+"602
+[e ( _WriteIntEEPROM (2 , -> + -> 6 `i * -> 2 `i -> _index `i `ui -> *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux `ui ]
+"603
+}
+"601
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 875  ]
+[e :U 876 ]
+"603
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 603: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 605: SendOffsets(sensor_offsets);
+"605
+[e ( _SendOffsets (1 -> &U _sensor_offsets `*Ci ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 607: FlashLEDS();
+"607
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 610: SendStatus(0x04);
+"610
+[e ( _SendStatus (1 -> -> 4 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 612: while(PB1pressed() == 0) {
+"612
+[e $U 878  ]
+[e :U 879 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 614: CalibrateThreshold();
+"614
+[e ( _CalibrateThreshold ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 615: Delay10KTCYx(10);
+"615
+[e ( _Delay10KTCYx (1 -> -> 10 `i `uc ]
+"617
+}
+[e :U 878 ]
+"612
+[e $ == -> ( _PB1pressed ..  `i -> 0 `i 879  ]
+[e :U 880 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 617: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 619: if(line_mode == 0) {
+"619
+[e $ ! == -> _line_mode `i -> 0 `i 881  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 620: WriteIntEEPROM(0x0002, sensor_threshold);
+"620
+[e ( _WriteIntEEPROM (2 , -> -> 2 `i `ui -> _sensor_threshold `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 621: WriteCharEEPROM(0x0000, 1);
+"621
+[e ( _WriteCharEEPROM (2 , -> -> 0 `i `ui -> -> 1 `i `uc ]
+"622
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 622: }
+[e $U 882  ]
+"623
+[e :U 881 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 623: else if(line_mode == 1) {
+[e $ ! == -> _line_mode `i -> 1 `i 883  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 624: WriteIntEEPROM(0x0004, sensor_threshold);
+"624
+[e ( _WriteIntEEPROM (2 , -> -> 4 `i `ui -> _sensor_threshold `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 625: WriteCharEEPROM(0x0001, 1);
+"625
+[e ( _WriteCharEEPROM (2 , -> -> 1 `i `ui -> -> 1 `i `uc ]
+"626
+}
+[e :U 883 ]
+"628
+[e :U 882 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 626: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 628: SendThreshold(sensor_threshold_ptr);
+[e ( _SendThreshold (1 -> _sensor_threshold_ptr `*Ci ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 630: }
+"630
+[e :UE 871 ]
+}
+"633
+[v _LoadCalibration `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 633: void LoadCalibration(void) {
+[e :U _LoadCalibration ]
+[f ]
+"634
+[v _index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 634: unsigned char index;
+[; ;FastBuggy17_Main_Code_TUNING.c: 636: if(line_mode == 0 && ReadCharEEPROM(0x0000) == 0xFF) {
+"636
+[e $ ! && == -> _line_mode `i -> 0 `i == -> ( _ReadCharEEPROM (1 -> -> 0 `i `ui `i -> 255 `i 885  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 637: FlashLEDS();
+"637
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 638: GenerateCalibration();
+"638
+[e ( _GenerateCalibration ..  ]
+"639
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 639: }
+[e $U 886  ]
+"640
+[e :U 885 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 640: else if(line_mode == 0 && ReadCharEEPROM(0x0000) == 0x01) {
+[e $ ! && == -> _line_mode `i -> 0 `i == -> ( _ReadCharEEPROM (1 -> -> 0 `i `ui `i -> 1 `i 887  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 641: sensor_threshold = ReadIntEEPROM(0x0002);
+"641
+[e = _sensor_threshold -> ( _ReadIntEEPROM (1 -> -> 2 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 642: for(index = 0; index < 5; index++) {
+"642
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 888  ]
+[e $U 889  ]
+[e :U 888 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 643: sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
+"643
+[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux -> ( _ReadIntEEPROM (1 -> + -> 6 `i * -> 2 `i -> _index `i `ui `i ]
+"644
+}
+"642
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 888  ]
+[e :U 889 ]
+"644
+}
+"645
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 644: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 645: }
+[e $U 891  ]
+"647
+[e :U 887 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 647: else if(line_mode == 1 && ReadCharEEPROM(0x0001) == 0xFF) {
+[e $ ! && == -> _line_mode `i -> 1 `i == -> ( _ReadCharEEPROM (1 -> -> 1 `i `ui `i -> 255 `i 892  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 648: FlashLEDS();
+"648
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 649: GenerateCalibration();
+"649
+[e ( _GenerateCalibration ..  ]
+"650
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 650: }
+[e $U 893  ]
+"651
+[e :U 892 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 651: else if(line_mode == 1 && ReadCharEEPROM(0x0001) == 0x01) {
+[e $ ! && == -> _line_mode `i -> 1 `i == -> ( _ReadCharEEPROM (1 -> -> 1 `i `ui `i -> 1 `i 894  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 652: sensor_threshold = ReadIntEEPROM(0x0004);
+"652
+[e = _sensor_threshold -> ( _ReadIntEEPROM (1 -> -> 4 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 653: for(index = 0; index < 5; index++) {
+"653
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 895  ]
+[e $U 896  ]
+[e :U 895 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 654: sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
+"654
+[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux -> ( _ReadIntEEPROM (1 -> + -> 6 `i * -> 2 `i -> _index `i `ui `i ]
+"655
+}
+"653
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 895  ]
+[e :U 896 ]
+"655
+}
+"656
+}
+[e :U 894 ]
+"658
+[e :U 893 ]
+[e :U 891 ]
+[e :U 886 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 655: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 656: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 658: SendOffsets(sensor_offsets);
+[e ( _SendOffsets (1 -> &U _sensor_offsets `*Ci ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 659: SendThreshold(sensor_threshold_ptr);
+"659
+[e ( _SendThreshold (1 -> _sensor_threshold_ptr `*Ci ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 661: }
+"661
+[e :UE 884 ]
+}
+"663
+[v _SetPIDValues `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 663: void SetPIDValues(void) {
+[e :U _SetPIDValues ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 664: SendStatus(0x07);
+"664
+[e ( _SendStatus (1 -> -> 7 `i `uc ]
+"666
+[v _char_index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 666: unsigned char char_index;
+[; ;FastBuggy17_Main_Code_TUNING.c: 668: FlushRxBuf();
+"668
+[e ( _FlushRxBuf ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 670: for(char_index = 0; char_index <= 8; char_index++) {
+"670
+{
+[e = _char_index -> -> 0 `i `uc ]
+[e $ <= -> _char_index `i -> 8 `i 899  ]
+[e $U 900  ]
+[e :U 899 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 671: while(!(PIR1bits.RCIF));
+"671
+[e $U 902  ]
+[e :U 903 ]
+[e :U 902 ]
+[e $ ! != -> . . _PIR1bits 1 3 `i -> -> -> 0 `i `Vuc `i 903  ]
+[e :U 904 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 673: PutCharRxBuf(Read1USART());
+"673
+[e ( _PutCharRxBuf (1 ( _Read1USART ..  ]
+"674
+}
+"670
+[e ++ _char_index -> -> 1 `i `uc ]
+[e $ <= -> _char_index `i -> 8 `i 899  ]
+[e :U 900 ]
+"674
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 674: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 676: while(GetCharRxBuf() != 0xAA);
+"676
+[e $U 905  ]
+[e :U 906 ]
+[e :U 905 ]
+[e $ != -> ( _GetCharRxBuf ..  `i -> 170 `i 906  ]
+[e :U 907 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 677: while(GetCharRxBuf() != 0x01);
+"677
+[e $U 908  ]
+[e :U 909 ]
+[e :U 908 ]
+[e $ != -> ( _GetCharRxBuf ..  `i -> 1 `i 909  ]
+[e :U 910 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 679: PID_Kp = (GetCharRxBuf() << 8) & 0xFF00;
+"679
+[e = _PID_Kp -> & -> << -> ( _GetCharRxBuf ..  `i -> 8 `i `ui -> 65280 `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 680: PID_Kp |= (GetCharRxBuf() & 0x00FF);
+"680
+[e =| _PID_Kp & -> ( _GetCharRxBuf ..  `i -> 255 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 682: PID_Kd = (GetCharRxBuf() << 8) & 0xFF00;
+"682
+[e = _PID_Kd -> & -> << -> ( _GetCharRxBuf ..  `i -> 8 `i `ui -> 65280 `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 683: PID_Kd |= (GetCharRxBuf() & 0x00FF);
+"683
+[e =| _PID_Kd & -> ( _GetCharRxBuf ..  `i -> 255 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 685: PID_Ki = (GetCharRxBuf() << 8) & 0xFF00;
+"685
+[e = _PID_Ki -> & -> << -> ( _GetCharRxBuf ..  `i -> 8 `i `ui -> 65280 `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 686: PID_Ki |= (GetCharRxBuf() & 0x00FF);
+"686
+[e =| _PID_Ki & -> ( _GetCharRxBuf ..  `i -> 255 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 688: WriteIntEEPROM(0x0011, PID_Kp);
+"688
+[e ( _WriteIntEEPROM (2 , -> -> 17 `i `ui -> _PID_Kp `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 689: WriteIntEEPROM(0x0013, PID_Kd);
+"689
+[e ( _WriteIntEEPROM (2 , -> -> 19 `i `ui -> _PID_Kd `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 690: WriteIntEEPROM(0x0015, PID_Ki);
+"690
+[e ( _WriteIntEEPROM (2 , -> -> 21 `i `ui -> _PID_Ki `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 692: WriteCharEEPROM(0x0010, 1);
+"692
+[e ( _WriteCharEEPROM (2 , -> -> 16 `i `ui -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 693: }
+"693
+[e :UE 898 ]
+}
+"695
+[v _LoadPIDValues `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 695: void LoadPIDValues(void) {
+[e :U _LoadPIDValues ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 696: SendStatus(0x06);
+"696
+[e ( _SendStatus (1 -> -> 6 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 698: while(1) {
+"698
+[e :U 913 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 699: if(PB1pressed() == 1) {
+"699
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 915  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 700: PID_Kp = 20;
+"700
+[e = _PID_Kp -> 20 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 701: PID_Kd = 0;
+"701
+[e = _PID_Kd -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 702: PID_Ki = 0;
+"702
+[e = _PID_Ki -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 703: WriteIntEEPROM(0x0011, PID_Kp);
+"703
+[e ( _WriteIntEEPROM (2 , -> -> 17 `i `ui -> _PID_Kp `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 704: WriteIntEEPROM(0x0013, PID_Kd);
+"704
+[e ( _WriteIntEEPROM (2 , -> -> 19 `i `ui -> _PID_Kd `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 705: WriteIntEEPROM(0x0015, PID_Ki);
+"705
+[e ( _WriteIntEEPROM (2 , -> -> 21 `i `ui -> _PID_Ki `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 707: WriteCharEEPROM(0x10, 1);
+"707
+[e ( _WriteCharEEPROM (2 , -> -> 16 `i `ui -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 708: break;
+"708
+[e $U 914  ]
+"709
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 709: }
+[e $U 916  ]
+"710
+[e :U 915 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 710: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 917  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 711: if(ReadCharEEPROM(0x10) == 0xFF) {
+"711
+[e $ ! == -> ( _ReadCharEEPROM (1 -> -> 16 `i `ui `i -> 255 `i 918  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 712: SetPIDValues();
+"712
+[e ( _SetPIDValues ..  ]
+"713
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 713: }
+[e $U 919  ]
+"714
+[e :U 918 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 714: else {
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 715: PID_Kp = ReadIntEEPROM(0x0011);
+"715
+[e = _PID_Kp -> ( _ReadIntEEPROM (1 -> -> 17 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 716: PID_Kd = ReadIntEEPROM(0x0013);
+"716
+[e = _PID_Kd -> ( _ReadIntEEPROM (1 -> -> 19 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 717: PID_Ki = ReadIntEEPROM(0x0015);
+"717
+[e = _PID_Ki -> ( _ReadIntEEPROM (1 -> -> 21 `i `ui `i ]
+"718
+}
+[e :U 919 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 718: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 719: break;
+"719
+[e $U 914  ]
+"720
+}
+[e :U 917 ]
+"721
+[e :U 916 ]
+}
+[e :U 912 ]
+"698
+[e $U 913  ]
+[e :U 914 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 720: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 721: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 723: }
+"723
+[e :UE 911 ]
+}
+[v F7497 `(v ~T0 @X0 1 tf ]
+"726
+[v _isrHP `IHF7497 ~T0 @X0 1 e ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 726: void interrupt high_priority isrHP(void) {
+[e :U _isrHP ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 729: if (INTCONbits.TMR0IF == 1) {
+"729
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 921  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 730: INTCONbits.TMR0IF = 0;
+"730
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 732: MillisecondTimerISR();
+"732
+[e ( _MillisecondTimerISR ..  ]
+"736
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 736: }
+[e $U 922  ]
+"739
+[e :U 921 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 739: else if (INTCON3bits.INT3IF == 1) {
+[e $ ! == -> . . _INTCON3bits 0 2 `i -> 1 `i 923  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 740: INTCON3bits.INT3IF = 0;
+"740
+[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 742: UltrasoundISR();
+"742
+[e ( _UltrasoundISR ..  ]
+"743
+}
+[e :U 923 ]
+"745
+[e :U 922 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 743: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 745: }
+[e :UE 920 ]
+}
+[v F7500 `(v ~T0 @X0 1 tf ]
+"748
+[v _isrLP `ILF7500 ~T0 @X0 1 e ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 748: void interrupt low_priority isrLP(void) {
+[e :U _isrLP ]
+[f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 763: if (PIR1bits.ADIF == 1) {
+"763
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 925  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 764: PIR1bits.ADIF = 0;
+"764
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 765: if (sensor_acq_index < 5) {
+"765
+[e $ ! < -> _sensor_acq_index `i -> 5 `i 926  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 766: *(sensor_readings_raw + sensor_acq_index) = ReadADC();
+"766
+[e = *U + &U _sensor_readings_raw * -> _sensor_acq_index `ux -> -> # *U &U _sensor_readings_raw `ui `ux ( _ReadADC ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 767: sensor_acq_index++;
+"767
+[e ++ _sensor_acq_index -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 768: SetADCChannel(sensor_acq_index);
+"768
+[e ( _SetADCChannel (1 _sensor_acq_index ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 769: ConvertADC();
+"769
+[e ( _ConvertADC ..  ]
+"770
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 770: } else {
+[e $U 927  ]
+[e :U 926 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 771: sensor_acq_done = 1;
+"771
+[e = _sensor_acq_done -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 772: PIE1bits.ADIE = 0;
+"772
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+"773
+}
+[e :U 927 ]
+"774
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 773: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 774: }
+[e $U 928  ]
+"776
+[e :U 925 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 776: else if(PIR1bits.TX1IF == 1) {
+[e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 929  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 777: PIR1bits.TX1IF = 0;
+"777
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 778: WirelessTx_ISR();
+"778
+[e ( _WirelessTx_ISR ..  ]
+"779
+}
+[e :U 929 ]
+"786
+[e :U 928 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 779: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 786: }
+[e :UE 924 ]
+}
+"789
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 789: void main(void) {
+[e :U _main ]
+[f ]
+"792
+[v _sensor_sum `uc ~T0 @X0 1 a ]
+[v _loop_count `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 792: unsigned char sensor_sum, loop_count = 0, stop_flag, find_line_flag, line_end_flag, wall_detected_flag, send_battery_stats_flag, command_msg;
+[e = _loop_count -> -> 0 `i `uc ]
+[v _stop_flag `uc ~T0 @X0 1 a ]
+[v _find_line_flag `uc ~T0 @X0 1 a ]
+[v _line_end_flag `uc ~T0 @X0 1 a ]
+[v _wall_detected_flag `uc ~T0 @X0 1 a ]
+[v _send_battery_stats_flag `uc ~T0 @X0 1 a ]
+[v _command_msg `uc ~T0 @X0 1 a ]
+"793
+[v _echo_length `ui ~T0 @X0 1 a ]
+[v _battery_voltage `ui ~T0 @X0 1 a ]
+[v _battery_current `ui ~T0 @X0 1 a ]
+"794
+[v _battery_current_acc `ul ~T0 @X0 1 a ]
+"795
+[v _D_temp `i ~T0 @X0 1 a ]
+[v _I_temp `i ~T0 @X0 1 a ]
+[v _I_max `i ~T0 @X0 1 a ]
+[v _I_min `i ~T0 @X0 1 a ]
+[v _Kp_stored `i ~T0 @X0 1 a ]
+[v _Kd_stored `i ~T0 @X0 1 a ]
+[v _Ki_stored `i ~T0 @X0 1 a ]
+"798
+[v _sensor_sum_ptr `*uc ~T0 @X0 1 a ]
+[v _line_mode_ptr `*uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 793: unsigned int echo_length, battery_voltage, battery_current;
+[; ;FastBuggy17_Main_Code_TUNING.c: 794: unsigned long int battery_current_acc;
+[; ;FastBuggy17_Main_Code_TUNING.c: 795: int D_temp, I_temp, I_max, I_min, Kp_stored, Kd_stored, Ki_stored;
+[; ;FastBuggy17_Main_Code_TUNING.c: 798: unsigned char *sensor_sum_ptr, *line_mode_ptr;
+[; ;FastBuggy17_Main_Code_TUNING.c: 799: sensor_sum_ptr = &sensor_sum;
+"799
+[e = _sensor_sum_ptr &U _sensor_sum ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 800: line_mode_ptr = &line_mode;
+"800
+[e = _line_mode_ptr &U _line_mode ]
+"802
+[v _battery_voltage_ptr `*ui ~T0 @X0 1 a ]
+[v _battery_current_ptr `*ui ~T0 @X0 1 a ]
+"803
+[v _battery_current_acc_ptr `*ul ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 802: unsigned int *battery_voltage_ptr, *battery_current_ptr;
+[; ;FastBuggy17_Main_Code_TUNING.c: 803: unsigned long int *battery_current_acc_ptr;
+[; ;FastBuggy17_Main_Code_TUNING.c: 805: battery_voltage_ptr = &battery_voltage;
+"805
+[e = _battery_voltage_ptr &U _battery_voltage ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 806: battery_current_ptr = &battery_current;
+"806
+[e = _battery_current_ptr &U _battery_current ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 807: battery_current_acc_ptr = &battery_current_acc;
+"807
+[e = _battery_current_acc_ptr &U _battery_current_acc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 809: sensor_threshold_ptr = &sensor_threshold;
+"809
+[e = _sensor_threshold_ptr &U _sensor_threshold ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 811: ConfigureUltrasound(0.0137, 0.054);
+"811
+[e ( _ConfigureUltrasound (2 , -> .0.0137 `f -> .0.054 `f ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 812: ConfigureBuggyIO();
+"812
+[e ( _ConfigureBuggyIO ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 813: ConfigureInterrupts();
+"813
+[e ( _ConfigureInterrupts ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 814: ConfigureTimer0();
+"814
+[e ( _ConfigureTimer0 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 815: ConfigureTimer1();
+"815
+[e ( _ConfigureTimer1 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 816: ConfigureTimer2();
+"816
+[e ( _ConfigureTimer2 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 817: ConfigurePWM();
+"817
+[e ( _ConfigurePWM ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 818: ConfigureADC();
+"818
+[e ( _ConfigureADC ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 819: ConfigureWireless();
+"819
+[e ( _ConfigureWireless ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 821: DisableMotors();
+"821
+[e ( _DisableMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 823: Delay10KTCYx(100);
+"823
+[e ( _Delay10KTCYx (1 -> -> 100 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 825: battery_voltage = ReadVoltage();
+"825
+[e = _battery_voltage -> ( _ReadVoltage ..  `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 827: SendStatus(0x00);
+"827
+[e ( _SendStatus (1 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 829: SendBattVoltageInitial(battery_voltage_ptr);
+"829
+[e ( _SendBattVoltageInitial (1 -> _battery_voltage_ptr `*Cui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 832: LATJ = 0x1F;
+"832
+[e = _LATJ -> -> 31 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 833: SendStatus(0x01);
+"833
+[e ( _SendStatus (1 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 835: while(1) {
+"835
+[e :U 932 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 836: if(PB1pressed() == 1) {
+"836
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 934  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 837: line_mode = 0;
+"837
+[e = _line_mode -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 838: break;
+"838
+[e $U 933  ]
+"839
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 839: }
+[e $U 935  ]
+"840
+[e :U 934 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 840: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 936  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 841: line_mode = 1;
+"841
+[e = _line_mode -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 842: break;
+"842
+[e $U 933  ]
+"843
+}
+[e :U 936 ]
+"844
+[e :U 935 ]
+}
+[e :U 931 ]
+"835
+[e $U 932  ]
+[e :U 933 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 843: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 844: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 846: SendLineMode(line_mode_ptr);
+"846
+[e ( _SendLineMode (1 -> _line_mode_ptr `*Cuc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 847: FlashLEDS();
+"847
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 849: EnableSensorLEDS();
+"849
+[e ( _EnableSensorLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 852: LATJ = 0x0F;
+"852
+[e = _LATJ -> -> 15 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 853: SendStatus(0x02);
+"853
+[e ( _SendStatus (1 -> -> 2 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 855: while(1) {
+"855
+[e :U 938 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 856: if(PB1pressed() == 1) {
+"856
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 940  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 857: FlashLEDS();
+"857
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 858: GenerateCalibration();
+"858
+[e ( _GenerateCalibration ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 859: break;
+"859
+[e $U 939  ]
+"860
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 860: }
+[e $U 941  ]
+"861
+[e :U 940 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 861: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 942  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 862: FlashLEDS();
+"862
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 863: LoadCalibration();
+"863
+[e ( _LoadCalibration ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 864: break;
+"864
+[e $U 939  ]
+"865
+}
+[e :U 942 ]
+"867
+[e :U 941 ]
+}
+[e :U 937 ]
+"855
+[e $U 938  ]
+[e :U 939 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 865: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 867: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 869: FlashLEDS();
+"869
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 872: LATJ = 0x03;
+"872
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 873: SendStatus(0x05);
+"873
+[e ( _SendStatus (1 -> -> 5 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 875: SendDefaultPIDValues(20, 0, 0);
+"875
+[e ( _SendDefaultPIDValues (3 , , -> 20 `i -> 0 `i -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 877: Kp_stored = ReadIntEEPROM(0x0011);
+"877
+[e = _Kp_stored -> ( _ReadIntEEPROM (1 -> -> 17 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 878: Kd_stored = ReadIntEEPROM(0x0013);
+"878
+[e = _Kd_stored -> ( _ReadIntEEPROM (1 -> -> 19 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 879: Ki_stored = ReadIntEEPROM(0x0015);
+"879
+[e = _Ki_stored -> ( _ReadIntEEPROM (1 -> -> 21 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 881: SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
+"881
+[e ( _SendStoredPIDValues (3 , , _Kp_stored _Kd_stored _Ki_stored ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 883: while(1) {
+"883
+[e :U 944 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 884: if(PB1pressed() == 1) {
+"884
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 946  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 885: FlashLEDS();
+"885
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 886: LATJ = 0x03;
+"886
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 887: SetPIDValues();
+"887
+[e ( _SetPIDValues ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 888: break;
+"888
+[e $U 945  ]
+"889
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 889: }
+[e $U 947  ]
+"890
+[e :U 946 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 890: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 948  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 891: FlashLEDS();
+"891
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 892: LATJ = 0x03;
+"892
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 893: LoadPIDValues();
+"893
+[e ( _LoadPIDValues ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 894: break;
+"894
+[e $U 945  ]
+"895
+}
+[e :U 948 ]
+"896
+[e :U 947 ]
+}
+[e :U 943 ]
+"883
+[e $U 944  ]
+[e :U 945 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 895: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 896: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 898: SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);
+"898
+[e ( _SendCurrentPIDValues (3 , , _PID_Kp _PID_Kd _PID_Ki ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 901: while(1) {
+"901
+[e :U 950 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 904: FlashLEDS();
+"904
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 906: LATJ = 0x01;
+"906
+[e = _LATJ -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 907: SendStatus(0x08);
+"907
+[e ( _SendStatus (1 -> -> 8 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 909: while(1) {
+"909
+[e :U 953 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 910: if(PB1pressed() == 1) {
+"910
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 955  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 911: break;
+"911
+[e $U 954  ]
+"912
+}
+[e :U 955 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 912: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 913: if(CommandAvailable() == 1 && GetCommand() == 0x02) {
+"913
+[e $ ! && == -> ( _CommandAvailable ..  `i -> 1 `i == -> ( _GetCommand ..  `i -> 2 `i 956  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 914: break;
+"914
+[e $U 954  ]
+"915
+}
+[e :U 956 ]
+"916
+}
+[e :U 952 ]
+"909
+[e $U 953  ]
+[e :U 954 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 915: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 916: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 919: PID_error = 0;
+"919
+[e = _PID_error -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 920: PID_output = 0;
+"920
+[e = _PID_output -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 921: D_temp = 0;
+"921
+[e = _D_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 922: I_temp = 0;
+"922
+[e = _I_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 924: I_max = PID_Kp * 8;
+"924
+[e = _I_max * _PID_Kp -> 8 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 925: I_min = PID_Kp * -8;
+"925
+[e = _I_min * _PID_Kp -U -> 8 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 927: stop_flag = 0;
+"927
+[e = _stop_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 928: find_line_flag = 0;
+"928
+[e = _find_line_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 929: line_end_flag = 0;
+"929
+[e = _line_end_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 930: wall_detected_flag = 0;
+"930
+[e = _wall_detected_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 931: send_battery_stats_flag = 0;
+"931
+[e = _send_battery_stats_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 933: GetDistance();
+"933
+[e ( _GetDistance ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 935: LATJ = 0x00;
+"935
+[e = _LATJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 937: FlashLEDS();
+"937
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 938: SendStatus(0x09);
+"938
+[e ( _SendStatus (1 -> -> 9 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 940: ResetAccumulatedCurrent();
+"940
+[e ( _ResetAccumulatedCurrent ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 942: ResetMillis0();
+"942
+[e ( _ResetMillis0 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 943: ResetMillis1();
+"943
+[e ( _ResetMillis1 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 945: SetUnipolar();
+"945
+[e ( _SetUnipolar ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 946: StopMotors();
+"946
+[e ( _StopMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 947: SetDirectionForward();
+"947
+[e ( _SetDirectionForward ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 948: EnableMotors();
+"948
+[e ( _EnableMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 953: while(1) {
+"953
+[e :U 958 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 955: ResetMillis1();
+"955
+[e ( _ResetMillis1 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 958: GetSensorReadings();
+"958
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 960: while(BusySensorAcq());
+"960
+[e $U 960  ]
+[e :U 961 ]
+[e :U 960 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 961  ]
+[e :U 962 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 962: NormaliseSensorReadings();
+"962
+[e ( _NormaliseSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 964: CalculateSensorStatuses();
+"964
+[e ( _CalculateSensorStatuses ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 965: sensor_sum = CalculateSensorSums();
+"965
+[e = _sensor_sum ( _CalculateSensorSums ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 968: PID_error = CalculateSensorError(sensor_sum_ptr);
+"968
+[e = _PID_error ( _CalculateSensorError (1 -> _sensor_sum_ptr `*Cuc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 969: PID_output = PID_Kp * PID_error + PID_Kd * (D_temp - PID_error) + PID_Ki * I_temp;
+"969
+[e = _PID_output + + * _PID_Kp _PID_error * _PID_Kd - _D_temp _PID_error * _PID_Ki _I_temp ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 970: D_temp = PID_error;
+"970
+[e = _D_temp _PID_error ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 971: I_temp += PID_error;
+"971
+[e =+ _I_temp _PID_error ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 974: if(I_temp >= I_max) {
+"974
+[e $ ! >= _I_temp _I_max 963  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 975: I_temp = I_max - 20;
+"975
+[e = _I_temp - _I_max -> 20 `i ]
+"976
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 976: }
+[e $U 964  ]
+"977
+[e :U 963 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 977: else if(I_temp <= I_min) {
+[e $ ! <= _I_temp _I_min 965  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 978: I_temp = I_min + 20;
+"978
+[e = _I_temp + _I_min -> 20 `i ]
+"979
+}
+[e :U 965 ]
+"981
+[e :U 964 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 979: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 981: SetDCMotorPID(PID_output);
+[e ( _SetDCMotorPID (1 _PID_output ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 984: DisplaySensorStatuses(sensor_status);
+"984
+[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 987: if(BusyDistanceAcq() == 0 && wall_detected_flag == 0 && ReadMillis0() >= 60) {
+"987
+[e $ ! && && == -> ( _BusyDistanceAcq ..  `i -> 0 `i == -> _wall_detected_flag `i -> 0 `i >= ( _ReadMillis0 ..  -> -> 60 `i `ui 966  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 989: ResetMillis0();
+"989
+[e ( _ResetMillis0 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 991: if(ReadEchoLength() < 1232) {
+"991
+[e $ ! < ( _ReadEchoLength ..  -> -> 1232 `i `ui 967  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 992: wall_detected_flag = 1;
+"992
+[e = _wall_detected_flag -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 995: DisableMotors();
+"995
+[e ( _DisableMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 997: PID_error = 0;
+"997
+[e = _PID_error -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 998: PID_output = 0;
+"998
+[e = _PID_output -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 999: D_temp = 0;
+"999
+[e = _D_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1000: I_temp = 0;
+"1000
+[e = _I_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1002: SetForwardsMotorR();
+"1002
+[e ( _SetForwardsMotorR ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1003: SetReverseMotorL();
+"1003
+[e ( _SetReverseMotorL ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1005: SetDCMotorL(250);
+"1005
+[e ( _SetDCMotorL (1 -> -> 250 `i `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1006: SetDCMotorR(340);
+"1006
+[e ( _SetDCMotorR (1 -> -> 340 `i `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1008: EnableMotors();
+"1008
+[e ( _EnableMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1010: sensor_sum = 0;
+"1010
+[e = _sensor_sum -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1012: ResetMillis0();
+"1012
+[e ( _ResetMillis0 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1013: while(ReadMillis0() < 300);
+"1013
+[e $U 968  ]
+[e :U 969 ]
+[e :U 968 ]
+[e $ < ( _ReadMillis0 ..  -> -> 300 `i `ui 969  ]
+[e :U 970 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1015: while(sensor_sum == 0) {
+"1015
+[e $U 971  ]
+[e :U 972 ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1016: GetSensorReadings();
+"1016
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1017: while(BusySensorAcq());
+"1017
+[e $U 974  ]
+[e :U 975 ]
+[e :U 974 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 975  ]
+[e :U 976 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1018: NormaliseSensorReadings();
+"1018
+[e ( _NormaliseSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1019: CalculateSensorStatuses();
+"1019
+[e ( _CalculateSensorStatuses ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1020: sensor_sum = CalculateSensorSums();
+"1020
+[e = _sensor_sum ( _CalculateSensorSums ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1021: DisplaySensorStatuses(sensor_status);
+"1021
+[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
+"1023
+}
+[e :U 971 ]
+"1015
+[e $ == -> _sensor_sum `i -> 0 `i 972  ]
+[e :U 973 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1023: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1025: SetDCMotorL(526);
+"1025
+[e ( _SetDCMotorL (1 -> -> 526 `i `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1026: SetDCMotorR(526);
+"1026
+[e ( _SetDCMotorR (1 -> -> 526 `i `ui ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1027: SetDirectionForward();
+"1027
+[e ( _SetDirectionForward ..  ]
+"1029
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 1029: }
+[e $U 977  ]
+"1030
+[e :U 967 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1030: else {
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1031: GetDistance();
+"1031
+[e ( _GetDistance ..  ]
+"1032
+}
+[e :U 977 ]
+"1033
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 1032: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1033: }
+[e $U 978  ]
+"1036
+[e :U 966 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1036: else if(sensor_sum == 0 && line_end_flag == 0) {
+[e $ ! && == -> _sensor_sum `i -> 0 `i == -> _line_end_flag `i -> 0 `i 979  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1037: ResetMillis2();
+"1037
+[e ( _ResetMillis2 ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1038: while(ReadMillis2() <= 100);
+"1038
+[e $U 980  ]
+[e :U 981 ]
+[e :U 980 ]
+[e $ <= ( _ReadMillis2 ..  -> -> 100 `i `ui 981  ]
+[e :U 982 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1039: GetSensorReadings();
+"1039
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1040: while(BusySensorAcq());
+"1040
+[e $U 983  ]
+[e :U 984 ]
+[e :U 983 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 984  ]
+[e :U 985 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1041: NormaliseSensorReadings();
+"1041
+[e ( _NormaliseSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1042: CalculateSensorStatuses();
+"1042
+[e ( _CalculateSensorStatuses ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1043: sensor_sum = CalculateSensorSums();
+"1043
+[e = _sensor_sum ( _CalculateSensorSums ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1044: if(sensor_sum == 0) {
+"1044
+[e $ ! == -> _sensor_sum `i -> 0 `i 986  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1045: StopMotors();
+"1045
+[e ( _StopMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1046: break;
+"1046
+[e $U 959  ]
+"1047
+}
+[e :U 986 ]
+"1049
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 1047: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1049: }
+[e $U 987  ]
+"1060
+[e :U 979 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1060: else if(CommandAvailable() == 1) {
+[e $ ! == -> ( _CommandAvailable ..  `i -> 1 `i 988  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1061: command_msg = GetCommand();
+"1061
+[e = _command_msg ( _GetCommand ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1062: if(command_msg == 0x03) {
+"1062
+[e $ ! == -> _command_msg `i -> 3 `i 989  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1063: find_line_flag = 1;
+"1063
+[e = _find_line_flag -> -> 1 `i `uc ]
+"1064
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 1064: }
+[e $U 990  ]
+"1065
+[e :U 989 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1065: else if(command_msg == 0x04) {
+[e $ ! == -> _command_msg `i -> 4 `i 991  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1066: stop_flag = 1;
+"1066
+[e = _stop_flag -> -> 1 `i `uc ]
+"1067
+}
+[e :U 991 ]
+"1069
+[e :U 990 ]
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 1067: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1069: }
+[e $U 992  ]
+"1072
+[e :U 988 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1072: else if(PB1pressed() == 1 | PB2pressed() == 1) {
+[e $ ! | == -> ( _PB1pressed ..  `i -> 1 `i == -> ( _PB2pressed ..  `i -> 1 `i 993  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1073: stop_flag = 1;
+"1073
+[e = _stop_flag -> -> 1 `i `uc ]
+"1074
+}
+[; ;FastBuggy17_Main_Code_TUNING.c: 1074: }
+[e $U 994  ]
+"1105
+[e :U 993 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1105: else if(stop_flag == 1) {
+[e $ ! == -> _stop_flag `i -> 1 `i 995  ]
+{
+[; ;FastBuggy17_Main_Code_TUNING.c: 1106: StopMotors();
+"1106
+[e ( _StopMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1107: break;
+"1107
+[e $U 959  ]
+"1108
+}
+[e :U 995 ]
+"1111
+[e :U 994 ]
+[e :U 992 ]
+[e :U 987 ]
+[e :U 978 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1108: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1111: while(ReadMillis1() < 25);
+[e $U 996  ]
+[e :U 997 ]
+[e :U 996 ]
+[e $ < ( _ReadMillis1 ..  -> -> 25 `i `ui 997  ]
+[e :U 998 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1112: LATJ = 0x00;
+"1112
+[e = _LATJ -> -> 0 `i `uc ]
+"1114
+}
+[e :U 957 ]
+"953
+[e $U 958  ]
+[e :U 959 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1114: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1117: LATJ = 0x03;
+"1117
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1118: SendStatus(0x05);
+"1118
+[e ( _SendStatus (1 -> -> 5 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1120: SendDefaultPIDValues(20, 0, 0);
+"1120
+[e ( _SendDefaultPIDValues (3 , , -> 20 `i -> 0 `i -> 0 `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1122: Kp_stored = ReadIntEEPROM(0x0011);
+"1122
+[e = _Kp_stored -> ( _ReadIntEEPROM (1 -> -> 17 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1123: Kd_stored = ReadIntEEPROM(0x0013);
+"1123
+[e = _Kd_stored -> ( _ReadIntEEPROM (1 -> -> 19 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1124: Ki_stored = ReadIntEEPROM(0x0015);
+"1124
+[e = _Ki_stored -> ( _ReadIntEEPROM (1 -> -> 21 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1126: SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
+"1126
+[e ( _SendStoredPIDValues (3 , , _Kp_stored _Kd_stored _Ki_stored ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1128: FlashLEDS();
+"1128
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1129: LATJ = 0x03;
+"1129
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1130: SetPIDValues();
+"1130
+[e ( _SetPIDValues ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1147: SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);
+"1147
+[e ( _SendCurrentPIDValues (3 , , _PID_Kp _PID_Kd _PID_Ki ]
+"1149
+}
+[e :U 949 ]
+"901
+[e $U 950  ]
+[e :U 951 ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1149: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1151: }
+"1151
+[e :UE 930 ]
+}

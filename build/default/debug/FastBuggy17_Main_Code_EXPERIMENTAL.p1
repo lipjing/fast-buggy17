@@ -45,6 +45,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S670 . . . . . . . . ]
 "12588
 [v _RCONbits `VS670 ~T0 @X0 0 e@4048 ]
+"13390
+[s S704 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S704 . INT1IF INT2IF INT3IF INT1IE INT2IE INT3IE INT1IP INT2IP ]
+"13400
+[s S705 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S705 . INT1F INT2F INT3F INT1E INT2E INT3E INT1P INT2P ]
+"13389
+[u S703 `S704 1 `S705 1 ]
+[n S703 . . . ]
+"13411
+[v _INTCON3bits `VS703 ~T0 @X0 0 e@4080 ]
 "13501
 [s S707 :7 `uc 1 :1 `uc 1 ]
 [n S707 . . NOT_RBPU ]
@@ -159,6 +170,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATE `Vuc ~T0 @X0 0 e@3981 ]
 "37 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\delays.h
 [v _Delay10KTCYx `(v ~T0 @X0 0 ef1`uc ]
+"71 Wireless.h
+[v _CommandAvailable `(uc ~T0 @X0 0 ef ]
+"73
+[v _GetCommand `(uc ~T0 @X0 0 ef ]
 "2788 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f8722.h
 [s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S143 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
@@ -190,37 +205,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BusyADC `(uc ~T0 @X0 0 ef ]
 "2026
 [v _ReadADC `(i ~T0 @X0 0 ef ]
-"35 Wireless.h
+"45 Wireless.h
 [v _SendStatus `(v ~T0 @X0 0 ef1`Cuc ]
 "19 EEPROM.h
 [v _WriteIntEEPROM `(v ~T0 @X0 0 ef2`ui`ui ]
-"39 Wireless.h
+"49 Wireless.h
 [v _SendOffsets `(v ~T0 @X0 0 ef1`*Ci ]
 "21 EEPROM.h
 [v _WriteCharEEPROM `(v ~T0 @X0 0 ef2`ui`uc ]
-"41 Wireless.h
+"51 Wireless.h
 [v _SendThreshold `(v ~T0 @X0 0 ef1`*Ci ]
 "25 EEPROM.h
 [v _ReadCharEEPROM `(uc ~T0 @X0 0 ef1`ui ]
 "23
 [v _ReadIntEEPROM `(ui ~T0 @X0 0 ef1`ui ]
+"37 Wireless.h
+[v _FlushRxBuf `(v ~T0 @X0 0 ef ]
+"19
+[v _PutCharRxBuf `(v ~T0 @X0 0 ef1`uc ]
+"244 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h
+[v _Read1USART `(uc ~T0 @X0 0 ef ]
+"21 Wireless.h
+[v _GetCharRxBuf `(uc ~T0 @X0 0 ef ]
 [v F7284 `(v ~T0 @X0 1 tf ]
 "23 MillisecondTimer.h
 [v _MillisecondTimerISR `TF7284 ~T0 @X0 0 e ]
-[v F7316 `(v ~T0 @X0 1 tf ]
-"23 Wireless.h
-[v _WirelessTx_ISR `TF7316 ~T0 @X0 0 e ]
+[v F7214 `(v ~T0 @X0 1 tf ]
+"17 Ultrasound.h
+[v _UltrasoundISR `TF7214 ~T0 @X0 0 e ]
+[v F7324 `(v ~T0 @X0 1 tf ]
+"31 Wireless.h
+[v _WirelessTx_ISR `TF7324 ~T0 @X0 0 e ]
 [p mainexit ]
 "15 Ultrasound.h
 [v _ConfigureUltrasound `(v ~T0 @X0 0 ef2`f`f ]
-"31 Wireless.h
+"39 Wireless.h
 [v _ConfigureWireless `(v ~T0 @X0 0 ef ]
 "39 Motors.h
 [v _DisableMotors `(v ~T0 @X0 0 ef ]
-"37 Wireless.h
+"20 BatteryLib/ds2781.h
+[v _ReadVoltage `(us ~T0 @X0 0 ef ]
+"59 Wireless.h
+[v _SendBattVoltageInitial `(v ~T0 @X0 0 ef1`*Cui ]
+"47
 [v _SendLineMode `(v ~T0 @X0 0 ef1`*Cuc ]
+"53
+[v _SendDefaultPIDValues `(v ~T0 @X0 0 ef3`i`i`i ]
+"55
+[v _SendStoredPIDValues `(v ~T0 @X0 0 ef3`i`i`i ]
+"57
+[v _SendCurrentPIDValues `(v ~T0 @X0 0 ef3`i`i`i ]
+"23 BatteryLib/ds2781.h
+[v _ResetAccumulatedCurrent `(v ~T0 @X0 0 ef ]
 "17 MillisecondTimer.h
 [v _ResetMillis0 `(v ~T0 @X0 0 ef ]
+"19
+[v _ResetMillis1 `(v ~T0 @X0 0 ef ]
 "43 Motors.h
 [v _SetUnipolar `(v ~T0 @X0 0 ef ]
 "45
@@ -229,10 +269,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SetDirectionForward `(v ~T0 @X0 0 ef ]
 "37
 [v _EnableMotors `(v ~T0 @X0 0 ef ]
-"15
+"19 Ultrasound.h
+[v _GetDistance `(v ~T0 @X0 0 ef ]
+"15 Motors.h
 [v _SetDCMotorPID `(v ~T0 @X0 0 ef1`i ]
+"21 Ultrasound.h
+[v _BusyDistanceAcq `(uc ~T0 @X0 0 ef ]
+"23
+[v _ReadEchoLength `(ui ~T0 @X0 0 ef ]
+"29 Motors.h
+[v _SetForwardsMotorR `(v ~T0 @X0 0 ef ]
+"35
+[v _SetReverseMotorL `(v ~T0 @X0 0 ef ]
+"17
+[v _SetDCMotorL `(v ~T0 @X0 0 ef1`ui ]
+"19
+[v _SetDCMotorR `(v ~T0 @X0 0 ef1`ui ]
 "25 MillisecondTimer.h
 [v _ReadMillis0 `(ui ~T0 @X0 0 ef ]
+"27
+[v _ReadMillis1 `(ui ~T0 @X0 0 ef ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\delays.h
+[v _Delay1KTCYx `(v ~T0 @X0 0 ef1`uc ]
+"21 BatteryLib/ds2781.h
+[v _ReadCurrent `(us ~T0 @X0 0 ef ]
+"22
+[v _ReadAccumulatedCurrent `(ul ~T0 @X0 0 ef ]
+"61 Wireless.h
+[v _SendBattVoltage `(v ~T0 @X0 0 ef1`*Cui ]
+"63
+[v _SendBattCurrent `(v ~T0 @X0 0 ef1`*Cui ]
+"65
+[v _SendBattCurrentAcc `(v ~T0 @X0 0 ef1`*Cul ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f8722.h: 49: extern volatile unsigned char SSP2CON2 @ 0xF62;
@@ -6820,416 +6888,458 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEPROM.h: 25: unsigned char ReadCharEEPROM(unsigned int address);
 [; ;Wireless.h: 15: void PutCharTxBuf(unsigned char ch);
 [; ;Wireless.h: 17: unsigned char GetCharTxBuf(void);
-[; ;Wireless.h: 19: void StartTx(void);
-[; ;Wireless.h: 21: void StopTx(void);
-[; ;Wireless.h: 23: inline void WirelessTx_ISR(void);
-[; ;Wireless.h: 25: inline void WirelessRX_ISR(void);
-[; ;Wireless.h: 27: void ClearBufTx(void);
-[; ;Wireless.h: 29: void ClearBufRX(void);
-[; ;Wireless.h: 31: void ConfigureWireless(void);
-[; ;Wireless.h: 33: unsigned char BusyTx(void);
-[; ;Wireless.h: 35: void SendStatus(const unsigned char status_code);
-[; ;Wireless.h: 37: void SendLineMode(const unsigned char *line_mode);
-[; ;Wireless.h: 39: void SendOffsets(const int *offsets_array);
-[; ;Wireless.h: 41: void SendThreshold(const int *sensor_threshold);
-"66 FastBuggy17_Main_Code_EXPERIMENTAL.c
+[; ;Wireless.h: 19: void PutCharRxBuf(unsigned char ch);
+[; ;Wireless.h: 21: unsigned char GetCharRxBuf(void);
+[; ;Wireless.h: 23: void StartTx(void);
+[; ;Wireless.h: 25: void StopTx(void);
+[; ;Wireless.h: 27: void StartRx(void);
+[; ;Wireless.h: 29: void StopRx(void);
+[; ;Wireless.h: 31: inline void WirelessTx_ISR(void);
+[; ;Wireless.h: 33: inline void WirelessRx_ISR(void);
+[; ;Wireless.h: 35: void FlushTxBuf(void);
+[; ;Wireless.h: 37: void FlushRxBuf(void);
+[; ;Wireless.h: 39: void ConfigureWireless(void);
+[; ;Wireless.h: 41: unsigned char BusyTx(void);
+[; ;Wireless.h: 43: unsigned char BusyRx(void);
+[; ;Wireless.h: 45: void SendStatus(const unsigned char status_code);
+[; ;Wireless.h: 47: void SendLineMode(const unsigned char *line_mode);
+[; ;Wireless.h: 49: void SendOffsets(const int *offsets_array);
+[; ;Wireless.h: 51: void SendThreshold(const int *sensor_threshold);
+[; ;Wireless.h: 53: void SendDefaultPIDValues(int Kp, int Kd, int Ki);
+[; ;Wireless.h: 55: void SendStoredPIDValues(int Kp, int Kd, int Ki);
+[; ;Wireless.h: 57: void SendCurrentPIDValues(int Kp, int Kd, int Ki);
+[; ;Wireless.h: 59: void SendBattVoltageInitial(const unsigned int *reading);
+[; ;Wireless.h: 61: void SendBattVoltage(const unsigned int *reading);
+[; ;Wireless.h: 63: void SendBattCurrent(const unsigned int *reading);
+[; ;Wireless.h: 65: void SendBattCurrentAcc(const unsigned long int *reading);
+[; ;Wireless.h: 67: void ReceiveCommandsEnable(void);
+[; ;Wireless.h: 69: void ReceiveCommandsDisable(void);
+[; ;Wireless.h: 71: unsigned char CommandAvailable(void);
+[; ;Wireless.h: 73: unsigned char GetCommand(void);
+[; ;OneWire.h: 19: BOOL OWReset (void);
+[; ;OneWire.h: 20: void OWWriteBit (BYTE);
+[; ;OneWire.h: 21: BYTE OWReadBit (void);
+[; ;OneWire.h: 22: void OWWriteByte (BYTE byte);
+[; ;OneWire.h: 23: BYTE OWReadByte (void);
+[; ;ds2781.h: 20: WORD ReadVoltage (void);
+[; ;ds2781.h: 21: WORD ReadCurrent (void);
+[; ;ds2781.h: 22: DWORD ReadAccumulatedCurrent (void);
+[; ;ds2781.h: 23: void ResetAccumulatedCurrent (void);
+[; ;ds2781.h: 24: QWORD ReadNetAddress (void);
+[; ;ds2781.h: 25: WORD ReadTemperature (void);
+[; ;ds2781.h: 26: BYTE ReadCurrentOffset (void);
+[; ;ds2781.h: 27: void WriteCurrentOffset (CHAR offset);
+[; ;ds2781.h: 28: void AdjustCurrentOffset (void);
+[; ;ds2781.h: 29: void UpdateControlRegister (BYTE control);
+[; ;ds2781.h: 30: BYTE ReadRAM (BYTE addr);
+[; ;ds2781.h: 31: void WriteRAM (BYTE byte, BYTE addr);
+[; ;ds2781.h: 32: void CopyEEPROM (BYTE addr);
+[; ;ds2781.h: 33: void RecallEEPROM (BYTE addr);
+[; ;ds2781.h: 34: void Delay100MSx(BYTE counts);
+"69 FastBuggy17_Main_Code_EXPERIMENTAL.c
 [v _sensor_acq_done `Vuc ~T0 @X0 1 e ]
 [v _sensor_acq_index `Vuc ~T0 @X0 1 e ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 66: volatile unsigned char sensor_acq_done, sensor_acq_index;
-"67
-[v _sensor_readings_raw `Vi ~T0 @X0 -> 5 `i e ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 67: volatile int sensor_readings_raw[5];
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 69: volatile unsigned char sensor_acq_done, sensor_acq_index;
 "70
+[v _sensor_readings_raw `Vi ~T0 @X0 -> 5 `i e ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 70: volatile int sensor_readings_raw[5];
+"73
 [v _sensor_status `uc ~T0 @X0 -> 5 `i e ]
 [v _line_mode `uc ~T0 @X0 1 e ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 70: unsigned char sensor_status[5], line_mode;
-"71
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 73: unsigned char sensor_status[5], line_mode;
+"74
 [v _sensor_offsets `i ~T0 @X0 -> 5 `i e ]
 [v _sensor_readings_normalised `i ~T0 @X0 -> 5 `i e ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 71: int sensor_offsets[5], sensor_readings_normalised[5];
-"72
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 74: int sensor_offsets[5], sensor_readings_normalised[5];
+"75
 [v _sensor_threshold `i ~T0 @X0 1 e ]
 [v _PID_error `i ~T0 @X0 1 e ]
 [v _PID_output `i ~T0 @X0 1 e ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 72: int sensor_threshold, PID_error, PID_output;
-"75
-[v _sensor_threshold_ptr `*i ~T0 @X0 1 e ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 75: int *sensor_threshold_ptr;
+[v _PID_Kp `i ~T0 @X0 1 e ]
+[v _PID_Kd `i ~T0 @X0 1 e ]
+[v _PID_Ki `i ~T0 @X0 1 e ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 75: int sensor_threshold, PID_error, PID_output, PID_Kp, PID_Kd, PID_Ki;
 "78
+[v _sensor_threshold_ptr `*i ~T0 @X0 1 e ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 78: int *sensor_threshold_ptr;
+"81
 [v _ConfigureInterrupts `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 78: void ConfigureInterrupts(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 81: void ConfigureInterrupts(void) {
 [e :U _ConfigureInterrupts ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 80: INTCONbits.GIE = 1;
-"80
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 83: INTCONbits.GIE = 1;
+"83
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 81: INTCONbits.PEIE = 1;
-"81
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 84: INTCONbits.PEIE = 1;
+"84
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 82: RCONbits.IPEN = 1;
-"82
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 85: RCONbits.IPEN = 1;
+"85
 [e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 99: INTCONbits.RBIE = 0;
-"99
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 100: INTCONbits.RBIF = 0;
-"100
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 101: INTCON2bits.RBIP = 1;
-"101
-[e = . . _INTCON2bits 1 0 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 104: INTCONbits.TMR0IE = 1;
-"104
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 107: INTCON3bits.INT3IE = 0;
+"107
+[e = . . _INTCON3bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 108: INTCON3bits.INT3IF = 0;
+"108
+[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 109: INTCON2bits.INTEDG3 = 1;
+"109
+[e = . . _INTCON2bits 1 3 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 110: INTCON2bits.INT3IP = 1;
+"110
+[e = . . _INTCON2bits 1 1 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 113: INTCONbits.TMR0IE = 1;
+"113
 [e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 105: INTCONbits.TMR0IF = 0;
-"105
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 114: INTCONbits.TMR0IF = 0;
+"114
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 106: INTCON2bits.TMR0IP = 1;
-"106
-[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 115: PIE1bits.ADIE = 0;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 115: INTCON2bits.TMR0IP = 1;
 "115
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 116: PIR1bits.ADIF = 0;
-"116
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 117: IPR1bits.ADIP = 0;
-"117
-[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 120: PIE1bits.RC1IE = 0;
-"120
-[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 121: PIE1bits.TX1IE = 0;
-"121
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 122: PIR1bits.RC1IF = 0;
-"122
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 123: PIR1bits.TX1IF = 0;
-"123
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 124: IPR1bits.RC1IP = 0;
+[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 124: PIE1bits.ADIE = 0;
 "124
-[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 125: IPR1bits.TX1IP = 0;
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 125: PIR1bits.ADIF = 0;
 "125
-[e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 126: }
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 126: IPR1bits.ADIP = 0;
 "126
+[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 129: PIE1bits.RC1IE = 0;
+"129
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 130: PIE1bits.TX1IE = 0;
+"130
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 131: PIR1bits.RC1IF = 0;
+"131
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 132: PIR1bits.TX1IF = 0;
+"132
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 133: IPR1bits.RC1IP = 0;
+"133
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 134: IPR1bits.TX1IP = 0;
+"134
+[e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 135: }
+"135
 [e :UE 759 ]
 }
-"129
+"138
 [v _ConfigureTimer0 `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 129: void ConfigureTimer0(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 138: void ConfigureTimer0(void) {
 [e :U _ConfigureTimer0 ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 131: OpenTimer0(0b11111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 132: & 0b10111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 133: & 0b11011111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 134: & 0b11111111);
-"134
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 140: OpenTimer0(0b11111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 141: & 0b10111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 142: & 0b11011111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 143: & 0b11111111);
+"143
 [e ( _OpenTimer0 (1 -> & & & -> 255 `i -> 191 `i -> 223 `i -> 255 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 138: WriteTimer0(63036);
-"138
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 147: WriteTimer0(63036);
+"147
 [e ( _WriteTimer0 (1 -> -> 63036 `l `ui ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 140: }
-"140
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 149: }
+"149
 [e :UE 760 ]
 }
-"143
+"152
 [v _ConfigureTimer1 `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 143: void ConfigureTimer1(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 152: void ConfigureTimer1(void) {
 [e :U _ConfigureTimer1 ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 145: OpenTimer1(0b01111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 146: & 0b11111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 147: & 0b11111101
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 148: & 0b11011111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 149: & 0b11110111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 150: & 0b11111111);
-"150
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 154: OpenTimer1(0b01111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 155: & 0b11111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 156: & 0b11111101
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 157: & 0b11011111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 158: & 0b11110111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 159: & 0b11111111);
+"159
 [e ( _OpenTimer1 (1 -> & & & & & -> 127 `i -> 255 `i -> 253 `i -> 223 `i -> 247 `i -> 255 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 154: T1CONbits.TMR1ON = 0;
-"154
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 163: T1CONbits.TMR1ON = 0;
+"163
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 156: WriteTimer1(0);
-"156
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 165: WriteTimer1(0);
+"165
 [e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 158: }
-"158
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 167: }
+"167
 [e :UE 761 ]
 }
-"161
+"170
 [v _ConfigureTimer2 `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 161: void ConfigureTimer2(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 170: void ConfigureTimer2(void) {
 [e :U _ConfigureTimer2 ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 163: OpenTimer2(0b01111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 164: & 0b11111100
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 165: & 0b10000111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 166: & 0b10110111);
-"166
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 172: OpenTimer2(0b01111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 173: & 0b11111100
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 174: & 0b10000111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 175: & 0b10110111);
+"175
 [e ( _OpenTimer2 (1 -> & & & -> 127 `i -> 252 `i -> 135 `i -> 183 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 176: }
-"176
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 185: }
+"185
 [e :UE 762 ]
 }
-"179
+"188
 [v _ConfigurePWM `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 179: void ConfigurePWM(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 188: void ConfigurePWM(void) {
 [e :U _ConfigurePWM ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 181: OpenPWM4(130);
-"181
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 190: OpenPWM4(130);
+"190
 [e ( _OpenPWM4 (1 -> -> 130 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 182: OpenPWM5(130);
-"182
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 191: OpenPWM5(130);
+"191
 [e ( _OpenPWM5 (1 -> -> 130 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 199: }
-"199
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 208: }
+"208
 [e :UE 763 ]
 }
-"202
+"211
 [v _ConfigureBuggyIO `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 202: void ConfigureBuggyIO(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 211: void ConfigureBuggyIO(void) {
 [e :U _ConfigureBuggyIO ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 205: TRISA = 0xFF;
-"205
-[e = _TRISA -> -> 255 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 208: TRISB = 0xFF;
-"208
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 211: TRISC = 0x9F;
-"211
-[e = _TRISC -> -> 159 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 214: TRISD = 0xE0;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 214: TRISA = 0xFF;
 "214
-[e = _TRISD -> -> 224 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 217: TRISE = 0x00;
+[e = _TRISA -> -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 217: TRISB = 0xFF;
 "217
-[e = _TRISE -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 220: TRISG = 0xE7;
+[e = _TRISB -> -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 220: TRISC = 0x9F;
 "220
-[e = _TRISG -> -> 231 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 223: TRISJ = 0x00;
+[e = _TRISC -> -> 159 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 223: TRISD = 0xE0;
 "223
+[e = _TRISD -> -> 224 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 226: TRISE = 0x00;
+"226
+[e = _TRISE -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 229: TRISG = 0xE7;
+"229
+[e = _TRISG -> -> 231 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 232: TRISJ = 0x00;
+"232
 [e = _TRISJ -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 225: }
-"225
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 234: }
+"234
 [e :UE 764 ]
 }
-"228
+"237
 [v _ConfigureADC `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 228: void ConfigureADC(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 237: void ConfigureADC(void) {
 [e :U _ConfigureADC ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 230: OpenADC(0b10011111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 231: & 0b11111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 232: & 0b11110101,
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 233: 0b10000111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 234: & 0b01111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 235: & 0b11111110
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 236: & 0b11111101,
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 237: 9);
-"237
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 239: OpenADC(0b10011111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 240: & 0b11111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 241: & 0b11110101,
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 242: 0b10000111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 243: & 0b01111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 244: & 0b11111110
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 245: & 0b11111101,
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 246: 9);
+"246
 [e ( _OpenADC (3 , , -> & & -> 159 `i -> 255 `i -> 245 `i `uc -> & & & -> 135 `i -> 127 `i -> 254 `i -> 253 `i `uc -> -> 9 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 239: }
-"239
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 248: }
+"248
 [e :UE 765 ]
 }
-"242
+"251
 [v _ConfigureSerial `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 242: void ConfigureSerial(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 251: void ConfigureSerial(void) {
 [e :U _ConfigureSerial ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 244: Open1USART(0b01111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 245: & 0b10111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 246: & 0b11111110
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 247: & 0b11111101
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 248: & 0b11111111
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 249: & 0b11111111,
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 250: 64);
-"250
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 253: Open1USART(0b01111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 254: & 0b10111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 255: & 0b11111110
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 256: & 0b11111101
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 257: & 0b11111111
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 258: & 0b11111111,
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 259: 64);
+"259
 [e ( _Open1USART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 252: }
-"252
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 261: }
+"261
 [e :UE 766 ]
 }
-"255
+"264
 [v _SetADCChannel `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 255: void SetADCChannel(unsigned char channel) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 264: void SetADCChannel(unsigned char channel) {
 [e :U _SetADCChannel ]
 [v _channel `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 257: switch (channel) {
-"257
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 266: switch (channel) {
+"266
 [e $U 769  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 258: case 0:
-"258
-[e :U 770 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 259: SetChanADC(0b10000111);
-"259
-[e ( _SetChanADC (1 -> -> 135 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 260: break;
-"260
-[e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 261: case 1:
-"261
-[e :U 771 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 262: SetChanADC(0b10001111);
-"262
-[e ( _SetChanADC (1 -> -> 143 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 263: break;
-"263
-[e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 264: case 2:
-"264
-[e :U 772 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 265: SetChanADC(0b10010111);
-"265
-[e ( _SetChanADC (1 -> -> 151 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 266: break;
-"266
-[e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 267: case 3:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 267: case 0:
 "267
-[e :U 773 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 268: SetChanADC(0b10011111);
+[e :U 770 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 268: SetChanADC(0b10000111);
 "268
-[e ( _SetChanADC (1 -> -> 159 `i `uc ]
+[e ( _SetChanADC (1 -> -> 135 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 269: break;
 "269
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 270: case 4:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 270: case 1:
 "270
-[e :U 774 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 271: SetChanADC(0b10100111);
+[e :U 771 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 271: SetChanADC(0b10001111);
 "271
-[e ( _SetChanADC (1 -> -> 167 `i `uc ]
+[e ( _SetChanADC (1 -> -> 143 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 272: break;
 "272
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 273: case 5:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 273: case 2:
 "273
-[e :U 775 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 274: SetChanADC(0b10101111);
+[e :U 772 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 274: SetChanADC(0b10010111);
 "274
-[e ( _SetChanADC (1 -> -> 175 `i `uc ]
+[e ( _SetChanADC (1 -> -> 151 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 275: break;
 "275
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 276: case 6:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 276: case 3:
 "276
-[e :U 776 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 277: SetChanADC(0b10110111);
+[e :U 773 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 277: SetChanADC(0b10011111);
 "277
-[e ( _SetChanADC (1 -> -> 183 `i `uc ]
+[e ( _SetChanADC (1 -> -> 159 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 278: break;
 "278
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 279: case 7:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 279: case 4:
 "279
-[e :U 777 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 280: SetChanADC(0b10111111);
+[e :U 774 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 280: SetChanADC(0b10100111);
 "280
-[e ( _SetChanADC (1 -> -> 191 `i `uc ]
+[e ( _SetChanADC (1 -> -> 167 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 281: break;
 "281
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 282: case 8:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 282: case 5:
 "282
-[e :U 778 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 283: SetChanADC(0b11000111);
+[e :U 775 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 283: SetChanADC(0b10101111);
 "283
-[e ( _SetChanADC (1 -> -> 199 `i `uc ]
+[e ( _SetChanADC (1 -> -> 175 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 284: break;
 "284
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 285: case 9:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 285: case 6:
 "285
-[e :U 779 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 286: SetChanADC(0b11001111);
+[e :U 776 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 286: SetChanADC(0b10110111);
 "286
-[e ( _SetChanADC (1 -> -> 207 `i `uc ]
+[e ( _SetChanADC (1 -> -> 183 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 287: break;
 "287
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 288: case 10:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 288: case 7:
 "288
-[e :U 780 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 289: SetChanADC(0b11010111);
+[e :U 777 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 289: SetChanADC(0b10111111);
 "289
-[e ( _SetChanADC (1 -> -> 215 `i `uc ]
+[e ( _SetChanADC (1 -> -> 191 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 290: break;
 "290
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 291: case 11:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 291: case 8:
 "291
-[e :U 781 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 292: SetChanADC(0b11011111);
+[e :U 778 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 292: SetChanADC(0b11000111);
 "292
-[e ( _SetChanADC (1 -> -> 223 `i `uc ]
+[e ( _SetChanADC (1 -> -> 199 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 293: break;
 "293
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 294: case 12:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 294: case 9:
 "294
-[e :U 782 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 295: SetChanADC(0b11100111);
+[e :U 779 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 295: SetChanADC(0b11001111);
 "295
-[e ( _SetChanADC (1 -> -> 231 `i `uc ]
+[e ( _SetChanADC (1 -> -> 207 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 296: break;
 "296
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 297: case 13:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 297: case 10:
 "297
-[e :U 783 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 298: SetChanADC(0b11101111);
+[e :U 780 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 298: SetChanADC(0b11010111);
 "298
-[e ( _SetChanADC (1 -> -> 239 `i `uc ]
+[e ( _SetChanADC (1 -> -> 215 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 299: break;
 "299
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 300: case 14:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 300: case 11:
 "300
-[e :U 784 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 301: SetChanADC(0b11110111);
+[e :U 781 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 301: SetChanADC(0b11011111);
 "301
-[e ( _SetChanADC (1 -> -> 247 `i `uc ]
+[e ( _SetChanADC (1 -> -> 223 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 302: break;
 "302
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 303: case 15:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 303: case 12:
 "303
-[e :U 785 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 304: SetChanADC(0b11111111);
+[e :U 782 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 304: SetChanADC(0b11100111);
 "304
-[e ( _SetChanADC (1 -> -> 255 `i `uc ]
+[e ( _SetChanADC (1 -> -> 231 `i `uc ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 305: break;
 "305
 [e $U 768  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 306: default:
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 306: case 13:
 "306
-[e :U 786 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 307: break;
+[e :U 783 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 307: SetChanADC(0b11101111);
 "307
-[e $U 768  ]
+[e ( _SetChanADC (1 -> -> 239 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 308: break;
 "308
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 308: }
 [e $U 768  ]
-"257
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 309: case 14:
+"309
+[e :U 784 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 310: SetChanADC(0b11110111);
+"310
+[e ( _SetChanADC (1 -> -> 247 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 311: break;
+"311
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 312: case 15:
+"312
+[e :U 785 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 313: SetChanADC(0b11111111);
+"313
+[e ( _SetChanADC (1 -> -> 255 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 314: break;
+"314
+[e $U 768  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 315: default:
+"315
+[e :U 786 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 316: break;
+"316
+[e $U 768  ]
+"317
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 317: }
+[e $U 768  ]
+"266
 [e :U 769 ]
 [e [\ _channel , $ -> -> 0 `i `uc 770
  , $ -> -> 1 `i `uc 771
@@ -7248,317 +7358,317 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 14 `i `uc 784
  , $ -> -> 15 `i `uc 785
  786 ]
-"308
+"317
 [e :U 768 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 310: }
-"310
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 319: }
+"319
 [e :UE 767 ]
 }
-"313
+"322
 [v _GetSensorReadings `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 313: void GetSensorReadings(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 322: void GetSensorReadings(void) {
 [e :U _GetSensorReadings ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 315: sensor_acq_index = 0;
-"315
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 324: sensor_acq_index = 0;
+"324
 [e = _sensor_acq_index -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 316: sensor_acq_done = 0;
-"316
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 325: sensor_acq_done = 0;
+"325
 [e = _sensor_acq_done -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 317: SetADCChannel(sensor_acq_index);
-"317
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 326: SetADCChannel(sensor_acq_index);
+"326
 [e ( _SetADCChannel (1 _sensor_acq_index ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 318: ConvertADC();
-"318
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 327: ConvertADC();
+"327
 [e ( _ConvertADC ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 319: PIE1bits.ADIE = 1;
-"319
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 328: PIE1bits.ADIE = 1;
+"328
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 321: }
-"321
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 330: }
+"330
 [e :UE 787 ]
 }
-"324
+"333
 [v _BusySensorAcq `(uc ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 324: unsigned char BusySensorAcq(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 333: unsigned char BusySensorAcq(void) {
 [e :U _BusySensorAcq ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 326: return (!sensor_acq_done);
-"326
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 335: return (!sensor_acq_done);
+"335
 [e ) -> -> ! != -> _sensor_acq_done `i -> -> -> 0 `i `Vuc `i `i `uc ]
 [e $UE 788  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 328: }
-"328
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 337: }
+"337
 [e :UE 788 ]
 }
-"331
+"340
 [v _NormaliseSensorReadings `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 331: void NormaliseSensorReadings(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 340: void NormaliseSensorReadings(void) {
 [e :U _NormaliseSensorReadings ]
 [f ]
-"332
+"341
 [v _index `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 332: unsigned char index;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 334: for(index = 0; index < 5; index++) {
-"334
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 341: unsigned char index;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 343: for(index = 0; index < 5; index++) {
+"343
 {
 [e = _index -> -> 0 `i `uc ]
 [e $ < -> _index `i -> 5 `i 790  ]
 [e $U 791  ]
 [e :U 790 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 336: sensor_readings_normalised[index] = sensor_readings_raw[index] + sensor_offsets[index];
-"336
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 345: sensor_readings_normalised[index] = sensor_readings_raw[index] + sensor_offsets[index];
+"345
 [e = *U + &U _sensor_readings_normalised * -> _index `ux -> -> # *U &U _sensor_readings_normalised `ui `ux + *U + &U _sensor_readings_raw * -> _index `ux -> -> # *U &U _sensor_readings_raw `ui `ux *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux ]
-"338
+"347
 }
-"334
+"343
 [e ++ _index -> -> 1 `i `uc ]
 [e $ < -> _index `i -> 5 `i 790  ]
 [e :U 791 ]
-"338
+"347
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 338: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 340: }
-"340
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 347: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 349: }
+"349
 [e :UE 789 ]
 }
-"343
+"352
 [v _CalculateSensorStatuses `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 343: void CalculateSensorStatuses(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 352: void CalculateSensorStatuses(void) {
 [e :U _CalculateSensorStatuses ]
 [f ]
-"344
+"353
 [v _index `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 344: unsigned char index;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 347: if(line_mode == 1) {
-"347
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 353: unsigned char index;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 356: if(line_mode == 1) {
+"356
 [e $ ! == -> _line_mode `i -> 1 `i 794  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 348: for(index = 0; index < 5; index++) {
-"348
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 357: for(index = 0; index < 5; index++) {
+"357
 {
 [e = _index -> -> 0 `i `uc ]
 [e $ < -> _index `i -> 5 `i 795  ]
 [e $U 796  ]
 [e :U 795 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 350: if(sensor_readings_normalised[index] > sensor_threshold) {
-"350
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 359: if(sensor_readings_normalised[index] > sensor_threshold) {
+"359
 [e $ ! > *U + &U _sensor_readings_normalised * -> _index `ux -> -> # *U &U _sensor_readings_normalised `ui `ux _sensor_threshold 798  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 351: sensor_status[index] = 1;
-"351
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 360: sensor_status[index] = 1;
+"360
 [e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 1 `i `uc ]
-"352
+"361
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 352: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 361: }
 [e $U 799  ]
-"353
+"362
 [e :U 798 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 353: else {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 362: else {
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 354: sensor_status[index] = 0;
-"354
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 363: sensor_status[index] = 0;
+"363
 [e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 0 `i `uc ]
-"355
+"364
 }
 [e :U 799 ]
-"356
+"365
 }
-"348
+"357
 [e ++ _index -> -> 1 `i `uc ]
 [e $ < -> _index `i -> 5 `i 795  ]
 [e :U 796 ]
-"356
+"365
 }
-"357
+"366
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 355: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 356: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 357: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 364: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 365: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 366: }
 [e $U 800  ]
-"359
+"368
 [e :U 794 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 359: else if(line_mode == 0) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 368: else if(line_mode == 0) {
 [e $ ! == -> _line_mode `i -> 0 `i 801  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 361: for(index = 0; index < 5; index++) {
-"361
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 370: for(index = 0; index < 5; index++) {
+"370
 {
 [e = _index -> -> 0 `i `uc ]
 [e $ < -> _index `i -> 5 `i 802  ]
 [e $U 803  ]
 [e :U 802 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 363: if(sensor_readings_normalised[index] < sensor_threshold) {
-"363
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 372: if(sensor_readings_normalised[index] < sensor_threshold) {
+"372
 [e $ ! < *U + &U _sensor_readings_normalised * -> _index `ux -> -> # *U &U _sensor_readings_normalised `ui `ux _sensor_threshold 805  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 364: sensor_status[index] = 1;
-"364
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 373: sensor_status[index] = 1;
+"373
 [e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 1 `i `uc ]
-"365
+"374
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 365: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 374: }
 [e $U 806  ]
-"366
+"375
 [e :U 805 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 366: else {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 375: else {
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 367: sensor_status[index] = 0;
-"367
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 376: sensor_status[index] = 0;
+"376
 [e = *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux -> -> 0 `i `uc ]
-"368
+"377
 }
 [e :U 806 ]
-"370
+"379
 }
-"361
+"370
 [e ++ _index -> -> 1 `i `uc ]
 [e $ < -> _index `i -> 5 `i 802  ]
 [e :U 803 ]
-"370
+"379
 }
-"371
+"380
 }
 [e :U 801 ]
-"374
+"383
 [e :U 800 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 368: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 370: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 371: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 374: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 377: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 379: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 380: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 383: }
 [e :UE 793 ]
 }
-"377
+"386
 [v _CalculateSensorSums `(uc ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 377: unsigned char CalculateSensorSums(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 386: unsigned char CalculateSensorSums(void) {
 [e :U _CalculateSensorSums ]
 [f ]
-"378
+"387
 [v _index `uc ~T0 @X0 1 a ]
 [v _sum `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 378: unsigned char index, sum = 0;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 387: unsigned char index, sum = 0;
 [e = _sum -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 380: for(index = 0; index < 5; index++) {
-"380
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 389: for(index = 0; index < 5; index++) {
+"389
 {
 [e = _index -> -> 0 `i `uc ]
 [e $ < -> _index `i -> 5 `i 808  ]
 [e $U 809  ]
 [e :U 808 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 382: sum += (unsigned char) (sensor_status[index] * pow(2, index));
-"382
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 391: sum += (unsigned char) (sensor_status[index] * pow(2, index));
+"391
 [e =+ _sum -> * -> *U + &U _sensor_status * -> _index `ux -> -> # *U &U _sensor_status `ui `ux `d ( _pow (2 , -> -> 2 `i `d -> _index `d `uc ]
-"384
+"393
 }
-"380
+"389
 [e ++ _index -> -> 1 `i `uc ]
 [e $ < -> _index `i -> 5 `i 808  ]
 [e :U 809 ]
-"384
+"393
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 384: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 386: return(sum);
-"386
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 393: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 395: return(sum);
+"395
 [e ) _sum ]
 [e $UE 807  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 388: }
-"388
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 397: }
+"397
 [e :UE 807 ]
 }
-"391
+"400
 [v _CalculateSensorError `(i ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 391: int CalculateSensorError(const unsigned char *sum) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 400: int CalculateSensorError(const unsigned char *sum) {
 [e :U _CalculateSensorError ]
 [v _sum `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 393: switch(*sum) {
-"393
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 402: switch(*sum) {
+"402
 [e $U 813  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 394: case(16) :
-"394
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 403: case(16) :
+"403
 [e :U 814 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 395: return(64);
-"395
-[e ) -> 64 `i ]
-[e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 396: case(24) :
-"396
-[e :U 815 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 397: return(27);
-"397
-[e ) -> 27 `i ]
-[e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 398: case(8) :
-"398
-[e :U 816 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 399: return(8);
-"399
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 404: return(8);
+"404
 [e ) -> 8 `i ]
 [e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 400: case(12) :
-"400
-[e :U 817 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 401: return(1);
-"401
-[e ) -> 1 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 405: case(24) :
+"405
+[e :U 815 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 406: return(6);
+"406
+[e ) -> 6 `i ]
 [e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 402: case(4) :
-"402
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 407: case(8) :
+"407
+[e :U 816 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 408: return(4);
+"408
+[e ) -> 4 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 409: case(12) :
+"409
+[e :U 817 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 410: return(2);
+"410
+[e ) -> 2 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 411: case(4) :
+"411
 [e :U 818 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 403: return(0);
-"403
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 412: return(0);
+"412
 [e ) -> 0 `i ]
 [e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 404: case(6) :
-"404
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 413: case(6) :
+"413
 [e :U 819 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 405: return(-1);
-"405
-[e ) -U -> 1 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 414: return(-2);
+"414
+[e ) -U -> 2 `i ]
 [e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 406: case(2) :
-"406
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 415: case(2) :
+"415
 [e :U 820 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 407: return(-8);
-"407
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 416: return(-4);
+"416
+[e ) -U -> 4 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 417: case(3) :
+"417
+[e :U 821 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 418: return(-6);
+"418
+[e ) -U -> 6 `i ]
+[e $UE 811  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 419: case(1) :
+"419
+[e :U 822 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 420: return(-8);
+"420
 [e ) -U -> 8 `i ]
 [e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 408: case(3) :
-"408
-[e :U 821 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 409: return(-27);
-"409
-[e ) -U -> 27 `i ]
-[e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 410: case(1) :
-"410
-[e :U 822 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 411: return(-64);
-"411
-[e ) -U -> 64 `i ]
-[e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 412: default :
-"412
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 421: default :
+"421
 [e :U 823 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 413: break;
-"413
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 422: break;
+"422
 [e $U 812  ]
-"414
+"423
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 414: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 423: }
 [e $U 812  ]
-"393
+"402
 [e :U 813 ]
 [e [\ *U _sum , $ -> -> 16 `i `uc 814
  , $ -> -> 24 `i `uc 815
@@ -7570,871 +7680,1671 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 3 `i `uc 821
  , $ -> -> 1 `i `uc 822
  823 ]
-"414
+"423
 [e :U 812 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 416: return(0);
-"416
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 425: return(0);
+"425
 [e ) -> 0 `i ]
 [e $UE 811  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 418: }
-"418
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 427: }
+"427
 [e :UE 811 ]
 }
-"421
+"430
 [v _DisplaySensorStatuses `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 421: void DisplaySensorStatuses(const unsigned char *status_array) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 430: void DisplaySensorStatuses(const unsigned char *status_array) {
 [e :U _DisplaySensorStatuses ]
 [v _status_array `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"422
+"431
 [v _index `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 422: unsigned char index;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 424: for (index = 0; index < 5; index++) {
-"424
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 431: unsigned char index;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 433: for (index = 0; index < 5; index++) {
+"433
 {
 [e = _index -> -> 0 `i `uc ]
 [e $ < -> _index `i -> 5 `i 825  ]
 [e $U 826  ]
 [e :U 825 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 425: LATJ ^= *(status_array + index) << index;
-"425
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 434: LATJ ^= *(status_array + index) << index;
+"434
 [e =^ _LATJ -> << -> *U + _status_array * -> _index `ux -> -> # *U _status_array `ui `ux `i _index `uc ]
-"426
+"435
 }
-"424
+"433
 [e ++ _index -> -> 1 `i `uc ]
 [e $ < -> _index `i -> 5 `i 825  ]
 [e :U 826 ]
-"426
+"435
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 426: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 428: }
-"428
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 435: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 437: }
+"437
 [e :UE 824 ]
 }
-"431
+"440
 [v _EnableSensorLEDS `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 431: void EnableSensorLEDS(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 440: void EnableSensorLEDS(void) {
 [e :U _EnableSensorLEDS ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 433: LATE = 0x1F;
-"433
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 442: LATE = 0x1F;
+"442
 [e = _LATE -> -> 31 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 435: }
-"435
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 444: }
+"444
 [e :UE 828 ]
 }
-"438
+"447
 [v _DisableSensorLEDS `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 438: void DisableSensorLEDS(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 447: void DisableSensorLEDS(void) {
 [e :U _DisableSensorLEDS ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 440: LATE &= 0xE0;
-"440
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 449: LATE &= 0xE0;
+"449
 [e =& _LATE -> -> 224 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 442: }
-"442
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 451: }
+"451
 [e :UE 829 ]
 }
-"445
+"454
 [v _FlashLEDS `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 445: void FlashLEDS(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 454: void FlashLEDS(void) {
 [e :U _FlashLEDS ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 446: LATJ = 0x00;
-"446
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 455: LATJ = 0x00;
+"455
 [e = _LATJ -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 447: LATJ = 0x1F;
-"447
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 456: LATJ = 0x1F;
+"456
 [e = _LATJ -> -> 31 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 448: Delay10KTCYx(75);
-"448
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 457: Delay10KTCYx(75);
+"457
 [e ( _Delay10KTCYx (1 -> -> 75 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 449: LATJ = 0x00;
-"449
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 458: LATJ = 0x00;
+"458
 [e = _LATJ -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 450: Delay10KTCYx(75);
-"450
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 459: Delay10KTCYx(75);
+"459
 [e ( _Delay10KTCYx (1 -> -> 75 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 451: LATJ = 0x1F;
-"451
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 460: LATJ = 0x1F;
+"460
 [e = _LATJ -> -> 31 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 452: Delay10KTCYx(75);
-"452
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 461: Delay10KTCYx(75);
+"461
 [e ( _Delay10KTCYx (1 -> -> 75 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 453: LATJ = 0x00;
-"453
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 462: LATJ = 0x00;
+"462
 [e = _LATJ -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 454: }
-"454
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 463: }
+"463
 [e :UE 830 ]
 }
-"457
+"466
 [v _PB1pressed `(uc ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 457: unsigned char PB1pressed(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 466: unsigned char PB1pressed(void) {
 [e :U _PB1pressed ]
 [f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 458: if(PORTBbits.RB1 == 0) {
-"458
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 832  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 467: if(CommandAvailable() == 1) {
+"467
+[e $ ! == -> ( _CommandAvailable ..  `i -> 1 `i 832  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 459: return(0);
-"459
-[e ) -> -> 0 `i `uc ]
-[e $UE 831  ]
-"460
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 460: }
-[e $U 833  ]
-"461
-[e :U 832 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 461: else if(PORTBbits.RB1 == 1) {
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 834  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 468: if(GetCommand() == 0x05) {
+"468
+[e $ ! == -> ( _GetCommand ..  `i -> 5 `i 833  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 462: ResetMillis2();
-"462
-[e ( _ResetMillis2 ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 463: while(ReadMillis2() < 10);
-"463
-[e $U 835  ]
-[e :U 836 ]
-[e :U 835 ]
-[e $ < ( _ReadMillis2 ..  -> -> 10 `i `ui 836  ]
-[e :U 837 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 464: if(PORTBbits.RB1 == 1) {
-"464
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 838  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 465: return(1);
-"465
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 469: return(1);
+"469
 [e ) -> -> 1 `i `uc ]
 [e $UE 831  ]
-"466
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 466: }
-[e $U 839  ]
-"467
-[e :U 838 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 467: else {
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 468: return(0);
-"468
-[e ) -> -> 0 `i `uc ]
-[e $UE 831  ]
-"469
-}
-[e :U 839 ]
 "470
 }
-[e :U 834 ]
-"472
-[e :U 833 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 469: }
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 470: }
+[e $U 834  ]
+"471
+[e :U 833 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 471: else {
+{
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 472: return(0);
+"472
 [e ) -> -> 0 `i `uc ]
 [e $UE 831  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 474: }
+"473
+}
+[e :U 834 ]
 "474
-[e :UE 831 ]
 }
-"477
-[v _PB2pressed `(uc ~T0 @X0 1 ef ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 473: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 474: }
+[e $U 835  ]
+"475
+[e :U 832 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 475: else if(PORTBbits.RB1 == 0) {
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 836  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 477: unsigned char PB2pressed(void) {
-[e :U _PB2pressed ]
-[f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 478: if(PORTBbits.RB2 == 0) {
-"478
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 841  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 479: return(0);
-"479
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 476: return(0);
+"476
 [e ) -> -> 0 `i `uc ]
-[e $UE 840  ]
-"480
+[e $UE 831  ]
+"477
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 480: }
-[e $U 842  ]
-"481
-[e :U 841 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 481: else if(PORTBbits.RB2 == 1) {
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 843  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 477: }
+[e $U 837  ]
+"478
+[e :U 836 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 478: else if(PORTBbits.RB1 == 1) {
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 838  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 482: ResetMillis2();
-"482
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 479: ResetMillis2();
+"479
 [e ( _ResetMillis2 ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 483: while(ReadMillis2() < 10);
-"483
-[e $U 844  ]
-[e :U 845 ]
-[e :U 844 ]
-[e $ < ( _ReadMillis2 ..  -> -> 10 `i `ui 845  ]
-[e :U 846 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 484: if(PORTBbits.RB2 == 1) {
-"484
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 847  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 480: while(ReadMillis2() < 10);
+"480
+[e $U 839  ]
+[e :U 840 ]
+[e :U 839 ]
+[e $ < ( _ReadMillis2 ..  -> -> 10 `i `ui 840  ]
+[e :U 841 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 481: if(PORTBbits.RB1 == 1) {
+"481
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 842  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 485: return(1);
-"485
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 482: return(1);
+"482
 [e ) -> -> 1 `i `uc ]
-[e $UE 840  ]
+[e $UE 831  ]
+"483
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 483: }
+[e $U 843  ]
+"484
+[e :U 842 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 484: else {
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 485: return(0);
+"485
+[e ) -> -> 0 `i `uc ]
+[e $UE 831  ]
 "486
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 486: }
-[e $U 848  ]
-"487
-[e :U 847 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 487: else {
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 488: return(0);
-"488
-[e ) -> -> 0 `i `uc ]
-[e $UE 840  ]
-"489
-}
-[e :U 848 ]
-"490
-}
 [e :U 843 ]
-"492
-[e :U 842 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 489: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 490: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 492: return(0);
-[e ) -> -> 0 `i `uc ]
-[e $UE 840  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 493: }
-"493
-[e :UE 840 ]
+"487
 }
+[e :U 838 ]
+"489
+[e :U 837 ]
+[e :U 835 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 486: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 487: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 489: return(0);
+[e ) -> -> 0 `i `uc ]
+[e $UE 831  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 491: }
+"491
+[e :UE 831 ]
+}
+"494
+[v _PB2pressed `(uc ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 494: unsigned char PB2pressed(void) {
+[e :U _PB2pressed ]
+[f ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 495: if(CommandAvailable() == 1) {
+"495
+[e $ ! == -> ( _CommandAvailable ..  `i -> 1 `i 845  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 496: if(GetCommand() == 0x06) {
 "496
+[e $ ! == -> ( _GetCommand ..  `i -> 6 `i 846  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 497: return(1);
+"497
+[e ) -> -> 1 `i `uc ]
+[e $UE 844  ]
+"498
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 498: }
+[e $U 847  ]
+"499
+[e :U 846 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 499: else {
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 500: return(0);
+"500
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+"501
+}
+[e :U 847 ]
+"502
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 501: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 502: }
+[e $U 848  ]
+"503
+[e :U 845 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 503: else if(PORTBbits.RB2 == 0) {
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 849  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 504: return(0);
+"504
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+"505
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 505: }
+[e $U 850  ]
+"506
+[e :U 849 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 506: else if(PORTBbits.RB2 == 1) {
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 851  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 507: ResetMillis2();
+"507
+[e ( _ResetMillis2 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 508: while(ReadMillis2() < 10);
+"508
+[e $U 852  ]
+[e :U 853 ]
+[e :U 852 ]
+[e $ < ( _ReadMillis2 ..  -> -> 10 `i `ui 853  ]
+[e :U 854 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 509: if(PORTBbits.RB2 == 1) {
+"509
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 855  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 510: return(1);
+"510
+[e ) -> -> 1 `i `uc ]
+[e $UE 844  ]
+"511
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 511: }
+[e $U 856  ]
+"512
+[e :U 855 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 512: else {
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 513: return(0);
+"513
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+"514
+}
+[e :U 856 ]
+"515
+}
+[e :U 851 ]
+"517
+[e :U 850 ]
+[e :U 848 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 514: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 515: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 517: return(0);
+[e ) -> -> 0 `i `uc ]
+[e $UE 844  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 518: }
+"518
+[e :UE 844 ]
+}
+"521
 [v _CalibrateOffsets `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 496: void CalibrateOffsets(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 521: void CalibrateOffsets(void) {
 [e :U _CalibrateOffsets ]
 [f ]
-"497
+"522
 [v _index `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 497: unsigned char index;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 499: GetSensorReadings();
-"499
-[e ( _GetSensorReadings ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 501: while(BusySensorAcq());
-"501
-[e $U 850  ]
-[e :U 851 ]
-[e :U 850 ]
-[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 851  ]
-[e :U 852 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 503: for(index = 0; index < 5; index++) {
-"503
-{
-[e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 5 `i 853  ]
-[e $U 854  ]
-[e :U 853 ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 505: sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
-"505
-[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux - *U + &U _sensor_readings_raw * -> -> -> 2 `i `ui `ux -> -> # *U &U _sensor_readings_raw `ui `ux *U + &U _sensor_readings_raw * -> _index `ux -> -> # *U &U _sensor_readings_raw `ui `ux ]
-"507
-}
-"503
-[e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 5 `i 853  ]
-[e :U 854 ]
-"507
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 507: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 509: }
-"509
-[e :UE 849 ]
-}
-"512
-[v _CalibrateThreshold `(v ~T0 @X0 1 ef ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 512: void CalibrateThreshold(void) {
-[e :U _CalibrateThreshold ]
-[f ]
-"513
-[v _index `uc ~T0 @X0 1 a ]
-[v _sum `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 513: unsigned char index, sum;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 515: LATJ = 0x00;
-"515
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 518: SetADCChannel(5);
-"518
-[e ( _SetADCChannel (1 -> -> 5 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 519: ConvertADC();
-"519
-[e ( _ConvertADC ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 520: while(BusyADC());
-"520
-[e $U 857  ]
-[e :U 858 ]
-[e :U 857 ]
-[e $ != -> ( _BusyADC ..  `i -> -> -> 0 `i `uc `i 858  ]
-[e :U 859 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 521: sensor_threshold = ReadADC();
-"521
-[e = _sensor_threshold ( _ReadADC ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 522: unsigned char index;
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 524: GetSensorReadings();
 "524
 [e ( _GetSensorReadings ..  ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 526: while(BusySensorAcq());
 "526
-[e $U 860  ]
-[e :U 861 ]
+[e $U 858  ]
+[e :U 859 ]
+[e :U 858 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 859  ]
 [e :U 860 ]
-[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 861  ]
-[e :U 862 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 528: NormaliseSensorReadings();
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 528: for(index = 0; index < 5; index++) {
 "528
-[e ( _NormaliseSensorReadings ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 530: CalculateSensorStatuses();
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 861  ]
+[e $U 862  ]
+[e :U 861 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 530: sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
 "530
-[e ( _CalculateSensorStatuses ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 532: DisplaySensorStatuses(sensor_status);
+[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux - *U + &U _sensor_readings_raw * -> -> -> 2 `i `ui `ux -> -> # *U &U _sensor_readings_raw `ui `ux *U + &U _sensor_readings_raw * -> _index `ux -> -> # *U &U _sensor_readings_raw `ui `ux ]
 "532
-[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 555: }
-"555
-[e :UE 856 ]
 }
-"558
+"528
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 861  ]
+[e :U 862 ]
+"532
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 532: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 534: }
+"534
+[e :UE 857 ]
+}
+"537
+[v _CalibrateThreshold `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 537: void CalibrateThreshold(void) {
+[e :U _CalibrateThreshold ]
+[f ]
+"538
+[v _index `uc ~T0 @X0 1 a ]
+[v _sum `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 538: unsigned char index, sum;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 540: LATJ = 0x00;
+"540
+[e = _LATJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 543: SetADCChannel(5);
+"543
+[e ( _SetADCChannel (1 -> -> 5 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 544: ConvertADC();
+"544
+[e ( _ConvertADC ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 545: while(BusyADC());
+"545
+[e $U 865  ]
+[e :U 866 ]
+[e :U 865 ]
+[e $ != -> ( _BusyADC ..  `i -> -> -> 0 `i `uc `i 866  ]
+[e :U 867 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 546: sensor_threshold = ReadADC();
+"546
+[e = _sensor_threshold ( _ReadADC ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 549: GetSensorReadings();
+"549
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 551: while(BusySensorAcq());
+"551
+[e $U 868  ]
+[e :U 869 ]
+[e :U 868 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 869  ]
+[e :U 870 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 553: NormaliseSensorReadings();
+"553
+[e ( _NormaliseSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 555: CalculateSensorStatuses();
+"555
+[e ( _CalculateSensorStatuses ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 557: DisplaySensorStatuses(sensor_status);
+"557
+[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 580: }
+"580
+[e :UE 864 ]
+}
+"583
 [v _GenerateCalibration `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 558: void GenerateCalibration(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 583: void GenerateCalibration(void) {
 [e :U _GenerateCalibration ]
 [f ]
-"559
+"584
 [v _index `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 559: unsigned char index;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 562: SendStatus(0x03);
-"562
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 584: unsigned char index;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 587: SendStatus(0x03);
+"587
 [e ( _SendStatus (1 -> -> 3 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 563: LATJ = 0x03;
-"563
-[e = _LATJ -> -> 3 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 565: while(PB1pressed() == 0) {
-"565
-[e $U 864  ]
-[e :U 865 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 588: LATJ = 0x07;
+"588
+[e = _LATJ -> -> 7 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 590: while(PB1pressed() == 0) {
+"590
+[e $U 872  ]
+[e :U 873 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 567: CalibrateOffsets();
-"567
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 592: CalibrateOffsets();
+"592
 [e ( _CalibrateOffsets ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 568: Delay10KTCYx(10);
-"568
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 593: Delay10KTCYx(10);
+"593
 [e ( _Delay10KTCYx (1 -> -> 10 `i `uc ]
-"570
+"595
 }
-[e :U 864 ]
-"565
-[e $ == -> ( _PB1pressed ..  `i -> 0 `i 865  ]
-[e :U 866 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 570: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 572: for(index = 0; index < 5; index++) {
-"572
+[e :U 872 ]
+"590
+[e $ == -> ( _PB1pressed ..  `i -> 0 `i 873  ]
+[e :U 874 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 595: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 597: for(index = 0; index < 5; index++) {
+"597
 {
 [e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 5 `i 867  ]
-[e $U 868  ]
-[e :U 867 ]
+[e $ < -> _index `i -> 5 `i 875  ]
+[e $U 876  ]
+[e :U 875 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 573: WriteIntEEPROM(0x03 + (2 * index), sensor_offsets[index]);
-"573
-[e ( _WriteIntEEPROM (2 , -> + -> 3 `i * -> 2 `i -> _index `i `ui -> *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux `ui ]
-"574
-}
-"572
-[e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 5 `i 867  ]
-[e :U 868 ]
-"574
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 574: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 576: SendOffsets(sensor_offsets);
-"576
-[e ( _SendOffsets (1 -> &U _sensor_offsets `*Ci ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 578: FlashLEDS();
-"578
-[e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 581: SendStatus(0x04);
-"581
-[e ( _SendStatus (1 -> -> 4 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 583: while(PB1pressed() == 0) {
-"583
-[e $U 870  ]
-[e :U 871 ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 585: CalibrateThreshold();
-"585
-[e ( _CalibrateThreshold ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 586: Delay10KTCYx(10);
-"586
-[e ( _Delay10KTCYx (1 -> -> 10 `i `uc ]
-"588
-}
-[e :U 870 ]
-"583
-[e $ == -> ( _PB1pressed ..  `i -> 0 `i 871  ]
-[e :U 872 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 588: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 590: WriteIntEEPROM(0x01, sensor_threshold);
-"590
-[e ( _WriteIntEEPROM (2 , -> -> 1 `i `ui -> _sensor_threshold `ui ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 591: WriteCharEEPROM(0x00, 1);
-"591
-[e ( _WriteCharEEPROM (2 , -> -> 0 `i `ui -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 593: SendThreshold(sensor_threshold_ptr);
-"593
-[e ( _SendThreshold (1 -> _sensor_threshold_ptr `*Ci ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 595: }
-"595
-[e :UE 863 ]
-}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 598: WriteIntEEPROM(0x0006 + (2 * index), sensor_offsets[index]);
 "598
+[e ( _WriteIntEEPROM (2 , -> + -> 6 `i * -> 2 `i -> _index `i `ui -> *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux `ui ]
+"599
+}
+"597
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 875  ]
+[e :U 876 ]
+"599
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 599: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 601: SendOffsets(sensor_offsets);
+"601
+[e ( _SendOffsets (1 -> &U _sensor_offsets `*Ci ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 603: FlashLEDS();
+"603
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 606: SendStatus(0x04);
+"606
+[e ( _SendStatus (1 -> -> 4 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 608: while(PB1pressed() == 0) {
+"608
+[e $U 878  ]
+[e :U 879 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 610: CalibrateThreshold();
+"610
+[e ( _CalibrateThreshold ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 611: Delay10KTCYx(10);
+"611
+[e ( _Delay10KTCYx (1 -> -> 10 `i `uc ]
+"613
+}
+[e :U 878 ]
+"608
+[e $ == -> ( _PB1pressed ..  `i -> 0 `i 879  ]
+[e :U 880 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 613: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 615: if(line_mode == 0) {
+"615
+[e $ ! == -> _line_mode `i -> 0 `i 881  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 616: WriteIntEEPROM(0x0002, sensor_threshold);
+"616
+[e ( _WriteIntEEPROM (2 , -> -> 2 `i `ui -> _sensor_threshold `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 617: WriteCharEEPROM(0x0000, 1);
+"617
+[e ( _WriteCharEEPROM (2 , -> -> 0 `i `ui -> -> 1 `i `uc ]
+"618
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 618: }
+[e $U 882  ]
+"619
+[e :U 881 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 619: else if(line_mode == 1) {
+[e $ ! == -> _line_mode `i -> 1 `i 883  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 620: WriteIntEEPROM(0x0004, sensor_threshold);
+"620
+[e ( _WriteIntEEPROM (2 , -> -> 4 `i `ui -> _sensor_threshold `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 621: WriteCharEEPROM(0x0001, 1);
+"621
+[e ( _WriteCharEEPROM (2 , -> -> 1 `i `ui -> -> 1 `i `uc ]
+"622
+}
+[e :U 883 ]
+"624
+[e :U 882 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 622: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 624: SendThreshold(sensor_threshold_ptr);
+[e ( _SendThreshold (1 -> _sensor_threshold_ptr `*Ci ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 626: }
+"626
+[e :UE 871 ]
+}
+"629
 [v _LoadCalibration `(v ~T0 @X0 1 ef ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 598: void LoadCalibration(void) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 629: void LoadCalibration(void) {
 [e :U _LoadCalibration ]
 [f ]
-"599
+"630
 [v _index `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 599: unsigned char index;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 601: if(ReadCharEEPROM(0x00) == 0) {
-"601
-[e $ ! == -> ( _ReadCharEEPROM (1 -> -> 0 `i `ui `i -> 0 `i 874  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 630: unsigned char index;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 632: if(line_mode == 0 && ReadCharEEPROM(0x0000) == 0xFF) {
+"632
+[e $ ! && == -> _line_mode `i -> 0 `i == -> ( _ReadCharEEPROM (1 -> -> 0 `i `ui `i -> 255 `i 885  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 602: FlashLEDS();
-"602
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 633: FlashLEDS();
+"633
 [e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 603: GenerateCalibration();
-"603
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 634: GenerateCalibration();
+"634
 [e ( _GenerateCalibration ..  ]
-"604
+"635
 }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 604: }
-[e $U 875  ]
-"606
-[e :U 874 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 606: else {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 635: }
+[e $U 886  ]
+"636
+[e :U 885 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 636: else if(line_mode == 0 && ReadCharEEPROM(0x0000) == 0x01) {
+[e $ ! && == -> _line_mode `i -> 0 `i == -> ( _ReadCharEEPROM (1 -> -> 0 `i `ui `i -> 1 `i 887  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 607: sensor_threshold = ReadIntEEPROM(0x01);
-"607
-[e = _sensor_threshold -> ( _ReadIntEEPROM (1 -> -> 1 `i `ui `i ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 608: for(index = 0; index < 5; index++) {
-"608
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 637: sensor_threshold = ReadIntEEPROM(0x0002);
+"637
+[e = _sensor_threshold -> ( _ReadIntEEPROM (1 -> -> 2 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 638: for(index = 0; index < 5; index++) {
+"638
 {
 [e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 5 `i 876  ]
-[e $U 877  ]
-[e :U 876 ]
+[e $ < -> _index `i -> 5 `i 888  ]
+[e $U 889  ]
+[e :U 888 ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 609: sensor_offsets[index] = ReadIntEEPROM(0x03 + (2 * index));
-"609
-[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux -> ( _ReadIntEEPROM (1 -> + -> 3 `i * -> 2 `i -> _index `i `ui `i ]
-"610
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 639: sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
+"639
+[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux -> ( _ReadIntEEPROM (1 -> + -> 6 `i * -> 2 `i -> _index `i `ui `i ]
+"640
 }
-"608
+"638
 [e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 5 `i 876  ]
-[e :U 877 ]
-"610
-}
-"611
-}
-[e :U 875 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 610: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 611: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 613: }
-"613
-[e :UE 873 ]
-}
-[v F7410 `(v ~T0 @X0 1 tf ]
-"616
-[v _isrHP `IHF7410 ~T0 @X0 1 e ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 616: void interrupt high_priority isrHP(void) {
-[e :U _isrHP ]
-[f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 619: if (INTCONbits.TMR0IF == 1) {
-"619
-[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 880  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 620: INTCONbits.TMR0IF = 0;
-"620
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 622: MillisecondTimerISR();
-"622
-[e ( _MillisecondTimerISR ..  ]
-"626
-}
-[e :U 880 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 626: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 633: }
-"633
-[e :UE 879 ]
-}
-[v F7413 `(v ~T0 @X0 1 tf ]
-"636
-[v _isrLP `ILF7413 ~T0 @X0 1 e ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 636: void interrupt low_priority isrLP(void) {
-[e :U _isrLP ]
-[f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 651: if (PIR1bits.ADIF == 1) {
-"651
-[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 882  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 652: PIR1bits.ADIF = 0;
-"652
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 653: if (sensor_acq_index < 5) {
-"653
-[e $ ! < -> _sensor_acq_index `i -> 5 `i 883  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 654: *(sensor_readings_raw + sensor_acq_index) = ReadADC();
-"654
-[e = *U + &U _sensor_readings_raw * -> _sensor_acq_index `ux -> -> # *U &U _sensor_readings_raw `ui `ux ( _ReadADC ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 655: sensor_acq_index++;
-"655
-[e ++ _sensor_acq_index -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 656: SetADCChannel(sensor_acq_index);
-"656
-[e ( _SetADCChannel (1 _sensor_acq_index ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 657: ConvertADC();
-"657
-[e ( _ConvertADC ..  ]
-"658
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 658: } else {
-[e $U 884  ]
-[e :U 883 ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 659: sensor_acq_done = 1;
-"659
-[e = _sensor_acq_done -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 660: PIE1bits.ADIE = 0;
-"660
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-"661
-}
-[e :U 884 ]
-"662
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 661: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 662: }
-[e $U 885  ]
-"664
-[e :U 882 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 664: else if(PIR1bits.TX1IF == 1) {
-[e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 886  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 665: PIR1bits.TX1IF = 0;
-"665
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 666: WirelessTx_ISR();
-"666
-[e ( _WirelessTx_ISR ..  ]
-"667
-}
-[e :U 886 ]
-"669
-[e :U 885 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 667: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 669: }
-[e :UE 881 ]
-}
-"672
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 672: void main(void) {
-[e :U _main ]
-[f ]
-"675
-[v _sensor_sum `uc ~T0 @X0 1 a ]
-[v _loop_count `uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 675: unsigned char sensor_sum, loop_count = 0;
-[e = _loop_count -> -> 0 `i `uc ]
-"676
-[v _echo_length `ui ~T0 @X0 1 a ]
-"679
-[v _sensor_sum_ptr `*uc ~T0 @X0 1 a ]
-[v _line_mode_ptr `*uc ~T0 @X0 1 a ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 676: unsigned int echo_length;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 679: unsigned char *sensor_sum_ptr, *line_mode_ptr;
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 680: sensor_sum_ptr = &sensor_sum;
-"680
-[e = _sensor_sum_ptr &U _sensor_sum ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 681: line_mode_ptr = &line_mode;
-"681
-[e = _line_mode_ptr &U _line_mode ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 683: sensor_threshold_ptr = &sensor_threshold;
-"683
-[e = _sensor_threshold_ptr &U _sensor_threshold ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 685: ConfigureUltrasound(0.0137, 0.054);
-"685
-[e ( _ConfigureUltrasound (2 , -> .0.0137 `f -> .0.054 `f ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 686: ConfigureBuggyIO();
-"686
-[e ( _ConfigureBuggyIO ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 687: ConfigureInterrupts();
-"687
-[e ( _ConfigureInterrupts ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 688: ConfigureTimer0();
-"688
-[e ( _ConfigureTimer0 ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 689: ConfigureTimer1();
-"689
-[e ( _ConfigureTimer1 ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 690: ConfigureTimer2();
-"690
-[e ( _ConfigureTimer2 ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 691: ConfigurePWM();
-"691
-[e ( _ConfigurePWM ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 692: ConfigureADC();
-"692
-[e ( _ConfigureADC ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 693: ConfigureWireless();
-"693
-[e ( _ConfigureWireless ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 695: DisableMotors();
-"695
-[e ( _DisableMotors ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 697: SendStatus(0x00);
-"697
-[e ( _SendStatus (1 -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 702: LATJ = 0x0F;
-"702
-[e = _LATJ -> -> 15 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 703: SendStatus(0x01);
-"703
-[e ( _SendStatus (1 -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 705: while(1) {
-"705
+[e $ < -> _index `i -> 5 `i 888  ]
 [e :U 889 ]
+"640
+}
+"641
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 640: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 641: }
+[e $U 891  ]
+"643
+[e :U 887 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 643: else if(line_mode == 1 && ReadCharEEPROM(0x0001) == 0xFF) {
+[e $ ! && == -> _line_mode `i -> 1 `i == -> ( _ReadCharEEPROM (1 -> -> 1 `i `ui `i -> 255 `i 892  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 706: if(PB1pressed() == 1) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 644: FlashLEDS();
+"644
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 645: GenerateCalibration();
+"645
+[e ( _GenerateCalibration ..  ]
+"646
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 646: }
+[e $U 893  ]
+"647
+[e :U 892 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 647: else if(line_mode == 1 && ReadCharEEPROM(0x0001) == 0x01) {
+[e $ ! && == -> _line_mode `i -> 1 `i == -> ( _ReadCharEEPROM (1 -> -> 1 `i `ui `i -> 1 `i 894  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 648: sensor_threshold = ReadIntEEPROM(0x0004);
+"648
+[e = _sensor_threshold -> ( _ReadIntEEPROM (1 -> -> 4 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 649: for(index = 0; index < 5; index++) {
+"649
+{
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 5 `i 895  ]
+[e $U 896  ]
+[e :U 895 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 650: sensor_offsets[index] = ReadIntEEPROM(0x0006 + (2 * index));
+"650
+[e = *U + &U _sensor_offsets * -> _index `ux -> -> # *U &U _sensor_offsets `ui `ux -> ( _ReadIntEEPROM (1 -> + -> 6 `i * -> 2 `i -> _index `i `ui `i ]
+"651
+}
+"649
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 5 `i 895  ]
+[e :U 896 ]
+"651
+}
+"652
+}
+[e :U 894 ]
+"654
+[e :U 893 ]
+[e :U 891 ]
+[e :U 886 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 651: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 652: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 654: SendOffsets(sensor_offsets);
+[e ( _SendOffsets (1 -> &U _sensor_offsets `*Ci ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 655: SendThreshold(sensor_threshold_ptr);
+"655
+[e ( _SendThreshold (1 -> _sensor_threshold_ptr `*Ci ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 657: }
+"657
+[e :UE 884 ]
+}
+"659
+[v _SetPIDValues `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 659: void SetPIDValues(void) {
+[e :U _SetPIDValues ]
+[f ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 660: SendStatus(0x07);
+"660
+[e ( _SendStatus (1 -> -> 7 `i `uc ]
+"662
+[v _char_index `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 662: unsigned char char_index;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 664: FlushRxBuf();
+"664
+[e ( _FlushRxBuf ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 666: for(char_index = 0; char_index <= 8; char_index++) {
+"666
+{
+[e = _char_index -> -> 0 `i `uc ]
+[e $ <= -> _char_index `i -> 8 `i 899  ]
+[e $U 900  ]
+[e :U 899 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 667: while(!(PIR1bits.RCIF));
+"667
+[e $U 902  ]
+[e :U 903 ]
+[e :U 902 ]
+[e $ ! != -> . . _PIR1bits 1 3 `i -> -> -> 0 `i `Vuc `i 903  ]
+[e :U 904 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 669: PutCharRxBuf(Read1USART());
+"669
+[e ( _PutCharRxBuf (1 ( _Read1USART ..  ]
+"670
+}
+"666
+[e ++ _char_index -> -> 1 `i `uc ]
+[e $ <= -> _char_index `i -> 8 `i 899  ]
+[e :U 900 ]
+"670
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 670: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 672: while(GetCharRxBuf() != 0xAA);
+"672
+[e $U 905  ]
+[e :U 906 ]
+[e :U 905 ]
+[e $ != -> ( _GetCharRxBuf ..  `i -> 170 `i 906  ]
+[e :U 907 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 673: while(GetCharRxBuf() != 0x01);
+"673
+[e $U 908  ]
+[e :U 909 ]
+[e :U 908 ]
+[e $ != -> ( _GetCharRxBuf ..  `i -> 1 `i 909  ]
+[e :U 910 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 675: PID_Kp = (GetCharRxBuf() << 8) & 0xFF00;
+"675
+[e = _PID_Kp -> & -> << -> ( _GetCharRxBuf ..  `i -> 8 `i `ui -> 65280 `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 676: PID_Kp |= (GetCharRxBuf() & 0x00FF);
+"676
+[e =| _PID_Kp & -> ( _GetCharRxBuf ..  `i -> 255 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 678: PID_Kd = (GetCharRxBuf() << 8) & 0xFF00;
+"678
+[e = _PID_Kd -> & -> << -> ( _GetCharRxBuf ..  `i -> 8 `i `ui -> 65280 `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 679: PID_Kd |= (GetCharRxBuf() & 0x00FF);
+"679
+[e =| _PID_Kd & -> ( _GetCharRxBuf ..  `i -> 255 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 681: PID_Ki = (GetCharRxBuf() << 8) & 0xFF00;
+"681
+[e = _PID_Ki -> & -> << -> ( _GetCharRxBuf ..  `i -> 8 `i `ui -> 65280 `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 682: PID_Ki |= (GetCharRxBuf() & 0x00FF);
+"682
+[e =| _PID_Ki & -> ( _GetCharRxBuf ..  `i -> 255 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 684: WriteIntEEPROM(0x0011, PID_Kp);
+"684
+[e ( _WriteIntEEPROM (2 , -> -> 17 `i `ui -> _PID_Kp `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 685: WriteIntEEPROM(0x0013, PID_Kd);
+"685
+[e ( _WriteIntEEPROM (2 , -> -> 19 `i `ui -> _PID_Kd `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 686: WriteIntEEPROM(0x0015, PID_Ki);
+"686
+[e ( _WriteIntEEPROM (2 , -> -> 21 `i `ui -> _PID_Ki `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 688: WriteCharEEPROM(0x0010, 1);
+"688
+[e ( _WriteCharEEPROM (2 , -> -> 16 `i `ui -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 689: }
+"689
+[e :UE 898 ]
+}
+"691
+[v _LoadPIDValues `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 691: void LoadPIDValues(void) {
+[e :U _LoadPIDValues ]
+[f ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 692: SendStatus(0x06);
+"692
+[e ( _SendStatus (1 -> -> 6 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 694: while(1) {
+"694
+[e :U 913 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 695: if(PB1pressed() == 1) {
+"695
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 915  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 696: PID_Kp = 20;
+"696
+[e = _PID_Kp -> 20 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 697: PID_Kd = 0;
+"697
+[e = _PID_Kd -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 698: PID_Ki = 0;
+"698
+[e = _PID_Ki -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 699: WriteIntEEPROM(0x0011, PID_Kp);
+"699
+[e ( _WriteIntEEPROM (2 , -> -> 17 `i `ui -> _PID_Kp `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 700: WriteIntEEPROM(0x0013, PID_Kd);
+"700
+[e ( _WriteIntEEPROM (2 , -> -> 19 `i `ui -> _PID_Kd `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 701: WriteIntEEPROM(0x0015, PID_Ki);
+"701
+[e ( _WriteIntEEPROM (2 , -> -> 21 `i `ui -> _PID_Ki `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 703: WriteCharEEPROM(0x10, 1);
+"703
+[e ( _WriteCharEEPROM (2 , -> -> 16 `i `ui -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 704: break;
+"704
+[e $U 914  ]
+"705
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 705: }
+[e $U 916  ]
 "706
-[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 891  ]
+[e :U 915 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 706: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 917  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 707: line_mode = 0;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 707: if(ReadCharEEPROM(0x10) == 0xFF) {
 "707
-[e = _line_mode -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 708: break;
+[e $ ! == -> ( _ReadCharEEPROM (1 -> -> 16 `i `ui `i -> 255 `i 918  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 708: SetPIDValues();
 "708
-[e $U 890  ]
+[e ( _SetPIDValues ..  ]
 "709
 }
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 709: }
-[e $U 892  ]
+[e $U 919  ]
 "710
-[e :U 891 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 710: else if(PB2pressed() == 1) {
-[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 893  ]
+[e :U 918 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 710: else {
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 711: line_mode = 1;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 711: PID_Kp = ReadIntEEPROM(0x0011);
 "711
-[e = _line_mode -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 712: break;
+[e = _PID_Kp -> ( _ReadIntEEPROM (1 -> -> 17 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 712: PID_Kd = ReadIntEEPROM(0x0013);
 "712
-[e $U 890  ]
+[e = _PID_Kd -> ( _ReadIntEEPROM (1 -> -> 19 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 713: PID_Ki = ReadIntEEPROM(0x0015);
 "713
-}
-[e :U 893 ]
+[e = _PID_Ki -> ( _ReadIntEEPROM (1 -> -> 21 `i `ui `i ]
 "714
-[e :U 892 ]
 }
-[e :U 888 ]
-"705
-[e $U 889  ]
-[e :U 890 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 713: }
+[e :U 919 ]
 [; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 714: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 716: SendLineMode(line_mode_ptr);
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 715: break;
+"715
+[e $U 914  ]
 "716
-[e ( _SendLineMode (1 -> _line_mode_ptr `*Cuc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 717: FlashLEDS();
+}
+[e :U 917 ]
 "717
-[e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 719: EnableSensorLEDS();
+[e :U 916 ]
+}
+[e :U 912 ]
+"694
+[e $U 913  ]
+[e :U 914 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 716: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 717: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 719: }
 "719
-[e ( _EnableSensorLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 722: LATJ = 0x07;
+[e :UE 911 ]
+}
+[v F7497 `(v ~T0 @X0 1 tf ]
 "722
-[e = _LATJ -> -> 7 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 723: SendStatus(0x02);
-"723
-[e ( _SendStatus (1 -> -> 2 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 725: while(1) {
-"725
-[e :U 895 ]
+[v _isrHP `IHF7497 ~T0 @X0 1 e ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 726: if(PB1pressed() == 1) {
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 722: void interrupt high_priority isrHP(void) {
+[e :U _isrHP ]
+[f ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 725: if (INTCONbits.TMR0IF == 1) {
+"725
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 921  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 726: INTCONbits.TMR0IF = 0;
 "726
-[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 897  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 727: FlashLEDS();
-"727
-[e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 728: GenerateCalibration();
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 728: MillisecondTimerISR();
 "728
-[e ( _GenerateCalibration ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 729: break;
-"729
-[e $U 896  ]
-"730
-}
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 730: }
-[e $U 898  ]
-"731
-[e :U 897 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 731: else if(PB2pressed() == 1) {
-[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 899  ]
-{
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 732: FlashLEDS();
+[e ( _MillisecondTimerISR ..  ]
 "732
-[e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 733: LoadCalibration();
-"733
-[e ( _LoadCalibration ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 734: SendOffsets(sensor_offsets);
-"734
-[e ( _SendOffsets (1 -> &U _sensor_offsets `*Ci ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 735: SendThreshold(sensor_threshold_ptr);
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 732: }
+[e $U 922  ]
 "735
-[e ( _SendThreshold (1 -> _sensor_threshold_ptr `*Ci ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 736: break;
-"736
-[e $U 896  ]
-"737
-}
-[e :U 899 ]
-"739
-[e :U 898 ]
-}
-[e :U 894 ]
-"725
-[e $U 895  ]
-[e :U 896 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 737: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 739: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 741: FlashLEDS();
-"741
-[e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 744: LATJ = 0x01;
-"744
-[e = _LATJ -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 745: SendStatus(0x06);
-"745
-[e ( _SendStatus (1 -> -> 6 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 747: while(PB1pressed() == 0);
-"747
-[e $U 900  ]
-[e :U 901 ]
-[e :U 900 ]
-[e $ == -> ( _PB1pressed ..  `i -> 0 `i 901  ]
-[e :U 902 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 750: PID_error = 0;
-"750
-[e = _PID_error -> 0 `i ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 751: PID_output = 0;
-"751
-[e = _PID_output -> 0 `i ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 753: LATJ = 0x00;
-"753
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 755: ResetMillis0();
-"755
-[e ( _ResetMillis0 ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 757: FlashLEDS();
-"757
-[e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 758: SendStatus(0x07);
-"758
-[e ( _SendStatus (1 -> -> 7 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 760: SetUnipolar();
-"760
-[e ( _SetUnipolar ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 761: StopMotors();
-"761
-[e ( _StopMotors ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 762: SetDirectionForward();
-"762
-[e ( _SetDirectionForward ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 763: EnableMotors();
-"763
-[e ( _EnableMotors ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 766: while(1) {
-"766
-[e :U 904 ]
+[e :U 921 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 735: else if (INTCON3bits.INT3IF == 1) {
+[e $ ! == -> . . _INTCON3bits 0 2 `i -> 1 `i 923  ]
 {
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 769: GetSensorReadings();
-"769
-[e ( _GetSensorReadings ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 771: while(BusySensorAcq());
-"771
-[e $U 906  ]
-[e :U 907 ]
-[e :U 906 ]
-[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 907  ]
-[e :U 908 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 773: NormaliseSensorReadings();
-"773
-[e ( _NormaliseSensorReadings ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 775: CalculateSensorStatuses();
-"775
-[e ( _CalculateSensorStatuses ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 776: sensor_sum = CalculateSensorSums();
-"776
-[e = _sensor_sum ( _CalculateSensorSums ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 779: PID_error = CalculateSensorError(sensor_sum_ptr);
-"779
-[e = _PID_error ( _CalculateSensorError (1 -> _sensor_sum_ptr `*Cuc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 780: PID_output = 13 * PID_error;
-"780
-[e = _PID_output * -> 13 `i _PID_error ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 782: SetDCMotorPID(PID_output);
-"782
-[e ( _SetDCMotorPID (1 _PID_output ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 785: DisplaySensorStatuses(sensor_status);
-"785
-[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 853: ResetMillis0();
-"853
-[e ( _ResetMillis0 ..  ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 854: while(ReadMillis0() < 5);
-"854
-[e $U 909  ]
-[e :U 910 ]
-[e :U 909 ]
-[e $ < ( _ReadMillis0 ..  -> -> 5 `i `ui 910  ]
-[e :U 911 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 855: LATJ = 0x00;
-"855
-[e = _LATJ -> -> 0 `i `uc ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 856: loop_count++;
-"856
-[e ++ _loop_count -> -> 1 `i `uc ]
-"858
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 736: INTCON3bits.INT3IF = 0;
+"736
+[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 738: UltrasoundISR();
+"738
+[e ( _UltrasoundISR ..  ]
+"739
 }
-[e :U 903 ]
+[e :U 923 ]
+"741
+[e :U 922 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 739: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 741: }
+[e :UE 920 ]
+}
+[v F7500 `(v ~T0 @X0 1 tf ]
+"744
+[v _isrLP `ILF7500 ~T0 @X0 1 e ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 744: void interrupt low_priority isrLP(void) {
+[e :U _isrLP ]
+[f ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 759: if (PIR1bits.ADIF == 1) {
+"759
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 925  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 760: PIR1bits.ADIF = 0;
+"760
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 761: if (sensor_acq_index < 5) {
+"761
+[e $ ! < -> _sensor_acq_index `i -> 5 `i 926  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 762: *(sensor_readings_raw + sensor_acq_index) = ReadADC();
+"762
+[e = *U + &U _sensor_readings_raw * -> _sensor_acq_index `ux -> -> # *U &U _sensor_readings_raw `ui `ux ( _ReadADC ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 763: sensor_acq_index++;
+"763
+[e ++ _sensor_acq_index -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 764: SetADCChannel(sensor_acq_index);
+"764
+[e ( _SetADCChannel (1 _sensor_acq_index ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 765: ConvertADC();
+"765
+[e ( _ConvertADC ..  ]
 "766
-[e $U 904  ]
-[e :U 905 ]
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 858: }
-[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 860: }
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 766: } else {
+[e $U 927  ]
+[e :U 926 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 767: sensor_acq_done = 1;
+"767
+[e = _sensor_acq_done -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 768: PIE1bits.ADIE = 0;
+"768
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+"769
+}
+[e :U 927 ]
+"770
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 769: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 770: }
+[e $U 928  ]
+"772
+[e :U 925 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 772: else if(PIR1bits.TX1IF == 1) {
+[e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 929  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 773: PIR1bits.TX1IF = 0;
+"773
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 774: WirelessTx_ISR();
+"774
+[e ( _WirelessTx_ISR ..  ]
+"775
+}
+[e :U 929 ]
+"782
+[e :U 928 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 775: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 782: }
+[e :UE 924 ]
+}
+"785
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 785: void main(void) {
+[e :U _main ]
+[f ]
+"788
+[v _sensor_sum `uc ~T0 @X0 1 a ]
+[v _loop_count `uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 788: unsigned char sensor_sum, loop_count = 0, stop_flag, find_line_flag, line_end_flag, wall_detected_flag, send_battery_stats_flag, command_msg;
+[e = _loop_count -> -> 0 `i `uc ]
+[v _stop_flag `uc ~T0 @X0 1 a ]
+[v _find_line_flag `uc ~T0 @X0 1 a ]
+[v _line_end_flag `uc ~T0 @X0 1 a ]
+[v _wall_detected_flag `uc ~T0 @X0 1 a ]
+[v _send_battery_stats_flag `uc ~T0 @X0 1 a ]
+[v _command_msg `uc ~T0 @X0 1 a ]
+"789
+[v _echo_length `ui ~T0 @X0 1 a ]
+[v _battery_voltage `ui ~T0 @X0 1 a ]
+[v _battery_current `ui ~T0 @X0 1 a ]
+"790
+[v _battery_current_acc `ul ~T0 @X0 1 a ]
+"791
+[v _D_temp `i ~T0 @X0 1 a ]
+[v _I_temp `i ~T0 @X0 1 a ]
+"794
+[v _sensor_sum_ptr `*uc ~T0 @X0 1 a ]
+[v _line_mode_ptr `*uc ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 789: unsigned int echo_length, battery_voltage, battery_current;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 790: unsigned long int battery_current_acc;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 791: int D_temp, I_temp;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 794: unsigned char *sensor_sum_ptr, *line_mode_ptr;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 795: sensor_sum_ptr = &sensor_sum;
+"795
+[e = _sensor_sum_ptr &U _sensor_sum ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 796: line_mode_ptr = &line_mode;
+"796
+[e = _line_mode_ptr &U _line_mode ]
+"798
+[v _battery_voltage_ptr `*ui ~T0 @X0 1 a ]
+[v _battery_current_ptr `*ui ~T0 @X0 1 a ]
+"799
+[v _battery_current_acc_ptr `*ul ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 798: unsigned int *battery_voltage_ptr, *battery_current_ptr;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 799: unsigned long int *battery_current_acc_ptr;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 801: battery_voltage_ptr = &battery_voltage;
+"801
+[e = _battery_voltage_ptr &U _battery_voltage ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 802: battery_current_ptr = &battery_current;
+"802
+[e = _battery_current_ptr &U _battery_current ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 803: battery_current_acc_ptr = &battery_current_acc;
+"803
+[e = _battery_current_acc_ptr &U _battery_current_acc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 805: sensor_threshold_ptr = &sensor_threshold;
+"805
+[e = _sensor_threshold_ptr &U _sensor_threshold ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 807: ConfigureUltrasound(0.0137, 0.054);
+"807
+[e ( _ConfigureUltrasound (2 , -> .0.0137 `f -> .0.054 `f ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 808: ConfigureBuggyIO();
+"808
+[e ( _ConfigureBuggyIO ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 809: ConfigureInterrupts();
+"809
+[e ( _ConfigureInterrupts ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 810: ConfigureTimer0();
+"810
+[e ( _ConfigureTimer0 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 811: ConfigureTimer1();
+"811
+[e ( _ConfigureTimer1 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 812: ConfigureTimer2();
+"812
+[e ( _ConfigureTimer2 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 813: ConfigurePWM();
+"813
+[e ( _ConfigurePWM ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 814: ConfigureADC();
+"814
+[e ( _ConfigureADC ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 815: ConfigureWireless();
+"815
+[e ( _ConfigureWireless ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 817: DisableMotors();
+"817
+[e ( _DisableMotors ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 819: Delay10KTCYx(100);
+"819
+[e ( _Delay10KTCYx (1 -> -> 100 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 821: battery_voltage = ReadVoltage();
+"821
+[e = _battery_voltage -> ( _ReadVoltage ..  `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 823: SendStatus(0x00);
+"823
+[e ( _SendStatus (1 -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 825: SendBattVoltageInitial(battery_voltage_ptr);
+"825
+[e ( _SendBattVoltageInitial (1 -> _battery_voltage_ptr `*Cui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 828: LATJ = 0x1F;
+"828
+[e = _LATJ -> -> 31 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 829: SendStatus(0x01);
+"829
+[e ( _SendStatus (1 -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 831: while(1) {
+"831
+[e :U 932 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 832: if(PB1pressed() == 1) {
+"832
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 934  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 833: line_mode = 0;
+"833
+[e = _line_mode -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 834: break;
+"834
+[e $U 933  ]
+"835
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 835: }
+[e $U 935  ]
+"836
+[e :U 934 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 836: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 936  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 837: line_mode = 1;
+"837
+[e = _line_mode -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 838: break;
+"838
+[e $U 933  ]
+"839
+}
+[e :U 936 ]
+"840
+[e :U 935 ]
+}
+[e :U 931 ]
+"831
+[e $U 932  ]
+[e :U 933 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 839: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 840: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 842: SendLineMode(line_mode_ptr);
+"842
+[e ( _SendLineMode (1 -> _line_mode_ptr `*Cuc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 843: FlashLEDS();
+"843
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 845: EnableSensorLEDS();
+"845
+[e ( _EnableSensorLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 848: LATJ = 0x0F;
+"848
+[e = _LATJ -> -> 15 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 849: SendStatus(0x02);
+"849
+[e ( _SendStatus (1 -> -> 2 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 851: while(1) {
+"851
+[e :U 938 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 852: if(PB1pressed() == 1) {
+"852
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 940  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 853: FlashLEDS();
+"853
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 854: GenerateCalibration();
+"854
+[e ( _GenerateCalibration ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 855: break;
+"855
+[e $U 939  ]
+"856
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 856: }
+[e $U 941  ]
+"857
+[e :U 940 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 857: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 942  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 858: FlashLEDS();
+"858
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 859: LoadCalibration();
+"859
+[e ( _LoadCalibration ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 860: break;
 "860
-[e :UE 887 ]
+[e $U 939  ]
+"861
+}
+[e :U 942 ]
+"863
+[e :U 941 ]
+}
+[e :U 937 ]
+"851
+[e $U 938  ]
+[e :U 939 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 861: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 863: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 865: FlashLEDS();
+"865
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 868: LATJ = 0x03;
+"868
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 869: SendStatus(0x05);
+"869
+[e ( _SendStatus (1 -> -> 5 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 871: SendDefaultPIDValues(20, 0, 0);
+"871
+[e ( _SendDefaultPIDValues (3 , , -> 20 `i -> 0 `i -> 0 `i ]
+"873
+[v _Kp_stored `i ~T0 @X0 1 a ]
+[v _Kd_stored `i ~T0 @X0 1 a ]
+[v _Ki_stored `i ~T0 @X0 1 a ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 873: int Kp_stored, Kd_stored, Ki_stored;
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 875: Kp_stored = ReadIntEEPROM(0x0011);
+"875
+[e = _Kp_stored -> ( _ReadIntEEPROM (1 -> -> 17 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 876: Kd_stored = ReadIntEEPROM(0x0013);
+"876
+[e = _Kd_stored -> ( _ReadIntEEPROM (1 -> -> 19 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 877: Ki_stored = ReadIntEEPROM(0x0015);
+"877
+[e = _Ki_stored -> ( _ReadIntEEPROM (1 -> -> 21 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 879: SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
+"879
+[e ( _SendStoredPIDValues (3 , , _Kp_stored _Kd_stored _Ki_stored ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 881: while(1) {
+"881
+[e :U 944 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 882: if(PB1pressed() == 1) {
+"882
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 946  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 883: FlashLEDS();
+"883
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 884: LATJ = 0x03;
+"884
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 885: SetPIDValues();
+"885
+[e ( _SetPIDValues ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 886: break;
+"886
+[e $U 945  ]
+"887
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 887: }
+[e $U 947  ]
+"888
+[e :U 946 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 888: else if(PB2pressed() == 1) {
+[e $ ! == -> ( _PB2pressed ..  `i -> 1 `i 948  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 889: FlashLEDS();
+"889
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 890: LATJ = 0x03;
+"890
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 891: LoadPIDValues();
+"891
+[e ( _LoadPIDValues ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 892: break;
+"892
+[e $U 945  ]
+"893
+}
+[e :U 948 ]
+"894
+[e :U 947 ]
+}
+[e :U 943 ]
+"881
+[e $U 944  ]
+[e :U 945 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 893: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 894: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 896: SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);
+"896
+[e ( _SendCurrentPIDValues (3 , , _PID_Kp _PID_Kd _PID_Ki ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 899: while(1) {
+"899
+[e :U 950 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 902: FlashLEDS();
+"902
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 904: LATJ = 0x01;
+"904
+[e = _LATJ -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 905: SendStatus(0x08);
+"905
+[e ( _SendStatus (1 -> -> 8 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 907: while(1) {
+"907
+[e :U 953 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 908: if(PB1pressed() == 1) {
+"908
+[e $ ! == -> ( _PB1pressed ..  `i -> 1 `i 955  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 909: break;
+"909
+[e $U 954  ]
+"910
+}
+[e :U 955 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 910: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 911: if(CommandAvailable() == 1 && GetCommand() == 0x02) {
+"911
+[e $ ! && == -> ( _CommandAvailable ..  `i -> 1 `i == -> ( _GetCommand ..  `i -> 2 `i 956  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 912: break;
+"912
+[e $U 954  ]
+"913
+}
+[e :U 956 ]
+"914
+}
+[e :U 952 ]
+"907
+[e $U 953  ]
+[e :U 954 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 913: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 914: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 917: PID_error = 0;
+"917
+[e = _PID_error -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 918: PID_output = 0;
+"918
+[e = _PID_output -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 919: D_temp = 0;
+"919
+[e = _D_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 920: I_temp = 0;
+"920
+[e = _I_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 922: stop_flag = 0;
+"922
+[e = _stop_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 923: find_line_flag = 0;
+"923
+[e = _find_line_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 924: line_end_flag = 0;
+"924
+[e = _line_end_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 925: wall_detected_flag = 0;
+"925
+[e = _wall_detected_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 926: send_battery_stats_flag = 0;
+"926
+[e = _send_battery_stats_flag -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 928: LATJ = 0x00;
+"928
+[e = _LATJ -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 930: FlashLEDS();
+"930
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 931: SendStatus(0x09);
+"931
+[e ( _SendStatus (1 -> -> 9 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 933: ResetAccumulatedCurrent();
+"933
+[e ( _ResetAccumulatedCurrent ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 935: ResetMillis0();
+"935
+[e ( _ResetMillis0 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 936: ResetMillis1();
+"936
+[e ( _ResetMillis1 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 938: SetUnipolar();
+"938
+[e ( _SetUnipolar ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 939: StopMotors();
+"939
+[e ( _StopMotors ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 940: SetDirectionForward();
+"940
+[e ( _SetDirectionForward ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 941: EnableMotors();
+"941
+[e ( _EnableMotors ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 943: GetDistance();
+"943
+[e ( _GetDistance ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 946: while(1) {
+"946
+[e :U 958 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 949: GetSensorReadings();
+"949
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 951: while(BusySensorAcq());
+"951
+[e $U 960  ]
+[e :U 961 ]
+[e :U 960 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 961  ]
+[e :U 962 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 953: NormaliseSensorReadings();
+"953
+[e ( _NormaliseSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 955: CalculateSensorStatuses();
+"955
+[e ( _CalculateSensorStatuses ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 956: sensor_sum = CalculateSensorSums();
+"956
+[e = _sensor_sum ( _CalculateSensorSums ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 959: PID_error = CalculateSensorError(sensor_sum_ptr);
+"959
+[e = _PID_error ( _CalculateSensorError (1 -> _sensor_sum_ptr `*Cuc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 960: PID_output = PID_Kp * PID_error + PID_Kd * (D_temp - PID_error) + PID_Ki * I_temp;
+"960
+[e = _PID_output + + * _PID_Kp _PID_error * _PID_Kd - _D_temp _PID_error * _PID_Ki _I_temp ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 961: D_temp = PID_error;
+"961
+[e = _D_temp _PID_error ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 962: I_temp += PID_error;
+"962
+[e =+ _I_temp _PID_error ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 964: SetDCMotorPID(PID_output);
+"964
+[e ( _SetDCMotorPID (1 _PID_output ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 967: DisplaySensorStatuses(sensor_status);
+"967
+[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 970: if(BusyDistanceAcq() == 0 && wall_detected_flag == 0) {
+"970
+[e $ ! && == -> ( _BusyDistanceAcq ..  `i -> 0 `i == -> _wall_detected_flag `i -> 0 `i 963  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 972: if(ReadEchoLength() < 1232) {
+"972
+[e $ ! < ( _ReadEchoLength ..  -> -> 1232 `i `ui 964  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 973: wall_detected_flag = 1;
+"973
+[e = _wall_detected_flag -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 976: DisableMotors();
+"976
+[e ( _DisableMotors ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 978: PID_error = 0;
+"978
+[e = _PID_error -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 979: PID_output = 0;
+"979
+[e = _PID_output -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 980: D_temp = 0;
+"980
+[e = _D_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 981: I_temp = 0;
+"981
+[e = _I_temp -> 0 `i ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 983: SetForwardsMotorR();
+"983
+[e ( _SetForwardsMotorR ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 984: SetReverseMotorL();
+"984
+[e ( _SetReverseMotorL ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 986: SetDCMotorL(150);
+"986
+[e ( _SetDCMotorL (1 -> -> 150 `i `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 987: SetDCMotorR(275);
+"987
+[e ( _SetDCMotorR (1 -> -> 275 `i `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 989: EnableMotors();
+"989
+[e ( _EnableMotors ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 991: sensor_sum = 0;
+"991
+[e = _sensor_sum -> -> 0 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 993: ResetMillis0();
+"993
+[e ( _ResetMillis0 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 994: while(ReadMillis0() < 300);
+"994
+[e $U 965  ]
+[e :U 966 ]
+[e :U 965 ]
+[e $ < ( _ReadMillis0 ..  -> -> 300 `i `ui 966  ]
+[e :U 967 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 996: while(sensor_sum == 0) {
+"996
+[e $U 968  ]
+[e :U 969 ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 997: GetSensorReadings();
+"997
+[e ( _GetSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 998: while(BusySensorAcq());
+"998
+[e $U 971  ]
+[e :U 972 ]
+[e :U 971 ]
+[e $ != -> ( _BusySensorAcq ..  `i -> -> -> 0 `i `uc `i 972  ]
+[e :U 973 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 999: NormaliseSensorReadings();
+"999
+[e ( _NormaliseSensorReadings ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1000: CalculateSensorStatuses();
+"1000
+[e ( _CalculateSensorStatuses ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1001: sensor_sum = CalculateSensorSums();
+"1001
+[e = _sensor_sum ( _CalculateSensorSums ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1002: DisplaySensorStatuses(sensor_status);
+"1002
+[e ( _DisplaySensorStatuses (1 -> &U _sensor_status `*Cuc ]
+"1004
+}
+[e :U 968 ]
+"996
+[e $ == -> _sensor_sum `i -> 0 `i 969  ]
+[e :U 970 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1004: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1006: SetDCMotorL(526);
+"1006
+[e ( _SetDCMotorL (1 -> -> 526 `i `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1007: SetDCMotorR(526);
+"1007
+[e ( _SetDCMotorR (1 -> -> 526 `i `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1008: SetDirectionForward();
+"1008
+[e ( _SetDirectionForward ..  ]
+"1010
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1010: }
+[e $U 974  ]
+"1011
+[e :U 964 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1011: else {
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1012: GetDistance();
+"1012
+[e ( _GetDistance ..  ]
+"1013
+}
+[e :U 974 ]
+"1014
+}
+[e :U 963 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1013: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1014: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1017: if(sensor_sum == 0 && line_end_flag == 0) {
+"1017
+[e $ ! && == -> _sensor_sum `i -> 0 `i == -> _line_end_flag `i -> 0 `i 975  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1018: ResetMillis2();
+"1018
+[e ( _ResetMillis2 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1019: line_end_flag = 1;
+"1019
+[e = _line_end_flag -> -> 1 `i `uc ]
+"1020
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1020: }
+[e $U 976  ]
+"1022
+[e :U 975 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1022: else if(sensor_sum == 0 && line_end_flag == 1 && ReadMillis2() >= 100) {
+[e $ ! && && == -> _sensor_sum `i -> 0 `i == -> _line_end_flag `i -> 1 `i >= ( _ReadMillis2 ..  -> -> 100 `i `ui 977  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1023: stop_flag = 1;
+"1023
+[e = _stop_flag -> -> 1 `i `uc ]
+"1024
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1024: }
+[e $U 978  ]
+"1027
+[e :U 977 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1027: else if(ReadMillis1() >= 1000) {
+[e $ ! >= ( _ReadMillis1 ..  -> -> 1000 `i `ui 979  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1028: ResetMillis1();
+"1028
+[e ( _ResetMillis1 ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1029: battery_voltage = ReadVoltage();
+"1029
+[e = _battery_voltage -> ( _ReadVoltage ..  `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1030: Delay1KTCYx(25);
+"1030
+[e ( _Delay1KTCYx (1 -> -> 25 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1031: battery_current = ReadCurrent();
+"1031
+[e = _battery_current -> ( _ReadCurrent ..  `ui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1032: Delay1KTCYx(25);
+"1032
+[e ( _Delay1KTCYx (1 -> -> 25 `i `uc ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1033: battery_current_acc = ReadAccumulatedCurrent();
+"1033
+[e = _battery_current_acc ( _ReadAccumulatedCurrent ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1034: send_battery_stats_flag = 1;
+"1034
+[e = _send_battery_stats_flag -> -> 1 `i `uc ]
+"1035
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1035: }
+[e $U 980  ]
+"1037
+[e :U 979 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1037: else if(send_battery_stats_flag == 1) {
+[e $ ! == -> _send_battery_stats_flag `i -> 1 `i 981  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1038: SendBattVoltage(battery_voltage_ptr);
+"1038
+[e ( _SendBattVoltage (1 -> _battery_voltage_ptr `*Cui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1040: SendBattCurrent(battery_current_ptr);
+"1040
+[e ( _SendBattCurrent (1 -> _battery_current_ptr `*Cui ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1042: SendBattCurrentAcc(battery_current_acc_ptr);
+"1042
+[e ( _SendBattCurrentAcc (1 -> _battery_current_acc_ptr `*Cul ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1043: send_battery_stats_flag = 0;
+"1043
+[e = _send_battery_stats_flag -> -> 0 `i `uc ]
+"1044
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1044: }
+[e $U 982  ]
+"1047
+[e :U 981 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1047: else if(CommandAvailable() == 1) {
+[e $ ! == -> ( _CommandAvailable ..  `i -> 1 `i 983  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1048: command_msg = GetCommand();
+"1048
+[e = _command_msg ( _GetCommand ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1049: if(command_msg == 0x03) {
+"1049
+[e $ ! == -> _command_msg `i -> 3 `i 984  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1050: find_line_flag = 1;
+"1050
+[e = _find_line_flag -> -> 1 `i `uc ]
+"1051
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1051: }
+[e $U 985  ]
+"1052
+[e :U 984 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1052: else if(command_msg == 0x04) {
+[e $ ! == -> _command_msg `i -> 4 `i 986  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1053: stop_flag = 1;
+"1053
+[e = _stop_flag -> -> 1 `i `uc ]
+"1054
+}
+[e :U 986 ]
+"1056
+[e :U 985 ]
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1054: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1056: }
+[e $U 987  ]
+"1059
+[e :U 983 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1059: else if(PB1pressed() == 1 | PB2pressed() == 1) {
+[e $ ! | == -> ( _PB1pressed ..  `i -> 1 `i == -> ( _PB2pressed ..  `i -> 1 `i 988  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1060: stop_flag = 1;
+"1060
+[e = _stop_flag -> -> 1 `i `uc ]
+"1061
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1061: }
+[e $U 989  ]
+"1064
+[e :U 988 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1064: else if(find_line_flag == 1) {
+[e $ ! == -> _find_line_flag `i -> 1 `i 990  ]
+{
+"1067
+}
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1067: }
+[e $U 991  ]
+"1070
+[e :U 990 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1070: else if(stop_flag == 1) {
+[e $ ! == -> _stop_flag `i -> 1 `i 992  ]
+{
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1071: StopMotors();
+"1071
+[e ( _StopMotors ..  ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1072: break;
+"1072
+[e $U 959  ]
+"1073
+}
+[e :U 992 ]
+"1080
+[e :U 991 ]
+[e :U 989 ]
+[e :U 987 ]
+[e :U 982 ]
+[e :U 980 ]
+[e :U 978 ]
+[e :U 976 ]
+}
+[e :U 957 ]
+"946
+[e $U 958  ]
+[e :U 959 ]
+"1082
+}
+[e :U 949 ]
+"899
+[e $U 950  ]
+[e :U 951 ]
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1073: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1080: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1082: }
+[; ;FastBuggy17_Main_Code_EXPERIMENTAL.c: 1084: }
+"1084
+[e :UE 930 ]
 }

@@ -31,7 +31,11 @@
 #define WHITE_ON_BLACK  1       //Line mode white on black
 #define DEBOUNCE_DELAY  10      //Debounce delay in milliseconds
 #define LED_FLASH_DELAY 200     //LED flash delay for waiting for user input
+#define ULTRASOUND_POLLING_DELAY 60
 #define END_OF_LINE_DELAY 100   //Delay in ms until a sensor reading of 0 is classed as the end of the line
+#define TURN_AROUND_DELAY 300
+#define CONTROL_LOOP_DELAY 25
+#define I_MAX_OFFSET 20
 #define BATTERY_STATS_DELAY 800
 
 //PID defines
@@ -788,7 +792,7 @@ void main(void) {
     unsigned char sensor_sum, loop_count = 0, stop_flag, find_line_flag, line_end_flag, wall_detected_flag, send_battery_stats_flag, command_msg;
     unsigned int echo_length, battery_voltage, battery_current;
     unsigned long int battery_current_acc;
-    int D_temp, I_temp;
+    int D_temp, I_temp, I_max, I_min, Kp_stored, Kd_stored, Ki_stored;
     
     //Pointer declarations
     unsigned char *sensor_sum_ptr, *line_mode_ptr;
@@ -870,8 +874,6 @@ void main(void) {
     
     SendDefaultPIDValues(DEFAULT_PID_KP, DEFAULT_PID_KD, DEFAULT_PID_KI);
     
-    int Kp_stored, Kd_stored, Ki_stored;
-    
     Kp_stored = ReadIntEEPROM(0x0011);
     Kd_stored = ReadIntEEPROM(0x0013);
     Ki_stored = ReadIntEEPROM(0x0015);
@@ -919,12 +921,17 @@ void main(void) {
         D_temp = 0;
         I_temp = 0;
         
+        I_max = PID_Kp * W8;
+        I_min = PID_Kp * W0;
+        
         stop_flag = 0;
         find_line_flag = 0;
         line_end_flag = 0;
         wall_detected_flag = 0;
         send_battery_stats_flag = 0;
 
+        GetDistance();
+        
         LATJ = 0x00;
 
         FlashLEDS();
@@ -940,10 +947,12 @@ void main(void) {
         SetDirectionForward();
         EnableMotors();
         
-        GetDistance();
+        //GetDistance();
 
         //RACE ROUTINE
         while(1) {
+            
+            ResetMillis1();
             
             //GET SENSOR READINGS
             GetSensorReadings();
@@ -960,6 +969,14 @@ void main(void) {
             PID_output = PID_Kp * PID_error + PID_Kd * (D_temp - PID_error) + PID_Ki * I_temp;
             D_temp = PID_error;
             I_temp += PID_error;
+            
+            //INTEGRAL WINDUP PREVENTION
+            if(I_temp >= I_max) {
+                I_temp = I_max - I_MAX_OFFSET;
+            }
+            else if(I_temp <= I_min) {
+                I_temp = I_min + I_MAX_OFFSET;
+            }
 
             SetDCMotorPID(PID_output);
 
@@ -967,9 +984,11 @@ void main(void) {
             DisplaySensorStatuses(sensor_status);
 
             //WALL DETECTION
-            if(BusyDistanceAcq() == 0 && wall_detected_flag == 0) {
+            if(BusyDistanceAcq() == 0 && wall_detected_flag == 0  && ReadMillis0() >= ULTRASOUND_POLLING_DELAY) {
                 
-                if(ReadEchoLength() < 1232) {
+                ResetMillis0();
+                
+                if(ReadEchoLength() < 1232) {  //1232
                     wall_detected_flag = 1;
                                     
                     //TURN AROUND ROUTINE
@@ -991,7 +1010,7 @@ void main(void) {
                     sensor_sum = 0;
                     
                     ResetMillis0();
-                    while(ReadMillis0() < 300);
+                    while(ReadMillis0() < TURN_AROUND_DELAY);
                    
                     while(sensor_sum == 0) {
                         GetSensorReadings();
@@ -1014,36 +1033,28 @@ void main(void) {
             }
             
             //END OF LINE DETECTION
-            if(sensor_sum == 0 && line_end_flag == 0) {
+            else if(sensor_sum == 0 && line_end_flag == 0) {
                 ResetMillis2();
-                line_end_flag = 1;                
+                while(ReadMillis2() <= END_OF_LINE_DELAY);
+                GetSensorReadings();
+                while(BusySensorAcq());
+                NormaliseSensorReadings();
+                CalculateSensorStatuses();
+                sensor_sum = CalculateSensorSums();
+                if(sensor_sum == 0) {
+                    StopMotors();
+                    break;
+                }
+                                
             }
-            
-            else if(sensor_sum == 0 && line_end_flag == 1 && ReadMillis2() >= END_OF_LINE_DELAY) {                  
-                stop_flag = 1;
-            }
-            
-            //BATTERY MONITORING
-            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 0) {
-                ResetMillis1();
-                battery_voltage = ReadVoltage();
-                SendBattVoltage(battery_voltage_ptr);
-                send_battery_stats_flag++;
-            }
-            
-            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 1) {
-                ResetMillis1();
-                battery_current = ReadCurrent();
-                SendBattCurrent(battery_current_ptr);
-                send_battery_stats_flag++;
-            }
-            
-            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 2) {
-                ResetMillis1();
-                battery_current_acc = ReadAccumulatedCurrent();
-                SendBattCurrentAcc(battery_current_acc_ptr);
-                send_battery_stats_flag = 0;
-            }
+//                ResetMillis2();
+//                line_end_flag = 1;                
+//            }
+//            
+//            else if(sensor_sum == 0 && line_end_flag == 1 && ReadMillis2() >= END_OF_LINE_DELAY) {                  
+//                StopMotors();
+//                break;
+//            }
             
             //WIRELESS COMMAND HANDLING
             else if(CommandAvailable() == 1) {
@@ -1062,11 +1073,33 @@ void main(void) {
                 stop_flag = 1;
             }
             
-            //BUGGY FIND LINE COMMAND
-            else if(find_line_flag == 1) {
-                //Find line routine
-                
-            }
+//            //BUGGY FIND LINE COMMAND
+//            else if(find_line_flag == 1) {
+//                //Find line routine
+//                
+//            }
+            
+                        //BATTERY MONITORING
+//            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 0) {
+//                ResetMillis1();
+//                battery_voltage = ReadVoltage();
+//                SendBattVoltage(battery_voltage_ptr);
+//                send_battery_stats_flag++;
+//            }
+//            
+//            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 1) {
+//                ResetMillis1();
+//                battery_current = ReadCurrent();
+//                SendBattCurrent(battery_current_ptr);
+//                send_battery_stats_flag++;
+//            }
+//            
+//            else if(ReadMillis1() >= BATTERY_STATS_DELAY && send_battery_stats_flag == 2) {
+//                ResetMillis1();
+//                battery_current_acc = ReadAccumulatedCurrent();
+//                SendBattCurrentAcc(battery_current_acc_ptr);
+//                send_battery_stats_flag = 0;
+//            }
             
             //BUGGY STOP COMMAND
             else if(stop_flag == 1) {
@@ -1075,11 +1108,43 @@ void main(void) {
             }
             
             //ITERATE LOOP EVERY X MILLISECONDS
-//            ResetMillis0();
-//            while(ReadMillis0() < 5);
+            while(ReadMillis1() < CONTROL_LOOP_DELAY);
             LATJ = 0x00;
 
         }
+        
+        //SET PID VALUES FOR NEXT LOOP - FOR PID TUNING
+        LATJ = 0x03;
+        SendStatus(STATUS_5);
+
+        SendDefaultPIDValues(DEFAULT_PID_KP, DEFAULT_PID_KD, DEFAULT_PID_KI);
+
+        Kp_stored = ReadIntEEPROM(0x0011);
+        Kd_stored = ReadIntEEPROM(0x0013);
+        Ki_stored = ReadIntEEPROM(0x0015);
+
+        SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
+
+        FlashLEDS();
+        LATJ = 0x03;
+        SetPIDValues();
+        
+//        while(1) {
+//            if(PB1pressed() == 1) {
+//                FlashLEDS();
+//                LATJ = 0x03;
+//                SetPIDValues();
+//                break;
+//            }
+//            else if(PB2pressed() == 1) {
+//                FlashLEDS();
+//                LATJ = 0x03;
+//                LoadPIDValues();
+//                break;            
+//            }       
+//        }
+
+        SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);  
         
     }
 
