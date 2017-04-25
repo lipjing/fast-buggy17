@@ -24,9 +24,6 @@
                    projectFiles="true">
       <logicalFolder name="f3" displayName="Code Snippets" projectFiles="true">
         <itemPath>Ultra2.c</itemPath>
-        <itemPath>Sensors_code.c</itemPath>
-        <itemPath>task_scheduler_libraries.c</itemPath>
-        <itemPath>task_scheduler.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f4" displayName="Library Files" projectFiles="true">
         <itemPath>Ultrasound.c</itemPath>
@@ -302,14 +299,6 @@
         <XC8-config-global>
         </XC8-config-global>
       </item>
-      <item path="Sensors_code.c" ex="true" overriding="false">
-        <HI-TECH-COMP>
-        </HI-TECH-COMP>
-        <HI-TECH-LINK>
-        </HI-TECH-LINK>
-        <XC8-config-global>
-        </XC8-config-global>
-      </item>
       <item path="SystemClock.c" ex="false" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
@@ -374,22 +363,6 @@
         <property key="stack-size-main" value="auto"/>
         <property key="stack-type" value="compiled"/>
       </XC8-config-global>
-      <item path="task_scheduler.c" ex="true" overriding="false">
-        <HI-TECH-COMP>
-        </HI-TECH-COMP>
-        <HI-TECH-LINK>
-        </HI-TECH-LINK>
-        <XC8-config-global>
-        </XC8-config-global>
-      </item>
-      <item path="task_scheduler_libraries.c" ex="true" overriding="false">
-        <HI-TECH-COMP>
-        </HI-TECH-COMP>
-        <HI-TECH-LINK>
-        </HI-TECH-LINK>
-        <XC8-config-global>
-        </XC8-config-global>
-      </item>
     </conf>
   </confs>
 </configurationDescriptor>

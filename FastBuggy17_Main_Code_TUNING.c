@@ -340,65 +340,65 @@ unsigned char BusySensorAcq(void) {
 
 }
 
-//Normalises sensor readings using offsets stored in array
-void NormaliseSensorReadings(void) {
-    unsigned char index;
-    
-    for(index = 0; index < NO_OF_SENSORS; index++) {
-        
-        sensor_readings_normalised[index] = sensor_readings_raw[index] + sensor_offsets[index];
-        
-    }    
-    
-}
-
+////Normalises sensor readings using offsets stored in array
+//void NormaliseSensorReadings(void) {
+//    unsigned char index;
+//    
+//    for(index = 0; index < NO_OF_SENSORS; index++) {
+//        
+//        sensor_readings_normalised[index] = sensor_readings_raw[index] + sensor_offsets[index];
+//        
+//    }    
+//    
+//}
+//
 //Calculates if a sensor is above threshold and therefore above line
-void CalculateSensorStatuses(void) {
-    unsigned char index;
-    
-    //WHITE LINE ON BLACK DETECTION
-    if(line_mode == WHITE_ON_BLACK) {
-        for(index = 0; index < NO_OF_SENSORS; index++) {
+//void CalculateSensorStatuses(void) {
+//    unsigned char index;
+//    
+//    //WHITE LINE ON BLACK DETECTION
+//    if(line_mode == WHITE_ON_BLACK) {
+//        for(index = 0; index < NO_OF_SENSORS; index++) {
+//
+//            if(sensor_readings_normalised[index] > sensor_threshold) {
+//                sensor_status[index] = 1;
+//            }
+//            else {
+//                sensor_status[index] = 0;
+//            }
+//        }
+//    }
+//    //BLACK LINE ON WHITE DETECTION
+//    else if(line_mode == BLACK_ON_WHITE) {
+//
+//        for(index = 0; index < NO_OF_SENSORS; index++) {
+//
+//            if(sensor_readings_normalised[index] < sensor_threshold) {
+//                sensor_status[index] = 1;
+//            }
+//            else {
+//                sensor_status[index] = 0;
+//            }
+//
+//        }
+//    }
+//
+//     
+//}
 
-            if(sensor_readings_normalised[index] > sensor_threshold) {
-                sensor_status[index] = 1;
-            }
-            else {
-                sensor_status[index] = 0;
-            }
-        }
-    }
-    //BLACK LINE ON WHITE DETECTION
-    else if(line_mode == BLACK_ON_WHITE) {
-
-        for(index = 0; index < NO_OF_SENSORS; index++) {
-
-            if(sensor_readings_normalised[index] < sensor_threshold) {
-                sensor_status[index] = 1;
-            }
-            else {
-                sensor_status[index] = 0;
-            }
-
-        }
-    }
-
-     
-}
-
-//Calculate sensor sums
-unsigned char CalculateSensorSums(void) {
-    unsigned char index, sum = 0;
-    
-    for(index = 0; index < NO_OF_SENSORS; index++) {
-        
-        sum += (unsigned char) (sensor_status[index] * pow(2, index)); 
-        
-    }
-    
-    return(sum);
-    
-}
+////Calculate sensor sums
+//unsigned char CalculateSensorSums(void) {
+//    unsigned char index, sum = 0;
+//    
+//    for(index = 0; index < NO_OF_SENSORS; index++) {
+//        
+//        sum += (unsigned char) (sensor_status[index] * pow(2, index)); 
+//        
+//    }
+//    
+//    return(sum);
+//    
+//}
 
 //Calculate discrete sensor error
 int CalculateSensorError(const unsigned char *sum) {
@@ -522,20 +522,20 @@ unsigned char PB2pressed(void) {
 }
 
 //Generates offsets for each sensor
-void CalibrateOffsets(void) {
-    unsigned char index;
-    
-    GetSensorReadings();
-    
-    while(BusySensorAcq());
-    
-    for(index = 0; index < NO_OF_SENSORS; index++) {
-        
-        sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
-        
-    }
-    
-}
+//void CalibrateOffsets(void) {
+//    unsigned char index;
+//    
+//    GetSensorReadings();
+//    
+//    while(BusySensorAcq());
+//    
+//    for(index = 0; index < NO_OF_SENSORS; index++) {
+//        
+//        sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
+//        
+//    }
+//    
+//}
 
 //Calibrates sensor threshold value
 void CalibrateThreshold(void) {
@@ -560,26 +560,6 @@ void CalibrateThreshold(void) {
     
     DisplaySensorStatuses(sensor_status);
     
-    //Possible automatic calibration routine below
-//    sum = CalculateSensorSums();
-//    
-//    while(sum != 4) {
-//        sensor_threshold--;
-//    
-//        CalculateSensorStatuses();
-//        
-//        sum = CalculateSensorSums();
-//        
-//        DisplaySensorStatuses(sensor_status);
-//        
-//    }
-//    
-//    if(line_mode == WHITE_ON_BLACK) {
-//        sensor_threshold =- THRESHOLD_MARGIN;
-//    }
-//    else if(line_mode == BLACK_ON_WHITE) {
-//        sensor_threshold += THRESHOLD_MARGIN;
-//    }
 
 }
 
@@ -747,18 +727,6 @@ void interrupt high_priority isrHP(void) {
 //Low-priority ISR
 void interrupt low_priority isrLP(void) {
 
-//    //INT1 (PB1) ISR
-//    if (INTCON3bits.INT1IF == 1) {
-//
-//        INTCON3bits.INT1IF = 0;
-//    }
-//
-//    //INT2 (PB2) ISR
-//    if (INTCON3bits.INT2IF == 1) {
-//
-//        INTCON3bits.INT2IF = 0;
-//    }
-
     //ADC ISR
     if (PIR1bits.ADIF == 1) {
         PIR1bits.ADIF = 0;
@@ -777,11 +745,6 @@ void interrupt low_priority isrLP(void) {
         PIR1bits.TX1IF = 0;
         WirelessTx_ISR();        
     }
-    
-//    else if(PIR1bits.RC1IF == 1) {
-//        PIR1bits.RC1IF = 0;
-//        WirelessRx_ISR();
-//    }
 
 }
 
