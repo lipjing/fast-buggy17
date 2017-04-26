@@ -16,9 +16,13 @@ extern "C" {
     
     unsigned char ReadEEPROM(unsigned int address);
     
+//    void WriteFloat24EEPROM(unsigned int address, float data);
+    
     void WriteIntEEPROM(unsigned int address, unsigned int data);
     
     void WriteCharEEPROM(unsigned int address, unsigned char data);
+    
+//    float ReadFloat24EEPROM(unsigned int address);
     
     unsigned int ReadIntEEPROM(unsigned int address);
     

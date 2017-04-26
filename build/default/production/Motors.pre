@@ -8328,17 +8328,17 @@ return(DCreg);
 
 void SetDCMotorPID(int PIDoutput) {
 
-if(PIDoutput <= 0) {
-SetDCMotorL(240 - PIDoutput);
-SetDCMotorR(240);
+if(PIDoutput < 0) {
+SetDCMotorL(100 - PIDoutput);
+SetDCMotorR(100);
 }
 else if(PIDoutput > 0) {
-SetDCMotorL(240);
-SetDCMotorR(240 + PIDoutput);
+SetDCMotorL(100);
+SetDCMotorR(100 + PIDoutput);
 }
 else if(PIDoutput == 0) {
-SetDCMotorL(240);
-SetDCMotorR(240);
+SetDCMotorL(100);
+SetDCMotorR(100);
 }
 
 }

@@ -46,7 +46,7 @@ unsigned int ReadDCMotorR(void) {
 
 void SetDCMotorPID(int PIDoutput) {
     
-    if(PIDoutput <= 0) {
+    if(PIDoutput < 0) {
         SetDCMotorL(DC_MAX_SPEED - PIDoutput);
         SetDCMotorR(DC_MAX_SPEED);
     }

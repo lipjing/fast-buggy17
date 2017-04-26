@@ -5665,7 +5665,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _millisecond_COUNT0 `Vui ~T0 @X0 1 e ]
 [v _millisecond_COUNT1 `Vui ~T0 @X0 1 e ]
 [v _millisecond_COUNT2 `Vui ~T0 @X0 1 e ]
-[; ;MillisecondTimer.c: 4: volatile unsigned int millisecond_COUNT0, millisecond_COUNT1, millisecond_COUNT2;
+[v _millisecond_COUNT3 `Vui ~T0 @X0 1 e ]
+[; ;MillisecondTimer.c: 4: volatile unsigned int millisecond_COUNT0, millisecond_COUNT1, millisecond_COUNT2, millisecond_COUNT3;
 "7
 [v _ReadMillis0 `(ui ~T0 @X0 1 ef ]
 {
@@ -5708,65 +5709,95 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [e :UE 723 ]
 }
-"27
-[v _ResetMillis0 `(v ~T0 @X0 1 ef ]
+"25
+[v _ReadMillis3 `(ui ~T0 @X0 1 ef ]
 {
-[; ;MillisecondTimer.c: 27: void ResetMillis0(void) {
-[e :U _ResetMillis0 ]
+[; ;MillisecondTimer.c: 25: unsigned int ReadMillis3(void) {
+[e :U _ReadMillis3 ]
 [f ]
-[; ;MillisecondTimer.c: 29: millisecond_COUNT0 = 0;
+[; ;MillisecondTimer.c: 27: return (millisecond_COUNT3);
+"27
+[e ) _millisecond_COUNT3 ]
+[e $UE 724  ]
+[; ;MillisecondTimer.c: 29: }
 "29
-[e = _millisecond_COUNT0 -> -> 0 `i `ui ]
-[; ;MillisecondTimer.c: 31: }
-"31
 [e :UE 724 ]
 }
 "33
-[v _ResetMillis1 `(v ~T0 @X0 1 ef ]
+[v _ResetMillis0 `(v ~T0 @X0 1 ef ]
 {
-[; ;MillisecondTimer.c: 33: void ResetMillis1(void) {
-[e :U _ResetMillis1 ]
+[; ;MillisecondTimer.c: 33: void ResetMillis0(void) {
+[e :U _ResetMillis0 ]
 [f ]
-[; ;MillisecondTimer.c: 35: millisecond_COUNT1 = 0;
+[; ;MillisecondTimer.c: 35: millisecond_COUNT0 = 0;
 "35
-[e = _millisecond_COUNT1 -> -> 0 `i `ui ]
+[e = _millisecond_COUNT0 -> -> 0 `i `ui ]
 [; ;MillisecondTimer.c: 37: }
 "37
 [e :UE 725 ]
 }
 "39
-[v _ResetMillis2 `(v ~T0 @X0 1 ef ]
+[v _ResetMillis1 `(v ~T0 @X0 1 ef ]
 {
-[; ;MillisecondTimer.c: 39: void ResetMillis2(void) {
-[e :U _ResetMillis2 ]
+[; ;MillisecondTimer.c: 39: void ResetMillis1(void) {
+[e :U _ResetMillis1 ]
 [f ]
-[; ;MillisecondTimer.c: 41: millisecond_COUNT2 = 0;
+[; ;MillisecondTimer.c: 41: millisecond_COUNT1 = 0;
 "41
-[e = _millisecond_COUNT2 -> -> 0 `i `ui ]
-[; ;MillisecondTimer.c: 42: }
-"42
+[e = _millisecond_COUNT1 -> -> 0 `i `ui ]
+[; ;MillisecondTimer.c: 43: }
+"43
 [e :UE 726 ]
 }
-[v F6180 `(v ~T0 @X0 1 tf ]
-"44
-[v _MillisecondTimerISR `TF6180 ~T0 @X0 1 e ]
+"45
+[v _ResetMillis2 `(v ~T0 @X0 1 ef ]
 {
-[; ;MillisecondTimer.c: 44: inline void MillisecondTimerISR(void) {
+[; ;MillisecondTimer.c: 45: void ResetMillis2(void) {
+[e :U _ResetMillis2 ]
+[f ]
+[; ;MillisecondTimer.c: 47: millisecond_COUNT2 = 0;
+"47
+[e = _millisecond_COUNT2 -> -> 0 `i `ui ]
+[; ;MillisecondTimer.c: 48: }
+"48
+[e :UE 727 ]
+}
+"50
+[v _ResetMillis3 `(v ~T0 @X0 1 ef ]
+{
+[; ;MillisecondTimer.c: 50: void ResetMillis3(void) {
+[e :U _ResetMillis3 ]
+[f ]
+[; ;MillisecondTimer.c: 52: millisecond_COUNT3 = 0;
+"52
+[e = _millisecond_COUNT3 -> -> 0 `i `ui ]
+[; ;MillisecondTimer.c: 53: }
+"53
+[e :UE 728 ]
+}
+[v F6185 `(v ~T0 @X0 1 tf ]
+"55
+[v _MillisecondTimerISR `TF6185 ~T0 @X0 1 e ]
+{
+[; ;MillisecondTimer.c: 55: inline void MillisecondTimerISR(void) {
 [e :U _MillisecondTimerISR ]
 [f ]
-[; ;MillisecondTimer.c: 46: WriteTimer0(63036);
-"46
+[; ;MillisecondTimer.c: 57: WriteTimer0(63036);
+"57
 [e ( _WriteTimer0 (1 -> -> 63036 `l `ui ]
-[; ;MillisecondTimer.c: 47: millisecond_COUNT0++;
-"47
+[; ;MillisecondTimer.c: 58: millisecond_COUNT0++;
+"58
 [e ++ _millisecond_COUNT0 -> -> 1 `i `ui ]
-[; ;MillisecondTimer.c: 48: millisecond_COUNT1++;
-"48
+[; ;MillisecondTimer.c: 59: millisecond_COUNT1++;
+"59
 [e ++ _millisecond_COUNT1 -> -> 1 `i `ui ]
-[; ;MillisecondTimer.c: 49: millisecond_COUNT2++;
-"49
+[; ;MillisecondTimer.c: 60: millisecond_COUNT2++;
+"60
 [e ++ _millisecond_COUNT2 -> -> 1 `i `ui ]
-[; ;MillisecondTimer.c: 50: }
-"50
-[e :UE 727 ]
+[; ;MillisecondTimer.c: 61: millisecond_COUNT3++;
+"61
+[e ++ _millisecond_COUNT3 -> -> 1 `i `ui ]
+[; ;MillisecondTimer.c: 62: }
+"62
+[e :UE 729 ]
 }

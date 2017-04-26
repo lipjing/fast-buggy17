@@ -260,8 +260,6 @@ void SendCurrentPIDValues(int Kp, int Kd, int Ki) {
     StartTx(); 
 }
 
-
-
 void SendBattVoltageInitial(const unsigned int *reading) {
     while(BusyTx());
     FlushTxBuf();
@@ -325,6 +323,58 @@ void SendBattCurrentAcc(const unsigned long *reading) {
     PutCharTxBuf((unsigned char)(*reading >> 16 & 0x000000FF));
     PutCharTxBuf((unsigned char)(*reading >> 8 & 0x000000FF));
     PutCharTxBuf((unsigned char)(*reading & 0x000000FF));
+    
+    PutCharTxBuf('\r');
+    PutCharTxBuf('\n');
+    while (BusyTx());
+    StartTx();
+    
+    
+}
+
+void SendPIDSetPointOnLine(const int *set_point) {
+    while(BusyTx());
+    FlushTxBuf();
+    
+    PutCharTxBuf(0xAA);
+    PutCharTxBuf(TX_MSG_PID_SET_POINT_ON_LINE);
+    
+    PutCharTxBuf((unsigned char)(*set_point >> 8 & 0x00FF));
+    PutCharTxBuf((unsigned char)(*set_point & 0x00FF));
+    
+    PutCharTxBuf('\r');
+    PutCharTxBuf('\n');
+    while (BusyTx());
+    StartTx();
+    
+}
+
+void SendPIDSetPointOffLine(const int *set_point) {
+    while(BusyTx());
+    FlushTxBuf();
+    
+    PutCharTxBuf(0xAA);
+    PutCharTxBuf(TX_MSG_PID_SET_POINT_OFF_LINE);
+    
+    PutCharTxBuf((unsigned char)(*set_point >> 8 & 0x00FF));
+    PutCharTxBuf((unsigned char)(*set_point & 0x00FF));
+    
+    PutCharTxBuf('\r');
+    PutCharTxBuf('\n');
+    while (BusyTx());
+    StartTx();
+    
+}
+
+void SendPIDError(const int error) {
+    while(BusyTx());
+    FlushTxBuf();
+    
+    PutCharTxBuf(0xAA);
+    PutCharTxBuf(TX_MSG_PID_ERROR);
+    
+    PutCharTxBuf((unsigned char)(error >> 8 & 0x00FF));
+    PutCharTxBuf((unsigned char)(error & 0x00FF));
     
     PutCharTxBuf('\r');
     PutCharTxBuf('\n');

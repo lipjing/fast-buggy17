@@ -7629,6 +7629,58 @@ StartTx();
 
 }
 
+void SendPIDSetPointOnLine(const int *set_point) {
+while(BusyTx());
+FlushTxBuf();
+
+PutCharTxBuf(0xAA);
+PutCharTxBuf(0x07);
+
+PutCharTxBuf((unsigned char)(*set_point >> 8 & 0x00FF));
+PutCharTxBuf((unsigned char)(*set_point & 0x00FF));
+
+PutCharTxBuf('\r');
+PutCharTxBuf('\n');
+while (BusyTx());
+StartTx();
+
+}
+
+void SendPIDSetPointOffLine(const int *set_point) {
+while(BusyTx());
+FlushTxBuf();
+
+PutCharTxBuf(0xAA);
+PutCharTxBuf(0x08);
+
+PutCharTxBuf((unsigned char)(*set_point >> 8 & 0x00FF));
+PutCharTxBuf((unsigned char)(*set_point & 0x00FF));
+
+PutCharTxBuf('\r');
+PutCharTxBuf('\n');
+while (BusyTx());
+StartTx();
+
+}
+
+void SendPIDError(const int error) {
+while(BusyTx());
+FlushTxBuf();
+
+PutCharTxBuf(0xAA);
+PutCharTxBuf(0x09);
+
+PutCharTxBuf((unsigned char)(error >> 8 & 0x00FF));
+PutCharTxBuf((unsigned char)(error & 0x00FF));
+
+PutCharTxBuf('\r');
+PutCharTxBuf('\n');
+while (BusyTx());
+StartTx();
+
+
+}
+
 void ReceiveCommandsEnable(void) {
 FlushRxBuf();
 

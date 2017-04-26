@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-    #define NO_OF_SENSORS   5        //Number of sensors in use
+#define NO_OF_SENSORS   5        //Number of sensors in use
     
     //Motor control pin connections
 #define MOTOR_R_BI  LATDbits.LATD0
@@ -22,20 +22,20 @@ extern "C" {
 #define MOTOR_EN    LATDbits.LATD4
 
     //Motor duty cycle defines - duty cycles are in reverse - lower numbers equal higher motor speeds
-#define DC_MAX_SPEED 240
-#define DC_MAX_SPEED_REV_L 250
-#define DC_MAX_SPEED_REV_R 340 
-#define DC_STOP 526
-    
-#define NO_OF_STEPS 10
+#define DC_MAX_SPEED 100 //240  //Maximum speed
+#define DC_MAX_SPEED_REV_L 250  //L motor reverse speed
+#define DC_MAX_SPEED_REV_R 340  //R motor reverse speed
+#define DC_STOP 526     //Stop
 
 #define TIMER0_VALUE    63036    //Value written to Timer0 to generate ~1ms delay
     
 #define BUFFER_SIZE 25      //RX and TX buffer sizes in bytes
     
+    //Transmit/receive message headers
 #define TX_MSG_START 0xAA
 #define RX_MSG_START 0xAA
-    
+  
+    //Transmit message codes
 #define TX_MSG_STATUS 0x01
 #define TX_MSG_LINE_MODE 0x11
 #define TX_MSG_SENS_OFFSETS 0x21
@@ -47,7 +47,11 @@ extern "C" {
 #define TX_MSG_BATT_CURR 0x04
 #define TX_MSG_BATT_CURR_ACC 0x05
 #define TX_MSG_BATT_VOLT_INITIAL 0x06
+#define TX_MSG_PID_SET_POINT_ON_LINE 0x07
+#define TX_MSG_PID_SET_POINT_OFF_LINE 0x08
+#define TX_MSG_PID_ERROR 0x09
     
+    //Receive message codes
 #define RX_MSG_PID_VALUES 0x01
 #define RX_MSG_START_RACE 0x02
 #define RX_MSG_FIND_LINE 0x03
@@ -55,6 +59,7 @@ extern "C" {
 #define RX_MSG_PB1 0x05
 #define RX_MSG_PB2 0x06
     
+    //Status message codes
 #define STATUS_0 0x00
 #define STATUS_1 0x01
 #define STATUS_2 0x02
@@ -70,6 +75,20 @@ extern "C" {
     
 #define CR 0x0D
 #define LF 0x0A
+
+    //Address definitions for storage of calibration constants in EEPROM
+#define ADDR_CAL_VALID 0x0000
+#define ADDR_SENS_THRESHOLD 0x0001
+#define ADDR_S0_OFFSET 0x0003
+#define ADDR_S1_OFFSET 0x0005
+#define ADDR_S2_OFFSET 0x0007
+#define ADDR_S3_OFFSET 0x0009
+#define ADDR_S4_OFFSET 0x000B
+#define ADDR_CAL_VALID_PID 0x000D
+#define ADDR_PID_SET_POINT 0x000E
+#define ADDR_PID_KP 0x0010
+#define ADDR_PID_KD 0x0012
+#define ADDR_PID_KI 0x0014
 
 
 #ifdef	__cplusplus

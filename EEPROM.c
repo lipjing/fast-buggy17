@@ -53,6 +53,13 @@ unsigned char ReadEEPROM(unsigned int address) {
        
 }
 
+//void WriteFloat24EEPROM(unsigned int address, float data) {
+//    WriteEEPROM(address, ((data >> 16) & 0x0000FF)); 
+//    WriteEEPROM(address, ((data >> 8) & 0x0000FF));
+//    WriteEEPROM(address + 1, (data & 0x0000FF));
+//    
+//}
+
 void WriteIntEEPROM(unsigned int address, unsigned int data) {
     WriteEEPROM(address, ((data >> 8) & 0x00FF)); 
     WriteEEPROM(address + 1, (data & 0x00FF));
@@ -62,6 +69,17 @@ void WriteIntEEPROM(unsigned int address, unsigned int data) {
 void WriteCharEEPROM(unsigned int address, unsigned char data) {
     WriteEEPROM(address, data);    
 }
+
+//float ReadFloat24EEPROM(unsigned int address) {
+//    float data;
+//    
+//    data = (ReadEEPROM(address) << 16) & 0xFF0000;
+//    data |= (ReadEEPROM(address) << 8) & 0x00FF00;
+//    data |= ReadEEPROM(address + 1) & 0x0000FF;
+//        
+//    return(data);
+//    
+//}
 
 unsigned int ReadIntEEPROM(unsigned int address) {
     unsigned int data;

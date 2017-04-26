@@ -8422,6 +8422,7 @@ return(EEDATA);
 
 }
 
+# 63
 void WriteIntEEPROM(unsigned int address, unsigned int data) {
 WriteEEPROM(address, ((data >> 8) & 0x00FF));
 WriteEEPROM(address + 1, (data & 0x00FF));
@@ -8432,6 +8433,7 @@ void WriteCharEEPROM(unsigned int address, unsigned char data) {
 WriteEEPROM(address, data);
 }
 
+# 84
 unsigned int ReadIntEEPROM(unsigned int address) {
 unsigned int data;
 

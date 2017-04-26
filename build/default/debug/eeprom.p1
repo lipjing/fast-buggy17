@@ -6678,75 +6678,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 "54
 [e :UE 766 ]
 }
-"56
+"63
 [v _WriteIntEEPROM `(v ~T0 @X0 1 ef2`ui`ui ]
 {
-[; ;eeprom.c: 56: void WriteIntEEPROM(unsigned int address, unsigned int data) {
+[; ;eeprom.c: 63: void WriteIntEEPROM(unsigned int address, unsigned int data) {
 [e :U _WriteIntEEPROM ]
 [v _address `ui ~T0 @X0 1 r1 ]
 [v _data `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;eeprom.c: 57: WriteEEPROM(address, ((data >> 8) & 0x00FF));
-"57
+[; ;eeprom.c: 64: WriteEEPROM(address, ((data >> 8) & 0x00FF));
+"64
 [e ( _WriteEEPROM (2 , _address -> & >> _data -> 8 `i -> -> 255 `i `ui `uc ]
-[; ;eeprom.c: 58: WriteEEPROM(address + 1, (data & 0x00FF));
-"58
+[; ;eeprom.c: 65: WriteEEPROM(address + 1, (data & 0x00FF));
+"65
 [e ( _WriteEEPROM (2 , + _address -> -> 1 `i `ui -> & _data -> -> 255 `i `ui `uc ]
-[; ;eeprom.c: 60: }
-"60
+[; ;eeprom.c: 67: }
+"67
 [e :UE 772 ]
 }
-"62
+"69
 [v _WriteCharEEPROM `(v ~T0 @X0 1 ef2`ui`uc ]
 {
-[; ;eeprom.c: 62: void WriteCharEEPROM(unsigned int address, unsigned char data) {
+[; ;eeprom.c: 69: void WriteCharEEPROM(unsigned int address, unsigned char data) {
 [e :U _WriteCharEEPROM ]
 [v _address `ui ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;eeprom.c: 63: WriteEEPROM(address, data);
-"63
+[; ;eeprom.c: 70: WriteEEPROM(address, data);
+"70
 [e ( _WriteEEPROM (2 , _address _data ]
-[; ;eeprom.c: 64: }
-"64
+[; ;eeprom.c: 71: }
+"71
 [e :UE 773 ]
 }
-"66
+"84
 [v _ReadIntEEPROM `(ui ~T0 @X0 1 ef1`ui ]
 {
-[; ;eeprom.c: 66: unsigned int ReadIntEEPROM(unsigned int address) {
+[; ;eeprom.c: 84: unsigned int ReadIntEEPROM(unsigned int address) {
 [e :U _ReadIntEEPROM ]
 [v _address `ui ~T0 @X0 1 r1 ]
 [f ]
-"67
+"85
 [v _data `ui ~T0 @X0 1 a ]
-[; ;eeprom.c: 67: unsigned int data;
-[; ;eeprom.c: 69: data = (ReadEEPROM(address) << 8) & 0xFF00;
-"69
+[; ;eeprom.c: 85: unsigned int data;
+[; ;eeprom.c: 87: data = (ReadEEPROM(address) << 8) & 0xFF00;
+"87
 [e = _data & -> << -> ( _ReadEEPROM (1 _address `i -> 8 `i `ui -> 65280 `ui ]
-[; ;eeprom.c: 70: data |= ReadEEPROM(address + 1) & 0x00FF;
-"70
+[; ;eeprom.c: 88: data |= ReadEEPROM(address + 1) & 0x00FF;
+"88
 [e =| _data -> & -> ( _ReadEEPROM (1 + _address -> -> 1 `i `ui `i -> 255 `i `ui ]
-[; ;eeprom.c: 72: return(data);
-"72
+[; ;eeprom.c: 90: return(data);
+"90
 [e ) _data ]
 [e $UE 774  ]
-[; ;eeprom.c: 74: }
-"74
+[; ;eeprom.c: 92: }
+"92
 [e :UE 774 ]
 }
-"76
+"94
 [v _ReadCharEEPROM `(uc ~T0 @X0 1 ef1`ui ]
 {
-[; ;eeprom.c: 76: unsigned char ReadCharEEPROM(unsigned int address) {
+[; ;eeprom.c: 94: unsigned char ReadCharEEPROM(unsigned int address) {
 [e :U _ReadCharEEPROM ]
 [v _address `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;eeprom.c: 77: return(ReadEEPROM(address));
-"77
+[; ;eeprom.c: 95: return(ReadEEPROM(address));
+"95
 [e ) ( _ReadEEPROM (1 _address ]
 [e $UE 775  ]
-[; ;eeprom.c: 79: }
-"79
+[; ;eeprom.c: 97: }
+"97
 [e :UE 775 ]
 }

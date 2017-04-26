@@ -64,6 +64,12 @@ extern "C" {
     
     void SendBattCurrentAcc(const unsigned long int *reading);
     
+    void SendPIDSetPointOnLine(const int *set_point);
+    
+    void SendPIDSetPointOffLine(const int *set_point);
+    
+    void SendPIDError(const int error);
+    
     void ReceiveCommandsEnable(void);
     
     void ReceiveCommandsDisable(void);
