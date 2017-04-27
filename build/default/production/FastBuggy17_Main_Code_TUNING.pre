@@ -8654,13 +8654,14 @@ void CopyEEPROM (BYTE addr);
 void RecallEEPROM (BYTE addr);
 void Delay100MSx(BYTE counts);
 
-# 47 "FastBuggy17_Main_Code_TUNING.c"
+# 48 "FastBuggy17_Main_Code_TUNING.c"
 volatile unsigned char sensor_acq_done, sensor_acq_index;
 volatile int sensor_readings_raw[5];
 
 
 unsigned char line_mode, sensor_statuses[5];
-int sensor_offsets[5], sensor_readings_normalised[5], sensor_threshold, PID_set_point, PID_output, off_line_sum, PID_error, PID_Kp, PID_Kd, PID_Ki;
+int sensor_offsets[5], sensor_readings_normalised[5], sensor_threshold;
+int PID_set_point, PID_output, PID_error, PID_Kp, PID_Kd, PID_Ki;
 
 
 void ConfigureInterrupts(void) {
@@ -8669,7 +8670,7 @@ INTCONbits.GIE = 1;
 INTCONbits.PEIE = 1;
 RCONbits.IPEN = 1;
 
-# 81
+# 83
 INTCON3bits.INT3IE = 0;
 INTCON3bits.INT3IF = 0;
 INTCON2bits.INTEDG3 = 1;
@@ -8680,7 +8681,7 @@ INTCONbits.TMR0IE = 1;
 INTCONbits.TMR0IF = 0;
 INTCON2bits.TMR0IP = 1;
 
-# 98
+# 100
 PIE1bits.ADIE = 0;
 PIR1bits.ADIF = 0;
 IPR1bits.ADIP = 0;
@@ -8734,7 +8735,7 @@ OpenTimer2(0b01111111
 & 0b10000111
 & 0b10110111);
 
-# 159
+# 161
 }
 
 
@@ -8743,7 +8744,7 @@ void ConfigurePWM(void) {
 OpenPWM4(130);
 OpenPWM5(130);
 
-# 182
+# 184
 }
 
 
@@ -8783,19 +8784,6 @@ OpenADC(0b10011111
 & 0b11111110
 & 0b11111101,
 9);
-
-}
-
-
-void ConfigureSerial(void) {
-
-Open1USART(0b01111111
-& 0b10111111
-& 0b11111110
-& 0b11111101
-& 0b11111111
-& 0b11111111,
-64);
 
 }
 
@@ -8875,6 +8863,7 @@ return (!sensor_acq_done);
 
 }
 
+
 void NormaliseSensorReadings(volatile const int *sensor_readings_raw, const int *sensor_offsets) {
 unsigned char index;
 
@@ -8883,6 +8872,7 @@ sensor_readings_normalised[index] = *(sensor_readings_raw + index) + *(sensor_of
 }
 
 }
+
 
 void CalculateSensorStatuses(const int *sensor_readings_normalised, const int *sensor_threshold) {
 unsigned char index;
@@ -8910,6 +8900,7 @@ sensor_statuses[index] = 0;
 
 }
 
+
 int CalculateSensorSum(const int *sensor_readings_normalised) {
 
 int sum = 0;
@@ -8923,6 +8914,7 @@ sum += *(sensor_readings_normalised + 4) * -3;
 return(sum);
 
 }
+
 
 unsigned char CalculateSensorSumDiscrete(const unsigned char *sensor_statuses) {
 unsigned char index, sum = 0;
@@ -9029,6 +9021,7 @@ return(0);
 return(0);
 }
 
+
 void CalibrateOffsets(void) {
 unsigned char index;
 
@@ -9048,6 +9041,7 @@ sensor_offsets[index] = sensor_readings_raw[2] - sensor_readings_raw[index];
 
 }
 
+
 void CalibrateOnLine(void) {
 SendStatus(0x04);
 LATJ = 0x07;
@@ -9062,6 +9056,7 @@ sensor_threshold = sensor_readings_normalised[2];
 PID_set_point = CalculateSensorSum(sensor_readings_normalised);
 
 }
+
 
 void CalibrateThreshold(void) {
 int sensor_threshold_temp;
@@ -9092,48 +9087,51 @@ sensor_threshold = sensor_threshold_temp;
 
 }
 
+
 void GenerateCalibration(void) {
 unsigned char index;
 
 CalibrateOffsets();
 
 for(index = 0; index < 5; index++) {
-WriteIntEEPROM(0x00E0 + (2* index), sensor_offsets[index]);
+WriteIntEEPROM(0x0003 + (2* index), sensor_offsets[index]);
 }
 
 FlashLEDS();
 
 CalibrateOnLine();
 
-WriteIntEEPROM(0x0001, PID_set_point);
+WriteIntEEPROM(0x000E, PID_set_point);
 
 FlashLEDS();
 
 CalibrateThreshold();
 
-WriteIntEEPROM(0x0003, sensor_threshold);
+WriteIntEEPROM(0x0001, sensor_threshold);
 WriteCharEEPROM(0x0000, 1);
 
 }
 
+
 void LoadCalibration(void) {
 unsigned char index;
 
-if(ReadCharEEPROM(0x00) == 0xFF) {
+if(ReadCharEEPROM(0x0000) == 0xFF) {
 GenerateCalibration();
 }
 
-else {
+else if(ReadCharEEPROM(0x0000) == 1) {
 for(index = 0; index < 5; index++) {
-sensor_offsets[index] = ReadIntEEPROM(0x00E0 + (2 * index));
+sensor_offsets[index] = ReadIntEEPROM(0x0003 + (2 * index));
 }
 
-PID_set_point = ReadIntEEPROM(0x0001);
+PID_set_point = ReadIntEEPROM(0x000E);
 
-sensor_threshold = ReadIntEEPROM(0x0003);
+sensor_threshold = ReadIntEEPROM(0x0001);
 }
 
 }
+
 
 void SetPIDValues(void) {
 SendStatus(0x08);
@@ -9141,6 +9139,8 @@ SendStatus(0x08);
 unsigned char char_index;
 
 FlushRxBuf();
+
+while((PIR1bits.RCIF) == 0);
 
 for(char_index = 0; char_index <= 8; char_index++) {
 while(!(PIR1bits.RCIF));
@@ -9160,12 +9160,14 @@ PID_Kd |= (GetCharRxBuf() & 0x00FF);
 PID_Ki = (GetCharRxBuf() << 8) & 0xFF00;
 PID_Ki |= (GetCharRxBuf() & 0x00FF);
 
-WriteIntEEPROM(0x0006, PID_Kp);
-WriteIntEEPROM(0x0009, PID_Kd);
-WriteIntEEPROM(0x000C, PID_Ki);
+WriteIntEEPROM(0x0010, PID_Kp);
+WriteIntEEPROM(0x0012, PID_Kd);
+WriteIntEEPROM(0x0014, PID_Ki);
 
-WriteCharEEPROM(0x0005, 1);
+WriteCharEEPROM(0x000D, 1);
+
 }
+
 
 void LoadPIDValues(void) {
 SendStatus(0x07);
@@ -9175,21 +9177,21 @@ if(PB1pressed() == 1) {
 PID_Kp = 20;
 PID_Kd = 0;
 PID_Ki = 0;
-WriteIntEEPROM(0x0006, PID_Kp);
-WriteIntEEPROM(0x0009, PID_Kd);
-WriteIntEEPROM(0x000C, PID_Ki);
+WriteIntEEPROM(0x0010, PID_Kp);
+WriteIntEEPROM(0x0012, PID_Kd);
+WriteIntEEPROM(0x0014, PID_Ki);
 
-WriteCharEEPROM(0x0005, 1);
+WriteCharEEPROM(0x000D, 1);
 break;
 }
 else if(PB2pressed() == 1) {
-if(ReadCharEEPROM(0x0005) == 0xFF) {
+if(ReadCharEEPROM(0x000D) == 0xFF) {
 SetPIDValues();
 }
 else {
-PID_Kp = ReadIntEEPROM(0x0006);
-PID_Kd = ReadIntEEPROM(0x0009);
-PID_Ki = ReadIntEEPROM(0x000C);
+PID_Kp = ReadIntEEPROM(0x0010);
+PID_Kd = ReadIntEEPROM(0x0012);
+PID_Ki = ReadIntEEPROM(0x0014);
 }
 break;
 }
@@ -9254,15 +9256,13 @@ int sensor_sum, D_temp, I_temp, I_max, I_min, Kp_stored, Kd_stored, Ki_stored;
 
 
 unsigned char *line_mode_ptr;
-int *sensor_threshold_ptr, *sensor_sum_ptr, *PID_error_ptr, *PID_set_point_ptr, *off_line_sum_ptr;
+int *sensor_threshold_ptr, *sensor_sum_ptr, *PID_error_ptr, *PID_set_point_ptr;
 
 line_mode_ptr = &line_mode;
 sensor_threshold_ptr = &sensor_threshold;
 sensor_sum_ptr = &sensor_sum;
 PID_error_ptr = &PID_error;
 PID_set_point_ptr = &PID_set_point;
-off_line_sum_ptr = &off_line_sum;
-
 
 unsigned int *battery_voltage_ptr, *battery_current_ptr;
 unsigned long int *battery_current_acc_ptr;
@@ -9270,6 +9270,7 @@ unsigned long int *battery_current_acc_ptr;
 battery_voltage_ptr = &battery_voltage;
 battery_current_ptr = &battery_current;
 battery_current_acc_ptr = &battery_current_acc;
+
 
 ConfigureUltrasound(0.0137, 0.054);
 ConfigureBuggyIO();
@@ -9330,8 +9331,8 @@ break;
 }
 
 SendOffsets(sensor_offsets);
+SendThreshold(sensor_threshold_ptr);
 SendPIDSetPointOnLine(PID_set_point_ptr);
-SendPIDSetPointOffLine(off_line_sum_ptr);
 
 FlashLEDS();
 
@@ -9341,9 +9342,9 @@ SendStatus(0x06);
 
 SendDefaultPIDValues(20, 0, 0);
 
-Kp_stored = ReadIntEEPROM(0x0006);
-Kd_stored = ReadIntEEPROM(0x0009);
-Ki_stored = ReadIntEEPROM(0x000C);
+Kp_stored = ReadIntEEPROM(0x0010);
+Kd_stored = ReadIntEEPROM(0x0012);
+Ki_stored = ReadIntEEPROM(0x0014);
 
 SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
 
@@ -9394,8 +9395,6 @@ line_end_flag = 0;
 wall_detected_flag = 0;
 send_battery_stats_flag = 0;
 
-GetDistance();
-
 LATJ = 0x00;
 
 FlashLEDS();
@@ -9407,6 +9406,8 @@ ResetMillis0();
 ResetMillis1();
 ResetMillis2();
 ResetMillis3();
+
+GetDistance();
 
 SetUnipolar();
 StopMotors();
@@ -9438,15 +9439,18 @@ SetDCMotorPID(PID_output);
 DisplaySensorStatuses(sensor_statuses);
 
 
-if(BusyDistanceAcq() == 0 && wall_detected_flag == 0 && ReadMillis0() >= 60) {
+if(BusyDistanceAcq() == 0 && wall_detected_flag == 0 && ReadMillis0() >= 30) {
 
 ResetMillis0();
 
-if(ReadEchoLength() < 2000) {
+if(ReadEchoLength() < 1670) {
 wall_detected_flag = 1;
 
 
 DisableMotors();
+
+ResetMillis0();
+while(ReadMillis0() < 300);
 
 PID_error = 0;
 PID_output = 0;
@@ -9456,31 +9460,41 @@ I_temp = 0;
 SetForwardsMotorR();
 SetReverseMotorL();
 
-SetDCMotorL(250);
-SetDCMotorR(340);
+SetDCMotorL(200);
+SetDCMotorR(310);
 
 EnableMotors();
 
 sensor_sum_discrete = 0;
 
 ResetMillis0();
-while(ReadMillis0() < 300);
-
-while(sensor_sum_discrete == 0) {
+while(ReadMillis0() < 900);
 
 GetSensorReadings();
 while(BusySensorAcq());
 NormaliseSensorReadings(sensor_readings_raw, sensor_offsets);
 CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
 
-sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
+while(sensor_statuses[2] != 1) {
+
+GetSensorReadings();
+while(BusySensorAcq());
+NormaliseSensorReadings(sensor_readings_raw, sensor_offsets);
+CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
+
+
 
 DisplaySensorStatuses(sensor_statuses);
 }
 
+DisableMotors();
 SetDCMotorL(526);
 SetDCMotorR(526);
 SetDirectionForward();
+EnableMotors();
+
+ResetMillis0();
+while(ReadMillis0() < 200);
 
 }
 else {
@@ -9491,7 +9505,7 @@ GetDistance();
 
 else if(sensor_sum_discrete == 0) {
 ResetMillis2();
-while(ReadMillis2() <= 100);
+while(ReadMillis2() <= 180) {
 
 GetSensorReadings();
 while(BusySensorAcq());
@@ -9499,6 +9513,8 @@ NormaliseSensorReadings(sensor_readings_raw, sensor_offsets);
 CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
 
 sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
+
+}
 
 if(sensor_sum_discrete == 0) {
 StopMotors();
@@ -9524,14 +9540,14 @@ else if(PB1pressed() == 1 | PB2pressed() == 1) {
 stop_flag = 1;
 }
 
-# 991
+# 1008
 else if(stop_flag == 1) {
 StopMotors();
 break;
 }
 
 
-while(ReadMillis1() < 25);
+while(ReadMillis1() <= 0);
 
 }
 
@@ -9540,9 +9556,9 @@ FlashLEDS();
 LATJ = 0x03;
 SendStatus(0x05);
 
-Kp_stored = ReadIntEEPROM(0x0006);
-Kd_stored = ReadIntEEPROM(0x0009);
-Ki_stored = ReadIntEEPROM(0x000C);
+Kp_stored = ReadIntEEPROM(0x0010);
+Kd_stored = ReadIntEEPROM(0x0012);
+Ki_stored = ReadIntEEPROM(0x0014);
 
 SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
 

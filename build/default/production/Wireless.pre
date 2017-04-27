@@ -7555,8 +7555,6 @@ while (BusyTx());
 StartTx();
 }
 
-
-
 void SendBattVoltageInitial(const unsigned int *reading) {
 while(BusyTx());
 FlushTxBuf();
