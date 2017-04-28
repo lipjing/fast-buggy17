@@ -30,14 +30,14 @@
 #define WHITE_ON_BLACK  1       //Line mode white on black
 #define DEBOUNCE_DELAY  10      //Debounce delay in milliseconds
 #define LED_FLASH_DELAY 200     //LED flash delay for waiting for user input
-#define ULTRASOUND_POLLING_DELAY 30 //Rate at which ultrasound sensor is polled in milliseconds
+#define ULTRASOUND_POLLING_DELAY 50 //Rate at which ultrasound sensor is polled in milliseconds
 #define END_OF_LINE_DELAY 180   //Delay in ms until a sensor reading of 0 is classed as the end of the line
-#define STOP_DELAY_1 300      //Delay in ms to allow buggy to stop before turning around
-#define STOP_DELAY_2 200      //Delay in ms to allow buggy to stop before carrying on after turn around
-#define TURN_AROUND_DELAY 900  //Delay before buggy tries to detect line again after starting turn around routine
+#define STOP_DELAY_1 200//1000      //Delay in ms to allow buggy to stop before turning around
+#define STOP_DELAY_2 200 //1000      //Delay in ms to allow buggy to stop before carrying on after turn around
+#define TURN_AROUND_DELAY 150//600  //Delay before buggy tries to detect line again after starting turn around routine
 #define CONTROL_LOOP_DELAY 0   //Delay between control loop iterations (dt in integral/differential terms)
 #define BATTERY_STATS_DELAY 800 //Rate at which battery stats are send in milliseconds
-#define ECHO_LENGTH_FOR_WALL 1670   //1232 //Raw timer register value for ultrasound echo length for distance to wall
+#define ECHO_LENGTH_FOR_WALL 600   //1232 //Raw timer register value for ultrasound echo length for distance to wall
 
 //PID defines - stored in program memory
 #define DEFAULT_PID_KP  20  //Proportional
@@ -132,7 +132,8 @@ void ConfigureTimer1(void) {
             & T1_SOURCE_INT //Increment on internal instruction clock
             & T1_PS_1_2 //Prescaler 1:2
             & T1_OSC1EN_OFF //Disable oscillator attached to OSC1 pins
-            & T1_SYNC_EXT_OFF); //External clock synchronisation off
+            & T1_SYNC_EXT_OFF
+            & T12_SOURCE_CCP); //External clock synchronisation off
 
     //T1CON = 0x9D;              //Achieves same as OpenTimer1 function, uncomment if OpenTimerX doesn't work on some versions of XC8
 
@@ -145,7 +146,7 @@ void ConfigureTimer1(void) {
 //Configure Timer2
 void ConfigureTimer2(void) {
 
-    OpenTimer2(TIMER_INT_OFF //Interrupts disabled
+    OpenTimer3(TIMER_INT_OFF //Interrupts disabled
             & T2_PS_1_1 //Prescaler 1:1
             & T2_POST_1_1 //Postscaler 1:1
             & T12_SOURCE_CCP);
@@ -875,73 +876,79 @@ void main(void) {
             DisplaySensorStatuses(sensor_statuses);
 
             //WALL DETECTION
-            if(BusyDistanceAcq() == 0 && wall_detected_flag == 0  && ReadMillis0() >= ULTRASOUND_POLLING_DELAY) {
-                
+            if((ReadMillis0() > ULTRASOUND_POLLING_DELAY) && (BusyDistanceAcq() == 0) && (wall_detected_flag == 0)) {
                 ResetMillis0();
-                
+
                 if(ReadEchoLength() < ECHO_LENGTH_FOR_WALL) {  //1232
                     wall_detected_flag = 1;
-                                    
+
                     //TURN AROUND ROUTINE
                     DisableMotors();
-                    
-                    ResetMillis0();
-                    while(ReadMillis0() < STOP_DELAY_1);
-                                        
+                    SetDCMotorL(DC_STOP);
+                    SetDCMotorR(DC_STOP);
+
+                    Delay10KTCYx(STOP_DELAY_1);
+
+//                    ResetMillis0();
+//                    while(ReadMillis0() <= STOP_DELAY_1);
+
                     PID_error = 0;
                     PID_output = 0;
                     D_temp = 0;
                     I_temp = 0;
-                    
+
                     SetForwardsMotorR();
                     SetReverseMotorL();                
-                    
+
                     SetDCMotorL(DC_MAX_SPEED_REV_L);
                     SetDCMotorR(DC_MAX_SPEED_REV_R);
-                    
+
                     EnableMotors();
-                    
+
                     sensor_sum_discrete = 0;
-                    
-                    ResetMillis0();
-                    while(ReadMillis0() < TURN_AROUND_DELAY);
-                    
+
+                    Delay10KTCYx(TURN_AROUND_DELAY);
+//                    ResetMillis0();
+//                    while(ReadMillis0() <= TURN_AROUND_DELAY);
+
                     GetSensorReadings();
                     while(BusySensorAcq());
                     NormaliseSensorReadings(sensor_readings_raw, sensor_offsets);
                     CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
-                   
+
                     while(sensor_statuses[2] != 1) {
-                        
+
                         GetSensorReadings();
                         while(BusySensorAcq());
                         NormaliseSensorReadings(sensor_readings_raw, sensor_offsets);
                         CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
-                        
+
                         //sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
-                        
+
                         DisplaySensorStatuses(sensor_statuses);
                     }
-                    
+
                     DisableMotors();
                     SetDCMotorL(DC_STOP);
                     SetDCMotorR(DC_STOP);
                     SetDirectionForward();
                     EnableMotors();
-                    
-                    ResetMillis0();
-                    while(ReadMillis0() < STOP_DELAY_2);
+
+                    Delay10KTCYx(STOP_DELAY_2);
+//                    ResetMillis0();
+//                    while(ReadMillis0() <= STOP_DELAY_2);
 
                 }
                 else {
                     GetDistance();
                 }   
             }
+
             
             //END OF LINE DETECTION
             else if(sensor_sum_discrete == 0) {
                 ResetMillis2();
-                while(ReadMillis2() <= END_OF_LINE_DELAY) {
+                while(ReadMillis2() < END_OF_LINE_DELAY) {
                 
                     GetSensorReadings();
                     while(BusySensorAcq());
@@ -953,8 +960,7 @@ void main(void) {
                 }
                 
                 if(sensor_sum_discrete == 0) {
-                    StopMotors();
-                    break;
+                    stop_flag == 1;                       
                 }
                                 
             }
@@ -962,17 +968,14 @@ void main(void) {
             //WIRELESS COMMAND HANDLING
             else if(CommandAvailable() == 1) {
                 command_msg = GetCommand();
-                if(command_msg == RX_MSG_FIND_LINE) {
-                    find_line_flag = 1;
-                }
-                else if(command_msg == RX_MSG_STOP_BUGGY) {
+                if(command_msg == RX_MSG_STOP_BUGGY) {
                     stop_flag = 1;
                 }
                 
             }
             
             //PB1/PB2 STOP FUNCTIONALITY
-            else if(PB1pressed() == 1 | PB2pressed() == 1) {
+            else if(PB1pressed() == 1 || PB2pressed() == 1) {
                 stop_flag = 1;
             }
             
@@ -1003,15 +1006,15 @@ void main(void) {
 //                SendBattCurrentAcc(battery_current_acc_ptr);
 //                send_battery_stats_flag = 0;
 //            }
-            
-            //BUGGY STOP COMMAND
-            else if(stop_flag == 1) {
-                StopMotors();
-                break;
-            }
+
             
             //ITERATE LOOP EVERY X MILLISECONDS
             while(ReadMillis1() <= CONTROL_LOOP_DELAY);
+            
+            if(stop_flag == 1) {
+                StopMotors();
+                break;
+            }
 
         }       
         

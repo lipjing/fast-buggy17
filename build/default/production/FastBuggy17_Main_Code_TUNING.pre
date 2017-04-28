@@ -8717,7 +8717,8 @@ OpenTimer1(0b01111111
 & 0b11111101
 & 0b11011111
 & 0b11110111
-& 0b11111111);
+& 0b11111111
+& 0b10110111);
 
 
 
@@ -8730,12 +8731,12 @@ WriteTimer1(0);
 
 void ConfigureTimer2(void) {
 
-OpenTimer2(0b01111111
+OpenTimer3(0b01111111
 & 0b11111100
 & 0b10000111
 & 0b10110111);
 
-# 161
+# 162
 }
 
 
@@ -8744,7 +8745,7 @@ void ConfigurePWM(void) {
 OpenPWM4(130);
 OpenPWM5(130);
 
-# 184
+# 185
 }
 
 
@@ -9439,18 +9440,21 @@ SetDCMotorPID(PID_output);
 DisplaySensorStatuses(sensor_statuses);
 
 
-if(BusyDistanceAcq() == 0 && wall_detected_flag == 0 && ReadMillis0() >= 30) {
-
+if((ReadMillis0() > 50) && (BusyDistanceAcq() == 0) && (wall_detected_flag == 0)) {
 ResetMillis0();
 
-if(ReadEchoLength() < 1670) {
+if(ReadEchoLength() < 600) {
 wall_detected_flag = 1;
 
 
 DisableMotors();
+SetDCMotorL(526);
+SetDCMotorR(526);
 
-ResetMillis0();
-while(ReadMillis0() < 300);
+Delay10KTCYx(200);
+
+
+
 
 PID_error = 0;
 PID_output = 0;
@@ -9460,15 +9464,16 @@ I_temp = 0;
 SetForwardsMotorR();
 SetReverseMotorL();
 
-SetDCMotorL(200);
-SetDCMotorR(310);
+SetDCMotorL(270);
+SetDCMotorR(380);
 
 EnableMotors();
 
 sensor_sum_discrete = 0;
 
-ResetMillis0();
-while(ReadMillis0() < 900);
+Delay10KTCYx(150);
+
+
 
 GetSensorReadings();
 while(BusySensorAcq());
@@ -9493,8 +9498,9 @@ SetDCMotorR(526);
 SetDirectionForward();
 EnableMotors();
 
-ResetMillis0();
-while(ReadMillis0() < 200);
+Delay10KTCYx(200);
+
+
 
 }
 else {
@@ -9503,9 +9509,10 @@ GetDistance();
 }
 
 
+
 else if(sensor_sum_discrete == 0) {
 ResetMillis2();
-while(ReadMillis2() <= 180) {
+while(ReadMillis2() < 180) {
 
 GetSensorReadings();
 while(BusySensorAcq());
@@ -9517,8 +9524,7 @@ sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
 }
 
 if(sensor_sum_discrete == 0) {
-StopMotors();
-break;
+stop_flag == 1;
 }
 
 }
@@ -9526,28 +9532,24 @@ break;
 
 else if(CommandAvailable() == 1) {
 command_msg = GetCommand();
-if(command_msg == 0x03) {
-find_line_flag = 1;
-}
-else if(command_msg == 0x04) {
+if(command_msg == 0x04) {
 stop_flag = 1;
 }
 
 }
 
 
-else if(PB1pressed() == 1 | PB2pressed() == 1) {
+else if(PB1pressed() == 1 || PB2pressed() == 1) {
 stop_flag = 1;
 }
 
-# 1008
-else if(stop_flag == 1) {
+# 1012
+while(ReadMillis1() <= 0);
+
+if(stop_flag == 1) {
 StopMotors();
 break;
 }
-
-
-while(ReadMillis1() <= 0);
 
 }
 
