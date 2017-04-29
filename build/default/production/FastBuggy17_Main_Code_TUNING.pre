@@ -9440,18 +9440,18 @@ SetDCMotorPID(PID_output);
 DisplaySensorStatuses(sensor_statuses);
 
 
-if((ReadMillis0() > 50) && (BusyDistanceAcq() == 0) && (wall_detected_flag == 0)) {
+if((ReadMillis0() > 3) && (BusyDistanceAcq() == 0) && (wall_detected_flag == 0)) {
 ResetMillis0();
 
-if(ReadEchoLength() < 600) {
+if((ReadEchoLength() < 1200)) {
 wall_detected_flag = 1;
 
 
-DisableMotors();
+
 SetDCMotorL(526);
 SetDCMotorR(526);
 
-Delay10KTCYx(200);
+Delay10KTCYx(150);
 
 
 
@@ -9467,7 +9467,7 @@ SetReverseMotorL();
 SetDCMotorL(270);
 SetDCMotorR(380);
 
-EnableMotors();
+
 
 sensor_sum_discrete = 0;
 
@@ -9498,7 +9498,7 @@ SetDCMotorR(526);
 SetDirectionForward();
 EnableMotors();
 
-Delay10KTCYx(200);
+Delay10KTCYx(150);
 
 
 
@@ -9512,7 +9512,7 @@ GetDistance();
 
 else if(sensor_sum_discrete == 0) {
 ResetMillis2();
-while(ReadMillis2() < 180) {
+while(ReadMillis2() < 125);
 
 GetSensorReadings();
 while(BusySensorAcq());
@@ -9521,10 +9521,10 @@ CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
 
 sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
 
-}
-
 if(sensor_sum_discrete == 0) {
-stop_flag == 1;
+stop_flag = 1;
+StopMotors();
+break;
 }
 
 }
@@ -9548,6 +9548,7 @@ while(ReadMillis1() <= 0);
 
 if(stop_flag == 1) {
 StopMotors();
+DisableMotors();
 break;
 }
 

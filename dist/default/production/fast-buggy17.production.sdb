@@ -218,11 +218,11 @@ TRUE 1
 [v _ConfigureUltrasound ConfigureUltrasound `(v  1 e 0 0 ]
 "17
 [v _UltrasoundISR UltrasoundISR `T(v  1 e 0 0 ]
-"50
-[v _GetDistance GetDistance `(v  1 e 0 0 ]
 "64
+[v _GetDistance GetDistance `(v  1 e 0 0 ]
+"78
 [v _BusyDistanceAcq BusyDistanceAcq `(uc  1 e 1 0 ]
-"71
+"85
 [v _ReadEchoLength ReadEchoLength `(ui  1 e 2 0 ]
 "9 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Wireless.c
 [v _PutCharTxBuf PutCharTxBuf `(v  1 e 0 0 ]
@@ -1079,7 +1079,7 @@ TRUE 1
 [v main@Ki_stored Ki_stored `i  1 a 2 38 ]
 [v main@Kd_stored Kd_stored `i  1 a 2 36 ]
 [v main@Kp_stored Kp_stored `i  1 a 2 34 ]
-[v main@sensor_sum sensor_sum `i  1 a 2 32 ]
+[v main@sensor_sum sensor_sum `i  1 a 2 31 ]
 [v main@I_temp I_temp `i  1 a 2 29 ]
 [v main@D_temp D_temp `i  1 a 2 27 ]
 "690
@@ -1101,13 +1101,13 @@ TRUE 1
 [v main@sensor_sum_ptr sensor_sum_ptr `*.39i  1 a 2 0 ]
 "689
 [v main@sensor_sum_discrete sensor_sum_discrete `uc  1 a 1 40 ]
-[v main@stop_flag stop_flag `uc  1 a 1 31 ]
+[v main@stop_flag stop_flag `uc  1 a 1 33 ]
 [v main@wall_detected_flag wall_detected_flag `uc  1 a 1 24 ]
 [v main@command_msg command_msg `uc  1 a 1 23 ]
 [v main@send_battery_stats_flag send_battery_stats_flag `uc  1 a 1 10 ]
 [v main@line_end_flag line_end_flag `uc  1 a 1 9 ]
 [v main@find_line_flag find_line_flag `uc  1 a 1 8 ]
-"1038
+"1039
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -1322,10 +1322,10 @@ TRUE 1
 {
 "11
 } 0
-"71 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
+"85 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _ReadEchoLength ReadEchoLength `(ui  1 e 2 0 ]
 {
-"75
+"89
 } 0
 "609 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _LoadPIDValues LoadPIDValues `(v  1 e 0 0 ]
@@ -1608,10 +1608,10 @@ TRUE 1
 {
 "301
 } 0
-"50 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
+"64 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _GetDistance GetDistance `(v  1 e 0 0 ]
 {
-"61
+"75
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\d1tcyx.c
 [v _Delay1TCYx Delay1TCYx `(v  1 e 0 0 ]
@@ -1796,10 +1796,10 @@ TRUE 1
 [v CalculateSensorSumDiscrete@sensor_statuses sensor_statuses `*.39Cuc  1 p 2 16 ]
 "367
 } 0
-"64 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
+"78 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _BusyDistanceAcq BusyDistanceAcq `(uc  1 e 1 0 ]
 {
-"68
+"82
 } 0
 "662 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\FastBuggy17_Main_Code_TUNING.c
 [v _isrLP isrLP `IIL(v  1 e 0 0 ]
@@ -1871,7 +1871,7 @@ TRUE 1
 "17 C:\Users\Jack\Documents\University Work\ESP Group 16\Buggy_Software\fast-buggy17\Ultrasound.c
 [v _UltrasoundISR UltrasoundISR `T(v  1 e 0 0 ]
 {
-"47
+"61
 } 0
 "14 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\Timers\t1write.c
 [v i2_WriteTimer1 WriteTimer1 `(v  1 e 0 0 ]

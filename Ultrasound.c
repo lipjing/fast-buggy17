@@ -29,6 +29,20 @@ inline void UltrasoundISR(void) {
 //    INTCONbits.RBIE = 1;        //Re-enable PORTB interrupts
 //    INTCONbits.RBIF = 0;        //Clear the interrupt flag
     
+//    INTCON3bits.INT3IE = 0;
+//    if(T1CONbits.TMR1ON == 0) {
+//        T1CONbits.TMR1ON = 1;
+//        WriteTimer1(0);
+//        INTCON2bits.INTEDG3 = 0;
+//    }
+//    else {
+//        T1CONbits.TMR1ON = 0;
+//        echo_time = ReadTimer1();
+//        echo_acq_done = 1;            
+//    }
+//    INTCON3bits.INT3IF = 0;
+//    INTCON3bits.INT3IE = 1;
+    
     INTCON3bits.INT3IE = 0;
     if(T1CONbits.TMR1ON == 0) {
         T1CONbits.TMR1ON = 1;
@@ -53,7 +67,7 @@ void GetDistance(void) {
     Delay1TCYx(25);
     LATEbits.LATE5 = 0;
     INTCON2bits.INTEDG3 = 1;
-    INTCON3bits.INT3IF = 0;
+//    INTCON3bits.INT3IF = 0;
     INTCON3bits.INT3IE = 1;    
     //INTCONbits.RBIE = 1; //Enable PORTB interrupts to detect the echo pulse
     echo_acq_done = 0; //Clear flag to show that measurement is not complete

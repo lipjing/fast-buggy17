@@ -5788,158 +5788,155 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Ultrasound.c: 17: inline void UltrasoundISR(void) {
 [e :U _UltrasoundISR ]
 [f ]
-[; ;Ultrasound.c: 32: INTCON3bits.INT3IE = 0;
-"32
+[; ;Ultrasound.c: 46: INTCON3bits.INT3IE = 0;
+"46
 [e = . . _INTCON3bits 0 5 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 33: if(T1CONbits.TMR1ON == 0) {
-"33
+[; ;Ultrasound.c: 47: if(T1CONbits.TMR1ON == 0) {
+"47
 [e $ ! == -> . . _T1CONbits 1 0 `i -> 0 `i 723  ]
 {
-[; ;Ultrasound.c: 34: T1CONbits.TMR1ON = 1;
-"34
+[; ;Ultrasound.c: 48: T1CONbits.TMR1ON = 1;
+"48
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 35: WriteTimer1(0);
-"35
+[; ;Ultrasound.c: 49: WriteTimer1(0);
+"49
 [e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-[; ;Ultrasound.c: 36: INTCON2bits.INTEDG3 = 0;
-"36
+[; ;Ultrasound.c: 50: INTCON2bits.INTEDG3 = 0;
+"50
 [e = . . _INTCON2bits 1 3 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 37: INTCON3bits.INT3IE = 1;
-"37
+[; ;Ultrasound.c: 51: INTCON3bits.INT3IE = 1;
+"51
 [e = . . _INTCON3bits 0 5 -> -> 1 `i `uc ]
-"38
+"52
 }
-[; ;Ultrasound.c: 38: }
+[; ;Ultrasound.c: 52: }
 [e $U 724  ]
-"39
+"53
 [e :U 723 ]
-[; ;Ultrasound.c: 39: else {
+[; ;Ultrasound.c: 53: else {
 {
-[; ;Ultrasound.c: 40: T1CONbits.TMR1ON = 0;
-"40
+[; ;Ultrasound.c: 54: T1CONbits.TMR1ON = 0;
+"54
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 41: echo_time = ReadTimer1();
-"41
+[; ;Ultrasound.c: 55: echo_time = ReadTimer1();
+"55
 [e = _echo_time ( _ReadTimer1 ..  ]
-[; ;Ultrasound.c: 42: echo_acq_done = 1;
-"42
+[; ;Ultrasound.c: 56: echo_acq_done = 1;
+"56
 [e = _echo_acq_done -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 43: INTCON3bits.INT3IE = 0;
-"43
+[; ;Ultrasound.c: 57: INTCON3bits.INT3IE = 0;
+"57
 [e = . . _INTCON3bits 0 5 -> -> 0 `i `uc ]
-"44
+"58
 }
 [e :U 724 ]
-[; ;Ultrasound.c: 44: }
-[; ;Ultrasound.c: 45: INTCON3bits.INT3IF = 0;
-"45
-[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 47: }
-"47
-[e :UE 722 ]
-}
-"50
-[v _GetDistance `(v ~T0 @X0 1 ef ]
-{
-[; ;Ultrasound.c: 50: void GetDistance(void) {
-[e :U _GetDistance ]
-[f ]
-[; ;Ultrasound.c: 52: LATEbits.LATE5 = 1;
-"52
-[e = . . _LATEbits 0 5 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 53: Delay1TCYx(25);
-"53
-[e ( _Delay1TCYx (1 -> -> 25 `i `uc ]
-[; ;Ultrasound.c: 54: LATEbits.LATE5 = 0;
-"54
-[e = . . _LATEbits 0 5 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 55: INTCON2bits.INTEDG3 = 1;
-"55
-[e = . . _INTCON2bits 1 3 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 56: INTCON3bits.INT3IF = 0;
-"56
-[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
-[; ;Ultrasound.c: 57: INTCON3bits.INT3IE = 1;
-"57
-[e = . . _INTCON3bits 0 5 -> -> 1 `i `uc ]
-[; ;Ultrasound.c: 59: echo_acq_done = 0;
+[; ;Ultrasound.c: 58: }
+[; ;Ultrasound.c: 59: INTCON3bits.INT3IF = 0;
 "59
-[e = _echo_acq_done -> -> 0 `i `uc ]
+[e = . . _INTCON3bits 0 2 -> -> 0 `i `uc ]
 [; ;Ultrasound.c: 61: }
 "61
-[e :UE 725 ]
+[e :UE 722 ]
 }
 "64
-[v _BusyDistanceAcq `(uc ~T0 @X0 1 ef ]
+[v _GetDistance `(v ~T0 @X0 1 ef ]
 {
-[; ;Ultrasound.c: 64: unsigned char BusyDistanceAcq(void) {
-[e :U _BusyDistanceAcq ]
+[; ;Ultrasound.c: 64: void GetDistance(void) {
+[e :U _GetDistance ]
 [f ]
-[; ;Ultrasound.c: 66: return (!echo_acq_done);
+[; ;Ultrasound.c: 66: LATEbits.LATE5 = 1;
 "66
-[e ) -> -> ! != -> _echo_acq_done `i -> -> -> 0 `i `uc `i `i `uc ]
-[e $UE 726  ]
-[; ;Ultrasound.c: 68: }
+[e = . . _LATEbits 0 5 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 67: Delay1TCYx(25);
+"67
+[e ( _Delay1TCYx (1 -> -> 25 `i `uc ]
+[; ;Ultrasound.c: 68: LATEbits.LATE5 = 0;
 "68
-[e :UE 726 ]
-}
+[e = . . _LATEbits 0 5 -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 69: INTCON2bits.INTEDG3 = 1;
+"69
+[e = . . _INTCON2bits 1 3 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 71: INTCON3bits.INT3IE = 1;
 "71
-[v _ReadEchoLength `(ui ~T0 @X0 1 ef ]
-{
-[; ;Ultrasound.c: 71: unsigned int ReadEchoLength(void) {
-[e :U _ReadEchoLength ]
-[f ]
-[; ;Ultrasound.c: 73: return (echo_time);
+[e = . . _INTCON3bits 0 5 -> -> 1 `i `uc ]
+[; ;Ultrasound.c: 73: echo_acq_done = 0;
 "73
-[e ) _echo_time ]
-[e $UE 727  ]
+[e = _echo_acq_done -> -> 0 `i `uc ]
 [; ;Ultrasound.c: 75: }
 "75
-[e :UE 727 ]
+[e :UE 725 ]
 }
-"77
-[v _ResetEchoLength `(v ~T0 @X0 1 ef ]
+"78
+[v _BusyDistanceAcq `(uc ~T0 @X0 1 ef ]
 {
-[; ;Ultrasound.c: 77: void ResetEchoLength(void) {
-[e :U _ResetEchoLength ]
+[; ;Ultrasound.c: 78: unsigned char BusyDistanceAcq(void) {
+[e :U _BusyDistanceAcq ]
 [f ]
-[; ;Ultrasound.c: 79: echo_time = 0;
-"79
-[e = _echo_time -> -> 0 `i `ui ]
-[; ;Ultrasound.c: 80: echo_acq_done = 0;
+[; ;Ultrasound.c: 80: return (!echo_acq_done);
 "80
-[e = _echo_acq_done -> -> 0 `i `uc ]
+[e ) -> -> ! != -> _echo_acq_done `i -> -> -> 0 `i `uc `i `i `uc ]
+[e $UE 726  ]
 [; ;Ultrasound.c: 82: }
 "82
-[e :UE 728 ]
+[e :UE 726 ]
 }
 "85
+[v _ReadEchoLength `(ui ~T0 @X0 1 ef ]
+{
+[; ;Ultrasound.c: 85: unsigned int ReadEchoLength(void) {
+[e :U _ReadEchoLength ]
+[f ]
+[; ;Ultrasound.c: 87: return (echo_time);
+"87
+[e ) _echo_time ]
+[e $UE 727  ]
+[; ;Ultrasound.c: 89: }
+"89
+[e :UE 727 ]
+}
+"91
+[v _ResetEchoLength `(v ~T0 @X0 1 ef ]
+{
+[; ;Ultrasound.c: 91: void ResetEchoLength(void) {
+[e :U _ResetEchoLength ]
+[f ]
+[; ;Ultrasound.c: 93: echo_time = 0;
+"93
+[e = _echo_time -> -> 0 `i `ui ]
+[; ;Ultrasound.c: 94: echo_acq_done = 0;
+"94
+[e = _echo_acq_done -> -> 0 `i `uc ]
+[; ;Ultrasound.c: 96: }
+"96
+[e :UE 728 ]
+}
+"99
 [v _ConvertDistanceCM `(f ~T0 @X0 1 ef1`ui ]
 {
-[; ;Ultrasound.c: 85: float ConvertDistanceCM(unsigned int echo_time) {
+[; ;Ultrasound.c: 99: float ConvertDistanceCM(unsigned int echo_time) {
 [e :U _ConvertDistanceCM ]
 [v _echo_time `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;Ultrasound.c: 87: return (echo_time * convert_cm);
-"87
+[; ;Ultrasound.c: 101: return (echo_time * convert_cm);
+"101
 [e ) * -> _echo_time `f _convert_cm ]
 [e $UE 729  ]
-[; ;Ultrasound.c: 89: }
-"89
+[; ;Ultrasound.c: 103: }
+"103
 [e :UE 729 ]
 }
-"92
+"106
 [v _ConvertDistanceIN `(f ~T0 @X0 1 ef1`ui ]
 {
-[; ;Ultrasound.c: 92: float ConvertDistanceIN(unsigned int echo_time) {
+[; ;Ultrasound.c: 106: float ConvertDistanceIN(unsigned int echo_time) {
 [e :U _ConvertDistanceIN ]
 [v _echo_time `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;Ultrasound.c: 94: return (echo_time * convert_in);
-"94
+[; ;Ultrasound.c: 108: return (echo_time * convert_in);
+"108
 [e ) * -> _echo_time `f _convert_in ]
 [e $UE 730  ]
-[; ;Ultrasound.c: 96: }
-"96
+[; ;Ultrasound.c: 110: }
+"110
 [e :UE 730 ]
 }

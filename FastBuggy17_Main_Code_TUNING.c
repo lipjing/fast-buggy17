@@ -30,14 +30,14 @@
 #define WHITE_ON_BLACK  1       //Line mode white on black
 #define DEBOUNCE_DELAY  10      //Debounce delay in milliseconds
 #define LED_FLASH_DELAY 200     //LED flash delay for waiting for user input
-#define ULTRASOUND_POLLING_DELAY 50 //Rate at which ultrasound sensor is polled in milliseconds
-#define END_OF_LINE_DELAY 180   //Delay in ms until a sensor reading of 0 is classed as the end of the line
-#define STOP_DELAY_1 200//1000      //Delay in ms to allow buggy to stop before turning around
-#define STOP_DELAY_2 200 //1000      //Delay in ms to allow buggy to stop before carrying on after turn around
+#define ULTRASOUND_POLLING_DELAY 3 //Rate at which ultrasound sensor is polled in milliseconds
+#define END_OF_LINE_DELAY 125   //Delay in ms until a sensor reading of 0 is classed as the end of the line
+#define STOP_DELAY_1 150//1000      //Delay in ms to allow buggy to stop before turning around
+#define STOP_DELAY_2 150 //1000      //Delay in ms to allow buggy to stop before carrying on after turn around
 #define TURN_AROUND_DELAY 150//600  //Delay before buggy tries to detect line again after starting turn around routine
 #define CONTROL_LOOP_DELAY 0   //Delay between control loop iterations (dt in integral/differential terms)
 #define BATTERY_STATS_DELAY 800 //Rate at which battery stats are send in milliseconds
-#define ECHO_LENGTH_FOR_WALL 600   //1232 //Raw timer register value for ultrasound echo length for distance to wall
+#define ECHO_LENGTH_FOR_WALL 1200   //1232 //Raw timer register value for ultrasound echo length for distance to wall
 
 //PID defines - stored in program memory
 #define DEFAULT_PID_KP  20  //Proportional
@@ -879,11 +879,11 @@ void main(void) {
             if((ReadMillis0() > ULTRASOUND_POLLING_DELAY) && (BusyDistanceAcq() == 0) && (wall_detected_flag == 0)) {
                 ResetMillis0();
 
-                if(ReadEchoLength() < ECHO_LENGTH_FOR_WALL) {  //1232
+                if((ReadEchoLength() < ECHO_LENGTH_FOR_WALL)) {  //1232
                     wall_detected_flag = 1;
-
+                    
                     //TURN AROUND ROUTINE
-                    DisableMotors();
+                    //DisableMotors();
                     SetDCMotorL(DC_STOP);
                     SetDCMotorR(DC_STOP);
 
@@ -903,7 +903,7 @@ void main(void) {
                     SetDCMotorL(DC_MAX_SPEED_REV_L);
                     SetDCMotorR(DC_MAX_SPEED_REV_R);
 
-                    EnableMotors();
+                    //EnableMotors();
 
                     sensor_sum_discrete = 0;
 
@@ -948,19 +948,19 @@ void main(void) {
             //END OF LINE DETECTION
             else if(sensor_sum_discrete == 0) {
                 ResetMillis2();
-                while(ReadMillis2() < END_OF_LINE_DELAY) {
+                while(ReadMillis2() < END_OF_LINE_DELAY);
                 
-                    GetSensorReadings();
-                    while(BusySensorAcq());
-                    NormaliseSensorReadings(sensor_readings_raw, sensor_offsets);
-                    CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
+                GetSensorReadings();
+                while(BusySensorAcq());
+                NormaliseSensorReadings(sensor_readings_raw, sensor_offsets);
+                CalculateSensorStatuses(sensor_readings_normalised, sensor_threshold_ptr);
 
-                    sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
-                
-                }
+                sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
                 
                 if(sensor_sum_discrete == 0) {
-                    stop_flag == 1;                       
+                    stop_flag = 1;
+                    StopMotors();
+                    break;                      
                 }
                                 
             }
@@ -1013,6 +1013,7 @@ void main(void) {
             
             if(stop_flag == 1) {
                 StopMotors();
+                DisableMotors();
                 break;
             }
 

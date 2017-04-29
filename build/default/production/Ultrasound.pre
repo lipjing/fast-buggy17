@@ -7295,7 +7295,7 @@ WriteTimer1(0);
 
 inline void UltrasoundISR(void) {
 
-# 32
+# 46
 INTCON3bits.INT3IE = 0;
 if(T1CONbits.TMR1ON == 0) {
 T1CONbits.TMR1ON = 1;
@@ -7320,7 +7320,7 @@ LATEbits.LATE5 = 1;
 Delay1TCYx(25);
 LATEbits.LATE5 = 0;
 INTCON2bits.INTEDG3 = 1;
-INTCON3bits.INT3IF = 0;
+
 INTCON3bits.INT3IE = 1;
 
 echo_acq_done = 0;

@@ -8968,32 +8968,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FastBuggy17_Main_Code_TUNING.c: 876: DisplaySensorStatuses(sensor_statuses);
 "876
 [e ( _DisplaySensorStatuses (1 -> &U _sensor_statuses `*Cuc ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 879: if((ReadMillis0() > 50) && (BusyDistanceAcq() == 0) && (wall_detected_flag == 0)) {
+[; ;FastBuggy17_Main_Code_TUNING.c: 879: if((ReadMillis0() > 3) && (BusyDistanceAcq() == 0) && (wall_detected_flag == 0)) {
 "879
-[e $ ! && && > ( _ReadMillis0 ..  -> -> 50 `i `ui == -> ( _BusyDistanceAcq ..  `i -> 0 `i == -> _wall_detected_flag `i -> 0 `i 950  ]
+[e $ ! && && > ( _ReadMillis0 ..  -> -> 3 `i `ui == -> ( _BusyDistanceAcq ..  `i -> 0 `i == -> _wall_detected_flag `i -> 0 `i 950  ]
 {
 [; ;FastBuggy17_Main_Code_TUNING.c: 880: ResetMillis0();
 "880
 [e ( _ResetMillis0 ..  ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 882: if(ReadEchoLength() < 600) {
+[; ;FastBuggy17_Main_Code_TUNING.c: 882: if((ReadEchoLength() < 1200)) {
 "882
-[e $ ! < ( _ReadEchoLength ..  -> -> 600 `i `ui 951  ]
+[e $ ! < ( _ReadEchoLength ..  -> -> 1200 `i `ui 951  ]
 {
 [; ;FastBuggy17_Main_Code_TUNING.c: 883: wall_detected_flag = 1;
 "883
 [e = _wall_detected_flag -> -> 1 `i `uc ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 886: DisableMotors();
-"886
-[e ( _DisableMotors ..  ]
 [; ;FastBuggy17_Main_Code_TUNING.c: 887: SetDCMotorL(526);
 "887
 [e ( _SetDCMotorL (1 -> -> 526 `i `ui ]
 [; ;FastBuggy17_Main_Code_TUNING.c: 888: SetDCMotorR(526);
 "888
 [e ( _SetDCMotorR (1 -> -> 526 `i `ui ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 890: Delay10KTCYx(200);
+[; ;FastBuggy17_Main_Code_TUNING.c: 890: Delay10KTCYx(150);
 "890
-[e ( _Delay10KTCYx (1 -> -> 200 `i `uc ]
+[e ( _Delay10KTCYx (1 -> -> 150 `i `uc ]
 [; ;FastBuggy17_Main_Code_TUNING.c: 895: PID_error = 0;
 "895
 [e = _PID_error -> 0 `i ]
@@ -9018,9 +9015,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FastBuggy17_Main_Code_TUNING.c: 904: SetDCMotorR(380);
 "904
 [e ( _SetDCMotorR (1 -> -> 380 `i `ui ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 906: EnableMotors();
-"906
-[e ( _EnableMotors ..  ]
 [; ;FastBuggy17_Main_Code_TUNING.c: 908: sensor_sum_discrete = 0;
 "908
 [e = _sensor_sum_discrete -> -> 0 `i `uc ]
@@ -9089,9 +9083,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FastBuggy17_Main_Code_TUNING.c: 935: EnableMotors();
 "935
 [e ( _EnableMotors ..  ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 937: Delay10KTCYx(200);
+[; ;FastBuggy17_Main_Code_TUNING.c: 937: Delay10KTCYx(150);
 "937
-[e ( _Delay10KTCYx (1 -> -> 200 `i `uc ]
+[e ( _Delay10KTCYx (1 -> -> 150 `i `uc ]
 "941
 }
 [; ;FastBuggy17_Main_Code_TUNING.c: 941: }
@@ -9119,11 +9113,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FastBuggy17_Main_Code_TUNING.c: 950: ResetMillis2();
 "950
 [e ( _ResetMillis2 ..  ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 951: while(ReadMillis2() < 180) {
+[; ;FastBuggy17_Main_Code_TUNING.c: 951: while(ReadMillis2() < 125);
 "951
 [e $U 964  ]
 [e :U 965 ]
-{
+[e :U 964 ]
+[e $ < ( _ReadMillis2 ..  -> -> 125 `i `ui 965  ]
+[e :U 966 ]
 [; ;FastBuggy17_Main_Code_TUNING.c: 953: GetSensorReadings();
 "953
 [e ( _GetSensorReadings ..  ]
@@ -9143,20 +9139,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FastBuggy17_Main_Code_TUNING.c: 958: sensor_sum_discrete = CalculateSensorSumDiscrete(sensor_statuses);
 "958
 [e = _sensor_sum_discrete ( _CalculateSensorSumDiscrete (1 -> &U _sensor_statuses `*Cuc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 960: if(sensor_sum_discrete == 0) {
 "960
-}
-[e :U 964 ]
-"951
-[e $ < ( _ReadMillis2 ..  -> -> 180 `i `ui 965  ]
-[e :U 966 ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 960: }
-[; ;FastBuggy17_Main_Code_TUNING.c: 962: if(sensor_sum_discrete == 0) {
-"962
 [e $ ! == -> _sensor_sum_discrete `i -> 0 `i 970  ]
 {
-[; ;FastBuggy17_Main_Code_TUNING.c: 963: stop_flag == 1;
+[; ;FastBuggy17_Main_Code_TUNING.c: 961: stop_flag = 1;
+"961
+[e = _stop_flag -> -> 1 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 962: StopMotors();
+"962
+[e ( _StopMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 963: break;
 "963
-[e == -> _stop_flag `i -> 1 `i ]
+[e $U 946  ]
 "964
 }
 [e :U 970 ]
@@ -9217,55 +9212,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FastBuggy17_Main_Code_TUNING.c: 1015: StopMotors();
 "1015
 [e ( _StopMotors ..  ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1016: break;
+[; ;FastBuggy17_Main_Code_TUNING.c: 1016: DisableMotors();
 "1016
-[e $U 946  ]
+[e ( _DisableMotors ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1017: break;
 "1017
+[e $U 946  ]
+"1018
 }
 [e :U 979 ]
-"1019
+"1020
 }
 [e :U 944 ]
 "855
 [e $U 945  ]
 [e :U 946 ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1017: }
-[; ;FastBuggy17_Main_Code_TUNING.c: 1019: }
-[; ;FastBuggy17_Main_Code_TUNING.c: 1022: FlashLEDS();
-"1022
-[e ( _FlashLEDS ..  ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1023: LATJ = 0x03;
+[; ;FastBuggy17_Main_Code_TUNING.c: 1018: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1020: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1023: FlashLEDS();
 "1023
-[e = _LATJ -> -> 3 `i `uc ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1024: SendStatus(0x05);
+[e ( _FlashLEDS ..  ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1024: LATJ = 0x03;
 "1024
+[e = _LATJ -> -> 3 `i `uc ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1025: SendStatus(0x05);
+"1025
 [e ( _SendStatus (1 -> -> 5 `i `uc ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1026: Kp_stored = ReadIntEEPROM(0x0010);
-"1026
-[e = _Kp_stored -> ( _ReadIntEEPROM (1 -> -> 16 `i `ui `i ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1027: Kd_stored = ReadIntEEPROM(0x0012);
+[; ;FastBuggy17_Main_Code_TUNING.c: 1027: Kp_stored = ReadIntEEPROM(0x0010);
 "1027
-[e = _Kd_stored -> ( _ReadIntEEPROM (1 -> -> 18 `i `ui `i ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1028: Ki_stored = ReadIntEEPROM(0x0014);
+[e = _Kp_stored -> ( _ReadIntEEPROM (1 -> -> 16 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1028: Kd_stored = ReadIntEEPROM(0x0012);
 "1028
+[e = _Kd_stored -> ( _ReadIntEEPROM (1 -> -> 18 `i `ui `i ]
+[; ;FastBuggy17_Main_Code_TUNING.c: 1029: Ki_stored = ReadIntEEPROM(0x0014);
+"1029
 [e = _Ki_stored -> ( _ReadIntEEPROM (1 -> -> 20 `i `ui `i ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1030: SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
-"1030
+[; ;FastBuggy17_Main_Code_TUNING.c: 1031: SendStoredPIDValues(Kp_stored, Kd_stored, Ki_stored);
+"1031
 [e ( _SendStoredPIDValues (3 , , _Kp_stored _Kd_stored _Ki_stored ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1032: SetPIDValues();
-"1032
+[; ;FastBuggy17_Main_Code_TUNING.c: 1033: SetPIDValues();
+"1033
 [e ( _SetPIDValues ..  ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1034: SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);
-"1034
+[; ;FastBuggy17_Main_Code_TUNING.c: 1035: SendCurrentPIDValues(PID_Kp, PID_Kd, PID_Ki);
+"1035
 [e ( _SendCurrentPIDValues (3 , , _PID_Kp _PID_Kd _PID_Ki ]
-"1036
+"1037
 }
 [e :U 936 ]
 "806
 [e $U 937  ]
 [e :U 938 ]
-[; ;FastBuggy17_Main_Code_TUNING.c: 1036: }
-[; ;FastBuggy17_Main_Code_TUNING.c: 1038: }
-"1038
+[; ;FastBuggy17_Main_Code_TUNING.c: 1037: }
+[; ;FastBuggy17_Main_Code_TUNING.c: 1039: }
+"1039
 [e :UE 917 ]
 }
