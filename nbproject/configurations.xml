@@ -45,8 +45,8 @@
         <itemPath>TechDemo2_Test_Routine.c</itemPath>
         <itemPath>TechDemo3_Test_Routine_INT3_ULTRA.c</itemPath>
       </logicalFolder>
-      <itemPath>FastBuggy17_Main_Code_WORKING.c</itemPath>
-      <itemPath>FastBuggy17_Main_Code_TUNING.c</itemPath>
+      <itemPath>FastBuggy17_Main_Code_RACE-VERSION.c</itemPath>
+      <itemPath>FastBuggy17_Main_Code_TUNING-VERSION.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -92,14 +92,6 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
-      <item path="FastBuggy17_Main_Code_WORKING.c" ex="true" overriding="false">
-        <HI-TECH-COMP>
-        </HI-TECH-COMP>
-        <HI-TECH-LINK>
-        </HI-TECH-LINK>
-        <XC8-config-global>
-        </XC8-config-global>
-      </item>
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>

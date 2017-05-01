@@ -834,10 +834,10 @@ void main(void) {
         
         LATJ = 0x00;
 
-        FlashLEDS();
+        //FlashLEDS();
         SendStatus(STATUS_10);
         
-        ResetAccumulatedCurrent();
+        //ResetAccumulatedCurrent();
         
         ResetMillis0();
         ResetMillis1();
